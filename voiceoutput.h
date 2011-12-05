@@ -3,18 +3,29 @@
 
 #include <QIODevice>
 #include <QThread>
+#include <QAudioOutput>
+#include <QBuffer>
+#include <QDebug>
+#include "soundreciever.h"
 
-
-class VoiceOutput : public QIODevice
+class VoiceOutput : public QObject
 {
     Q_OBJECT
 public:
-    explicit VoiceOutput(QObject *parent = 0);
+    VoiceOutput();
 
+private:
+    QAudioOutput *audOut;
+    QBuffer *buffer;
+    QAudioFormat format;
+    QAudioDeviceInfo *devInfo;
+    SoundReciever* soundRec;
 signals:
 
 public slots:
-
+    void playSound();
+    void finishedPlaying(QAudio::State);
+    void dataInBuffer();
 };
 
 #endif // VOICEOUTPUT_H

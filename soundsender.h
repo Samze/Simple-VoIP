@@ -4,15 +4,16 @@
 #include <QThread>
 #include <QBuffer>
 #include <QUdpSocket>
+#include <QAudioFormat>
 
-class SoundSender : public QThread
+class SoundSender : public QBuffer
 {
     Q_OBJECT
 public:
     explicit SoundSender(QObject *parent = 0);
 
 protected:
-    void run();
+    qint64 writeData (const char * data, qint64 len);
 
 private:
     QUdpSocket *udpSocket;

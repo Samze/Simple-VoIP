@@ -1,8 +1,9 @@
 #include "captureaudio.h"
+#include "soundsender.h"
 
 CaptureAudio::CaptureAudio()
 {
-    format.setFrequency(8000);
+    format.setFrequency(4000);
     format.setChannels(1);
     format.setSampleSize(8);
     format.setCodec("audio/pcm"); //according to the docs this is the codec supported by all platforms.
@@ -18,58 +19,58 @@ CaptureAudio::CaptureAudio()
         qWarning()<<"default format not supported try to use nearest";
         format = devInfo->nearestFormat(format);
     }
-
-    buffer = new QBuffer(this);
-
 }
 
 CaptureAudio::~CaptureAudio() {
-    delete audioDev;
     delete devInfo;
-    delete buffer;
 }
 
 void CaptureAudio::recordSound() {
-    buffer->open(QIODevice::WriteOnly);
+
+    buffer = new QBuffer(this);
+    buffer->open(QIODevice::ReadWrite);
     //setup audio
     audioDev = new QAudioInput(format, this);
-    audioDev->start(buffer);
+
+    //connect(audioDev,SIGNAL(stateChanged(QAudio::State)),this,SLOT(audioActive(QAudio::State)));
+
+    SoundSender *s = new SoundSender();
+    s->open(QIODevice::ReadWrite);
+
+    audioDev->start(s);
+
 }
 
+//void CaptureAudio::audioActive(QAudio::State state) {
+
+//    audioDev->bytesReady();
+//    if (state == QAudio::ActiveState) {
+//        qDebug("we got data!");
+//        buffer->readAll();
+//       if( buffer->bytesAvailable()) {
+//           qDebug("we got data, sadly!");
+
+//            }
+//    }
+//}
 
 void CaptureAudio::stopRecording() {
     audioDev->stop();
-    delete audioDev;
     buffer->close();
 
-    buffer->open(QIODevice::ReadOnly);
-    qDebug("Bytes available = %ld",buffer->bytesAvailable());
+//    qDebug("Bytes available = %ld",buffer->bytesAvailable());
 
 
-    QByteArray array = buffer->data();
+//    QByteArray array = buffer->data();
 
-    for (int i=0; i < array.size(); ++i) {
-       int chars = static_cast<int>(array.at(i));
-        qDebug("%d",chars);
-    }
+//    for (int i=0; i < array.size(); ++i) {
+//       int chars = static_cast<int>(array.at(i));
+//        qDebug("%d",chars);
+//    }
 
     //send data, play sound
-    emit hasVoiceData(buffer);
+    //emit hasVoiceData(buffer);
+    //delete audioDev;
 }
 
-void CaptureAudio::playSound(QBuffer *buf ) {
-    audOut = new QAudioOutput(format,this);
 
-    connect(audOut,SIGNAL(stateChanged(QAudio::State)),this, SLOT(finishedPlaying(QAudio::State)));
-    audOut->start(buf);
-
-}
-
-void CaptureAudio::finishedPlaying(QAudio::State state) {
-
-    if (state == QAudio::IdleState) {
-        audOut->stop();
-        buffer->close();
-        delete audOut;
-    }
-}

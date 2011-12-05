@@ -1,25 +1,24 @@
 #ifndef SOUNDRECIEVER_H
 #define SOUNDRECIEVER_H
 
-#include <QThread>
 #include <QUdpSocket>
+#include <QBuffer>
 
-class SoundReciever : public QThread
+class SoundReciever : public QBuffer
 {
     Q_OBJECT
 public:
-    explicit SoundReciever(QObject *parent = 0);
+    SoundReciever();
+    QUdpSocket *udpSocket;
+signals:
+    void dataReceived(QBuffer*);
 
 protected:
-    void run();
-
-signals:
+    qint64 readData ( char * data, qint64 len );
 
 public slots:
     void processDatagrams();
 
-private:
-    QUdpSocket *udpSocket;
 };
 
 #endif // SOUNDRECIEVER_H

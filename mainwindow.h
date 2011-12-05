@@ -4,6 +4,8 @@
 #include <QMainWindow>
 #include "captureaudio.h"
 #include "soundsender.h"
+#include "soundreciever.h"
+#include "voiceoutput.h"
 
 namespace Ui {
     class MainWindow;
@@ -24,6 +26,8 @@ private:
     Ui::MainWindow *ui;
     CaptureAudio *audio;
     SoundSender *sender;
+    SoundReciever *receiver;
+    VoiceOutput *output;
 };
 
 #endif // MAINWINDOW_H

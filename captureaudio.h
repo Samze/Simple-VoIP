@@ -22,8 +22,9 @@ public:
 private slots:
    void recordSound();
    void stopRecording();
-   void playSound(QBuffer*);
-   void finishedPlaying(QAudio::State);
+//   void audioActive(QAudio::State);
+ //  void playSound(QBuffer*);
+   //void finishedPlaying(QAudio::State);
 
 signals:
     void hasVoiceData(QBuffer*);
@@ -33,7 +34,6 @@ private:
     QAudioDeviceInfo *devInfo;
     QAudioInput *audioDev;
     QBuffer *buffer;
-    QAudioOutput *audOut;
 
 };
 
