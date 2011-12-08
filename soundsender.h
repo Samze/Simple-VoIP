@@ -18,9 +18,6 @@ protected:
 
 private:
     QUdpSocket *udpSocket;
-
-public slots:
-    void sendData(QBuffer*);
 };
 
 #endif // SOUNDSENDER_H

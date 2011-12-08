@@ -1,62 +1,63 @@
 #include "captureaudio.h"
-#include <Qfile>
 
 CaptureAudio::CaptureAudio()
 {
+    m_soundSender = new SoundSender();
 
-    s = new SoundSender();
-    format.setFrequency(44100);
-    format.setChannels(2);
-    format.setSampleSize(16);
-    format.setCodec("audio/pcm"); //according to the docs this is the codec supported by all platforms.
-    format.setByteOrder(QAudioFormat::LittleEndian);
-    format.setSampleType(QAudioFormat::UnSignedInt);
+    //configure our format.
+    m_format.setFrequency(44100);
+    m_format.setChannels(2);
+    m_format.setSampleSize(16);
+    m_format.setCodec("audio/pcm"); //according to the docs this is the codec supported by all platforms.
+    m_format.setByteOrder(QAudioFormat::LittleEndian);
+    m_format.setSampleType(QAudioFormat::UnSignedInt);
 
     //By default we'll get the platforms default device
-    devInfo = new QAudioDeviceInfo(QAudioDeviceInfo::defaultInputDevice());
+    m_devInfo = new QAudioDeviceInfo(QAudioDeviceInfo::defaultInputDevice());
 
     //Check support for format
-    if (!devInfo->isFormatSupported(format)) {
+    if (!m_devInfo->isFormatSupported(m_format)) {
         //TODO add error message here
         qWarning()<<"default format not supported try to use nearest";
-        format = devInfo->nearestFormat(format);
+        m_format = m_devInfo->nearestFormat(m_format);
     }
 }
 
 CaptureAudio::~CaptureAudio() {
-    delete devInfo;
+    delete m_devInfo;
+    delete m_soundSender;
+    //m_audioDevice gets created/deleted on play/stop
 }
 
 void CaptureAudio::recordSound() {
 
     //setup audio
-    audioDev = new QAudioInput(format, this);
+    m_audioIn = new QAudioInput(m_format, this);
 
-   // audioDev->setBufferSize(4096);
-   // connect(audioDev,SIGNAL(stateChanged(QAudio::State)),this,SLOT(audioActive(QAudio::State)));
+    connect(m_audioIn,SIGNAL(stateChanged(QAudio::State)),this,SLOT(audioStateSlot(QAudio::State)));
 
-    s->open(QIODevice::WriteOnly);
+    m_soundSender->open(QIODevice::WriteOnly);
 
-    audioDev->start(s);
+    m_audioIn->start(m_soundSender);
 }
 
-//void CaptureAudio::audioActive(QAudio::State state) {
+void CaptureAudio::audioStateSlot(QAudio::State state) {
 
-//    audioDev->bytesReady();
-//    if (state == QAudio::ActiveState) {
-//        qDebug("we got data!");
-//        buffer->readAll();
-//       if( buffer->bytesAvailable()) {
-//           qDebug("we got data, sadly!");
-
-//            }
-//    }
-//}
+    if (state == QAudio::ActiveState) {
+        qDebug("Input device actived");
+    }
+    else if (state == QAudio::StoppedState) {
+        if (m_audioIn->error() != QAudio::NoError) {
+           // Error handling
+           qDebug("Problems with input device");
+        }
+    }
+}
 
 void CaptureAudio::stopRecording() {
-    audioDev->stop();
-    delete audioDev;
 
+    m_audioIn->stop();
+    delete m_audioIn;
 }
 
 

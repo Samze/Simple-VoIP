@@ -16,9 +16,6 @@ protected:
 public slots:
     void listen();
 
-private:
-    //VoiceOutput* output;
-
 };
 
 #endif // RECEIVETHREAD_H

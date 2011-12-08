@@ -1,6 +1,8 @@
 #include "soundreciever.h"
 
 SoundReciever::SoundReciever(){
+
+        //create our udp socket and use the signal/slot mechanism to "Listen".
         udpSocket = new QUdpSocket(this);
         udpSocket->bind(45454, QUdpSocket::ShareAddress);
 
@@ -8,25 +10,24 @@ SoundReciever::SoundReciever(){
 }
 
 qint64 SoundReciever::readData ( char * data, qint64 len ) {
-    bool sought = seek(0);
 
-   qDebug("Reading from buf request: %d",len);
-   // qDebug("Buffer size on readData %d", buffer().size());
+    //reset the position of the buffer to the start
+    if(!seek(0)) {
+        qDebug("Error resetting position of buffer: aborting");
+        exit(1);
+    }
 
-    //add artifical delay
+    qDebug("Reading from buf request: %d",len);
+
+    //Call to super to read the data
     qint64 result = QBuffer::readData(data,len);
 
-    /*QByteArray* byteA = new QByteArray(buffer().remove(0,buffer().size()));
-    data = byteA->data();
-    qint64 result = byteA->size()*/;
-
+    //Our data has been read into the data variable, we can now remove it.
     buffer().remove(0,buffer().size());
 
     if (result != 0) {
-
         qDebug("Successfully read %d", result);
     }
-   // qDebug("Buffer size AFTER read %d", buffer().size());
 
     return result;
 
@@ -43,15 +44,16 @@ void SoundReciever::processDatagrams() {
 
          //open(QIODevice::ReadWrite);
          qint16 num = writeData(datagram->constData(),datagram->size());
-         qDebug("Data received, we wrote %d bytes to the buffer",num);
+
+         if (num == -1) {
+             qDebug("Error! could not write data to receiver buffer");
+         }
+         else {
+             qDebug("Data received, we wrote %d bytes to the buffer",num);
+         }
 
          //checksum our data for debugging
-         quint16 val = qChecksum(datagram->constData(),datagram->size());
-         //qDebug("chk on receive : %d",val);
+         //quint16 val = qChecksum(datagram->constData(),datagram->size());
 
-         //qDebug("RecBufferzz : %d,",buffer().size());
-
-
-         //close();
     }
 }

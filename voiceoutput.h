@@ -13,14 +13,13 @@ class VoiceOutput : public QObject
     Q_OBJECT
 public:
     VoiceOutput();
-    QBuffer *buffer; //temp
+    ~VoiceOutput();
 
 private:
-    QAudioOutput *audOut;
-    QAudioFormat format;
-    QAudioDeviceInfo *devInfo;
-    SoundReciever* soundRec;
-signals:
+    QAudioOutput *m_audioOut;
+    QAudioFormat m_format;
+    QAudioDeviceInfo *m_devInfo;
+    SoundReciever* m_soundReceiver;
 
 public slots:
     void playSound();
