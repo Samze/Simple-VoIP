@@ -8,6 +8,23 @@ SoundSender::SoundSender(QObject *parent) :
 
 qint64 SoundSender::writeData(const char *data, qint64 len){
 
+//    if (!outPutBuffer.isOpen()){
+//        outPutBuffer.open(QIODevice::WriteOnly);
+//    }
+//    outPutBuffer.write(data,len);
+//    qDebug("Our afterBuffer has: %d data in it",outPutBuffer.size());
+
+    qDebug("%d",(int)*data);
+    qDebug("%d",0x0FFFFFFF);
+
+    QByteArray ba;
+    ba.resize(len);
+
+    for (int i = 0;i < len; i = i +2) {
+        ba[i] = 127;
+        ba[i+1] = -127;
+    }
+
     if (len > 0) {    //send that data!
         qDebug("Sending data : %d",len);
         udpSocket->writeDatagram(data,
@@ -15,6 +32,7 @@ qint64 SoundSender::writeData(const char *data, qint64 len){
                                  QHostAddress::Broadcast,
                                  45454);
     }
+
     return len;
 }
 

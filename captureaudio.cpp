@@ -1,11 +1,13 @@
 #include "captureaudio.h"
-#include "soundsender.h"
+#include <Qfile>
 
 CaptureAudio::CaptureAudio()
 {
-    format.setFrequency(4000);
-    format.setChannels(1);
-    format.setSampleSize(8);
+
+    s = new SoundSender();
+    format.setFrequency(44100);
+    format.setChannels(2);
+    format.setSampleSize(16);
     format.setCodec("audio/pcm"); //according to the docs this is the codec supported by all platforms.
     format.setByteOrder(QAudioFormat::LittleEndian);
     format.setSampleType(QAudioFormat::UnSignedInt);
@@ -27,18 +29,15 @@ CaptureAudio::~CaptureAudio() {
 
 void CaptureAudio::recordSound() {
 
-    buffer = new QBuffer(this);
-    buffer->open(QIODevice::ReadWrite);
     //setup audio
     audioDev = new QAudioInput(format, this);
 
-    //connect(audioDev,SIGNAL(stateChanged(QAudio::State)),this,SLOT(audioActive(QAudio::State)));
+   // audioDev->setBufferSize(4096);
+   // connect(audioDev,SIGNAL(stateChanged(QAudio::State)),this,SLOT(audioActive(QAudio::State)));
 
-    SoundSender *s = new SoundSender();
-    s->open(QIODevice::ReadWrite);
+    s->open(QIODevice::WriteOnly);
 
     audioDev->start(s);
-
 }
 
 //void CaptureAudio::audioActive(QAudio::State state) {
@@ -56,21 +55,8 @@ void CaptureAudio::recordSound() {
 
 void CaptureAudio::stopRecording() {
     audioDev->stop();
-    buffer->close();
+    delete audioDev;
 
-//    qDebug("Bytes available = %ld",buffer->bytesAvailable());
-
-
-//    QByteArray array = buffer->data();
-
-//    for (int i=0; i < array.size(); ++i) {
-//       int chars = static_cast<int>(array.at(i));
-//        qDebug("%d",chars);
-//    }
-
-    //send data, play sound
-    //emit hasVoiceData(buffer);
-    //delete audioDev;
 }
 
 

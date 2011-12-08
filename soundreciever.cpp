@@ -10,7 +10,7 @@ SoundReciever::SoundReciever(){
 qint64 SoundReciever::readData ( char * data, qint64 len ) {
     bool sought = seek(0);
 
-    //qDebug("Reading from buf request: %d",len);
+   qDebug("Reading from buf request: %d",len);
    // qDebug("Buffer size on readData %d", buffer().size());
 
     //add artifical delay

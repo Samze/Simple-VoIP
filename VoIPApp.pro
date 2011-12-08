@@ -15,15 +15,19 @@ SOURCES += main.cpp\
     captureaudio.cpp \
     soundreciever.cpp \
     soundsender.cpp \
-    voiceoutput.cpp
+    voiceoutput.cpp \
+    receivethread.cpp
 
 HEADERS  += mainwindow.h \
     captureaudio.h \
     soundreciever.h \
     soundsender.h \
-    voiceoutput.h
+    voiceoutput.h \
+    receivethread.h
 
 FORMS    += mainwindow.ui
+
+
 
 
 

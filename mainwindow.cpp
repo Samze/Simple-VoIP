@@ -12,27 +12,21 @@ MainWindow::MainWindow(QWidget *parent) :
    // sender = new SoundSender();
     output = new VoiceOutput();
 
+    recThread = new ReceiveThread();
+
+
     connect(ui->btnCapture,SIGNAL(clicked()),audio,SLOT(recordSound()));
-    connect(ui->btnCapture,SIGNAL(clicked()),output,SLOT(playSound()));
+    //connect(ui->btnCapture,SIGNAL(clicked()),output,SLOT(playSound()));
+    connect(ui->btnCapture,SIGNAL(clicked()),recThread,SLOT(listen()));
     connect(ui->btnStopCapture,SIGNAL(clicked()),audio,SLOT(stopRecording()));
 
-  //  connect(audio, SIGNAL(hasVoiceData(QBuffer*)),sender,SLOT(sendData(QBuffer*)));
-
-   //connect(audio, SIGNAL(hasVoiceData(QBuffer*)),output,SLOT(playSound(QBuffer*)));
-
-   // connect (receiver, SIGNAL(dataReceived(QBuffer*)),output,SLOT(playSound(QBuffer*)));
-
-    //start our threads
-    //sender->start(); don't need this
-    //receiver->start();
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
     delete audio;
-    delete sender;
-    delete output;
+    //delete output;
 }
 
 void MainWindow::test() {

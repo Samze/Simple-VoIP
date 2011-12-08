@@ -7,6 +7,7 @@
 #include <QBuffer>
 #include <QDebug>
 #include <QAudioOutput>
+#include "soundsender.h"
 
 class CaptureAudio : public QObject
 {
@@ -33,7 +34,7 @@ private:
     QAudioFormat format;
     QAudioDeviceInfo *devInfo;
     QAudioInput *audioDev;
-    QBuffer *buffer;
+    SoundSender *s;
 
 };
 

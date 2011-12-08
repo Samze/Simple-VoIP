@@ -6,6 +6,7 @@
 #include "soundsender.h"
 #include "soundreciever.h"
 #include "voiceoutput.h"
+#include "receivethread.h"
 
 namespace Ui {
     class MainWindow;
@@ -26,6 +27,7 @@ private:
     Ui::MainWindow *ui;
     CaptureAudio *audio;
     SoundSender *sender;
+    ReceiveThread *recThread;
     SoundReciever *receiver;
     VoiceOutput *output;
 };

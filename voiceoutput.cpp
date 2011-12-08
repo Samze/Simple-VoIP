@@ -8,9 +8,9 @@ void VoiceOutput::playSound() {
 
     qDebug("Received signal, playing");
 
-    format.setFrequency(8000);
-    format.setChannels(1);
-    format.setSampleSize(8);
+    format.setFrequency(44100);
+    format.setChannels(2);
+    format.setSampleSize(16);
 
 
     format.setCodec("audio/pcm"); //according to the docs this is the codec supported by all platforms.
@@ -37,6 +37,8 @@ void VoiceOutput::playSound() {
     //qDebug("chk before play : %d",val);
 
     soundRec = new SoundReciever();
+
+    //audOut->setBufferSize(4096);
     connect(soundRec,SIGNAL(readyRead()),this, SLOT(dataInBuffer()));
 
 }
@@ -55,17 +57,16 @@ void VoiceOutput::finishedPlaying(QAudio::State state) {
     else if (state == QAudio::StoppedState) {
         if (audOut->error() != QAudio::NoError) {
             // Error handling
-           qint8 error = audOut->error();
+          // qint8 error = audOut->error();
            qDebug("Problems opening dev");
         } else {
-
         }
     }
 }
 
 void VoiceOutput::dataInBuffer() {
-    //qDebug("Written bytes signal emitte");// %d", noBytes);
-    if (!soundRec->isOpen()) {
+    qDebug("Written bytes signal emitte");// %d", noBytes);
+    if (!soundRec->isOpen() && soundRec->data().size() > 320) {
         qDebug("Opening buffer");
         soundRec->open(QIODevice::ReadOnly);
         audOut->start(soundRec);
