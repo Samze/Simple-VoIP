@@ -48,7 +48,7 @@ void CaptureAudio::audioStateSlot(QAudio::State state) {
     }
     else if (state == QAudio::StoppedState) {
         if (m_audioIn->error() != QAudio::NoError) {
-           // Error handling
+           // Error handling.
            qDebug("Problems with input device");
         }
     }
