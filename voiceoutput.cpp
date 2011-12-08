@@ -37,6 +37,7 @@ void VoiceOutput::playSound() {
     m_audioOut = new QAudioOutput(m_format,this);
     connect(m_audioOut,SIGNAL(stateChanged(QAudio::State)),this, SLOT(finishedPlaying(QAudio::State)));
 
+    m_audioOut->setBufferSize(320);
 
 }
 
@@ -47,6 +48,9 @@ void VoiceOutput::finishedPlaying(QAudio::State state) {
     }
     else if (state == QAudio::IdleState) {
         qDebug("erm, we went idle...nooo");
+        m_audioOut->start(m_soundReceiver);
+
+        //TODO add something to timeout a user..
     }
     else if (state == QAudio::StoppedState) {
         if (m_audioOut->error() != QAudio::NoError) {

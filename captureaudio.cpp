@@ -5,9 +5,11 @@ CaptureAudio::CaptureAudio()
     m_soundSender = new SoundSender();
 
     //configure our format.
+
     m_format.setFrequency(8000);
     m_format.setChannels(1);
     m_format.setSampleSize(8);
+
     m_format.setCodec("audio/pcm"); //according to the docs this is the codec supported by all platforms.
     m_format.setByteOrder(QAudioFormat::LittleEndian);
     m_format.setSampleType(QAudioFormat::UnSignedInt);
@@ -45,6 +47,9 @@ void CaptureAudio::audioStateSlot(QAudio::State state) {
 
     if (state == QAudio::ActiveState) {
         qDebug("Input device actived");
+    }
+    else if (state == QAudio::IdleState) {
+        qDebug("Input went idle, ££££");
     }
     else if (state == QAudio::StoppedState) {
         if (m_audioIn->error() != QAudio::NoError) {

@@ -3,6 +3,7 @@
 
 #include <QUdpSocket>
 #include <QBuffer>
+#include "ogg/ogg.h"
 
 class SoundReciever : public QBuffer
 {
@@ -17,6 +18,7 @@ public slots:
 
 private:
     QUdpSocket *udpSocket;
+
 
 
 };
