@@ -5,9 +5,9 @@ CaptureAudio::CaptureAudio()
     m_soundSender = new SoundSender();
 
     //configure our format.
-    m_format.setFrequency(44100);
-    m_format.setChannels(2);
-    m_format.setSampleSize(16);
+    m_format.setFrequency(8000);
+    m_format.setChannels(1);
+    m_format.setSampleSize(8);
     m_format.setCodec("audio/pcm"); //according to the docs this is the codec supported by all platforms.
     m_format.setByteOrder(QAudioFormat::LittleEndian);
     m_format.setSampleType(QAudioFormat::UnSignedInt);

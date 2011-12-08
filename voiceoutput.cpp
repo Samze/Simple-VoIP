@@ -6,9 +6,9 @@ VoiceOutput::VoiceOutput() {
     m_soundReceiver = new SoundReciever();
     connect(m_soundReceiver,SIGNAL(readyRead()),this, SLOT(dataInBuffer()));
 
-    m_format.setFrequency(44100);
-    m_format.setChannels(2);
-    m_format.setSampleSize(16);
+    m_format.setFrequency(8000);
+    m_format.setChannels(1);
+    m_format.setSampleSize(8);
 
     m_format.setCodec("audio/pcm"); //according to the docs this is the codec supported by all platforms.
     m_format.setByteOrder(QAudioFormat::LittleEndian);
@@ -43,26 +43,24 @@ void VoiceOutput::playSound() {
 void VoiceOutput::finishedPlaying(QAudio::State state) {
 
     if (state == QAudio::ActiveState) {
-        qDebug("Active state");
+        qDebug("Output device actived");
     }
-    else if (state == QAudio::IdleState) { //Not sure this is a good idea.
-        m_audioOut->stop();
-        m_soundReceiver->close();
-        delete m_soundReceiver;
-        delete m_audioOut;
+    else if (state == QAudio::IdleState) {
+        qDebug("erm, we went idle...nooo");
     }
     else if (state == QAudio::StoppedState) {
         if (m_audioOut->error() != QAudio::NoError) {
            qDebug("Error - problems opening dev : exiting");
            exit(1);
+        } else {
+        qDebug("We stopped ...for some reason");
         }
     }
 }
 
 void VoiceOutput::dataInBuffer() {
-    qDebug("Written bytes signal emitte");// %d", noBytes);
-    if (!m_soundReceiver->isOpen()){// && m_soundReceiver->data().size() > 320) {
-        qDebug("Opening buffer");
+    if (!m_soundReceiver->isOpen()){
+        qDebug("Opening audio out buffer");
         m_soundReceiver->open(QIODevice::ReadOnly);
         m_audioOut->start(m_soundReceiver);
     }

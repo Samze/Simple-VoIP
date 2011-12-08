@@ -22,11 +22,12 @@ qint64 SoundReciever::readData ( char * data, qint64 len ) {
     //Call to super to read the data
     qint64 result = QBuffer::readData(data,len);
 
+    qDebug("buffer size : %d",buffer().size());
     //Our data has been read into the data variable, we can now remove it.
     buffer().remove(0,buffer().size());
 
     if (result != 0) {
-        qDebug("Successfully read %d", result);
+        qDebug("Successfully read %d byes : %d", result);
     }
 
     return result;

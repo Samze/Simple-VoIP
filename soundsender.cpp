@@ -14,7 +14,7 @@ qint64 SoundSender::writeData(const char *data, qint64 len){
         udpSocket->writeDatagram(data,
                                  len,
                                  QHostAddress::Broadcast,
-                                 45454);
+                                 45455);
     }
 
     return len;
