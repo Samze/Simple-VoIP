@@ -1,9 +1,8 @@
-#include "captureaudio.h"
+#include "VoiceInput.h"
 
-CaptureAudio::CaptureAudio()
+VoiceInput::VoiceInput(QObject *parent) :
+    QObject(parent)
 {
-    m_soundSender = new SoundSender();
-
     //configure our format.
 
     m_format.setFrequency(8000);
@@ -17,25 +16,28 @@ CaptureAudio::CaptureAudio()
     //By default we'll get the platforms default device
     m_devInfo = new QAudioDeviceInfo(QAudioDeviceInfo::defaultInputDevice());
 
+
     //Check support for format
     if (!m_devInfo->isFormatSupported(m_format)) {
         //TODO add error message here
         qWarning()<<"default format not supported try to use nearest";
         m_format = m_devInfo->nearestFormat(m_format);
     }
+
+    //setup audio
+    m_audioIn = new QAudioInput(m_format, this);
+    //init buffer
+    m_soundSender = new SoundSender(this);
 }
 
-CaptureAudio::~CaptureAudio() {
-    delete m_devInfo;
+VoiceInput::~VoiceInput() {
+    delete m_devInfo;  
+    delete m_audioIn;
     delete m_soundSender;
     //m_audioDevice gets created/deleted on play/stop
 }
 
-void CaptureAudio::recordSound() {
-
-    //setup audio
-    m_audioIn = new QAudioInput(m_format, this);
-
+void VoiceInput::recordSound() {
     connect(m_audioIn,SIGNAL(stateChanged(QAudio::State)),this,SLOT(audioStateSlot(QAudio::State)));
 
     m_soundSender->open(QIODevice::WriteOnly);
@@ -44,7 +46,7 @@ void CaptureAudio::recordSound() {
     m_audioIn->start(m_soundSender);
 }
 
-void CaptureAudio::audioStateSlot(QAudio::State state) {
+void VoiceInput::audioStateSlot(QAudio::State state) {
 
     if (state == QAudio::ActiveState) {
         qDebug("Input device actived");
@@ -60,10 +62,14 @@ void CaptureAudio::audioStateSlot(QAudio::State state) {
     }
 }
 
-void CaptureAudio::stopRecording() {
+void VoiceInput::stopRecording() {
 
-    m_audioIn->stop();
-    delete m_audioIn;
+    if (m_soundSender->isOpen()) {
+        m_soundSender->close();
+    }
+    if (m_audioIn->state() == QAudio::ActiveState || m_audioIn->state() == QAudio::IdleState) {
+        m_audioIn->stop();
+    }
 }
 
 

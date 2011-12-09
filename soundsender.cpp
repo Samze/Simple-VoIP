@@ -6,37 +6,11 @@ SoundSender::SoundSender(QObject *parent) :
     udpSocket = new QUdpSocket(this);
 }
 
+SoundSender::~SoundSender() {
+    delete udpSocket;
+}
 
 qint64 SoundSender::writeData(const char *data, qint64 len){
-
-
-    //init stream
-//    int initRes = ogg_stream_init(&os,123);
-
-//    qDebug("%d", initRes);
-
-//    ogg_packet op;
-//    op.packet = (unsigned char*)data;
-//    op.bytes = len;
-//    if (packetNo == 0)
-//        op.b_o_s = 1;
-//    else
-//        op.b_o_s = 0;
-//    op.e_o_s = 0; //TODO send final packet
-
-//    op.granulepos = frameNo;
-//    op.packetno = packetNo;
-
-//    //submit packet
-//    int packet = ogg_stream_packetin(&os,&op);
-
-//    //check page
-//    int pageResult = ogg_stream_pageout(&os,&og);
-
-//    if (pageResult > 0) {
-//        qDebug("Data in page %d",og.body_len);
-//    }
-
 
     QByteArray uncompressed(data,len);
 

@@ -12,7 +12,7 @@ class VoiceOutput : public QObject
 {
     Q_OBJECT
 public:
-    VoiceOutput();
+    explicit VoiceOutput(QObject *parent = 0);
     ~VoiceOutput();
 
 private:

@@ -7,28 +7,22 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    //setup connections
-    audio = new CaptureAudio();
+    //setup two threads for sending and receiving audio data
+    recThread = new ReceiveThread(this);
+    sendThread = new SendThread(this);
 
-
-    recThread = new ReceiveThread();
-
-
-    connect(ui->btnCapture,SIGNAL(clicked()),audio,SLOT(recordSound()));
+    //setup start connections
+    connect(ui->btnCapture,SIGNAL(clicked()),sendThread,SLOT(recordSound()));
     connect(ui->btnCapture,SIGNAL(clicked()),recThread,SLOT(listen()));
 
-    connect(ui->btnStopCapture,SIGNAL(clicked()),audio,SLOT(stopRecording()));
-
+    //setup stop connections
+    connect(ui->btnStopCapture,SIGNAL(clicked()),sendThread,SLOT(quit()));
+    connect(ui->btnStopCapture,SIGNAL(clicked()),recThread,SLOT(quit()));
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
-    delete audio;
     delete recThread;
-}
-
-void MainWindow::test() {
-
-
+    delete sendThread;
 }

@@ -1,5 +1,5 @@
-#ifndef CAPTUREAUDIO_H
-#define CAPTUREAUDIO_H
+#ifndef VOICEINPUT_H
+#define VOICEINPUT_H
 
 #include <QAudioInput>
 #include <QAudioFormat>
@@ -9,20 +9,22 @@
 #include <QAudioOutput>
 #include "soundsender.h"
 
-class CaptureAudio : public QObject
+class VoiceInput : public QObject
 {
     Q_OBJECT
 
 public:
-    CaptureAudio();
-    ~CaptureAudio();
+    explicit VoiceInput(QObject *parent = 0);
+    ~VoiceInput();
 
 public:
     void setDeviceInfo(const QAudioDeviceInfo *info);
 
-private slots:
+public slots:
    void recordSound();
    void stopRecording();
+
+private slots:
    void audioStateSlot(QAudio::State);
 
 signals:
@@ -36,4 +38,4 @@ private:
 
 };
 
-#endif // CAPTUREAUDIO_H
+#endif // VOICEINPUT_H

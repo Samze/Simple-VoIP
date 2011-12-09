@@ -9,7 +9,7 @@ class ReceiveThread : public QThread
     Q_OBJECT
 public:
     explicit ReceiveThread(QObject *parent = 0);
-
+    ~ReceiveThread();
 protected:
     void run();
 

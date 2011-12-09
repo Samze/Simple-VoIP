@@ -5,14 +5,21 @@ ReceiveThread::ReceiveThread(QObject *parent) :
 {
 }
 
+ReceiveThread::~ReceiveThread() {
+
+}
+
+
 
 void ReceiveThread::run() {
 
-     VoiceOutput* output = new VoiceOutput();
-     output->playSound();
+    VoiceOutput output;
+    output.playSound();
 
      //This puts the thread in an event loop, will continue until exit is calld.
-     exec();
+    exec();
+
+    qDebug() << "Finished ouput";
 }
 
 void ReceiveThread::listen() {

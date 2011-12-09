@@ -9,7 +9,8 @@ class SoundReciever : public QBuffer
 {
     Q_OBJECT
 public:
-    SoundReciever();
+    explicit SoundReciever(QObject *parent = 0);
+
 protected:
     qint64 readData ( char * data, qint64 len );
 

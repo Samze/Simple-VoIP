@@ -12,17 +12,25 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    captureaudio.cpp \
     soundreciever.cpp \
     soundsender.cpp \
     voiceoutput.cpp \
-    receivethread.cpp
+    receivethread.cpp \
+    voiceinput.cpp \
+    sendthread.cpp
 
 HEADERS  += mainwindow.h \
-    captureaudio.h \
     soundreciever.h \
     soundsender.h \
     voiceoutput.h \
-    receivethread.h
+    receivethread.h \
+    voiceinput.h \
+    sendthread.h
 
 FORMS    += mainwindow.ui
+
+
+
+
+
+

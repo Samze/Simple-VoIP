@@ -1,9 +1,10 @@
 #include "voiceoutput.h"
 
-VoiceOutput::VoiceOutput() {
+VoiceOutput::VoiceOutput(QObject *parent) :
+    QObject(parent) {
 
     //Create our custom buffer, setting up a signal/slot for when this buffer starts filling up.
-    m_soundReceiver = new SoundReciever();
+    m_soundReceiver = new SoundReciever(this);
     connect(m_soundReceiver,SIGNAL(readyRead()),this, SLOT(dataInBuffer()));
 
     m_format.setFrequency(8000);

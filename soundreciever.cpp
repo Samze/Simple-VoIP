@@ -1,6 +1,7 @@
 #include "soundreciever.h"
 
-SoundReciever::SoundReciever(){
+SoundReciever::SoundReciever(QObject *parent) :
+    QBuffer(parent) {
 
         //create our udp socket and use the signal/slot mechanism to "Listen".
         udpSocket = new QUdpSocket(this);
@@ -43,9 +44,12 @@ void SoundReciever::processDatagrams() {
          rawDatagram.resize(udpSocket->pendingDatagramSize());
          udpSocket->readDatagram(rawDatagram.data(), rawDatagram.size());
 
-         QByteArray* decodedDatagram = new QByteArray(qUncompress(rawDatagram));
-         //open(QIODevice::ReadWrite);
-         qint16 num = writeData(decodedDatagram->constData(),decodedDatagram->size());
+       //  QByteArray* decodedDatagram = new QByteArray(qUncompress(rawDatagram));
+
+
+         QByteArray decodedDatagram = qUncompress(rawDatagram);
+
+         qint16 num = writeData(decodedDatagram.constData(),decodedDatagram.size());
 
          if (num == -1) {
              qDebug("Error! could not write data to receiver buffer");

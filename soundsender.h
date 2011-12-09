@@ -12,7 +12,7 @@ class SoundSender : public QBuffer
     Q_OBJECT
 public:
     explicit SoundSender(QObject *parent = 0);
-    QBuffer outPutBuffer;
+    ~SoundSender();
 
 protected:
     qint64 writeData (const char * data, qint64 len);
