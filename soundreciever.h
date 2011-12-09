@@ -3,7 +3,7 @@
 
 #include <QUdpSocket>
 #include <QBuffer>
-#include "ogg/ogg.h"
+//#include "ogg/ogg.h"
 
 class SoundReciever : public QBuffer
 {

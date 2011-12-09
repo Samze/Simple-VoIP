@@ -7,8 +7,8 @@ VoiceOutput::VoiceOutput() {
     connect(m_soundReceiver,SIGNAL(readyRead()),this, SLOT(dataInBuffer()));
 
     m_format.setFrequency(8000);
-    m_format.setChannels(1);
-    m_format.setSampleSize(8);
+    m_format.setChannels(2);
+    m_format.setSampleSize(16);
 
     m_format.setCodec("audio/pcm"); //according to the docs this is the codec supported by all platforms.
     m_format.setByteOrder(QAudioFormat::LittleEndian);
@@ -37,7 +37,7 @@ void VoiceOutput::playSound() {
     m_audioOut = new QAudioOutput(m_format,this);
     connect(m_audioOut,SIGNAL(stateChanged(QAudio::State)),this, SLOT(finishedPlaying(QAudio::State)));
 
-    m_audioOut->setBufferSize(320);
+   // m_audioOut->setBufferSize(4096);
 
 }
 
@@ -63,7 +63,7 @@ void VoiceOutput::finishedPlaying(QAudio::State state) {
 }
 
 void VoiceOutput::dataInBuffer() {
-    if (!m_soundReceiver->isOpen()){
+    if (!m_soundReceiver->isOpen() && m_soundReceiver->bytesAvailable() > 7056){
         qDebug("Opening audio out buffer");
         m_soundReceiver->open(QIODevice::ReadOnly);
         m_audioOut->start(m_soundReceiver);

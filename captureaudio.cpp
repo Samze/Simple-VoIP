@@ -7,8 +7,8 @@ CaptureAudio::CaptureAudio()
     //configure our format.
 
     m_format.setFrequency(8000);
-    m_format.setChannels(1);
-    m_format.setSampleSize(8);
+    m_format.setChannels(2);
+    m_format.setSampleSize(16);
 
     m_format.setCodec("audio/pcm"); //according to the docs this is the codec supported by all platforms.
     m_format.setByteOrder(QAudioFormat::LittleEndian);
@@ -40,6 +40,7 @@ void CaptureAudio::recordSound() {
 
     m_soundSender->open(QIODevice::WriteOnly);
 
+   // m_audioIn->setBufferSize(4096);
     m_audioIn->start(m_soundSender);
 }
 

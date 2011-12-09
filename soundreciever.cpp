@@ -39,12 +39,13 @@ void SoundReciever::processDatagrams() {
     while (udpSocket->hasPendingDatagrams()) {
 
          //put a new array on the heap, this will be cleaned up when we detroy the buffer..
-         QByteArray* datagram = new QByteArray();
-         datagram->resize(udpSocket->pendingDatagramSize());
-         udpSocket->readDatagram(datagram->data(), datagram->size());
+         QByteArray rawDatagram;
+         rawDatagram.resize(udpSocket->pendingDatagramSize());
+         udpSocket->readDatagram(rawDatagram.data(), rawDatagram.size());
 
+         QByteArray* decodedDatagram = new QByteArray(qUncompress(rawDatagram));
          //open(QIODevice::ReadWrite);
-         qint16 num = writeData(datagram->constData(),datagram->size());
+         qint16 num = writeData(decodedDatagram->constData(),decodedDatagram->size());
 
          if (num == -1) {
              qDebug("Error! could not write data to receiver buffer");

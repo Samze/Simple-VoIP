@@ -5,8 +5,7 @@
 #include <QBuffer>
 #include <QUdpSocket>
 #include <QAudioFormat>
-#include "ogg/ogg.h"
-#include <speex/speex.h>
+//#include "ogg/ogg.h"
 
 class SoundSender : public QBuffer
 {
@@ -24,8 +23,8 @@ private:
     int packetNo;
     int frameNo;
     int pageNo;
-    ogg_page  og;
-    ogg_stream_state os;
+//    ogg_page  og;
+//    ogg_stream_state os;
 
 };
 
