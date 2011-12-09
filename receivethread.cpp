@@ -6,7 +6,6 @@ ReceiveThread::ReceiveThread(QObject *parent) :
 }
 
 ReceiveThread::~ReceiveThread() {
-
 }
 
 
@@ -19,6 +18,7 @@ void ReceiveThread::run() {
      //This puts the thread in an event loop, will continue until exit is calld.
     exec();
 
+    output.stop();
     qDebug() << "Finished ouput";
 }
 

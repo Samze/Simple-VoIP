@@ -35,7 +35,6 @@ qint64 SoundReciever::readData ( char * data, qint64 len ) {
 
 }
 
-
 void SoundReciever::processDatagrams() {
     while (udpSocket->hasPendingDatagrams()) {
 
@@ -44,10 +43,9 @@ void SoundReciever::processDatagrams() {
          rawDatagram.resize(udpSocket->pendingDatagramSize());
          udpSocket->readDatagram(rawDatagram.data(), rawDatagram.size());
 
-       //  QByteArray* decodedDatagram = new QByteArray(qUncompress(rawDatagram));
-
-
          QByteArray decodedDatagram = qUncompress(rawDatagram);
+
+         qDebug("Received %d bytes",rawDatagram.size());
 
          qint16 num = writeData(decodedDatagram.constData(),decodedDatagram.size());
 
@@ -55,6 +53,11 @@ void SoundReciever::processDatagrams() {
              qDebug("Error! could not write data to receiver buffer");
          }
          else {
+             //Documentaiton from QIODevice::readyRead states
+             /*"Note for developers implementing classes derived from QIODevice:
+                you should always emit readyRead() when new data has arrived"*/
+             emit readyRead();
+
              qDebug("Data received, we wrote %d bytes to the buffer",num);
          }
 
