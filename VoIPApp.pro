@@ -17,7 +17,8 @@ SOURCES += main.cpp\
     voiceoutput.cpp \
     receivethread.cpp \
     voiceinput.cpp \
-    sendthread.cpp
+    sendthread.cpp \
+    abstractvoice.cpp
 
 HEADERS  += mainwindow.h \
     soundreciever.h \
@@ -25,9 +26,16 @@ HEADERS  += mainwindow.h \
     voiceoutput.h \
     receivethread.h \
     voiceinput.h \
-    sendthread.h
+    sendthread.h \
+    abstractvoice.h
 
 FORMS    += mainwindow.ui
+
+
+
+
+
+
 
 
 

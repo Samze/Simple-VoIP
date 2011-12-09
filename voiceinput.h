@@ -1,6 +1,7 @@
 #ifndef VOICEINPUT_H
 #define VOICEINPUT_H
 
+#include "abstractvoice.h"
 #include <QAudioInput>
 #include <QAudioFormat>
 #include <QAudioDeviceInfo>
@@ -9,32 +10,26 @@
 #include <QAudioOutput>
 #include "soundsender.h"
 
-class VoiceInput : public QObject
+class VoiceInput : public AbstractVoice
 {
     Q_OBJECT
 
 public:
-    explicit VoiceInput(QObject *parent = 0);
+    explicit VoiceInput(AbstractVoice *parent = 0);
     ~VoiceInput();
 
 public:
     void setDeviceInfo(const QAudioDeviceInfo *info);
 
 public slots:
-   void recordSound();
-   void stopRecording();
+   virtual void start();
+   virtual void stop();
 
 private slots:
-   void audioStateSlot(QAudio::State);
-
-signals:
-    void hasVoiceData(QBuffer*);
+    virtual void audioState(QAudio::State);
 
 private:
-    QAudioFormat m_format;
-    QAudioDeviceInfo *m_devInfo;
     QAudioInput *m_audioIn;
-    SoundSender *m_soundSender;
 
 };
 

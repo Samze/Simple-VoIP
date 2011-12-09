@@ -1,6 +1,7 @@
 #ifndef VOICEOUTPUT_H
 #define VOICEOUTPUT_H
 
+#include "abstractvoice.h"
 #include <QIODevice>
 #include <QThread>
 #include <QAudioOutput>
@@ -8,23 +9,23 @@
 #include <QDebug>
 #include "soundreciever.h"
 
-class VoiceOutput : public QObject
+class VoiceOutput : public AbstractVoice
 {
     Q_OBJECT
 public:
-    explicit VoiceOutput(QObject *parent = 0);
+    explicit VoiceOutput(AbstractVoice *parent = 0);
     ~VoiceOutput();
 
 private:
     QAudioOutput *m_audioOut;
-    QAudioFormat m_format;
-    QAudioDeviceInfo *m_devInfo;
-    SoundReciever* m_soundReceiver;
 
 public slots:
-    void playSound();
-    void finishedPlaying(QAudio::State);
-    void dataInBuffer();
+    virtual void start();
+    virtual void stop();
+
+private slots:
+   virtual void audioState(QAudio::State);
+   void dataInBuffer();
 };
 
 #endif // VOICEOUTPUT_H

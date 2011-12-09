@@ -10,13 +10,13 @@ SendThread::~SendThread() {
 void SendThread::run() {
 
     VoiceInput capture;
-    capture.recordSound();
+    capture.start();
 
     //Loops thread waiting on events
     int code = exec();
 
     qDebug() << "Finished capture, tidying up..." << code;
-    capture.stopRecording();
+    capture.stop();
 }
 
 void SendThread::recordSound() {

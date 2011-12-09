@@ -14,7 +14,7 @@ ReceiveThread::~ReceiveThread() {
 void ReceiveThread::run() {
 
     VoiceOutput output;
-    output.playSound();
+    output.start();
 
      //This puts the thread in an event loop, will continue until exit is calld.
     exec();

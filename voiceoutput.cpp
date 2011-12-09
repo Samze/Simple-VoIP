@@ -1,55 +1,39 @@
 #include "voiceoutput.h"
 
-VoiceOutput::VoiceOutput(QObject *parent) :
-    QObject(parent) {
+VoiceOutput::VoiceOutput(AbstractVoice *parent) :
+    AbstractVoice(parent) {
 
     //Create our custom buffer, setting up a signal/slot for when this buffer starts filling up.
-    m_soundReceiver = new SoundReciever(this);
-    connect(m_soundReceiver,SIGNAL(readyRead()),this, SLOT(dataInBuffer()));
-
-    m_format.setFrequency(8000);
-    m_format.setChannels(2);
-    m_format.setSampleSize(16);
-
-    m_format.setCodec("audio/pcm"); //according to the docs this is the codec supported by all platforms.
-    m_format.setByteOrder(QAudioFormat::LittleEndian);
-    m_format.setSampleType(QAudioFormat::UnSignedInt);
-
-    //By default we'll get the platforms default device
-    m_devInfo = new QAudioDeviceInfo(QAudioDeviceInfo::defaultOutputDevice());
-
-    //Check support for format
-    if (!m_devInfo->isFormatSupported(m_format)) {
-        //TODO add error message here
-        qWarning()<<"default format not supported try to use nearest";
-        m_format = m_devInfo->nearestFormat(m_format);
-    }
+    buffer = new SoundReciever(this);
+    connect(buffer,SIGNAL(readyRead()),this, SLOT(dataInBuffer()));
 }
 
 VoiceOutput::~VoiceOutput() {
-    delete m_soundReceiver;
-    delete m_devInfo;
-    //m_audioDevice gets created/deleted on play/stop
+
 }
 
-void VoiceOutput::playSound() {
+void VoiceOutput::start() {
 
     //setup our AudioOutput device and create a connet for it's state.
-    m_audioOut = new QAudioOutput(m_format,this);
-    connect(m_audioOut,SIGNAL(stateChanged(QAudio::State)),this, SLOT(finishedPlaying(QAudio::State)));
+    m_audioOut = new QAudioOutput(format,this);
+    connect(m_audioOut,SIGNAL(stateChanged(QAudio::State)),this, SLOT(audioState(QAudio::State)));
 
    // m_audioOut->setBufferSize(4096);
 
 }
 
-void VoiceOutput::finishedPlaying(QAudio::State state) {
+void VoiceOutput::stop(){
+
+}
+
+void VoiceOutput::audioState(QAudio::State state) {
 
     if (state == QAudio::ActiveState) {
         qDebug("Output device actived");
     }
     else if (state == QAudio::IdleState) {
         qDebug("erm, we went idle...nooo");
-        m_audioOut->start(m_soundReceiver);
+        m_audioOut->start(buffer);
 
         //TODO add something to timeout a user..
     }
@@ -64,9 +48,9 @@ void VoiceOutput::finishedPlaying(QAudio::State state) {
 }
 
 void VoiceOutput::dataInBuffer() {
-    if (!m_soundReceiver->isOpen() && m_soundReceiver->bytesAvailable() > 7056){
+    if (!buffer->isOpen() && buffer->bytesAvailable() > 7056){
         qDebug("Opening audio out buffer");
-        m_soundReceiver->open(QIODevice::ReadOnly);
-        m_audioOut->start(m_soundReceiver);
+        buffer->open(QIODevice::ReadOnly);
+        m_audioOut->start(buffer);
     }
 }
