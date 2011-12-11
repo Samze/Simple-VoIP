@@ -43,6 +43,7 @@ void SoundReciever::processDatagrams() {
          rawDatagram.resize(udpSocket->pendingDatagramSize());
          udpSocket->readDatagram(rawDatagram.data(), rawDatagram.size());
 
+
          QByteArray decodedDatagram = qUncompress(rawDatagram);
 
          qDebug("Received %d bytes",rawDatagram.size());
@@ -60,9 +61,7 @@ void SoundReciever::processDatagrams() {
 
              qDebug("Data received, we wrote %d bytes to the buffer",num);
          }
-
          //checksum our data for debugging
          //quint16 val = qChecksum(datagram->constData(),datagram->size());
-
     }
 }

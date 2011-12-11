@@ -18,7 +18,9 @@ SOURCES += main.cpp\
     receivethread.cpp \
     voiceinput.cpp \
     sendthread.cpp \
-    abstractvoice.cpp
+    abstractvoice.cpp \
+    commandserver.cpp \
+    commandclient.cpp
 
 HEADERS  += mainwindow.h \
     soundreciever.h \
@@ -27,9 +29,17 @@ HEADERS  += mainwindow.h \
     receivethread.h \
     voiceinput.h \
     sendthread.h \
-    abstractvoice.h
+    abstractvoice.h \
+    commandserver.h \
+    commandclient.h
 
 FORMS    += mainwindow.ui
+
+
+
+
+
+
 
 
 

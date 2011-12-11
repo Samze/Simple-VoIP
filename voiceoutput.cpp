@@ -37,7 +37,6 @@ void VoiceOutput::audioState(QAudio::State state) {
         qDebug("erm, we went idle...nooo");
         m_audioOut->start(buffer);
         ++timedout;
-        //TODO add something to timeout a user..
     }
     else if (state == QAudio::StoppedState) {
         if (m_audioOut->error() != QAudio::NoError) {
