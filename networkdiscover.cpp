@@ -16,13 +16,17 @@ NetworkDiscover::NetworkDiscover(QObject *parent) :
 void NetworkDiscover::receivedP2P() {
     while (hasPendingDatagrams()) {
 
+         QHostAddress senderAddress;
+         quint16 senderPort;
+
          QByteArray datagram;
          datagram.resize(pendingDatagramSize());
-         readDatagram(datagram.data(), datagram.size());
+         readDatagram(datagram.data(), datagram.size(),senderAddress,senderPort);
 
          if (datagram != "Sam") {
              //TODO We don't want to accept any old udp packet, only ones with the matching datagram.
-             qDebug() << peerAddress().toString() << " | " << datagram;
+             qDebug() << senderAddress << " : " << senderPort <<
+                      " | " << datagram;
          }
     }
 }
