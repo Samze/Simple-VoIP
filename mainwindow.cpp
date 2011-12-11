@@ -21,12 +21,16 @@ MainWindow::MainWindow(QWidget *parent) :
     //setup start connections
     connect(ui->btnCapture,SIGNAL(clicked()),sendThread,SLOT(recordSound()));
     connect(ui->btnCapture,SIGNAL(clicked()),recThread,SLOT(listen()));
+
     connect(ui->btnCapture,SIGNAL(clicked()),client,SLOT(callUser()));
+    connect(ui->btnStopCapture,SIGNAL(clicked()),client,SLOT(hangUp()));
 
     connect(server,SIGNAL(callInitiated()),sendThread,SLOT(recordSound()));
     connect(server,SIGNAL(callInitiated()),recThread,SLOT(listen()));
 
     //setup stop connections
+    connect(server,SIGNAL(callEnded()),sendThread,SLOT(quit));
+    connect(server,SIGNAL(callEnded()),recThread,SLOT(quit));
     connect(ui->btnStopCapture,SIGNAL(clicked()),sendThread,SLOT(quit()));
     connect(ui->btnStopCapture,SIGNAL(clicked()),recThread,SLOT(quit()));
 }

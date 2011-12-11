@@ -3,23 +3,33 @@
 
 #include <QObject>
 #include <QTcpSocket>
+#include "commandserver.h"
 
-class CommandClient : public QObject
+
+class CommandClient : public QTcpSocket
 {
     Q_OBJECT
 public:
     explicit CommandClient(QObject *parent = 0);
 
+    enum CallCommands {
+       Call,
+       EndCall,
+       MuteMic,
+       MuteSound
+    };
+
 signals:
     void connectionEstablished();
+    void commandError();
+    void callerBusy();
 
 public slots:
     void callUser();
     void hangUp();
     void sendRequest();
+    void serverResponse();
 
-private:
-    QTcpSocket *m_tcpSocket;
 //    QString *m_ip;
 //    qint64 m_port;
 

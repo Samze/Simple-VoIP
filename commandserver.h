@@ -5,22 +5,32 @@
 #include <QTcpServer>
 #include <QTcpSocket>
 #include <QList>
+#include "commandclient.h"
 
 class CommandServer : public QTcpServer
 {
     Q_OBJECT
 public:
     explicit CommandServer(QObject *parent = 0);
+    ~CommandServer();
+
+
+    enum ServerResponses {
+       UnknownCommand,
+       Busy
+    };
 
 signals:
     void callInitiated();
+    void callEnded();
+    void micMuted();
+    void soundMuted();
 
 private slots:
     void receiveConnection();
     void readRequest();
 
 private:
-    QTcpSocket *receivedSocket;
     QList<QTcpSocket *> *activeConnections;
 };
 
