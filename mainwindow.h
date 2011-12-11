@@ -10,6 +10,7 @@
 #include "sendthread.h"
 #include "commandclient.h"
 #include "commandserver.h"
+#include "networkdiscover.h"
 
 namespace Ui {
     class MainWindow;

@@ -4,13 +4,12 @@ NetworkDiscover::NetworkDiscover(QObject *parent) :
     QUdpSocket(parent)
 {
 
-  bind(NetworkDiscover::DISCOVER_PORT, QUdpSocket::ShareAddress);
 
+  bind(NetworkDiscover::DISCOVER_PORT, QUdpSocket::ShareAddress);
   connect(this, SIGNAL(readyRead()),this,SLOT(receivedP2P()));
 
   timer.setInterval(BROADCAST_TIME);
-
-  connect(&timer,SIGNAL(timeout()),this,SLOT(timer()));
+  connect(&timer,SIGNAL(timeout()),this,SLOT(notifyP2P()));
 }
 
 
@@ -22,7 +21,8 @@ void NetworkDiscover::receivedP2P() {
          readDatagram(datagram.data(), datagram.size());
 
          if (datagram != "Sam") {
-             qDebug() << datagram;
+             //TODO We don't want to accept any old udp packet, only ones with the matching datagram.
+             qDebug() << peerAddress().toString() << " | " << datagram;
          }
     }
 }
@@ -30,7 +30,7 @@ void NetworkDiscover::receivedP2P() {
 
 void NetworkDiscover::notifyP2P() {
 
-    QByteArray notifyBody("Sam");
+    QByteArray notifyBody("Hello World!");
 
     writeDatagram(notifyBody,QHostAddress::Broadcast,NetworkDiscover::DISCOVER_PORT);
 }

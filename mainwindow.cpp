@@ -12,6 +12,9 @@ MainWindow::MainWindow(QWidget *parent) :
     CommandClient *client = new CommandClient(this);
     CommandServer *server = new CommandServer(this);
 
+    NetworkDiscover *discover = new NetworkDiscover(this);
+    discover->timer.start();
+
     //setup broadcast p2p nature...
 
     //setup two threads for sending and receiving audio data
