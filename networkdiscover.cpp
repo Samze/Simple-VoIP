@@ -7,6 +7,10 @@ NetworkDiscover::NetworkDiscover(QObject *parent) :
   bind(NetworkDiscover::DISCOVER_PORT, QUdpSocket::ShareAddress);
 
   connect(this, SIGNAL(readyRead()),this,SLOT(receivedP2P()));
+
+  timer.setInterval(BROADCAST_TIME);
+
+  connect(&timer,SIGNAL(timeout()),this,SLOT(timer()));
 }
 
 
@@ -17,7 +21,7 @@ void NetworkDiscover::receivedP2P() {
          datagram.resize(pendingDatagramSize());
          readDatagram(datagram.data(), datagram.size());
 
-         if (datagram != "sam") {
+         if (datagram != "Sam") {
              qDebug() << datagram;
          }
     }
@@ -26,7 +30,7 @@ void NetworkDiscover::receivedP2P() {
 
 void NetworkDiscover::notifyP2P() {
 
-    QByteArray notify("Sam");
+    QByteArray notifyBody("Sam");
 
-    writeDatagram(notify,QHostAddress::Broadcast,NetworkDiscover::DISCOVER_PORT);
+    writeDatagram(notifyBody,QHostAddress::Broadcast,NetworkDiscover::DISCOVER_PORT);
 }
