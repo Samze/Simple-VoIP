@@ -2,16 +2,19 @@
 #define COMMANDSERVER_H
 
 #include <QObject>
+#include <QTcpServer>
+#include <QTcpSocket>
 
-class CommandServer : public QObject
+class CommandServer : public QTcpServer
 {
     Q_OBJECT
 public:
     explicit CommandServer(QObject *parent = 0);
 
-signals:
 
-public slots:
+private slots:
+    void receiveConnection();
+    void readRequest();
 
 };
 

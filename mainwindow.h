@@ -8,6 +8,8 @@
 #include "soundreciever.h"
 #include "receivethread.h"
 #include "sendthread.h"
+#include "commandclient.h"
+#include "commandserver.h"
 
 namespace Ui {
     class MainWindow;

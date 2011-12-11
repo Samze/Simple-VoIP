@@ -14,13 +14,14 @@ signals:
     void connectionEstablished();
 
 public slots:
-    void callUser(QString*,qint64);
+    void callUser();
     void hangUp();
+    void sendRequest();
 
 private:
     QTcpSocket *m_tcpSocket;
-    QString *m_ip;
-    qint64 m_port;
+//    QString *m_ip;
+//    qint64 m_port;
 
 };
 
