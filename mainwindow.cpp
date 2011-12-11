@@ -29,8 +29,8 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(server,SIGNAL(callInitiated()),recThread,SLOT(listen()));
 
     //setup stop connections
-    connect(server,SIGNAL(callEnded()),sendThread,SLOT(quit));
-    connect(server,SIGNAL(callEnded()),recThread,SLOT(quit));
+    connect(server,SIGNAL(callEnded()),sendThread,SLOT(quit()));
+    connect(server,SIGNAL(callEnded()),recThread,SLOT(quit()));
     connect(ui->btnStopCapture,SIGNAL(clicked()),sendThread,SLOT(quit()));
     connect(ui->btnStopCapture,SIGNAL(clicked()),recThread,SLOT(quit()));
 }

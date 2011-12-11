@@ -8,7 +8,7 @@ CommandClient::CommandClient(QObject *parent) :
 }
 
 void CommandClient::callUser() {
-    connectToHost("127.0.0.1",12345,QIODevice::ReadWrite);
+    connectToHost("192.168.0.13",12345,QIODevice::ReadWrite);
 }
 
 void CommandClient::hangUp() {

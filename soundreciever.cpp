@@ -5,7 +5,7 @@ SoundReciever::SoundReciever(QObject *parent) :
 
         //create our udp socket and use the signal/slot mechanism to "Listen".
         udpSocket = new QUdpSocket(this);
-        udpSocket->bind(45454, QUdpSocket::ShareAddress);
+        udpSocket->bind(45455, QUdpSocket::ShareAddress);
 
         connect(udpSocket, SIGNAL(readyRead()),this,SLOT(processDatagrams()));
 }

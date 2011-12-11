@@ -20,7 +20,8 @@ SOURCES += main.cpp\
     sendthread.cpp \
     abstractvoice.cpp \
     commandserver.cpp \
-    commandclient.cpp
+    commandclient.cpp \
+    networkdiscover.cpp
 
 HEADERS  += mainwindow.h \
     soundreciever.h \
@@ -31,9 +32,12 @@ HEADERS  += mainwindow.h \
     sendthread.h \
     abstractvoice.h \
     commandserver.h \
-    commandclient.h
+    commandclient.h \
+    networkdiscover.h
 
 FORMS    += mainwindow.ui
+
+
 
 
 
