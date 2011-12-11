@@ -3,7 +3,7 @@
 CommandServer::CommandServer(QObject *parent) :
     QTcpServer(parent)
 {
-    //Listen
+    activeConnections = new QList<QTcpSocket *>();
     //TODO add port
     listen(QHostAddress::Any,12345);
 
@@ -12,16 +12,20 @@ CommandServer::CommandServer(QObject *parent) :
 
 void CommandServer::receiveConnection() {
 
-    QTcpSocket *receivedSocket = nextPendingConnection();
+    receivedSocket = nextPendingConnection();
+     activeConnections->append(receivedSocket);
 
-    qDebug() << "TCPINFO " << receivedSocket->readLine();
-   // connect(receivedSocket,SIGNAL(readyRead()), this,SLOT(readRequest()));
-
+    connect(receivedSocket,SIGNAL(readyRead()), this,SLOT(readRequest()));
 }
 
 void CommandServer::readRequest() {
 
+    receivedSocket->peerAddress();
+    //qDebug() << "TCPINFO " << receivedSocket->readLine();
 
-  //  qDebug() << "TCPINFO " << receivedSocket.readLine();
+    if (receivedSocket->readLine() == "Call") {
+        emit callInitiated();
+    }
+
 
 }

@@ -22,5 +22,5 @@ void CommandClient::hangUp() {
 
 
 void CommandClient::sendRequest() {
-    m_tcpSocket->write("test");
+    m_tcpSocket->write("Call");
 }
