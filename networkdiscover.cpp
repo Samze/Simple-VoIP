@@ -3,7 +3,9 @@
 NetworkDiscover::NetworkDiscover(QObject *parent) :
     QUdpSocket(parent)
 {
-
+  broadCastMsg = generatedBroadcastMsg();
+  //Get a list of all local network addresses.
+  localAddressList = networkInter.allAddresses();
 
   bind(NetworkDiscover::DISCOVER_PORT, QUdpSocket::ShareAddress);
   connect(this, SIGNAL(readyRead()),this,SLOT(receivedP2P()));
@@ -21,20 +23,43 @@ void NetworkDiscover::receivedP2P() {
 
          QByteArray datagram;
          datagram.resize(pendingDatagramSize());
-         readDatagram(datagram.data(), datagram.size(),senderAddress,senderPort);
+         readDatagram(datagram.data(), datagram.size(),&senderAddress,&senderPort);
 
-         if (datagram != "Sam") {
+        // if (!isLocalAddress(senderAddress)) {
+
+             QString username = datagram.mid(4);
              //TODO We don't want to accept any old udp packet, only ones with the matching datagram.
              qDebug() << senderAddress << " : " << senderPort <<
-                      " | " << datagram;
-         }
+                      " | " << username;
+      //   }
     }
 }
 
 
 void NetworkDiscover::notifyP2P() {
 
-    QByteArray notifyBody("Hello World!");
+    QByteArray notifyBody(broadCastMsg.toAscii());
 
+    qDebug(notifyBody);
     writeDatagram(notifyBody,QHostAddress::Broadcast,NetworkDiscover::DISCOVER_PORT);
+}
+
+bool NetworkDiscover::isLocalAddress(const QHostAddress senderAddress) {
+
+    foreach(QHostAddress address, localAddressList) {
+
+        if(address == senderAddress)
+           return true;
+    }
+    return false;
+}
+
+QString NetworkDiscover::generatedBroadcastMsg() {
+
+    QProcessEnvironment environment = QProcessEnvironment::systemEnvironment();
+
+    //TODO Check that I can get this environmental variable in LINUX/MACOS.
+    QString username =  environment.value("USERNAME");
+
+    return QString("#SG#" + username);
 }

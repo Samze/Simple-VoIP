@@ -6,6 +6,9 @@
 #include <QString>
 #include <QTimer>
 #include <QNetworkInterface>
+#include <QProcessEnvironment>
+#include <QProcess>
+
 
 class NetworkDiscover : public QUdpSocket
 {
@@ -25,7 +28,13 @@ private:
     static const int DISCOVER_PORT = 45453;
     static const int BROADCAST_TIME = 2000;
     QList<QString*> *clients;
-    QNetworkInterface network;
+    QNetworkInterface networkInter;
+    QList<QHostAddress> localAddressList;
+    QString broadCastMsg;
+
+    bool isLocalAddress(QHostAddress);
+    QString generatedBroadcastMsg();
+
 };
 
 #endif // NETWORKDISCOVER_H
