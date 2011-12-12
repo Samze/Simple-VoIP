@@ -13,7 +13,8 @@ MainWindow::MainWindow(QWidget *parent) :
     CommandServer *server = new CommandServer(this);
 
     NetworkDiscover *discover = new NetworkDiscover(this);
-    discover->timer.start();
+    discover->broadCastTimer.start();
+    discover->peerCheck.start();
 
     //setup broadcast p2p nature...
 

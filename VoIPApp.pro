@@ -21,7 +21,8 @@ SOURCES += main.cpp\
     abstractvoice.cpp \
     commandserver.cpp \
     commandclient.cpp \
-    networkdiscover.cpp
+    networkdiscover.cpp \
+    peer.cpp
 
 HEADERS  += mainwindow.h \
     soundreciever.h \
@@ -33,9 +34,12 @@ HEADERS  += mainwindow.h \
     abstractvoice.h \
     commandserver.h \
     commandclient.h \
-    networkdiscover.h
+    networkdiscover.h \
+    peer.h
 
 FORMS    += mainwindow.ui
+
+
 
 
 
