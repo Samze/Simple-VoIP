@@ -1,12 +1,11 @@
 #include "voiceinput.h"
 
-VoiceInput::VoiceInput(AbstractVoice *parent) :
-    AbstractVoice(parent)
+VoiceInput::VoiceInput(QHostAddress& address)
 {
     //setup audio
     m_audioIn = new QAudioInput(format, this);
     //init buffer
-    buffer = new SoundSender(this);
+    buffer = new SoundSender(this,address);
 }
 
 VoiceInput::~VoiceInput() {  

@@ -4,11 +4,21 @@ CommandClient::CommandClient(QObject *parent) :
     QTcpSocket(parent) {
 
     connect(this,SIGNAL(readyRead()), this, SLOT(serverResponse()));
-    connect(this, SIGNAL(connected()), this,SLOT(sendRequest()));
+    connect(this, SIGNAL(connected()), this,SLOT(callPeer()));
 }
 
-void CommandClient::callUser() {
-    connectToHost("192.168.0.13",12345,QIODevice::ReadWrite);
+void CommandClient::connectToPeer() {
+    if (state() == ConnectedState) {
+        disconnectFromHost();
+    }
+    connectToHost("141.163.48.92",12345,QIODevice::ReadWrite);
+}
+
+void CommandClient::connectToPeer(Peer* peer) {
+    if (state() == ConnectedState) {
+        disconnectFromHost();
+    }
+    connectToHost(*peer->getAddress(),12345,QIODevice::ReadWrite);
 }
 
 void CommandClient::hangUp() {
@@ -16,8 +26,9 @@ void CommandClient::hangUp() {
     write(&command,1);
 }
 
-void CommandClient::sendRequest() {
+void CommandClient::callPeer() {
     char command = static_cast<char>(CommandClient::Call);
+
     write(&command,1);
 }
 
@@ -41,4 +52,14 @@ void CommandClient::serverResponse() {
                 break;
         }
     }
+}
+
+quint16 CommandClient::generateUDPPort() {
+    //num between 0 & 1.
+    double rnd = qrand() / static_cast<double> (RAND_MAX);
+
+   quint16 port = UDPMIN + (rnd *(UDPMAX - UDPMIN));
+
+   qDebug() << "Generated Port" << port;
+   return port;
 }

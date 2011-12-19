@@ -1,7 +1,7 @@
 #include "soundsender.h"
 
-SoundSender::SoundSender(QObject *parent) :
-    QBuffer(parent)
+SoundSender::SoundSender(QObject *parent, QHostAddress& address) :
+    QBuffer(parent), m_address(address)
 {
     udpSocket = new QUdpSocket(this);
 }
@@ -23,9 +23,12 @@ qint64 SoundSender::writeData(const char *data, qint64 len){
 
     if (compressed.size() > 0) {    //If we have data - send it!
         qDebug("zSending data : %d",compressed.size());
+
+        QHostAddress address;
+        address.setAddress("141.163.48.92");
         udpSocket->writeDatagram(compressed.constData(),
                                  compressed.size(),
-                                 QHostAddress::Broadcast,
+                                 address,
                                  45454);
     }
 

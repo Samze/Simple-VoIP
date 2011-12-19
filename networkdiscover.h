@@ -23,6 +23,7 @@ public:
     ~NetworkDiscover();
     QTimer broadCastTimer;
     QTimer peerCheck;
+    QMap<QString,Peer*> peerList;
 
 signals:
     void peersChanged(QList<Peer*>);
@@ -37,7 +38,7 @@ private:
     static const int CHECK_TIME = 10000;
     //static const QString BroadcastHeader = "#SGv1#";
    // QSet<Peer*> peerList; //Can't seem to get it to call the == overloaded operator properly
-    QMap<QString,Peer*> peerList;
+
 
     QNetworkInterface networkInter;
     QList<QHostAddress> localAddressList;

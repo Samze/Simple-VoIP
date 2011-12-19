@@ -28,4 +28,16 @@ bool Peer::operator==(const Peer &peer)
 }
 
 
+QStringList Peer::getPeersNameList(const QList<Peer*> &peerList) {
+
+    QStringList list;
+
+    foreach(Peer* peer , peerList) {
+
+        list.append(peer->getName());
+    }
+    return list;
+}
+
+
 

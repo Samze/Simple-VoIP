@@ -5,6 +5,7 @@
 #include <QHostAddress>
 #include <QTime>
 #include <QHash>
+#include <QStringList>
 
 class Peer : public QObject
 {
@@ -14,10 +15,13 @@ public:
     explicit Peer(QObject*,QString*, QHostAddress*, quint16);
     ~Peer();
 
+    static QStringList getPeersNameList(const QList<Peer*> &peerList);
+
     //This does not get called by Set "contains"...for whatever reason.
     bool operator==(const Peer &peer);
 
    // friend bool operator==(Peer *p1, Peer *p2);
+
 signals:
     void responseReceived();
 
@@ -28,11 +32,10 @@ private:
     QTime time;
 
 public:
-    QString getName() const{
-        return *m_username;
-    }
-    void updateTime();
+    QString getName() const { return *m_username;}
     QTime getTime() { return time;}
+    QHostAddress* getAddress() { return m_address;}
+    void updateTime();
 
 };
 

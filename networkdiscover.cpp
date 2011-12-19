@@ -17,6 +17,7 @@ NetworkDiscover::NetworkDiscover(QObject *parent) :
     peerCheck.setInterval(CHECK_TIME);
     connect(&peerCheck,SIGNAL(timeout()),this,SLOT(checkPeersAlive()));
 
+
 }
 NetworkDiscover::~NetworkDiscover() {
 
@@ -66,6 +67,7 @@ bool NetworkDiscover::addToList(QString* senderName,QHostAddress* senderAddress,
     }
     else {
         peerList.insert(peer->getName(),peer);
+        emit peersChanged(peerList.values());
     }
 
 }
@@ -94,8 +96,10 @@ bool NetworkDiscover::isLocalAddress(const QHostAddress senderAddress) {
 
 void NetworkDiscover::checkPeersAlive() {
 
+    //Create an empty list to store out timed out peers
     QList<QString> toRemove;
 
+    //Iterate through checking that their last response time isn't too long ago
     QMapIterator<QString, Peer*> i(peerList);
      while (i.hasNext()) {
          i.next();
@@ -108,10 +112,13 @@ void NetworkDiscover::checkPeersAlive() {
          }
      }
 
-
+     //remove all timed out peers
      foreach(QString id, toRemove) {
          peerList.remove(id);
      }
 
-     emit peersChanged(peerList.values());
+     //If we removed any, emit a signal
+     if (toRemove.size() > 0) {
+         emit peersChanged(peerList.values());
+     }
 }

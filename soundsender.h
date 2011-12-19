@@ -11,7 +11,7 @@ class SoundSender : public QBuffer
 {
     Q_OBJECT
 public:
-    explicit SoundSender(QObject *parent = 0);
+    explicit SoundSender(QObject *parent, QHostAddress& address);
     ~SoundSender();
 
 protected:
@@ -19,6 +19,7 @@ protected:
 
 private:
     QUdpSocket *udpSocket;
+    QHostAddress m_address;
     //TODO make qint64
     int packetNo;
     int frameNo;

@@ -15,7 +15,8 @@ class VoiceInput : public AbstractVoice
     Q_OBJECT
 
 public:
-    explicit VoiceInput(AbstractVoice *parent = 0);
+//    explicit VoiceInput(AbstractVoice *parent = 0);
+    explicit VoiceInput(QHostAddress&);
     ~VoiceInput();
 
 public:

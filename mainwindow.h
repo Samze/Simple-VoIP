@@ -24,10 +24,21 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+public slots:
+     void output(QList<Peer*>);
+     void callPeer();
+
+
 private:
     Ui::MainWindow *ui;
     ReceiveThread *recThread;
     SendThread *sendThread;
+
+    CommandClient *client;
+    CommandServer *server;
+    NetworkDiscover *discover;
+
+    QStringList list;
 };
 
 #endif // MAINWINDOW_H

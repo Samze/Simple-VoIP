@@ -30,7 +30,8 @@ void CommandServer::receiveConnection() {
 void CommandServer::readRequest() {
 
     QTcpSocket* receivedSocket = static_cast<QTcpSocket*>(sender());
-    receivedSocket->peerAddress();
+
+    QHostAddress receivedAddress = receivedSocket->peerAddress();
     //qDebug() << "TCPINFO " << receivedSocket->readLine();
 
     QByteArray input = receivedSocket->readLine();
@@ -41,7 +42,7 @@ void CommandServer::readRequest() {
 
         switch(command) {
             case CommandClient::Call:
-                emit callInitiated();
+                emit callInitiated(receivedAddress);
                 break;
             case CommandClient::EndCall:
                 emit callEnded();

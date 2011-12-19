@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QTcpSocket>
 #include "commandserver.h"
+#include "peer.h"
 
 
 class CommandClient : public QTcpSocket
@@ -25,10 +26,16 @@ signals:
     void callerBusy();
 
 public slots:
-    void callUser();
+    void connectToPeer();
+    void connectToPeer(Peer*);
     void hangUp();
-    void sendRequest();
+    void callPeer();
     void serverResponse();
+
+private:
+    static quint16 generateUDPPort();
+    static const quint16 UDPMAX = 45999;
+    static const quint16 UDPMIN = 44000;
 
 //    QString *m_ip;
 //    qint64 m_port;

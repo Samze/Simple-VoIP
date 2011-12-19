@@ -21,7 +21,7 @@ public:
     };
 
 signals:
-    void callInitiated();
+    void callInitiated(QHostAddress);
     void callEnded();
     void micMuted();
     void soundMuted();
