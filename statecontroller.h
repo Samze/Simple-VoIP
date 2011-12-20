@@ -38,6 +38,8 @@ signals:
     void muteSound(bool);
     void muteMic(bool);
 
+    void callerMicMuted(bool);
+    void callerSoundMuted(bool);
 
 public slots:
     void callPeer(QString);
@@ -52,6 +54,8 @@ public slots:
 private slots:
     void outCallAccepted();
 
+    void sendMuteSound(bool);
+    void sendMuteMic(bool);
 private:
     ReceiveThread *recThread;
     SendThread *sendThread;

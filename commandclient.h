@@ -17,8 +17,10 @@ public:
        CallAccepted,
        Busy,
        EndCall,
-       MuteMic,
-       MuteSound
+       disableMic,
+       disableSound,
+       enableMic,
+       enableSound
     };
 
 signals:
@@ -27,8 +29,11 @@ signals:
     void callerBusy();
     void callEnded();
     void commandError();
+    void callerMicMuted(bool);
+    void callerSoundMuted(bool);
 
 public slots:
+    void sendCommand(CallCommand cmd);
     void connectToPeer(Peer*);
     void hangUp();
     void callPeer();
@@ -38,6 +43,8 @@ private:
     static quint16 generateUDPPort();
     static const quint16 UDPMAX = 45999;
     static const quint16 UDPMIN = 44000;
+
+
 
 };
 

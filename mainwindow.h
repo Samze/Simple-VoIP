@@ -31,6 +31,10 @@ public slots:
      void incomingCall(const QString &);
      void setCallStatus(StateController::VoIPState);
 
+private slots:
+     void callerMicMuted(bool);
+     void callerSoundMuted(bool);
+
 private:
     Ui::MainWindow *ui;
     StateController* controller;

@@ -20,8 +20,8 @@ public:
 signals:
     void callInitiated(QHostAddress);
     void callEnded();
-    void micMuted();
-    void soundMuted();
+    void callerMicMuted(bool);
+    void callerSoundMuted(bool);
 
 private slots:
     void receiveConnection();

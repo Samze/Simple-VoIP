@@ -13,8 +13,7 @@ void CommandClient::connectToPeer(Peer* peer) {
 }
 
 void CommandClient::hangUp() {
-    char command = static_cast<char>(CommandClient::EndCall);
-    write(&command,1);
+    sendCommand(CommandClient::EndCall);
     disconnectFromHost();
 }
 
@@ -43,11 +42,29 @@ void CommandClient::serverResponse() {
                 emit callEnded();
                 disconnectFromHost();
                 break;
+            case CommandClient::disableMic:
+                emit callerMicMuted(true);
+                break;
+            case CommandClient::enableMic:
+                emit callerMicMuted(false);
+                break;
+            case CommandClient::disableSound:
+                emit callerSoundMuted(true);
+                break;
+            case CommandClient::enableSound:
+                emit callerSoundMuted(false);
+                break;
             default:
                 break;
         }
     }
 }
+
+void CommandClient::sendCommand(CommandClient::CallCommand cmd) {
+    char command = static_cast<char>(cmd);
+    write(&command,1);
+}
+
 
 quint16 CommandClient::generateUDPPort() {
     //num between 0 & 1.
@@ -58,3 +75,4 @@ quint16 CommandClient::generateUDPPort() {
    qDebug() << "Generated Port" << port;
    return port;
 }
+

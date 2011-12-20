@@ -26,9 +26,17 @@ StateController::StateController(QObject *parent) :
     connect(client,SIGNAL(callerAccepted()),this,SLOT(outCallAccepted()));
     connect(client,SIGNAL(callerBusy()),this,SLOT(callerWasBusy()));
 
+    connect(client,SIGNAL(callerMicMuted(bool)),this,SIGNAL(callerMicMuted(bool)));
+    connect(server,SIGNAL(callerMicMuted(bool)),this,SIGNAL(callerMicMuted(bool)));
+
+    connect(client,SIGNAL(callerSoundMuted(bool)),this,SIGNAL(callerSoundMuted(bool)));
+    connect(server,SIGNAL(callerSoundMuted(bool)),this,SIGNAL(callerSoundMuted(bool)));
 
     connect(this,SIGNAL(muteSound(bool)),recThread,SIGNAL(muteSound(bool)));
     connect(this,SIGNAL(muteMic(bool)),sendThread,SIGNAL(muteMic(bool)));
+
+    connect(this,SIGNAL(muteSound(bool)),this,SLOT(sendMuteSound(bool)));
+    connect(this,SIGNAL(muteMic(bool)),this,SLOT(sendMuteMic(bool)));
 
     //Rebroadcast for the view.
     connect(discover,SIGNAL(peersChanged(QList<Peer*>)),this,SIGNAL(updatePeerList(QList<Peer*>)));
@@ -88,14 +96,6 @@ void StateController::endCall() {
     }
 }
 
-//void StateController::muteSound() {
-
-
-//}
-
-//void StateController::muteMic() {
-//    //TODO
-//}
 
 void StateController::receiveCall(const QHostAddress &address) {
     //This could have been achieved by connecting the direct received calls to this acton, but we want to check
@@ -161,4 +161,28 @@ void StateController::outCallAccepted() {
 
 void StateController::callerWasBusy() {
     emit callerBusy();
+}
+
+
+void StateController::sendMuteSound(bool toggle) {
+
+    CommandClient::CallCommand cmd;
+
+    cmd = toggle ? CommandClient::disableSound : CommandClient::enableSound;
+
+    if (client->state() == QTcpSocket::ConnectedState)
+        client->sendCommand(cmd);
+    else
+        server->sendCommand(*incomingCaller,cmd);
+}
+
+void StateController::sendMuteMic(bool toggle) {
+    CommandClient::CallCommand cmd;
+
+    cmd = toggle ? CommandClient::disableMic : CommandClient::enableMic;
+
+    if (client->state() == QTcpSocket::ConnectedState)
+        client->sendCommand(cmd);
+    else
+        server->sendCommand(*incomingCaller,cmd);
 }

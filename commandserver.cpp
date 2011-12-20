@@ -43,16 +43,22 @@ void CommandServer::readRequest() {
 
         switch(command) {
             case CommandClient::Call:
-                emit callInitiated(receivedAddress);
-                break;
+            emit callInitiated(receivedAddress);
+            break;
             case CommandClient::EndCall:
                 emit callEnded();
                 break;
-            case CommandClient::MuteMic:
-                emit micMuted();
+            case CommandClient::disableMic:
+                emit callerMicMuted(true);
                 break;
-            case CommandClient::MuteSound:
-                emit soundMuted();
+            case CommandClient::enableMic:
+                emit callerMicMuted(false);
+                break;
+            case CommandClient::disableSound:
+                emit callerSoundMuted(true);
+                break;
+            case CommandClient::enableSound:
+                emit callerSoundMuted(false);
                 break;
             default:
                 //unknown command, lets send that back.
@@ -62,13 +68,13 @@ void CommandServer::readRequest() {
     }
 }
 
-void CommandServer::sendCommand(const QHostAddress &address,CommandClient::CallCommand response) {
+void CommandServer::sendCommand(const QHostAddress &address,CommandClient::CallCommand cmd) {
 
     //Find the tcp connection for the request and reject.
     foreach(QTcpSocket* sock, *activeConnections) {
         if ( sock->peerAddress() == address) {
 
-            char command = static_cast<char>(response);
+            char command = static_cast<char>(cmd);
             sock->write(&command,1);
             break;
         }

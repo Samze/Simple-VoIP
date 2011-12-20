@@ -28,6 +28,9 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(controller,SIGNAL(callError(QString)),this,SLOT(callError(QString)));
     connect(controller,SIGNAL(callIncoming(QString)),this,SLOT(incomingCall(QString)));
 
+    connect(controller,SIGNAL(callerMicMuted(bool)),this,SLOT(callerMicMuted(bool)));
+    connect(controller,SIGNAL(callerSoundMuted(bool)),this,SLOT(callerSoundMuted(bool)));
+
     //the gui should do something with controller emitted signal
     //callAccepted()
     connect(controller,SIGNAL(newState(StateController::VoIPState)),this,SLOT(setCallStatus(StateController::VoIPState)));
@@ -113,3 +116,18 @@ void MainWindow::setCallStatus(StateController::VoIPState state) {
 
 }
 
+void MainWindow::callerMicMuted(bool toggle) {
+    qDebug() << "CallerMicMuted " << toggle;
+
+    QString msg;
+    msg = toggle ? "Off" : "On";
+    ui->lblCallerMic->setText(msg);
+}
+
+void MainWindow::callerSoundMuted(bool toggle) {
+    qDebug() << "CallerSoundMuted " << toggle;
+
+    QString msg;
+    msg = toggle ? "Off" : "On";
+    ui->lblCallerSound->setText(msg);
+}
