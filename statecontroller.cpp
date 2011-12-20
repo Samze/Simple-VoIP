@@ -65,8 +65,8 @@ void StateController::endCall() {
 
     if (state == InCall) {
 
-        CommandClient* clientSender = static_cast<CommandClient*>(sender());
-        CommandServer* serverSender = static_cast<CommandServer*>(sender());
+        CommandClient* clientSender = dynamic_cast<CommandClient*>(sender());
+        CommandServer* serverSender = dynamic_cast<CommandServer*>(sender());
 
         //Reqiures compiler rtti support!
         if (clientSender == 0 && serverSender ==0) {
@@ -75,12 +75,14 @@ void StateController::endCall() {
                 client->hangUp();
             else
                 server->sendCommand(*incomingCaller,CommandClient::EndCall);
+                delete incomingCaller;
         }
 
         recThread->quit();
         sendThread->quit();
         state = StateController::Ready;
         emit newState(state);
+        //TODO deal with incomingCaller here too, delete?
     }
 }
 
@@ -131,7 +133,6 @@ void StateController::acceptCall() {
     state = StateController::InCall;
 
     emit newState(state);
-    delete incomingCaller;
 }
 
 

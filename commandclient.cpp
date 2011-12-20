@@ -42,6 +42,7 @@ void CommandClient::serverResponse() {
                 break;
             case CommandClient::EndCall:
                 emit callEnded();
+                disconnectFromHost();
                 break;
             default:
                 break;
