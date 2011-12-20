@@ -3,7 +3,6 @@
 
 #include <QObject>
 #include <QTcpSocket>
-#include "commandserver.h"
 #include "peer.h"
 
 
@@ -13,8 +12,10 @@ class CommandClient : public QTcpSocket
 public:
     explicit CommandClient(QObject *parent = 0);
 
-    enum CallCommands {
+    enum CallCommand {
        Call,
+       CallAccepted,
+       Busy,
        EndCall,
        MuteMic,
        MuteSound
@@ -24,6 +25,7 @@ signals:
     void connectionEstablished();
     void callerAccepted();
     void callerBusy();
+    void callEnded();
     void commandError();
 
 public slots:

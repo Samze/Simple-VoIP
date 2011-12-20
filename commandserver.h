@@ -7,6 +7,7 @@
 #include <QList>
 #include "commandclient.h"
 
+
 class CommandServer : public QTcpServer
 {
     Q_OBJECT
@@ -14,13 +15,7 @@ public:
     explicit CommandServer(QObject *parent = 0);
     ~CommandServer();
 
-    enum ServerResponse {
-       Accepted,
-       Busy,
-       UnknownCommand
-    };
-
-    void sendCommand(const QHostAddress &, ServerResponse);
+    void sendCommand(const QHostAddress &, CommandClient::CallCommand);
 
 signals:
     void callInitiated(QHostAddress);

@@ -30,18 +30,18 @@ void CommandClient::serverResponse() {
 
     //check input
     if (input.size() == 1) {
-        CommandServer::ServerResponse response = static_cast<CommandServer::ServerResponse>(*input.data());
+        CommandClient::CallCommand response = static_cast<CommandClient::CallCommand>(*input.data());
 
         switch(response) {
-            case CommandServer::Accepted:
+            case CommandClient::CallAccepted:
                 emit callerAccepted();
                 break;
-            case CommandServer::Busy:
+            case CommandClient::Busy:
                 emit callerBusy();
                 disconnectFromHost();
                 break;
-            case CommandServer::UnknownCommand:
-                 emit commandError();
+            case CommandClient::EndCall:
+                emit callEnded();
                 break;
             default:
                 break;

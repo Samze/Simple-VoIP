@@ -38,7 +38,7 @@ void CommandServer::readRequest() {
 
     //Make sure we have reasonable input
     if (input.size() == 1) {
-        CommandClient::CallCommands command = static_cast<CommandClient::CallCommands>(*input.data());
+        CommandClient::CallCommand command = static_cast<CommandClient::CallCommand>(*input.data());
 
         switch(command) {
             case CommandClient::Call:
@@ -61,7 +61,7 @@ void CommandServer::readRequest() {
     }
 }
 
-void CommandServer::sendCommand(const QHostAddress &address,ServerResponse response) {
+void CommandServer::sendCommand(const QHostAddress &address,CommandClient::CallCommand response) {
 
     //Find the tcp connection for the request and reject.
     foreach(QTcpSocket* sock, *activeConnections) {

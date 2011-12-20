@@ -20,6 +20,7 @@ StateController::StateController(QObject *parent) :
 
     //Call terminated
     connect(server,SIGNAL(callEnded()),this,SLOT(endCall()));
+    connect(client,SIGNAL(callEnded()),this,SLOT(endCall()));
 
     //Initiated call busy.
     connect(client,SIGNAL(callerAccepted()),this,SLOT(outCallAccepted()));
@@ -63,10 +64,21 @@ void StateController::endCall() {
     //model (ie. listen/send threads) just incase we want to update the view with anthing later...probably won't use this
 
     if (state == InCall) {
-        client->hangUp();
+
+        CommandClient* clientSender = static_cast<CommandClient*>(sender());
+        CommandServer* serverSender = static_cast<CommandServer*>(sender());
+
+        //Reqiures compiler rtti support!
+        if (clientSender == 0 && serverSender ==0) {
+
+            if (client->state() == QTcpSocket::ConnectedState)
+                client->hangUp();
+            else
+                server->sendCommand(*incomingCaller,CommandClient::EndCall);
+        }
+
         recThread->quit();
         sendThread->quit();
-
         state = StateController::Ready;
         emit newState(state);
     }
@@ -110,7 +122,7 @@ QString StateController::getNameFromAddress(const QHostAddress &address) {
 void StateController::acceptCall() {
 
     //Inform caller that we accept the call.
-    server->sendCommand(*incomingCaller,CommandServer::Accepted);
+    server->sendCommand(*incomingCaller,CommandClient::CallAccepted);
 
     //Begin send/listen.
     sendThread->recordSound(*incomingCaller);
@@ -126,7 +138,7 @@ void StateController::acceptCall() {
 void StateController::rejectCall() {
 
     //server reponses here?
-    server->sendCommand(*incomingCaller,CommandServer::Busy);
+    server->sendCommand(*incomingCaller,CommandClient::Busy);
 
     delete incomingCaller;
 }
