@@ -34,7 +34,7 @@ void VoiceOutput::audioState(QAudio::State state) {
         qDebug("Output device actived");
     }
     else if (state == QAudio::IdleState) {
-        qDebug("erm, we went idle...nooo");
+        qDebug("erm, we went idle...mic muted probably");
         m_audioOut->start(buffer);
         ++timedout;
     }
@@ -43,7 +43,7 @@ void VoiceOutput::audioState(QAudio::State state) {
            qDebug("Error - problems opening dev : exiting");
            exit(1);
         } else {
-        qDebug("We stopped ...for some reason");
+            qDebug("We stopped ...for some reason (Muted)");
         }
     }
 }
@@ -53,5 +53,17 @@ void VoiceOutput::dataInBuffer() {
         qDebug("Opening audio out buffer");
         buffer->open(QIODevice::ReadOnly);
         m_audioOut->start(buffer);
+    }
+}
+
+void VoiceOutput::muteSound(bool toggle) {
+    qDebug() << "MUTED sound!";
+    if (toggle) {
+        m_audioOut->suspend();
+    }
+    else {
+        buffer->buffer().clear();
+        m_audioOut->resume();
+
     }
 }

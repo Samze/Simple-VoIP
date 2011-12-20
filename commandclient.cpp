@@ -20,7 +20,6 @@ void CommandClient::hangUp() {
 
 void CommandClient::callPeer() {
     char command = static_cast<char>(CommandClient::Call);
-
     write(&command,1);
 }
 

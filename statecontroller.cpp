@@ -27,6 +27,9 @@ StateController::StateController(QObject *parent) :
     connect(client,SIGNAL(callerBusy()),this,SLOT(callerWasBusy()));
 
 
+    connect(this,SIGNAL(muteSound(bool)),recThread,SIGNAL(muteSound(bool)));
+    connect(this,SIGNAL(muteMic(bool)),sendThread,SIGNAL(muteMic(bool)));
+
     //Rebroadcast for the view.
     connect(discover,SIGNAL(peersChanged(QList<Peer*>)),this,SIGNAL(updatePeerList(QList<Peer*>)));
 
@@ -75,7 +78,6 @@ void StateController::endCall() {
                 client->hangUp();
             else
                 server->sendCommand(*incomingCaller,CommandClient::EndCall);
-                delete incomingCaller;
         }
 
         recThread->quit();
@@ -86,13 +88,14 @@ void StateController::endCall() {
     }
 }
 
-void StateController::muteSound() {
-    //TODO
-}
+//void StateController::muteSound() {
 
-void StateController::muteMic() {
-    //TODO
-}
+
+//}
+
+//void StateController::muteMic() {
+//    //TODO
+//}
 
 void StateController::receiveCall(const QHostAddress &address) {
     //This could have been achieved by connecting the direct received calls to this acton, but we want to check
@@ -100,9 +103,12 @@ void StateController::receiveCall(const QHostAddress &address) {
 
     if (state == StateController::Ready) {
 
+        qDebug() << &address;
         QString name = getNameFromAddress(address);
         if (!name.isNull()) {
             incomingCaller = new QHostAddress(address); //store the address of the incoming caller for when the view responses.
+            qDebug() << incomingCaller;
+
             emit callIncoming(name);
         }
     }

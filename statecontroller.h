@@ -35,14 +35,15 @@ signals:
     void callerBusy();
     void newState(StateController::VoIPState);
 
+    void muteSound(bool);
+    void muteMic(bool);
+
 
 public slots:
     void callPeer(QString);
     void callerWasBusy();
 
     void endCall();
-    void muteSound();
-    void muteMic();
 
     void receiveCall(const QHostAddress &);
     void acceptCall();

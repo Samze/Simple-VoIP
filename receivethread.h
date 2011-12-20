@@ -13,6 +13,9 @@ public:
 protected:
     void run();
 
+signals:
+    void muteSound(bool);
+
 public slots:
     void listen();
 

@@ -50,3 +50,14 @@ void VoiceInput::stop() {
 }
 
 
+void VoiceInput::muteMic(bool toggle) {
+    qDebug() << "MUTED mic";
+    if (toggle) {
+        m_audioIn->suspend();
+    }
+    else {
+        m_audioIn->resume();
+    }
+}
+
+

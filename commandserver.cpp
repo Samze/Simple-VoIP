@@ -22,6 +22,7 @@ CommandServer::~CommandServer(){
 void CommandServer::receiveConnection() {
 
      QTcpSocket* receivedSocket = nextPendingConnection();
+
      activeConnections->append(receivedSocket);
 
      connect(receivedSocket,SIGNAL(readyRead()), this,SLOT(readRequest()));
@@ -54,8 +55,8 @@ void CommandServer::readRequest() {
                 emit soundMuted();
                 break;
             default:
-                //unknown command, lets tell send that back.
-                receivedSocket->write("Unknown Command");
+                //unknown command, lets send that back.
+                //TODO send error code
                 break;
         }
     }

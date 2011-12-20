@@ -12,6 +12,9 @@ public:
     ~SendThread();
     QHostAddress m_address;
 
+signals:
+    void muteMic(bool);
+
 protected:
     void run();
 

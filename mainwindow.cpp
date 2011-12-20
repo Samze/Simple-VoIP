@@ -15,6 +15,9 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->btnCapture,SIGNAL(clicked()),this,SLOT(callPressed()));
     connect(ui->btnStopCapture,SIGNAL(clicked()),controller,SLOT(endCall()));
 
+    connect(ui->chkMuteMic,SIGNAL(clicked(bool)),controller,SIGNAL(muteMic(bool)));
+    connect(ui->chkMuteSound,SIGNAL(clicked(bool)),controller,SIGNAL(muteSound(bool)));
+
     connect(this,SIGNAL(call(QString)),controller,SLOT(callPeer(QString)));
     connect(this,SIGNAL(inCallAccepted()),controller,SLOT(acceptCall()));
     connect(this,SIGNAL(inCallRejected()),controller,SLOT(rejectCall()));

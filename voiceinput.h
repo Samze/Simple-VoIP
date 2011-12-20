@@ -28,6 +28,7 @@ public slots:
 
 private slots:
     virtual void audioState(QAudio::State);
+    void muteMic(bool);
 
 private:
     QAudioInput *m_audioIn;

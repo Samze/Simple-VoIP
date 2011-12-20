@@ -10,15 +10,17 @@ SendThread::~SendThread() {
 void SendThread::run() {
 
     QHostAddress address(m_address);
-    VoiceInput capture(address);
-    capture.start();
+    VoiceInput input(address);
 
-    qDebug() << m_address;
+    connect(this,SIGNAL(muteMic(bool)),&input,SLOT(muteMic(bool)));
+
+    input.start();
+
     //Loops thread waiting on events
     int code = exec();
 
     qDebug() << "Finished capture, tidying up..." << code;
-    capture.stop();
+    input.stop();
 }
 
 void SendThread::recordSound(const QHostAddress &address) {
