@@ -1,7 +1,8 @@
 #include "voiceinput.h"
 
-VoiceInput::VoiceInput(QHostAddress* address)
+VoiceInput::VoiceInput(QHostAddress address)
 {
+    qDebug() << address;
     //setup audio
     m_audioIn = new QAudioInput(format, this);
     //init buffer

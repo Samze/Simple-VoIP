@@ -16,7 +16,7 @@ class VoiceInput : public AbstractVoice
 
 public:
 //    explicit VoiceInput(AbstractVoice *parent = 0);
-    explicit VoiceInput(QHostAddress* address);
+    explicit VoiceInput(QHostAddress address);
     ~VoiceInput();
 
 public:

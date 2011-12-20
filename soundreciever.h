@@ -10,7 +10,7 @@ class SoundReciever : public QBuffer
     Q_OBJECT
 public:
     explicit SoundReciever(QObject *parent = 0);
-
+    ~SoundReciever();
 protected:
     qint64 readData ( char * data, qint64 len );
 
@@ -19,8 +19,6 @@ public slots:
 
 private:
     QUdpSocket *udpSocket;
-
-
 
 };
 

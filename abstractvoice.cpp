@@ -20,3 +20,8 @@ AbstractVoice::AbstractVoice(QObject *parent) : QObject(parent)
         format = devInfo->nearestFormat(format);
     }
 }
+
+AbstractVoice::~AbstractVoice () {
+    delete devInfo;
+    delete buffer;
+}

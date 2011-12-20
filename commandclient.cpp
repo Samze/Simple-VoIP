@@ -7,10 +7,6 @@ CommandClient::CommandClient(QObject *parent) :
     connect(this, SIGNAL(connected()), this,SLOT(callPeer()));
 }
 
-void CommandClient::connectToPeer() {
-    connectToHost("141.163.48.92",12345,QIODevice::ReadWrite);
-}
-
 void CommandClient::connectToPeer(Peer* peer) {
 
     connectToHost(*peer->getAddress(),12345,QIODevice::ReadWrite);
@@ -19,6 +15,7 @@ void CommandClient::connectToPeer(Peer* peer) {
 void CommandClient::hangUp() {
     char command = static_cast<char>(CommandClient::EndCall);
     write(&command,1);
+    disconnectFromHost();
 }
 
 void CommandClient::callPeer() {
@@ -41,6 +38,7 @@ void CommandClient::serverResponse() {
                 break;
             case CommandServer::Busy:
                 emit callerBusy();
+                disconnectFromHost();
                 break;
             case CommandServer::UnknownCommand:
                  emit commandError();

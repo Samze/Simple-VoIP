@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>call-icon.jpg</file>
+        <file>end_call.png</file>
+    </qresource>
+</RCC>

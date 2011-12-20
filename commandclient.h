@@ -27,7 +27,6 @@ signals:
     void commandError();
 
 public slots:
-    void connectToPeer();
     void connectToPeer(Peer*);
     void hangUp();
     void callPeer();
@@ -37,9 +36,6 @@ private:
     static quint16 generateUDPPort();
     static const quint16 UDPMAX = 45999;
     static const quint16 UDPMIN = 44000;
-
-//    QString *m_ip;
-//    qint64 m_port;
 
 };
 

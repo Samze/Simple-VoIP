@@ -9,10 +9,11 @@ SendThread::~SendThread() {
 
 void SendThread::run() {
 
-    VoiceInput capture(m_address);
+    QHostAddress address(m_address);
+    VoiceInput capture(address);
     capture.start();
 
-    qDebug() << *m_address;
+    qDebug() << m_address;
     //Loops thread waiting on events
     int code = exec();
 
@@ -20,7 +21,7 @@ void SendThread::run() {
     capture.stop();
 }
 
-void SendThread::recordSound(QHostAddress* address) {
+void SendThread::recordSound(const QHostAddress &address) {
     m_address = address;
     start();
 }

@@ -35,6 +35,10 @@ qint64 SoundReciever::readData ( char * data, qint64 len ) {
 
 }
 
+SoundReciever::~SoundReciever() {
+    delete udpSocket;
+}
+
 void SoundReciever::processDatagrams() {
     while (udpSocket->hasPendingDatagrams()) {
 

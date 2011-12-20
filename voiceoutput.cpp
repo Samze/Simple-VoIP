@@ -11,7 +11,7 @@ VoiceOutput::VoiceOutput(AbstractVoice *parent) :
 }
 
 VoiceOutput::~VoiceOutput() {
-
+    delete m_audioOut;
 }
 
 void VoiceOutput::start() {

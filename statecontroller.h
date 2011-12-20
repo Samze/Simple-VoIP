@@ -33,7 +33,7 @@ signals:
     void callResponse(int);
 
     void callerBusy();
-    void callAccepted();
+    void newState(StateController::VoIPState);
 
 
 public slots:
@@ -60,7 +60,7 @@ private:
     NetworkDiscover *discover;
     VoIPState state;
 
-    QHostAddress* outgoingCall;
+    QHostAddress* outgoingCall; //Pointer to peerlist.
     QHostAddress* incomingCaller;
 
 

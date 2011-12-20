@@ -42,6 +42,7 @@ StateController::~StateController() {
     delete sendThread;
     delete client;
     delete server;
+    delete discover;
 }
 
 void StateController::callPeer(QString name) {
@@ -67,6 +68,7 @@ void StateController::endCall() {
         sendThread->quit();
 
         state = StateController::Ready;
+        emit newState(state);
     }
 }
 
@@ -111,12 +113,12 @@ void StateController::acceptCall() {
     server->sendCommand(*incomingCaller,CommandServer::Accepted);
 
     //Begin send/listen.
-    sendThread->recordSound(incomingCaller);
+    sendThread->recordSound(*incomingCaller);
     recThread->listen();
 
     state = StateController::InCall;
 
-    emit callAccepted();
+    emit newState(state);
     delete incomingCaller;
 }
 
@@ -130,12 +132,12 @@ void StateController::rejectCall() {
 }
 
 void StateController::outCallAccepted() {
-    sendThread->recordSound(outgoingCall);
+    sendThread->recordSound(*outgoingCall);
     recThread->listen();
 
     state = StateController::InCall;
 
-    emit callAccepted();
+    emit newState(state);
 }
 
 void StateController::callerWasBusy() {

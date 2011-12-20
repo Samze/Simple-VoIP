@@ -27,6 +27,12 @@ MainWindow::MainWindow(QWidget *parent) :
 
     //the gui should do something with controller emitted signal
     //callAccepted()
+    connect(controller,SIGNAL(newState(StateController::VoIPState)),this,SLOT(setCallStatus(StateController::VoIPState)));
+
+
+    //set edit options
+    connect(ui->actionAbout_QT, SIGNAL(triggered()),qApp,SLOT(aboutQt()));
+    this->setWindowTitle("VoIP Application");
 }
 
 MainWindow::~MainWindow()
@@ -45,10 +51,15 @@ void MainWindow::updateGUIPeerList(QList<Peer*> peerList) {
 
 void MainWindow::callPressed() {
 
-    QString name = ui->lstWidget->selectedItems().takeFirst()->text();
+    if (!ui->lstWidget->selectedItems().isEmpty()) {
+        QString name = ui->lstWidget->selectedItems().takeFirst()->text();
 
-    if (!name.isNull()) {
-        emit call(name);
+        if (!name.isNull()) {
+            emit call(name);
+        }
+    }
+    else {
+        QMessageBox::warning(this, "Call Error","You must select someone to call.",QMessageBox::Close,QMessageBox::Close);
     }
 }
 
@@ -84,5 +95,18 @@ void MainWindow::incomingCall(const QString &name) {
 void MainWindow::callerBusy() {
 
     QMessageBox::warning(this,"","The person you tried to call is busy",QMessageBox::Close);
+}
+
+void MainWindow::setCallStatus(StateController::VoIPState state) {
+
+    switch(state) {
+        case StateController::InCall:
+            ui->lblStatus->setText("In call");
+            break;
+        case StateController::Ready:
+            ui->lblStatus->setText("Ready");
+            break;
+    }
+
 }
 

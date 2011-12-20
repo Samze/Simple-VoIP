@@ -29,6 +29,7 @@ public slots:
      void callError(const QString &);
      void callerBusy();
      void incomingCall(const QString &);
+     void setCallStatus(StateController::VoIPState);
 
 private:
     Ui::MainWindow *ui;

@@ -12,6 +12,7 @@ class AbstractVoice : public QObject
 
 public:
     explicit AbstractVoice(QObject *parent = 0);
+    ~AbstractVoice();
 
 public slots:
     virtual void start() = 0;
