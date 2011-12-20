@@ -24,7 +24,7 @@ void CommandServer::receiveConnection() {
      QTcpSocket* receivedSocket = nextPendingConnection();
      activeConnections->append(receivedSocket);
 
-    connect(receivedSocket,SIGNAL(readyRead()), this,SLOT(readRequest()));
+     connect(receivedSocket,SIGNAL(readyRead()), this,SLOT(readRequest()));
 }
 
 void CommandServer::readRequest() {
@@ -61,15 +61,16 @@ void CommandServer::readRequest() {
     }
 }
 
-void CommandServer::busy(const QHostAddress &address) {
+void CommandServer::sendCommand(const QHostAddress &address,ServerResponse response) {
 
     //Find the tcp connection for the request and reject.
-    foreach(QTcpSocket* sock, activeConnections) {
+    foreach(QTcpSocket* sock, *activeConnections) {
         if ( sock->peerAddress() == address) {
 
-            char command = static_cast<char>(CommandServer::Busy);
-            write(&command,1);
+            char command = static_cast<char>(response);
+            sock->write(&command,1);
             break;
         }
     }
 }
+

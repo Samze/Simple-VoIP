@@ -33,14 +33,17 @@ void CommandClient::serverResponse() {
 
     //check input
     if (input.size() == 1) {
-        CommandServer::ServerResponses response = static_cast<CommandServer::ServerResponses>(*input.data());
+        CommandServer::ServerResponse response = static_cast<CommandServer::ServerResponse>(*input.data());
 
         switch(response) {
-            case CommandServer::UnknownCommand:
-                emit commandError();
+            case CommandServer::Accepted:
+                emit callerAccepted();
                 break;
             case CommandServer::Busy:
                 emit callerBusy();
+                break;
+            case CommandServer::UnknownCommand:
+                 emit commandError();
                 break;
             default:
                 break;

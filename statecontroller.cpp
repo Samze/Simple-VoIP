@@ -10,23 +10,28 @@ StateController::StateController(QObject *parent) :
     server = new CommandServer(this);
 
     discover = new NetworkDiscover(this);
-    discover->broadCastTimer.start();
-    discover->peerCheck.start();
-
-    //setup broadcast p2p nature...
 
     //setup two threads for sending and receiving audio data
     recThread = new ReceiveThread(this);
     sendThread = new SendThread(this);
 
+    //Incoming call
     connect(server,SIGNAL(callInitiated(QHostAddress)),this,SLOT(receiveCall(QHostAddress)));
 
-    //setup stop connections
+    //Call terminated
     connect(server,SIGNAL(callEnded()),this,SLOT(endCall()));
 
-    connect(discover,SIGNAL(peersChanged(QList<Peer*>)),this,SIGNAL(updatePeerList(QList<Peer*>)));
-    connect(client,SIGNAL(callerBusy()),this,SIGNAL(callerBusy()));
+    //Initiated call busy.
+    connect(client,SIGNAL(callerAccepted()),this,SLOT(outCallAccepted()));
+    connect(client,SIGNAL(callerBusy()),this,SLOT(callerWasBusy()));
 
+
+    //Rebroadcast for the view.
+    connect(discover,SIGNAL(peersChanged(QList<Peer*>)),this,SIGNAL(updatePeerList(QList<Peer*>)));
+
+    //Start broadcast/listen for peer-to-peer nature
+    discover->broadCastTimer.start();
+    discover->peerCheck.start();
 
     state = StateController::Ready;
 }
@@ -42,9 +47,10 @@ StateController::~StateController() {
 void StateController::callPeer(QString name) {
 
     if(state == StateController::Ready) {
-        //Lets get this rolling!
-        Peer* peer = discover->peerList.value(name);
-        sendThread->recordSound(*peer->getAddress());
+        //Lets get this rolling! initiate call.
+
+        outgoingCall = discover->peerList.value(name)->getAddress();
+        client->connectToPeer(discover->peerList.value(name));
     }
     else {
         emit callError("You are already in a call. You must terminate before calling someone else");
@@ -55,8 +61,13 @@ void StateController::endCall() {
     //Ended calls are processed at the controller level instead of directly at the
     //model (ie. listen/send threads) just incase we want to update the view with anthing later...probably won't use this
 
-    recThread->quit();
-    sendThread->quit();
+    if (state == InCall) {
+        client->hangUp();
+        recThread->quit();
+        sendThread->quit();
+
+        state = StateController::Ready;
+    }
 }
 
 void StateController::muteSound() {
@@ -67,47 +78,66 @@ void StateController::muteMic() {
     //TODO
 }
 
-void StateController::receiveCall(QHostAddress address) {
-    //Again this could have been achieved by connecting the direct received calls to this acton, but we want to check
+void StateController::receiveCall(const QHostAddress &address) {
+    //This could have been achieved by connecting the direct received calls to this acton, but we want to check
     //the state and perhaps perform gui operations. Controller assumes responsability.
 
     if (state == StateController::Ready) {
 
         QString name = getNameFromAddress(address);
         if (!name.isNull()) {
-            incomingCaller = address; //store the address of the incoming caller for when the view responses.
+            incomingCaller = new QHostAddress(address); //store the address of the incoming caller for when the view responses.
             emit callIncoming(name);
         }
     }
     else {
-        //server response here..
+        rejectCall();
     }
 }
 
 QString StateController::getNameFromAddress(const QHostAddress &address) {
 
     foreach(Peer* p, discover->peerList.values()) {
-        if (p->getAddress() == address) {
+        if (*p->getAddress() == address) {
             return p->getName();
         }
     }
-    return null;
+    return NULL;
 }
 
 void StateController::acceptCall() {
+
+    //Inform caller that we accept the call.
+    server->sendCommand(*incomingCaller,CommandServer::Accepted);
+
+    //Begin send/listen.
     sendThread->recordSound(incomingCaller);
     recThread->listen();
 
-    //server responses here?
+    state = StateController::InCall;
 
-    incomingCaller = null;
+    emit callAccepted();
+    delete incomingCaller;
 }
 
 
 void StateController::rejectCall() {
 
     //server reponses here?
-    server->busy(incomingCaller);
+    server->sendCommand(*incomingCaller,CommandServer::Busy);
 
-    incomingCaller = null;
+    delete incomingCaller;
+}
+
+void StateController::outCallAccepted() {
+    sendThread->recordSound(outgoingCall);
+    recThread->listen();
+
+    state = StateController::InCall;
+
+    emit callAccepted();
+}
+
+void StateController::callerWasBusy() {
+    emit callerBusy();
 }

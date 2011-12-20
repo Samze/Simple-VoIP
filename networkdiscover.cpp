@@ -64,10 +64,12 @@ bool NetworkDiscover::addToList(QString* senderName,QHostAddress* senderAddress,
         Peer* retrievedPeer = peerList.value(peer->getName());
         retrievedPeer->updateTime();
         delete peer;
+        return false;
     }
     else {
         peerList.insert(peer->getName(),peer);
         emit peersChanged(peerList.values());
+        return true;
     }
 
 }

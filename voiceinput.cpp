@@ -1,6 +1,6 @@
 #include "voiceinput.h"
 
-VoiceInput::VoiceInput(QHostAddress& address)
+VoiceInput::VoiceInput(QHostAddress* address)
 {
     //setup audio
     m_audioIn = new QAudioInput(format, this);

@@ -10,26 +10,23 @@ MainWindow::MainWindow(QWidget *parent) :
     controller = new StateController();
 
     //setup start connections
-    connect(ui->btnCapture,SIGNAL(clicked()),this,SLOT( ));
+
+    //GUI interaction
+    connect(ui->btnCapture,SIGNAL(clicked()),this,SLOT(callPressed()));
+    connect(ui->btnStopCapture,SIGNAL(clicked()),controller,SLOT(endCall()));
+
     connect(this,SIGNAL(call(QString)),controller,SLOT(callPeer(QString)));
-
-    connect(ui->btnCapture,SIGNAL(clicked()),client,SLOT(connectToPeer()));
-
-
-    connect(controller,SIGNAL(updatePeerList(QList<Peer*>)),this,SLOT(updateGUIPeerList(QList<Peer*>));
-
-    connect(ui->btnCapture,SIGNAL(clicked()),this,SLOT(callPeer()));
-    connect(ui->btnCapture,SIGNAL(clicked()),recThread,SLOT(listen()));
-
-    connect(ui->btnStopCapture,SIGNAL(clicked()),client,SLOT(hangUp()));
-
-    connect(ui->btnStopCapture,SIGNAL(clicked()),sendThread,SLOT(quit()));
-    connect(ui->btnStopCapture,SIGNAL(clicked()),recThread,SLOT(quit()));
-
     connect(this,SIGNAL(inCallAccepted()),controller,SLOT(acceptCall()));
     connect(this,SIGNAL(inCallRejected()),controller,SLOT(rejectCall()));
 
+    //feedback from controller.
+    connect(controller,SIGNAL(updatePeerList(QList<Peer*>)),this,SLOT(updateGUIPeerList(QList<Peer*>)));
     connect(controller,SIGNAL(callerBusy()),this,SLOT(callerBusy()));
+    connect(controller,SIGNAL(callError(QString)),this,SLOT(callError(QString)));
+    connect(controller,SIGNAL(callIncoming(QString)),this,SLOT(incomingCall(QString)));
+
+    //the gui should do something with controller emitted signal
+    //callAccepted()
 }
 
 MainWindow::~MainWindow()
@@ -56,24 +53,28 @@ void MainWindow::callPressed() {
 }
 
 
-void MainWindow::callError(QString error) {
-    QMessageBox::warning(this,&error,QMessageBox::Close);
+void MainWindow::callError(const QString &error) {
+    QMessageBox::warning(this, "Call Error",error,QMessageBox::Close,QMessageBox::Close);
 
 }
 
-void MainWindow::incomingCall(QString name) {
+void MainWindow::incomingCall(const QString &name) {
     QString msg("Incoming call from : " + name + " Do you wish to accept the call?");
 
-    switch(QMessageBox::question(this, &msg,
-    QMessageBox::Yes | QMessageBox::No,
-    QMessageBox::No))
+    switch(QMessageBox::question(this, "",msg,
+                                 QMessageBox::Yes | QMessageBox::No,
+                                 QMessageBox::No))
     {
-        case QMessageBox::Yes:
-            emit inCallAccepted();
+    case QMessageBox::Yes:
+        emit inCallAccepted();
         break;
 
-        case QMessageBox::No:
-            emit inCallRejected();
+    case QMessageBox::No:
+        emit inCallRejected();
+        break;
+
+    default:
+        emit inCallRejected();
         break;
 
     }
@@ -82,6 +83,6 @@ void MainWindow::incomingCall(QString name) {
 
 void MainWindow::callerBusy() {
 
-    QMessageBox::warning(this,"The person you tried to call is busy",QMessageBox::Close);
+    QMessageBox::warning(this,"","The person you tried to call is busy",QMessageBox::Close);
 }
 

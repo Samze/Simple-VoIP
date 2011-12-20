@@ -21,28 +21,35 @@ public:
 
     enum VoIPState {
        Ready,
-       Busy
+       InCall
     };
 
 signals:
     void updatePeerList(QList<Peer*>);
+
     void callError(QString);
 
     void callIncoming(QString);
     void callResponse(int);
 
     void callerBusy();
+    void callAccepted();
 
 
 public slots:
     void callPeer(QString);
+    void callerWasBusy();
+
     void endCall();
     void muteSound();
     void muteMic();
 
-    void receiveCall(QHostAddress);
+    void receiveCall(const QHostAddress &);
     void acceptCall();
     void rejectCall();
+
+private slots:
+    void outCallAccepted();
 
 private:
     ReceiveThread *recThread;
@@ -53,7 +60,8 @@ private:
     NetworkDiscover *discover;
     VoIPState state;
 
-    QHostAddress incomingCaller;
+    QHostAddress* outgoingCall;
+    QHostAddress* incomingCaller;
 
 
     QString getNameFromAddress(const QHostAddress &);

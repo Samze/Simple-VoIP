@@ -26,8 +26,9 @@ signals:
 public slots:
      void updateGUIPeerList(QList<Peer*>);
      void callPressed();
-     void callError(QString);
+     void callError(const QString &);
      void callerBusy();
+     void incomingCall(const QString &);
 
 private:
     Ui::MainWindow *ui;

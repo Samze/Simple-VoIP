@@ -11,12 +11,12 @@ public:
     explicit SendThread(QObject *parent = 0);
     ~SendThread();
 
-    QHostAddress m_address;
+    QHostAddress* m_address;
 protected:
     void run();
 
 public slots:
-    void recordSound(QHostAddress);
+    void recordSound(QHostAddress*);
 
 };
 

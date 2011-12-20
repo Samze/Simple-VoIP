@@ -14,11 +14,13 @@ public:
     explicit CommandServer(QObject *parent = 0);
     ~CommandServer();
 
-
-    enum ServerResponses {
-       UnknownCommand,
-       Busy
+    enum ServerResponse {
+       Accepted,
+       Busy,
+       UnknownCommand
     };
+
+    void sendCommand(const QHostAddress &, ServerResponse);
 
 signals:
     void callInitiated(QHostAddress);
@@ -30,8 +32,6 @@ private slots:
     void receiveConnection();
     void readRequest();
 
-private:
-    void busy(const QHostAddress &);
 
 private:
     QList<QTcpSocket *> *activeConnections;

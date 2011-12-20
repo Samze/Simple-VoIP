@@ -22,8 +22,9 @@ public:
 
 signals:
     void connectionEstablished();
-    void commandError();
+    void callerAccepted();
     void callerBusy();
+    void commandError();
 
 public slots:
     void connectToPeer();
