@@ -31,6 +31,9 @@ private slots:
     void readRequest();
 
 private:
+    void busy(const QHostAddress &);
+
+private:
     QList<QTcpSocket *> *activeConnections;
 };
 

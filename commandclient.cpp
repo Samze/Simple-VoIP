@@ -8,16 +8,11 @@ CommandClient::CommandClient(QObject *parent) :
 }
 
 void CommandClient::connectToPeer() {
-    if (state() == ConnectedState) {
-        disconnectFromHost();
-    }
     connectToHost("141.163.48.92",12345,QIODevice::ReadWrite);
 }
 
 void CommandClient::connectToPeer(Peer* peer) {
-    if (state() == ConnectedState) {
-        disconnectFromHost();
-    }
+
     connectToHost(*peer->getAddress(),12345,QIODevice::ReadWrite);
 }
 
@@ -35,7 +30,6 @@ void CommandClient::callPeer() {
 void CommandClient::serverResponse() {
 
     QByteArray input = readLine();
-
 
     //check input
     if (input.size() == 1) {

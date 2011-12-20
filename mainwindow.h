@@ -2,15 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include "voiceinput.h"
-#include "voiceoutput.h"
-#include "soundsender.h"
-#include "soundreciever.h"
-#include "receivethread.h"
-#include "sendthread.h"
-#include "commandclient.h"
-#include "commandserver.h"
-#include "networkdiscover.h"
+#include "statecontroller.h"
+#include <QMessageBox>
 
 namespace Ui {
     class MainWindow;
@@ -24,19 +17,21 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
-public slots:
-     void output(QList<Peer*>);
-     void callPeer();
+signals:
+    void call(QString);
 
+    void inCallAccepted();
+    void inCallRejected();
+
+public slots:
+     void updateGUIPeerList(QList<Peer*>);
+     void callPressed();
+     void callError(QString);
+     void callerBusy();
 
 private:
     Ui::MainWindow *ui;
-    ReceiveThread *recThread;
-    SendThread *sendThread;
-
-    CommandClient *client;
-    CommandServer *server;
-    NetworkDiscover *discover;
+    StateController* controller;
 
     QStringList list;
 };

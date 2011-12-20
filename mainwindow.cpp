@@ -7,49 +7,38 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    //setup tcp listening for commands....
-
-    client = new CommandClient(this);
-    server = new CommandServer(this);
-
-    discover = new NetworkDiscover(this);
-    discover->broadCastTimer.start();
-    discover->peerCheck.start();
-
-    //setup broadcast p2p nature...
-
-    //setup two threads for sending and receiving audio data
-    recThread = new ReceiveThread(this);
-    sendThread = new SendThread(this);
+    controller = new StateController();
 
     //setup start connections
+    connect(ui->btnCapture,SIGNAL(clicked()),this,SLOT( ));
+    connect(this,SIGNAL(call(QString)),controller,SLOT(callPeer(QString)));
+
     connect(ui->btnCapture,SIGNAL(clicked()),client,SLOT(connectToPeer()));
+
+
+    connect(controller,SIGNAL(updatePeerList(QList<Peer*>)),this,SLOT(updateGUIPeerList(QList<Peer*>));
 
     connect(ui->btnCapture,SIGNAL(clicked()),this,SLOT(callPeer()));
     connect(ui->btnCapture,SIGNAL(clicked()),recThread,SLOT(listen()));
 
     connect(ui->btnStopCapture,SIGNAL(clicked()),client,SLOT(hangUp()));
 
-    connect(server,SIGNAL(callInitiated(QHostAddress)),sendThread,SLOT(recordSound(QHostAddress)));
-    connect(server,SIGNAL(callInitiated(QHostAddress)),recThread,SLOT(listen()));
-
-    //setup stop connections
-    connect(server,SIGNAL(callEnded()),sendThread,SLOT(quit()));
-    connect(server,SIGNAL(callEnded()),recThread,SLOT(quit()));
     connect(ui->btnStopCapture,SIGNAL(clicked()),sendThread,SLOT(quit()));
     connect(ui->btnStopCapture,SIGNAL(clicked()),recThread,SLOT(quit()));
-    connect(discover,SIGNAL(peersChanged(QList<Peer*>)),this,SLOT(output(QList<Peer*>)));
-}
 
+    connect(this,SIGNAL(inCallAccepted()),controller,SLOT(acceptCall()));
+    connect(this,SIGNAL(inCallRejected()),controller,SLOT(rejectCall()));
+
+    connect(controller,SIGNAL(callerBusy()),this,SLOT(callerBusy()));
+}
 
 MainWindow::~MainWindow()
 {
     delete ui;
-    delete recThread;
-    delete sendThread;
+    delete controller;
 }
 
-void MainWindow::output(QList<Peer*> peerList) {
+void MainWindow::updateGUIPeerList(QList<Peer*> peerList) {
 
    list = Peer::getPeersNameList(peerList);
    ui->lstWidget->clear();
@@ -57,10 +46,42 @@ void MainWindow::output(QList<Peer*> peerList) {
 
 }
 
-void MainWindow::callPeer() {
+void MainWindow::callPressed() {
 
     QString name = ui->lstWidget->selectedItems().takeFirst()->text();
 
-    Peer* peer = discover->peerList.value(name);
-    sendThread->recordSound(*peer->getAddress());
+    if (!name.isNull()) {
+        emit call(name);
+    }
 }
+
+
+void MainWindow::callError(QString error) {
+    QMessageBox::warning(this,&error,QMessageBox::Close);
+
+}
+
+void MainWindow::incomingCall(QString name) {
+    QString msg("Incoming call from : " + name + " Do you wish to accept the call?");
+
+    switch(QMessageBox::question(this, &msg,
+    QMessageBox::Yes | QMessageBox::No,
+    QMessageBox::No))
+    {
+        case QMessageBox::Yes:
+            emit inCallAccepted();
+        break;
+
+        case QMessageBox::No:
+            emit inCallRejected();
+        break;
+
+    }
+}
+
+
+void MainWindow::callerBusy() {
+
+    QMessageBox::warning(this,"The person you tried to call is busy",QMessageBox::Close);
+}
+

@@ -60,3 +60,16 @@ void CommandServer::readRequest() {
         }
     }
 }
+
+void CommandServer::busy(const QHostAddress &address) {
+
+    //Find the tcp connection for the request and reject.
+    foreach(QTcpSocket* sock, activeConnections) {
+        if ( sock->peerAddress() == address) {
+
+            char command = static_cast<char>(CommandServer::Busy);
+            write(&command,1);
+            break;
+        }
+    }
+}

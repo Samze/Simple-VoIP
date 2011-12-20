@@ -22,7 +22,8 @@ SOURCES += main.cpp\
     commandserver.cpp \
     commandclient.cpp \
     networkdiscover.cpp \
-    peer.cpp
+    peer.cpp \
+    statecontroller.cpp
 
 HEADERS  += mainwindow.h \
     soundreciever.h \
@@ -35,9 +36,12 @@ HEADERS  += mainwindow.h \
     commandserver.h \
     commandclient.h \
     networkdiscover.h \
-    peer.h
+    peer.h \
+    statecontroller.h
 
 FORMS    += mainwindow.ui
+
+
 
 
 
