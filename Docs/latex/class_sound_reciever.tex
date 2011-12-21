@@ -1,0 +1,90 @@
+\hypertarget{class_sound_reciever}{
+\section{\-Sound\-Reciever \-Class \-Reference}
+\label{class_sound_reciever}\index{\-Sound\-Reciever@{\-Sound\-Reciever}}
+}
+
+
+\-A buffer that receives \-U\-D\-P audio data over the network.  
+
+
+
+
+{\ttfamily \#include $<$soundreciever.\-h$>$}
+
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_sound_reciever_ad10126bf26dd00c6a48d763c9691e0ca}{\-Sound\-Reciever} (\-Q\-Object $\ast$parent=0)
+\begin{DoxyCompactList}\small\item\em \-Default constructor which binds to a \-U\-D\-P port. \end{DoxyCompactList}\item 
+\hypertarget{class_sound_reciever_ae7e8a754e275fedf25e4cc8f86f64d72}{
+\hyperlink{class_sound_reciever_ae7e8a754e275fedf25e4cc8f86f64d72}{$\sim$\-Sound\-Reciever} ()}
+\label{class_sound_reciever_ae7e8a754e275fedf25e4cc8f86f64d72}
+
+\begin{DoxyCompactList}\small\item\em \-Deletes the \-U\-D\-P\-Socket. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Protected \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+qint64 \hyperlink{class_sound_reciever_ad2e6e099486057cce325d4775c499eb9}{read\-Data} (char $\ast$data, qint64 len)
+\begin{DoxyCompactList}\small\item\em \-Overridden \-Q\-Buffer method. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\-A buffer that receives \-U\-D\-P audio data over the network. 
+
+\-This class listens on a specific \-U\-D\-P port for audio data sent by another client. \-It decompresses it and adds it to it's buffer. \-Read requests on this buffer will empty it. \-This class inherits from \-Q\-Buffer. 
+
+\subsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{class_sound_reciever_ad10126bf26dd00c6a48d763c9691e0ca}{
+\index{\-Sound\-Reciever@{\-Sound\-Reciever}!\-Sound\-Reciever@{\-Sound\-Reciever}}
+\index{\-Sound\-Reciever@{\-Sound\-Reciever}!SoundReciever@{\-Sound\-Reciever}}
+\subsubsection[{\-Sound\-Reciever}]{\setlength{\rightskip}{0pt plus 5cm}\-Sound\-Reciever\-::\-Sound\-Reciever (
+\begin{DoxyParamCaption}
+\item[{\-Q\-Object $\ast$}]{parent = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}explicit\mbox{]}}}}
+\label{class_sound_reciever_ad10126bf26dd00c6a48d763c9691e0ca}
+
+
+\-Default constructor which binds to a \-U\-D\-P port. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em parent} & \-The owner of this object. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{class_sound_reciever_ad2e6e099486057cce325d4775c499eb9}{
+\index{\-Sound\-Reciever@{\-Sound\-Reciever}!read\-Data@{read\-Data}}
+\index{read\-Data@{read\-Data}!SoundReciever@{\-Sound\-Reciever}}
+\subsubsection[{read\-Data}]{\setlength{\rightskip}{0pt plus 5cm}qint64 \-Sound\-Reciever\-::read\-Data (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{data, }
+\item[{qint64}]{len}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_sound_reciever_ad2e6e099486057cce325d4775c499eb9}
+
+
+\-Overridden \-Q\-Buffer method. 
+
+\-This method will empty the buffer on a read request. 
+\begin{DoxyParams}{\-Parameters}
+{\em data} & \-A pointer to data where it should be placed. \\
+\hline
+{\em len} & \-The length of data to try and read \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\-The length actually read into data. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{\-See also}
+\-Q\-Buffer\-::read\-Data() 
+\end{DoxySeeAlso}
+
+
+\-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+soundreciever.\-h\item 
+soundreciever.\-cpp\end{DoxyCompactItemize}

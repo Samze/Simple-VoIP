@@ -5,11 +5,6 @@ ReceiveThread::ReceiveThread(QObject *parent) :
 {
 }
 
-ReceiveThread::~ReceiveThread() {
-}
-
-
-
 void ReceiveThread::run() {
 
     VoiceOutput output;

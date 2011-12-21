@@ -1,0 +1,120 @@
+\hypertarget{class_network_discover}{
+\section{\-Network\-Discover \-Class \-Reference}
+\label{class_network_discover}\index{\-Network\-Discover@{\-Network\-Discover}}
+}
+
+
+\-Discovers local peers on the network to communicate with.  
+
+
+
+
+{\ttfamily \#include $<$networkdiscover.\-h$>$}
+
+\subsection*{\-Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_network_discover_a42566247e43198ea9cce91eb5f15511d}{peers\-Changed} (\-Q\-List$<$ \hyperlink{class_peer}{\-Peer} $\ast$ $>$)
+\begin{DoxyCompactList}\small\item\em \-Emitted when the peer list has changed, ie. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_network_discover_a35d97308463f9cbe622767b2d364bdbb}{\-Network\-Discover} (\-Q\-Object $\ast$parent=0)
+\begin{DoxyCompactList}\small\item\em \-Gets local name, binds udp port, connects signals and slots and then starts timers. \end{DoxyCompactList}\item 
+\hypertarget{class_network_discover_a416e23eb1f6925197596731e3c5f325e}{
+\hyperlink{class_network_discover_a416e23eb1f6925197596731e3c5f325e}{$\sim$\-Network\-Discover} ()}
+\label{class_network_discover_a416e23eb1f6925197596731e3c5f325e}
+
+\begin{DoxyCompactList}\small\item\em \-Default destructor. \end{DoxyCompactList}\item 
+\hyperlink{class_peer}{\-Peer} $\ast$ \hyperlink{class_network_discover_a91ec8539ddfeb90f6735d05f2f10b97a}{get\-Peer\-From\-Address} (const \-Q\-Host\-Address \&address)
+\begin{DoxyCompactList}\small\item\em \-Returns a peer for an address. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Public \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_network_discover_a82d0981a5c6c1acecd85a0e210b631f2}{
+\-Q\-Timer {\bfseries broad\-Cast\-Timer}}
+\label{class_network_discover_a82d0981a5c6c1acecd85a0e210b631f2}
+
+\item 
+\hypertarget{class_network_discover_ad23e0a7d95e0fed29acae8f193dfcfc3}{
+\-Q\-Timer {\bfseries peer\-Check}}
+\label{class_network_discover_ad23e0a7d95e0fed29acae8f193dfcfc3}
+
+\item 
+\hypertarget{class_network_discover_ac7f0c8a7a8e780c83c24b4fa8cbbbfef}{
+\-Q\-Map$<$ \-Q\-String, \hyperlink{class_peer}{\-Peer} $\ast$ $>$ \hyperlink{class_network_discover_ac7f0c8a7a8e780c83c24b4fa8cbbbfef}{peer\-List}}
+\label{class_network_discover_ac7f0c8a7a8e780c83c24b4fa8cbbbfef}
+
+\begin{DoxyCompactList}\small\item\em \-The list of peers currently detected on the network. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\-Discovers local peers on the network to communicate with. 
+
+\-This class broadcasts and receives a beacon signal that is used to determine who is avaiable on the network for calling. \-A signal is sent out periodically to show an \char`\"{}alive\char`\"{} state. \-The same port is binded to listen to other peers, they are added to a list. \-Periodically a check is done to see the last know time of an update. \-This is used to remove peers from the list. \-This class inherits from \-Q\-Udp\-Socket. \begin{DoxySeeAlso}{\-See also}
+\-Q\-Udp\-Socket 
+\end{DoxySeeAlso}
+
+
+\subsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{class_network_discover_a35d97308463f9cbe622767b2d364bdbb}{
+\index{\-Network\-Discover@{\-Network\-Discover}!\-Network\-Discover@{\-Network\-Discover}}
+\index{\-Network\-Discover@{\-Network\-Discover}!NetworkDiscover@{\-Network\-Discover}}
+\subsubsection[{\-Network\-Discover}]{\setlength{\rightskip}{0pt plus 5cm}\-Network\-Discover\-::\-Network\-Discover (
+\begin{DoxyParamCaption}
+\item[{\-Q\-Object $\ast$}]{parent = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}explicit\mbox{]}}}}
+\label{class_network_discover_a35d97308463f9cbe622767b2d364bdbb}
+
+
+\-Gets local name, binds udp port, connects signals and slots and then starts timers. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em parent} & \-Parent object. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{class_network_discover_a91ec8539ddfeb90f6735d05f2f10b97a}{
+\index{\-Network\-Discover@{\-Network\-Discover}!get\-Peer\-From\-Address@{get\-Peer\-From\-Address}}
+\index{get\-Peer\-From\-Address@{get\-Peer\-From\-Address}!NetworkDiscover@{\-Network\-Discover}}
+\subsubsection[{get\-Peer\-From\-Address}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Peer} $\ast$ \-Network\-Discover\-::get\-Peer\-From\-Address (
+\begin{DoxyParamCaption}
+\item[{const \-Q\-Host\-Address \&}]{address}
+\end{DoxyParamCaption}
+)}}
+\label{class_network_discover_a91ec8539ddfeb90f6735d05f2f10b97a}
+
+
+\-Returns a peer for an address. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em address} & \-The address for the peer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\-The returned peer or null. 
+\end{DoxyReturn}
+\hypertarget{class_network_discover_a42566247e43198ea9cce91eb5f15511d}{
+\index{\-Network\-Discover@{\-Network\-Discover}!peers\-Changed@{peers\-Changed}}
+\index{peers\-Changed@{peers\-Changed}!NetworkDiscover@{\-Network\-Discover}}
+\subsubsection[{peers\-Changed}]{\setlength{\rightskip}{0pt plus 5cm}void \-Network\-Discover\-::peers\-Changed (
+\begin{DoxyParamCaption}
+\item[{\-Q\-List$<$ {\bf \-Peer} $\ast$ $>$}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}signal\mbox{]}}}}
+\label{class_network_discover_a42566247e43198ea9cce91eb5f15511d}
+
+
+\-Emitted when the peer list has changed, ie. 
+
+new peer or removed peer. 
+
+\-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+networkdiscover.\-h\item 
+networkdiscover.\-cpp\end{DoxyCompactItemize}

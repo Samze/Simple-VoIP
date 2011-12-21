@@ -1,0 +1,90 @@
+\hypertarget{class_sound_sender}{
+\section{\-Sound\-Sender \-Class \-Reference}
+\label{class_sound_sender}\index{\-Sound\-Sender@{\-Sound\-Sender}}
+}
+
+
+\-A buffer that sends \-U\-D\-P audio data over the network.  
+
+
+
+
+{\ttfamily \#include $<$soundsender.\-h$>$}
+
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_sound_sender_a15a16cf2d16d1de5de0f0d0e4b4ce5c9}{\-Sound\-Sender} (\-Q\-Object $\ast$parent, \-Q\-Host\-Address address)
+\begin{DoxyCompactList}\small\item\em \-Default constructor which binds to a \-U\-D\-P port. \end{DoxyCompactList}\item 
+\hypertarget{class_sound_sender_a15f4c11ed7d489972876697b776b27ab}{
+\hyperlink{class_sound_sender_a15f4c11ed7d489972876697b776b27ab}{$\sim$\-Sound\-Sender} ()}
+\label{class_sound_sender_a15f4c11ed7d489972876697b776b27ab}
+
+\begin{DoxyCompactList}\small\item\em \-Deletes the \-U\-D\-P\-Socket. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Protected \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+qint64 \hyperlink{class_sound_sender_a2557d162440651dcee73996162d4820a}{write\-Data} (const char $\ast$data, qint64 len)
+\begin{DoxyCompactList}\small\item\em \-Overridden from \-Q\-Buffer, when data is written to this buffer it is sent down the network to the address specified. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\-A buffer that sends \-U\-D\-P audio data over the network. 
+
+\-This class sends audio data down a specific \-U\-D\-P port to another client. \-When data is written to this buffer, it is immenditely compressed and sent down the network. 
+
+\subsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{class_sound_sender_a15a16cf2d16d1de5de0f0d0e4b4ce5c9}{
+\index{\-Sound\-Sender@{\-Sound\-Sender}!\-Sound\-Sender@{\-Sound\-Sender}}
+\index{\-Sound\-Sender@{\-Sound\-Sender}!SoundSender@{\-Sound\-Sender}}
+\subsubsection[{\-Sound\-Sender}]{\setlength{\rightskip}{0pt plus 5cm}\-Sound\-Sender\-::\-Sound\-Sender (
+\begin{DoxyParamCaption}
+\item[{\-Q\-Object $\ast$}]{parent, }
+\item[{\-Q\-Host\-Address}]{address}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}explicit\mbox{]}}}}
+\label{class_sound_sender_a15a16cf2d16d1de5de0f0d0e4b4ce5c9}
+
+
+\-Default constructor which binds to a \-U\-D\-P port. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em parent} & \-The owner of this object. \\
+\hline
+{\em address} & \-The address to send the data. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{class_sound_sender_a2557d162440651dcee73996162d4820a}{
+\index{\-Sound\-Sender@{\-Sound\-Sender}!write\-Data@{write\-Data}}
+\index{write\-Data@{write\-Data}!SoundSender@{\-Sound\-Sender}}
+\subsubsection[{write\-Data}]{\setlength{\rightskip}{0pt plus 5cm}qint64 \-Sound\-Sender\-::write\-Data (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{data, }
+\item[{qint64}]{len}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_sound_sender_a2557d162440651dcee73996162d4820a}
+
+
+\-Overridden from \-Q\-Buffer, when data is written to this buffer it is sent down the network to the address specified. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em data} & \-The data to put into the buffer. \\
+\hline
+{\em len} & \-The length of data to add. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\-The length of data sent. 
+\end{DoxyReturn}
+
+
+\-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+soundsender.\-h\item 
+soundsender.\-cpp\end{DoxyCompactItemize}

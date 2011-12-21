@@ -1,0 +1,105 @@
+\hypertarget{class_voice_input}{
+\section{\-Voice\-Input \-Class \-Reference}
+\label{class_voice_input}\index{\-Voice\-Input@{\-Voice\-Input}}
+}
+
+
+\-Captures audio data and puts it in a buffer for sending down the network.  
+
+
+
+
+{\ttfamily \#include $<$voiceinput.\-h$>$}
+
+\-Inheritance diagram for \-Voice\-Input\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_voice_input}
+\end{center}
+\end{figure}
+\subsection*{\-Public \-Slots}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{class_voice_input_a99193e448e78f1bd10219bfb482d13ba}{start} ()
+\begin{DoxyCompactList}\small\item\em \-Implemented virtual start method from \hyperlink{class_abstract_voice}{\-Abstract\-Voice}. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_voice_input_aacdc744a4d9b156d79d05c7ea9361576}{stop} ()
+\begin{DoxyCompactList}\small\item\em \-Implemented virtual stop method from \hyperlink{class_abstract_voice}{\-Abstract\-Voice}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_voice_input_a57880cf450adb3749b952de271b8261f}{\-Voice\-Input} (\-Q\-Host\-Address address)
+\begin{DoxyCompactList}\small\item\em \-Creates our \-Audio\-Device object and buffer used. \end{DoxyCompactList}\item 
+\hypertarget{class_voice_input_a9ebb274fbb6075af8feb26f2cd3b6e93}{
+\hyperlink{class_voice_input_a9ebb274fbb6075af8feb26f2cd3b6e93}{$\sim$\-Voice\-Input} ()}
+\label{class_voice_input_a9ebb274fbb6075af8feb26f2cd3b6e93}
+
+\begin{DoxyCompactList}\small\item\em \-Default destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\-Captures audio data and puts it in a buffer for sending down the network. 
+
+\-This class captures data from the systems native input device and adds it to a buffer to be sent down the network. \-It is assumed that the format of this audio data is the same as represented by this classes superclass \hyperlink{class_abstract_voice}{\-Abstract\-Voice}. 
+
+\subsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{class_voice_input_a57880cf450adb3749b952de271b8261f}{
+\index{\-Voice\-Input@{\-Voice\-Input}!\-Voice\-Input@{\-Voice\-Input}}
+\index{\-Voice\-Input@{\-Voice\-Input}!VoiceInput@{\-Voice\-Input}}
+\subsubsection[{\-Voice\-Input}]{\setlength{\rightskip}{0pt plus 5cm}\-Voice\-Input\-::\-Voice\-Input (
+\begin{DoxyParamCaption}
+\item[{\-Q\-Host\-Address}]{address}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}explicit\mbox{]}}}}
+\label{class_voice_input_a57880cf450adb3749b952de271b8261f}
+
+
+\-Creates our \-Audio\-Device object and buffer used. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em address} & \-The address to send captured data. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{class_voice_input_a99193e448e78f1bd10219bfb482d13ba}{
+\index{\-Voice\-Input@{\-Voice\-Input}!start@{start}}
+\index{start@{start}!VoiceInput@{\-Voice\-Input}}
+\subsubsection[{start}]{\setlength{\rightskip}{0pt plus 5cm}void \-Voice\-Input\-::start (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual, slot\mbox{]}}}}
+\label{class_voice_input_a99193e448e78f1bd10219bfb482d13ba}
+
+
+\-Implemented virtual start method from \hyperlink{class_abstract_voice}{\-Abstract\-Voice}. 
+
+\-This method starts recording and filling the network buffer. 
+
+\-Implements \hyperlink{class_abstract_voice_a5e6f942915e9ef55babd7070225266ce}{\-Abstract\-Voice}.
+
+\hypertarget{class_voice_input_aacdc744a4d9b156d79d05c7ea9361576}{
+\index{\-Voice\-Input@{\-Voice\-Input}!stop@{stop}}
+\index{stop@{stop}!VoiceInput@{\-Voice\-Input}}
+\subsubsection[{stop}]{\setlength{\rightskip}{0pt plus 5cm}void \-Voice\-Input\-::stop (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual, slot\mbox{]}}}}
+\label{class_voice_input_aacdc744a4d9b156d79d05c7ea9361576}
+
+
+\-Implemented virtual stop method from \hyperlink{class_abstract_voice}{\-Abstract\-Voice}. 
+
+\-This method stops recording. 
+
+\-Implements \hyperlink{class_abstract_voice_aae2a6c918a63938881faefd9909508a0}{\-Abstract\-Voice}.
+
+
+
+\-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+voiceinput.\-h\item 
+voiceinput.\-cpp\end{DoxyCompactItemize}

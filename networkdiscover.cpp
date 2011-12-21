@@ -60,7 +60,7 @@ void NetworkDiscover::receivedP2P() {
 
 }
 
-
+//NOTE port is not supported yet, it is for an enhancement where the communication port can be varied.
 bool NetworkDiscover::addToList(QString* senderName,QHostAddress* senderAddress,quint16 port) {
 
     Peer *peer = new Peer(this,senderName,senderAddress, port);
@@ -115,7 +115,7 @@ void NetworkDiscover::checkPeersAlive() {
      while (i.hasNext()) {
          i.next();
 
-         QTime peerTime = i.value()->getTime();
+         QTime peerTime = i.value()->getLastResponded();
          qDebug() << peerTime.elapsed();
 
          if (peerTime.elapsed() > DISCOVER_TIMEOUT ) {
@@ -132,4 +132,15 @@ void NetworkDiscover::checkPeersAlive() {
      if (toRemove.size() > 0) {
          emit peersChanged(peerList.values());
      }
+}
+
+
+Peer* NetworkDiscover::getPeerFromAddress(const QHostAddress &address) {
+
+    foreach(Peer* p, peerList.values()) {
+        if (*p->getAddress() == address) {
+            return p;
+        }
+    }
+    return NULL;
 }

@@ -1,0 +1,102 @@
+\hypertarget{class_send_thread}{
+\section{\-Send\-Thread \-Class \-Reference}
+\label{class_send_thread}\index{\-Send\-Thread@{\-Send\-Thread}}
+}
+
+
+\-A \-Thread class that controls recording audio and sending data communication.  
+
+
+
+
+{\ttfamily \#include $<$sendthread.\-h$>$}
+
+\subsection*{\-Public \-Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_send_thread_ace7f54d057aea7d6ef58949333095f35}{record\-Sound} (const \-Q\-Host\-Address \&address)
+\begin{DoxyCompactList}\small\item\em \-Starts the new thread, sending data to the given address. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_send_thread_afff2d01a9c3f193f68840d8bfc3af83d}{mute\-Mic} (bool)
+\begin{DoxyCompactList}\small\item\em \-Signal that should emitted when a request to mute the mic is processed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_send_thread_a69eb38313a68a80b495277f05fa4f7ca}{\-Send\-Thread} (\-Q\-Object $\ast$parent=0)
+\begin{DoxyCompactList}\small\item\em \-Default constructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Protected \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_send_thread_a7d389ce773db570613325fb56fb19e9a}{
+void \hyperlink{class_send_thread_a7d389ce773db570613325fb56fb19e9a}{run} ()}
+\label{class_send_thread_a7d389ce773db570613325fb56fb19e9a}
+
+\begin{DoxyCompactList}\small\item\em \-Reimplmented function from \-Q\-Thread that beings receiving and playback. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\-A \-Thread class that controls recording audio and sending data communication. 
+
+\-This class records audio from the default recording device and the sends them via \-U\-D\-P to the destination specified. \-This class inherits from \-Q\-Thread. 
+
+\subsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{class_send_thread_a69eb38313a68a80b495277f05fa4f7ca}{
+\index{\-Send\-Thread@{\-Send\-Thread}!\-Send\-Thread@{\-Send\-Thread}}
+\index{\-Send\-Thread@{\-Send\-Thread}!SendThread@{\-Send\-Thread}}
+\subsubsection[{\-Send\-Thread}]{\setlength{\rightskip}{0pt plus 5cm}\-Send\-Thread\-::\-Send\-Thread (
+\begin{DoxyParamCaption}
+\item[{\-Q\-Object $\ast$}]{parent = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}explicit\mbox{]}}}}
+\label{class_send_thread_a69eb38313a68a80b495277f05fa4f7ca}
+
+
+\-Default constructor. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em parent} & \-The owner of this object. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{class_send_thread_afff2d01a9c3f193f68840d8bfc3af83d}{
+\index{\-Send\-Thread@{\-Send\-Thread}!mute\-Mic@{mute\-Mic}}
+\index{mute\-Mic@{mute\-Mic}!SendThread@{\-Send\-Thread}}
+\subsubsection[{mute\-Mic}]{\setlength{\rightskip}{0pt plus 5cm}void \-Send\-Thread\-::mute\-Mic (
+\begin{DoxyParamCaption}
+\item[{bool}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}signal\mbox{]}}}}
+\label{class_send_thread_afff2d01a9c3f193f68840d8bfc3af83d}
+
+
+\-Signal that should emitted when a request to mute the mic is processed. 
+
+\-This class will then mute the microphone. \hypertarget{class_send_thread_ace7f54d057aea7d6ef58949333095f35}{
+\index{\-Send\-Thread@{\-Send\-Thread}!record\-Sound@{record\-Sound}}
+\index{record\-Sound@{record\-Sound}!SendThread@{\-Send\-Thread}}
+\subsubsection[{record\-Sound}]{\setlength{\rightskip}{0pt plus 5cm}void \-Send\-Thread\-::record\-Sound (
+\begin{DoxyParamCaption}
+\item[{const \-Q\-Host\-Address \&}]{address}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}slot\mbox{]}}}}
+\label{class_send_thread_ace7f54d057aea7d6ef58949333095f35}
+
+
+\-Starts the new thread, sending data to the given address. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em address} & \-The address to send the recorded audio. \\
+\hline
+\end{DoxyParams}
+
+
+\-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+sendthread.\-h\item 
+sendthread.\-cpp\end{DoxyCompactItemize}

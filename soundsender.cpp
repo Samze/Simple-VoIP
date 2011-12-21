@@ -3,7 +3,6 @@
 SoundSender::SoundSender(QObject *parent, QHostAddress address) :
     QBuffer(parent), m_address(address)
 {
-    qDebug() << address;
     udpSocket = new QUdpSocket(this);
 }
 

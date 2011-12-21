@@ -1,0 +1,152 @@
+\hypertarget{class_command_server}{
+\section{\-Command\-Server \-Class \-Reference}
+\label{class_command_server}\index{\-Command\-Server@{\-Command\-Server}}
+}
+
+
+\-A subclass of \-Q\-Tcp\-Server that receives command signals from clients over the network.  
+
+
+
+
+{\ttfamily \#include $<$commandserver.\-h$>$}
+
+\subsection*{\-Signals}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_command_server_aa7fa62273e4e4ceb87d1b77ba9681719}{
+void \hyperlink{class_command_server_aa7fa62273e4e4ceb87d1b77ba9681719}{call\-Initiated} (\-Q\-Host\-Address)}
+\label{class_command_server_aa7fa62273e4e4ceb87d1b77ba9681719}
+
+\begin{DoxyCompactList}\small\item\em \-Emitted when a call has been initated, contains the address of the caller. \end{DoxyCompactList}\item 
+void \hyperlink{class_command_server_a17167b801328d51543128b5a80a39dcc}{call\-Ended} ()
+\begin{DoxyCompactList}\small\item\em \-Emitted when the call has been requested to end. \end{DoxyCompactList}\item 
+void \hyperlink{class_command_server_ae47dfe7ef7190b1f869c20736b10a6d0}{caller\-Mic\-Muted} (bool)
+\begin{DoxyCompactList}\small\item\em \-Emitted when the caller has changed the state of their microphone. \end{DoxyCompactList}\item 
+void \hyperlink{class_command_server_a3b7620cfee623cb8b2e9c7c468a36972}{caller\-Sound\-Muted} (bool)
+\begin{DoxyCompactList}\small\item\em \-Emitted when the caller has changed the state of their sound playback. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_command_server_ae341a512a49c2453c306f5e4d576c052}{\-Command\-Server} (\-Q\-Object $\ast$parent=0)
+\begin{DoxyCompactList}\small\item\em \-Command \-Server constructor. \end{DoxyCompactList}\item 
+\hyperlink{class_command_server_a89f1d55bb111f7954d022e0c63d3b87f}{$\sim$\-Command\-Server} ()
+\begin{DoxyCompactList}\small\item\em \-Command \-Server destructor. \end{DoxyCompactList}\item 
+void \hyperlink{class_command_server_a1fc3321611893adbaecc4bdeca585570}{send\-Command} (const \-Q\-Host\-Address \&address, \hyperlink{class_command_client_aa99b17193724fef8aed2b2c724b0c243}{\-Command\-Client\-::\-Call\-Command} cmd)
+\begin{DoxyCompactList}\small\item\em \-Sends command back to the client. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\-A subclass of \-Q\-Tcp\-Server that receives command signals from clients over the network. 
+
+\-This class will listen on the specificed tcp port (12345) and wait for connections. \-It will then wait for commands to be send from the client and emit signals for the application to handle. \-Responses can also be sent back via the server. \-This class inherits from \-Q\-Tcp\-Server. 
+
+\subsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{class_command_server_ae341a512a49c2453c306f5e4d576c052}{
+\index{\-Command\-Server@{\-Command\-Server}!\-Command\-Server@{\-Command\-Server}}
+\index{\-Command\-Server@{\-Command\-Server}!CommandServer@{\-Command\-Server}}
+\subsubsection[{\-Command\-Server}]{\setlength{\rightskip}{0pt plus 5cm}\-Command\-Server\-::\-Command\-Server (
+\begin{DoxyParamCaption}
+\item[{\-Q\-Object $\ast$}]{parent = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}explicit\mbox{]}}}}
+\label{class_command_server_ae341a512a49c2453c306f5e4d576c052}
+
+
+\-Command \-Server constructor. 
+
+\-Sets up a new command server class. 
+\begin{DoxyParams}{\-Parameters}
+{\em parent} & \-Parent for this object. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_command_server_a89f1d55bb111f7954d022e0c63d3b87f}{
+\index{\-Command\-Server@{\-Command\-Server}!$\sim$\-Command\-Server@{$\sim$\-Command\-Server}}
+\index{$\sim$\-Command\-Server@{$\sim$\-Command\-Server}!CommandServer@{\-Command\-Server}}
+\subsubsection[{$\sim$\-Command\-Server}]{\setlength{\rightskip}{0pt plus 5cm}\-Command\-Server\-::$\sim$\-Command\-Server (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_command_server_a89f1d55bb111f7954d022e0c63d3b87f}
+
+
+\-Command \-Server destructor. 
+
+\-Destroys all active connections. 
+\begin{DoxyParams}{\-Parameters}
+{\em parent} & \-Parent for this object. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{class_command_server_a17167b801328d51543128b5a80a39dcc}{
+\index{\-Command\-Server@{\-Command\-Server}!call\-Ended@{call\-Ended}}
+\index{call\-Ended@{call\-Ended}!CommandServer@{\-Command\-Server}}
+\subsubsection[{call\-Ended}]{\setlength{\rightskip}{0pt plus 5cm}void \-Command\-Server\-::call\-Ended (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}signal\mbox{]}}}}
+\label{class_command_server_a17167b801328d51543128b5a80a39dcc}
+
+
+\-Emitted when the call has been requested to end. 
+
+\hypertarget{class_command_server_ae47dfe7ef7190b1f869c20736b10a6d0}{
+\index{\-Command\-Server@{\-Command\-Server}!caller\-Mic\-Muted@{caller\-Mic\-Muted}}
+\index{caller\-Mic\-Muted@{caller\-Mic\-Muted}!CommandServer@{\-Command\-Server}}
+\subsubsection[{caller\-Mic\-Muted}]{\setlength{\rightskip}{0pt plus 5cm}void \-Command\-Server\-::caller\-Mic\-Muted (
+\begin{DoxyParamCaption}
+\item[{bool}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}signal\mbox{]}}}}
+\label{class_command_server_ae47dfe7ef7190b1f869c20736b10a6d0}
+
+
+\-Emitted when the caller has changed the state of their microphone. 
+
+\hypertarget{class_command_server_a3b7620cfee623cb8b2e9c7c468a36972}{
+\index{\-Command\-Server@{\-Command\-Server}!caller\-Sound\-Muted@{caller\-Sound\-Muted}}
+\index{caller\-Sound\-Muted@{caller\-Sound\-Muted}!CommandServer@{\-Command\-Server}}
+\subsubsection[{caller\-Sound\-Muted}]{\setlength{\rightskip}{0pt plus 5cm}void \-Command\-Server\-::caller\-Sound\-Muted (
+\begin{DoxyParamCaption}
+\item[{bool}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}signal\mbox{]}}}}
+\label{class_command_server_a3b7620cfee623cb8b2e9c7c468a36972}
+
+
+\-Emitted when the caller has changed the state of their sound playback. 
+
+\hypertarget{class_command_server_a1fc3321611893adbaecc4bdeca585570}{
+\index{\-Command\-Server@{\-Command\-Server}!send\-Command@{send\-Command}}
+\index{send\-Command@{send\-Command}!CommandServer@{\-Command\-Server}}
+\subsubsection[{send\-Command}]{\setlength{\rightskip}{0pt plus 5cm}void \-Command\-Server\-::send\-Command (
+\begin{DoxyParamCaption}
+\item[{const \-Q\-Host\-Address \&}]{address, }
+\item[{{\bf \-Command\-Client\-::\-Call\-Command}}]{cmd}
+\end{DoxyParamCaption}
+)}}
+\label{class_command_server_a1fc3321611893adbaecc4bdeca585570}
+
+
+\-Sends command back to the client. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em address} & \-The \-I\-P of the client to send a message to. \\
+\hline
+{\em cmd} & \-The command to send. \-Must be part of the enumerated \-Call\-Command list. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{\-See also}
+\hyperlink{class_command_client_aa99b17193724fef8aed2b2c724b0c243}{\-Command\-Client\-::\-Call\-Command} 
+\end{DoxySeeAlso}
+
+
+\-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+commandserver.\-h\item 
+commandserver.\-cpp\end{DoxyCompactItemize}

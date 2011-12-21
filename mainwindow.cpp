@@ -41,7 +41,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     //the gui should do something with controller emitted signal
     //callAccepted()
-    connect(controller,SIGNAL(newState(StateController::VoIPState)),this,SLOT(setCallStatus(StateController::VoIPState)));
+    connect(controller,SIGNAL(newState(StateController::VoIPState)),this,SLOT(callStateChanged(StateController::VoIPState)));
 
     connect(qApp,SIGNAL(aboutToQuit()),controller,SLOT(endCall()));
 
@@ -58,9 +58,9 @@ MainWindow::~MainWindow()
 
 void MainWindow::updateGUIPeerList(QList<Peer*> peerList) {
 
-   list = Peer::getPeersNameList(peerList);
+   peerNameList = Peer::getPeersNameList(peerList);
    ui->lstWidget->clear();
-   ui->lstWidget->addItems(list);
+   ui->lstWidget->addItems(peerNameList);
 
 }
 
@@ -112,11 +112,11 @@ void MainWindow::callerBusy() {
     QMessageBox::warning(this,"","The person you tried to call is busy",QMessageBox::Close);
 }
 
-void MainWindow::setCallStatus(StateController::VoIPState state) {
+void MainWindow::callStateChanged(StateController::VoIPState state) {
 
     switch(state) {
         case StateController::InCall:
-            ui->lblCallName->setText(controller->getPeer()->getName());
+            ui->lblCallName->setText(controller->getCallPeer()->getName());
             ui->lblCallIcon->setPixmap(callGreen);
             break;
         case StateController::Ready:
@@ -134,7 +134,7 @@ void MainWindow::callerMicMuted(bool toggle) {
     qDebug() << "CallerMicMuted " << toggle;
 
     QString msg;
-    msg = toggle ? controller->getPeer()->getName() + " muted their Mic." : "";
+    msg = toggle ? controller->getCallPeer()->getName() + " muted their Mic." : "";
     ui->lblCallerMic->setText(msg);
 }
 
@@ -142,6 +142,6 @@ void MainWindow::callerSoundMuted(bool toggle) {
     qDebug() << "CallerSoundMuted " << toggle;
 
     QString msg;
-    msg = toggle ? controller->getPeer()->getName() + " muted their sound." : "";
+    msg = toggle ? controller->getCallPeer()->getName() + " muted their sound." : "";
     ui->lblCallerSound->setText(msg);
 }

@@ -1,0 +1,87 @@
+\hypertarget{class_receive_thread}{
+\section{\-Receive\-Thread \-Class \-Reference}
+\label{class_receive_thread}\index{\-Receive\-Thread@{\-Receive\-Thread}}
+}
+
+
+\-A \-Thread class that controls listening for incoming voice data.  
+
+
+
+
+{\ttfamily \#include $<$receivethread.\-h$>$}
+
+\subsection*{\-Public \-Slots}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_receive_thread_a0eb5b7ab172cf0a35fee1e499d1a04e2}{
+void \hyperlink{class_receive_thread_a0eb5b7ab172cf0a35fee1e499d1a04e2}{listen} ()}
+\label{class_receive_thread_a0eb5b7ab172cf0a35fee1e499d1a04e2}
+
+\begin{DoxyCompactList}\small\item\em \-Starts the new thread. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_receive_thread_a971403a676eb058555b5099f04a5b546}{mute\-Sound} (bool)
+\begin{DoxyCompactList}\small\item\em \-Signal that should emitted when a request to mute is processed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_receive_thread_a7d3037d96e9f4f93850026dca7ff0787}{\-Receive\-Thread} (\-Q\-Object $\ast$parent=0)
+\begin{DoxyCompactList}\small\item\em \-Default constructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Protected \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_receive_thread_a5033e892e97f8fe46d25c5da6bd15674}{
+void \hyperlink{class_receive_thread_a5033e892e97f8fe46d25c5da6bd15674}{run} ()}
+\label{class_receive_thread_a5033e892e97f8fe46d25c5da6bd15674}
+
+\begin{DoxyCompactList}\small\item\em \-Reimplmented function from \-Q\-Thread that beings receiving and playback. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\-A \-Thread class that controls listening for incoming voice data. 
+
+\-This class listens for incoming \-U\-D\-P and then plays it using the \-Computers default audio out device. \-This class inherits from \-Q\-Thread. 
+
+\subsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{class_receive_thread_a7d3037d96e9f4f93850026dca7ff0787}{
+\index{\-Receive\-Thread@{\-Receive\-Thread}!\-Receive\-Thread@{\-Receive\-Thread}}
+\index{\-Receive\-Thread@{\-Receive\-Thread}!ReceiveThread@{\-Receive\-Thread}}
+\subsubsection[{\-Receive\-Thread}]{\setlength{\rightskip}{0pt plus 5cm}\-Receive\-Thread\-::\-Receive\-Thread (
+\begin{DoxyParamCaption}
+\item[{\-Q\-Object $\ast$}]{parent = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}explicit\mbox{]}}}}
+\label{class_receive_thread_a7d3037d96e9f4f93850026dca7ff0787}
+
+
+\-Default constructor. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em parent} & \-The owner of this object. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{class_receive_thread_a971403a676eb058555b5099f04a5b546}{
+\index{\-Receive\-Thread@{\-Receive\-Thread}!mute\-Sound@{mute\-Sound}}
+\index{mute\-Sound@{mute\-Sound}!ReceiveThread@{\-Receive\-Thread}}
+\subsubsection[{mute\-Sound}]{\setlength{\rightskip}{0pt plus 5cm}void \-Receive\-Thread\-::mute\-Sound (
+\begin{DoxyParamCaption}
+\item[{bool}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}signal\mbox{]}}}}
+\label{class_receive_thread_a971403a676eb058555b5099f04a5b546}
+
+
+\-Signal that should emitted when a request to mute is processed. 
+
+\-This class will then mute the sound. 
+
+\-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+receivethread.\-h\item 
+receivethread.\-cpp\end{DoxyCompactItemize}

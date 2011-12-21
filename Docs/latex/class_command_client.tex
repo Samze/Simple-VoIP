@@ -1,0 +1,260 @@
+\hypertarget{class_command_client}{
+\section{\-Command\-Client \-Class \-Reference}
+\label{class_command_client}\index{\-Command\-Client@{\-Command\-Client}}
+}
+
+
+\-A subclass of \-Q\-Tcp\-Socket, class that is responsible for sending/receiving control signals between callers over the network.  
+
+
+
+
+{\ttfamily \#include $<$commandclient.\-h$>$}
+
+\subsection*{\-Public \-Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{class_command_client_aa99b17193724fef8aed2b2c724b0c243}{\-Call\-Command} \{ \*
+\hyperlink{class_command_client_aa99b17193724fef8aed2b2c724b0c243adb48663cf07267a4bd93fc62a19d5a1b}{\-Call}, 
+\hyperlink{class_command_client_aa99b17193724fef8aed2b2c724b0c243afee233a7e84c51b2f49454f28ee45f57}{\-Call\-Accepted}, 
+\hyperlink{class_command_client_aa99b17193724fef8aed2b2c724b0c243abf63b268b2f2d99a0b1dd62ef12203b1}{\-Busy}, 
+\hyperlink{class_command_client_aa99b17193724fef8aed2b2c724b0c243abe934ba3c4b37aec4c163fc89a87a9e4}{\-End\-Call}, 
+\*
+\hyperlink{class_command_client_aa99b17193724fef8aed2b2c724b0c243ad46068afac5c51ce9be6bf83b41dfffb}{disable\-Mic}, 
+\hyperlink{class_command_client_aa99b17193724fef8aed2b2c724b0c243af82ae32aca1e073b23e4e9fadfc646ae}{disable\-Sound}, 
+\hyperlink{class_command_client_aa99b17193724fef8aed2b2c724b0c243aa61a9809208f36eee6d6af26cf30a4ba}{enable\-Mic}, 
+\hyperlink{class_command_client_aa99b17193724fef8aed2b2c724b0c243a7eb7f05fc849c5e6a03cec51912a5d84}{enable\-Sound}
+ \}
+\begin{DoxyCompactList}\small\item\em \-Call command enumerated for sending across the network. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Public \-Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_command_client_a3279b426a5718ed78a9c01fe11638617}{send\-Command} (\hyperlink{class_command_client_aa99b17193724fef8aed2b2c724b0c243}{\-Call\-Command} cmd)
+\begin{DoxyCompactList}\small\item\em \-Allows client to send commands to the server. \end{DoxyCompactList}\item 
+void \hyperlink{class_command_client_aab892b8c32beac570973990611bf3b04}{connect\-To\-Peer} (\hyperlink{class_peer}{\-Peer} $\ast$p)
+\begin{DoxyCompactList}\small\item\em \-Initiates a connection to a peer. \end{DoxyCompactList}\item 
+void \hyperlink{class_command_client_a5199922a9fc1be3cac4b70399451df60}{hang\-Up} ()
+\begin{DoxyCompactList}\small\item\em \-Hangs up on the current call. \end{DoxyCompactList}\item 
+void \hyperlink{class_command_client_a5e9d24302776437de353294cee9f3d19}{call\-Peer} ()
+\begin{DoxyCompactList}\small\item\em \-Initiates a call to a peer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Signals}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_command_client_a51e78fcbc30e280148c3d96febd3f2f5}{
+void \hyperlink{class_command_client_a51e78fcbc30e280148c3d96febd3f2f5}{caller\-Accepted} ()}
+\label{class_command_client_a51e78fcbc30e280148c3d96febd3f2f5}
+
+\begin{DoxyCompactList}\small\item\em \-Emitted when a call has been accepted. \end{DoxyCompactList}\item 
+\hypertarget{class_command_client_ad0881250571d8d7ec7162f7ec5aca387}{
+void \hyperlink{class_command_client_ad0881250571d8d7ec7162f7ec5aca387}{caller\-Busy} ()}
+\label{class_command_client_ad0881250571d8d7ec7162f7ec5aca387}
+
+\begin{DoxyCompactList}\small\item\em \-Emitted when a call has been rejected. \end{DoxyCompactList}\item 
+\hypertarget{class_command_client_a191f0dce261b1edc31709f919882606b}{
+void \hyperlink{class_command_client_a191f0dce261b1edc31709f919882606b}{call\-Ended} ()}
+\label{class_command_client_a191f0dce261b1edc31709f919882606b}
+
+\begin{DoxyCompactList}\small\item\em \-Emitted when a call has been terminated. \end{DoxyCompactList}\item 
+void \hyperlink{class_command_client_a72548d402f5213d7e49f7292a47b5194}{command\-Error} ()
+\begin{DoxyCompactList}\small\item\em \-Emitted when a command has not been understood. \end{DoxyCompactList}\item 
+void \hyperlink{class_command_client_a52ec0fcb2b894c2e3642779d27c4bb14}{caller\-Mic\-Muted} (bool)
+\begin{DoxyCompactList}\small\item\em \-Emitted when the caller has changed the state of their microphone. \end{DoxyCompactList}\item 
+void \hyperlink{class_command_client_a71bad5cfe2219924e6aaec0f2426b03d}{caller\-Sound\-Muted} (bool)
+\begin{DoxyCompactList}\small\item\em \-Emitted when the caller has changed the state of their sound playback. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_command_client_a14a6d40dd5e192c96b15e65ca3d668b4}{\-Command\-Client} (\-Q\-Object $\ast$parent=0)
+\begin{DoxyCompactList}\small\item\em \-Command \-Client constructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\-A subclass of \-Q\-Tcp\-Socket, class that is responsible for sending/receiving control signals between callers over the network. 
+
+\-This class is used to initiate calls to other users, it does this using the reliable protocol, \-T\-C\-P. \-A series of commands have been enumerated for use which the corresponding server can understand. \-This class can be reused and does not have to be re-\/instansiated for each new request or new peer. \-This class inherits from \-Q\-Tcp\-Socket. 
+
+\subsection{\-Member \-Enumeration \-Documentation}
+\hypertarget{class_command_client_aa99b17193724fef8aed2b2c724b0c243}{
+\index{\-Command\-Client@{\-Command\-Client}!\-Call\-Command@{\-Call\-Command}}
+\index{\-Call\-Command@{\-Call\-Command}!CommandClient@{\-Command\-Client}}
+\subsubsection[{\-Call\-Command}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf \-Command\-Client\-::\-Call\-Command}}}
+\label{class_command_client_aa99b17193724fef8aed2b2c724b0c243}
+
+
+\-Call command enumerated for sending across the network. 
+
+\-A list of enumerated commands that can be sent from the client to the server. \begin{Desc}
+\item[\-Enumerator\-: ]\par
+\begin{description}
+\index{\-Call@{\-Call}!\-Command\-Client@{\-Command\-Client}}\index{\-Command\-Client@{\-Command\-Client}!\-Call@{\-Call}}\item[{\em 
+\hypertarget{class_command_client_aa99b17193724fef8aed2b2c724b0c243adb48663cf07267a4bd93fc62a19d5a1b}{
+\-Call}
+\label{class_command_client_aa99b17193724fef8aed2b2c724b0c243adb48663cf07267a4bd93fc62a19d5a1b}
+}]initiate new call. \index{\-Call\-Accepted@{\-Call\-Accepted}!\-Command\-Client@{\-Command\-Client}}\index{\-Command\-Client@{\-Command\-Client}!\-Call\-Accepted@{\-Call\-Accepted}}\item[{\em 
+\hypertarget{class_command_client_aa99b17193724fef8aed2b2c724b0c243afee233a7e84c51b2f49454f28ee45f57}{
+\-Call\-Accepted}
+\label{class_command_client_aa99b17193724fef8aed2b2c724b0c243afee233a7e84c51b2f49454f28ee45f57}
+}]call has been accepted \index{\-Busy@{\-Busy}!\-Command\-Client@{\-Command\-Client}}\index{\-Command\-Client@{\-Command\-Client}!\-Busy@{\-Busy}}\item[{\em 
+\hypertarget{class_command_client_aa99b17193724fef8aed2b2c724b0c243abf63b268b2f2d99a0b1dd62ef12203b1}{
+\-Busy}
+\label{class_command_client_aa99b17193724fef8aed2b2c724b0c243abf63b268b2f2d99a0b1dd62ef12203b1}
+}]currently busy \index{\-End\-Call@{\-End\-Call}!\-Command\-Client@{\-Command\-Client}}\index{\-Command\-Client@{\-Command\-Client}!\-End\-Call@{\-End\-Call}}\item[{\em 
+\hypertarget{class_command_client_aa99b17193724fef8aed2b2c724b0c243abe934ba3c4b37aec4c163fc89a87a9e4}{
+\-End\-Call}
+\label{class_command_client_aa99b17193724fef8aed2b2c724b0c243abe934ba3c4b37aec4c163fc89a87a9e4}
+}]terminating call \index{disable\-Mic@{disable\-Mic}!\-Command\-Client@{\-Command\-Client}}\index{\-Command\-Client@{\-Command\-Client}!disable\-Mic@{disable\-Mic}}\item[{\em 
+\hypertarget{class_command_client_aa99b17193724fef8aed2b2c724b0c243ad46068afac5c51ce9be6bf83b41dfffb}{
+disable\-Mic}
+\label{class_command_client_aa99b17193724fef8aed2b2c724b0c243ad46068afac5c51ce9be6bf83b41dfffb}
+}]mic disabled \index{disable\-Sound@{disable\-Sound}!\-Command\-Client@{\-Command\-Client}}\index{\-Command\-Client@{\-Command\-Client}!disable\-Sound@{disable\-Sound}}\item[{\em 
+\hypertarget{class_command_client_aa99b17193724fef8aed2b2c724b0c243af82ae32aca1e073b23e4e9fadfc646ae}{
+disable\-Sound}
+\label{class_command_client_aa99b17193724fef8aed2b2c724b0c243af82ae32aca1e073b23e4e9fadfc646ae}
+}]sound disabled \index{enable\-Mic@{enable\-Mic}!\-Command\-Client@{\-Command\-Client}}\index{\-Command\-Client@{\-Command\-Client}!enable\-Mic@{enable\-Mic}}\item[{\em 
+\hypertarget{class_command_client_aa99b17193724fef8aed2b2c724b0c243aa61a9809208f36eee6d6af26cf30a4ba}{
+enable\-Mic}
+\label{class_command_client_aa99b17193724fef8aed2b2c724b0c243aa61a9809208f36eee6d6af26cf30a4ba}
+}]mic enabled \index{enable\-Sound@{enable\-Sound}!\-Command\-Client@{\-Command\-Client}}\index{\-Command\-Client@{\-Command\-Client}!enable\-Sound@{enable\-Sound}}\item[{\em 
+\hypertarget{class_command_client_aa99b17193724fef8aed2b2c724b0c243a7eb7f05fc849c5e6a03cec51912a5d84}{
+enable\-Sound}
+\label{class_command_client_aa99b17193724fef8aed2b2c724b0c243a7eb7f05fc849c5e6a03cec51912a5d84}
+}]sound enabled \end{description}
+\end{Desc}
+
+
+
+\subsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{class_command_client_a14a6d40dd5e192c96b15e65ca3d668b4}{
+\index{\-Command\-Client@{\-Command\-Client}!\-Command\-Client@{\-Command\-Client}}
+\index{\-Command\-Client@{\-Command\-Client}!CommandClient@{\-Command\-Client}}
+\subsubsection[{\-Command\-Client}]{\setlength{\rightskip}{0pt plus 5cm}\-Command\-Client\-::\-Command\-Client (
+\begin{DoxyParamCaption}
+\item[{\-Q\-Object $\ast$}]{parent = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}explicit\mbox{]}}}}
+\label{class_command_client_a14a6d40dd5e192c96b15e65ca3d668b4}
+
+
+\-Command \-Client constructor. 
+
+\-Sets up a new command client class. 
+\begin{DoxyParams}{\-Parameters}
+{\em parent} & \-Parent for this object. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{class_command_client_a52ec0fcb2b894c2e3642779d27c4bb14}{
+\index{\-Command\-Client@{\-Command\-Client}!caller\-Mic\-Muted@{caller\-Mic\-Muted}}
+\index{caller\-Mic\-Muted@{caller\-Mic\-Muted}!CommandClient@{\-Command\-Client}}
+\subsubsection[{caller\-Mic\-Muted}]{\setlength{\rightskip}{0pt plus 5cm}void \-Command\-Client\-::caller\-Mic\-Muted (
+\begin{DoxyParamCaption}
+\item[{bool}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}signal\mbox{]}}}}
+\label{class_command_client_a52ec0fcb2b894c2e3642779d27c4bb14}
+
+
+\-Emitted when the caller has changed the state of their microphone. 
+
+\hypertarget{class_command_client_a71bad5cfe2219924e6aaec0f2426b03d}{
+\index{\-Command\-Client@{\-Command\-Client}!caller\-Sound\-Muted@{caller\-Sound\-Muted}}
+\index{caller\-Sound\-Muted@{caller\-Sound\-Muted}!CommandClient@{\-Command\-Client}}
+\subsubsection[{caller\-Sound\-Muted}]{\setlength{\rightskip}{0pt plus 5cm}void \-Command\-Client\-::caller\-Sound\-Muted (
+\begin{DoxyParamCaption}
+\item[{bool}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}signal\mbox{]}}}}
+\label{class_command_client_a71bad5cfe2219924e6aaec0f2426b03d}
+
+
+\-Emitted when the caller has changed the state of their sound playback. 
+
+\hypertarget{class_command_client_a5e9d24302776437de353294cee9f3d19}{
+\index{\-Command\-Client@{\-Command\-Client}!call\-Peer@{call\-Peer}}
+\index{call\-Peer@{call\-Peer}!CommandClient@{\-Command\-Client}}
+\subsubsection[{call\-Peer}]{\setlength{\rightskip}{0pt plus 5cm}void \-Command\-Client\-::call\-Peer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}slot\mbox{]}}}}
+\label{class_command_client_a5e9d24302776437de353294cee9f3d19}
+
+
+\-Initiates a call to a peer. 
+
+\begin{DoxySeeAlso}{\-See also}
+disconnect\-From\-Host() 
+\end{DoxySeeAlso}
+\hypertarget{class_command_client_a72548d402f5213d7e49f7292a47b5194}{
+\index{\-Command\-Client@{\-Command\-Client}!command\-Error@{command\-Error}}
+\index{command\-Error@{command\-Error}!CommandClient@{\-Command\-Client}}
+\subsubsection[{command\-Error}]{\setlength{\rightskip}{0pt plus 5cm}void \-Command\-Client\-::command\-Error (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}signal\mbox{]}}}}
+\label{class_command_client_a72548d402f5213d7e49f7292a47b5194}
+
+
+\-Emitted when a command has not been understood. 
+
+\hypertarget{class_command_client_aab892b8c32beac570973990611bf3b04}{
+\index{\-Command\-Client@{\-Command\-Client}!connect\-To\-Peer@{connect\-To\-Peer}}
+\index{connect\-To\-Peer@{connect\-To\-Peer}!CommandClient@{\-Command\-Client}}
+\subsubsection[{connect\-To\-Peer}]{\setlength{\rightskip}{0pt plus 5cm}void \-Command\-Client\-::connect\-To\-Peer (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Peer} $\ast$}]{p}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}slot\mbox{]}}}}
+\label{class_command_client_aab892b8c32beac570973990611bf3b04}
+
+
+\-Initiates a connection to a peer. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em p} & \-The peer that should be connected to. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_command_client_a5199922a9fc1be3cac4b70399451df60}{
+\index{\-Command\-Client@{\-Command\-Client}!hang\-Up@{hang\-Up}}
+\index{hang\-Up@{hang\-Up}!CommandClient@{\-Command\-Client}}
+\subsubsection[{hang\-Up}]{\setlength{\rightskip}{0pt plus 5cm}void \-Command\-Client\-::hang\-Up (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}slot\mbox{]}}}}
+\label{class_command_client_a5199922a9fc1be3cac4b70399451df60}
+
+
+\-Hangs up on the current call. 
+
+\-Note this performs the same operation as send command but also also disconnects from the host. \begin{DoxySeeAlso}{\-See also}
+disconnect\-From\-Host() 
+\end{DoxySeeAlso}
+\hypertarget{class_command_client_a3279b426a5718ed78a9c01fe11638617}{
+\index{\-Command\-Client@{\-Command\-Client}!send\-Command@{send\-Command}}
+\index{send\-Command@{send\-Command}!CommandClient@{\-Command\-Client}}
+\subsubsection[{send\-Command}]{\setlength{\rightskip}{0pt plus 5cm}void \-Command\-Client\-::send\-Command (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Command\-Client\-::\-Call\-Command}}]{cmd}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}slot\mbox{]}}}}
+\label{class_command_client_a3279b426a5718ed78a9c01fe11638617}
+
+
+\-Allows client to send commands to the server. 
+
+\-A connection must have already be established. 
+\begin{DoxyParams}{\-Parameters}
+{\em cmd} & \-The command to send to the server. \\
+\hline
+\end{DoxyParams}
+
+
+\-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+commandclient.\-h\item 
+commandclient.\-cpp\end{DoxyCompactItemize}

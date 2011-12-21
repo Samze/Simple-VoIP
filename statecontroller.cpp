@@ -25,7 +25,7 @@ StateController::StateController(QObject *parent) :
 
     //Initiated call busy.
     connect(client,SIGNAL(callerAccepted()),this,SLOT(outCallAccepted()));
-    connect(client,SIGNAL(callerBusy()),this,SLOT(callerWasBusy()));
+    connect(client,SIGNAL(callerBusy()),this,SLOT(outCallRejected()));
 
     connect(client,SIGNAL(callerMicMuted(bool)),this,SIGNAL(callerMicMuted(bool)));
     connect(server,SIGNAL(callerMicMuted(bool)),this,SIGNAL(callerMicMuted(bool)));
@@ -107,7 +107,7 @@ void StateController::receiveCall(const QHostAddress &address) {
 
     if (state == StateController::Ready || state == StateController::Calling) {
 
-        commPeer = getPeerFromAddress(address);
+        commPeer = discover->getPeerFromAddress(address);
 
         if (!commPeer->getName().isNull()) {
             emit callIncoming(commPeer->getName());
@@ -116,16 +116,6 @@ void StateController::receiveCall(const QHostAddress &address) {
     else {
         rejectCall();
     }
-}
-
-Peer* StateController::getPeerFromAddress(const QHostAddress &address) {
-
-    foreach(Peer* p, discover->peerList.values()) {
-        if (*p->getAddress() == address) {
-            return p;
-        }
-    }
-    return NULL;
 }
 
 void StateController::acceptCall() {
@@ -160,7 +150,7 @@ void StateController::outCallAccepted() {
     }
 }
 
-void StateController::callerWasBusy() {
+void StateController::outCallRejected() {
 
     state = StateController::Ready;
 

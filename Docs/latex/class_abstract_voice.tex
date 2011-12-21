@@ -1,0 +1,143 @@
+\hypertarget{class_abstract_voice}{
+\section{\-Abstract\-Voice \-Class \-Reference}
+\label{class_abstract_voice}\index{\-Abstract\-Voice@{\-Abstract\-Voice}}
+}
+
+
+\-Abstracted common voice elements for recording and playback.  
+
+
+
+
+{\ttfamily \#include $<$abstractvoice.\-h$>$}
+
+\-Inheritance diagram for \-Abstract\-Voice\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_abstract_voice}
+\end{center}
+\end{figure}
+\subsection*{\-Public \-Slots}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{class_abstract_voice_a5e6f942915e9ef55babd7070225266ce}{start} ()=0
+\begin{DoxyCompactList}\small\item\em \-A virtual function that starts the voice operation. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_abstract_voice_aae2a6c918a63938881faefd9909508a0}{stop} ()=0
+\begin{DoxyCompactList}\small\item\em \-A virtual function that stops all voice operation and subsequently is ready to receive another start call. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_abstract_voice_a6b3c93369820d5e9e65f596dcf2147be}{\-Abstract\-Voice} (\-Q\-Object $\ast$parent=0)
+\begin{DoxyCompactList}\small\item\em \-Abstract constructor. \end{DoxyCompactList}\item 
+\hyperlink{class_abstract_voice_a93d6515cf6e84cad397efe6b339a1b0c}{$\sim$\-Abstract\-Voice} ()
+\begin{DoxyCompactList}\small\item\em \-Abstract destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Protected \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\-Q\-Audio\-Format \hyperlink{class_abstract_voice_aa8718f0af1669ef7a84347c2d9a54cf9}{format}
+\begin{DoxyCompactList}\small\item\em \-Audio format to be used, default is set to audio/pcm, 8000 freq, 1 channel, 8 sample rate. \end{DoxyCompactList}\item 
+\hypertarget{class_abstract_voice_ac27882c5cb69564cbc4d5cca7847a359}{
+\-Q\-Audio\-Device\-Info $\ast$ \hyperlink{class_abstract_voice_ac27882c5cb69564cbc4d5cca7847a359}{dev\-Info}}
+\label{class_abstract_voice_ac27882c5cb69564cbc4d5cca7847a359}
+
+\begin{DoxyCompactList}\small\item\em \-Populated with the default audio device detected. \end{DoxyCompactList}\item 
+\-Q\-Buffer $\ast$ \hyperlink{class_abstract_voice_a93b7c2b08aa97b77b8126a8dff173018}{buffer}
+\begin{DoxyCompactList}\small\item\em \-The buffer to be used, must be implemented by subclass. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\-Abstracted common voice elements for recording and playback. 
+
+\-This class contains common attributes and virtual functions for both recording and playing audio. \-It holds information about the local device detected, a default format and a buffer for which will be written or read. 
+
+\subsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{class_abstract_voice_a6b3c93369820d5e9e65f596dcf2147be}{
+\index{\-Abstract\-Voice@{\-Abstract\-Voice}!\-Abstract\-Voice@{\-Abstract\-Voice}}
+\index{\-Abstract\-Voice@{\-Abstract\-Voice}!AbstractVoice@{\-Abstract\-Voice}}
+\subsubsection[{\-Abstract\-Voice}]{\setlength{\rightskip}{0pt plus 5cm}\-Abstract\-Voice\-::\-Abstract\-Voice (
+\begin{DoxyParamCaption}
+\item[{\-Q\-Object $\ast$}]{parent = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}explicit\mbox{]}}}}
+\label{class_abstract_voice_a6b3c93369820d5e9e65f596dcf2147be}
+
+
+\-Abstract constructor. 
+
+\-Instansiates a format and device object. \hypertarget{class_abstract_voice_a93d6515cf6e84cad397efe6b339a1b0c}{
+\index{\-Abstract\-Voice@{\-Abstract\-Voice}!$\sim$\-Abstract\-Voice@{$\sim$\-Abstract\-Voice}}
+\index{$\sim$\-Abstract\-Voice@{$\sim$\-Abstract\-Voice}!AbstractVoice@{\-Abstract\-Voice}}
+\subsubsection[{$\sim$\-Abstract\-Voice}]{\setlength{\rightskip}{0pt plus 5cm}\-Abstract\-Voice\-::$\sim$\-Abstract\-Voice (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_abstract_voice_a93d6515cf6e84cad397efe6b339a1b0c}
+
+
+\-Abstract destructor. 
+
+\-Deletes the device and buffer objects. \-The buffer object must be instansiated in a subclass. 
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{class_abstract_voice_a5e6f942915e9ef55babd7070225266ce}{
+\index{\-Abstract\-Voice@{\-Abstract\-Voice}!start@{start}}
+\index{start@{start}!AbstractVoice@{\-Abstract\-Voice}}
+\subsubsection[{start}]{\setlength{\rightskip}{0pt plus 5cm}virtual void \-Abstract\-Voice\-::start (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual, slot\mbox{]}}}}
+\label{class_abstract_voice_a5e6f942915e9ef55babd7070225266ce}
+
+
+\-A virtual function that starts the voice operation. 
+
+\-This function must be implemented. 
+
+\-Implemented in \hyperlink{class_voice_input_a99193e448e78f1bd10219bfb482d13ba}{\-Voice\-Input}, and \hyperlink{class_voice_output_ab73d7fc81805b8ba0d457db2fcf29ac4}{\-Voice\-Output}.
+
+\hypertarget{class_abstract_voice_aae2a6c918a63938881faefd9909508a0}{
+\index{\-Abstract\-Voice@{\-Abstract\-Voice}!stop@{stop}}
+\index{stop@{stop}!AbstractVoice@{\-Abstract\-Voice}}
+\subsubsection[{stop}]{\setlength{\rightskip}{0pt plus 5cm}virtual void \-Abstract\-Voice\-::stop (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual, slot\mbox{]}}}}
+\label{class_abstract_voice_aae2a6c918a63938881faefd9909508a0}
+
+
+\-A virtual function that stops all voice operation and subsequently is ready to receive another start call. 
+
+\-This function must be implemented. 
+
+\-Implemented in \hyperlink{class_voice_input_aacdc744a4d9b156d79d05c7ea9361576}{\-Voice\-Input}, and \hyperlink{class_voice_output_ad86ffb5732b221da79f5bfba04e7a35a}{\-Voice\-Output}.
+
+
+
+\subsection{\-Member \-Data \-Documentation}
+\hypertarget{class_abstract_voice_a93b7c2b08aa97b77b8126a8dff173018}{
+\index{\-Abstract\-Voice@{\-Abstract\-Voice}!buffer@{buffer}}
+\index{buffer@{buffer}!AbstractVoice@{\-Abstract\-Voice}}
+\subsubsection[{buffer}]{\setlength{\rightskip}{0pt plus 5cm}\-Q\-Buffer$\ast$ {\bf \-Abstract\-Voice\-::buffer}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_abstract_voice_a93b7c2b08aa97b77b8126a8dff173018}
+
+
+\-The buffer to be used, must be implemented by subclass. 
+
+\hypertarget{class_abstract_voice_aa8718f0af1669ef7a84347c2d9a54cf9}{
+\index{\-Abstract\-Voice@{\-Abstract\-Voice}!format@{format}}
+\index{format@{format}!AbstractVoice@{\-Abstract\-Voice}}
+\subsubsection[{format}]{\setlength{\rightskip}{0pt plus 5cm}\-Q\-Audio\-Format {\bf \-Abstract\-Voice\-::format}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_abstract_voice_aa8718f0af1669ef7a84347c2d9a54cf9}
+
+
+\-Audio format to be used, default is set to audio/pcm, 8000 freq, 1 channel, 8 sample rate. 
+
+
+
+\-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+abstractvoice.\-h\item 
+abstractvoice.\-cpp\end{DoxyCompactItemize}

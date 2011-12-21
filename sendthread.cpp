@@ -4,9 +4,6 @@ SendThread::SendThread(QObject *parent) :
     QThread(parent)
 {}
 
-SendThread::~SendThread() {
-}
-
 void SendThread::run() {
 
     QHostAddress address(m_address);

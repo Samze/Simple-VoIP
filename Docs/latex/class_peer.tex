@@ -1,0 +1,152 @@
+\hypertarget{class_peer}{
+\section{\-Peer \-Class \-Reference}
+\label{class_peer}\index{\-Peer@{\-Peer}}
+}
+
+
+\-Holds information for a located communication peer on the network.  
+
+
+
+
+{\ttfamily \#include $<$peer.\-h$>$}
+
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_peer_a3360b580084c61a8bc31144ae2af912a}{\-Peer} (\-Q\-Object $\ast$parent, \-Q\-String $\ast$name, \-Q\-Host\-Address $\ast$address, quint16 port)
+\begin{DoxyCompactList}\small\item\em \-Constructs a new peer. \end{DoxyCompactList}\item 
+\-Q\-String \hyperlink{class_peer_ad66666aca923fe13b4cca3f836d12fa7}{get\-Name} () const 
+\begin{DoxyCompactList}\small\item\em \-Returns the username of peer. \end{DoxyCompactList}\item 
+\-Q\-Time \hyperlink{class_peer_a1c9797749ddfbb9261e93f51cc3ace9e}{get\-Last\-Responded} ()
+\begin{DoxyCompactList}\small\item\em \-Gets the time the peer last communicated with us. \end{DoxyCompactList}\item 
+\-Q\-Host\-Address $\ast$ \hyperlink{class_peer_ac1e626629eeaaeebff30f2eda36c3a5e}{get\-Address} ()
+\begin{DoxyCompactList}\small\item\em \-Returns the \-I\-P address of the peer. \end{DoxyCompactList}\item 
+\hypertarget{class_peer_a49f70d43a1822edaeb8f3f7de66b12e3}{
+void \hyperlink{class_peer_a49f70d43a1822edaeb8f3f7de66b12e3}{update\-Time} ()}
+\label{class_peer_a49f70d43a1822edaeb8f3f7de66b12e3}
+
+\begin{DoxyCompactList}\small\item\em \-Updates the peers last communication time with the current local system time. \end{DoxyCompactList}\item 
+\hypertarget{class_peer_afa304e14507579b7f3aaf8b2e7483f1a}{
+bool \hyperlink{class_peer_afa304e14507579b7f3aaf8b2e7483f1a}{operator==} (const \hyperlink{class_peer}{\-Peer} \&peer)}
+\label{class_peer_afa304e14507579b7f3aaf8b2e7483f1a}
+
+\begin{DoxyCompactList}\small\item\em \-Compares two peers by their username. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Static \-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \-Q\-String\-List \hyperlink{class_peer_ab728eb8f441b3473983d9dfd902d8ac9}{get\-Peers\-Name\-List} (const \-Q\-List$<$ \hyperlink{class_peer}{\-Peer} $\ast$ $>$ \&peer\-List)
+\begin{DoxyCompactList}\small\item\em \-Static method that obtains a list of usernames from a list of peers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\-Holds information for a located communication peer on the network. 
+
+\-A \hyperlink{class_peer}{\-Peer} is someone on the same network who is also broad casting to discover other users of this application. \-This class represents their username and address. 
+
+\subsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{class_peer_a3360b580084c61a8bc31144ae2af912a}{
+\index{\-Peer@{\-Peer}!\-Peer@{\-Peer}}
+\index{\-Peer@{\-Peer}!Peer@{\-Peer}}
+\subsubsection[{\-Peer}]{\setlength{\rightskip}{0pt plus 5cm}\-Peer\-::\-Peer (
+\begin{DoxyParamCaption}
+\item[{\-Q\-Object $\ast$}]{parent, }
+\item[{\-Q\-String $\ast$}]{name, }
+\item[{\-Q\-Host\-Address $\ast$}]{address, }
+\item[{quint16}]{port}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}explicit\mbox{]}}}}
+\label{class_peer_a3360b580084c61a8bc31144ae2af912a}
+
+
+\-Constructs a new peer. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em parent} & \-Parent object. \\
+\hline
+{\em name} & \-The username of the peer. \\
+\hline
+{\em address} & \-The \-I\-P of the peer. \\
+\hline
+{\em port} & \-The prefered voice chat udp port for the peer. \-This is \-N\-O\-T implemented yet. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{class_peer_ac1e626629eeaaeebff30f2eda36c3a5e}{
+\index{\-Peer@{\-Peer}!get\-Address@{get\-Address}}
+\index{get\-Address@{get\-Address}!Peer@{\-Peer}}
+\subsubsection[{get\-Address}]{\setlength{\rightskip}{0pt plus 5cm}\-Q\-Host\-Address$\ast$ \-Peer\-::get\-Address (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_peer_ac1e626629eeaaeebff30f2eda36c3a5e}
+
+
+\-Returns the \-I\-P address of the peer. 
+
+\begin{DoxyReturn}{\-Returns}
+\-The \-I\-P address. 
+\end{DoxyReturn}
+\hypertarget{class_peer_a1c9797749ddfbb9261e93f51cc3ace9e}{
+\index{\-Peer@{\-Peer}!get\-Last\-Responded@{get\-Last\-Responded}}
+\index{get\-Last\-Responded@{get\-Last\-Responded}!Peer@{\-Peer}}
+\subsubsection[{get\-Last\-Responded}]{\setlength{\rightskip}{0pt plus 5cm}\-Q\-Time \-Peer\-::get\-Last\-Responded (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_peer_a1c9797749ddfbb9261e93f51cc3ace9e}
+
+
+\-Gets the time the peer last communicated with us. 
+
+\begin{DoxyReturn}{\-Returns}
+\-The time of last communication. 
+\end{DoxyReturn}
+\hypertarget{class_peer_ad66666aca923fe13b4cca3f836d12fa7}{
+\index{\-Peer@{\-Peer}!get\-Name@{get\-Name}}
+\index{get\-Name@{get\-Name}!Peer@{\-Peer}}
+\subsubsection[{get\-Name}]{\setlength{\rightskip}{0pt plus 5cm}\-Q\-String \-Peer\-::get\-Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_peer_ad66666aca923fe13b4cca3f836d12fa7}
+
+
+\-Returns the username of peer. 
+
+\begin{DoxyReturn}{\-Returns}
+\-The username of the peer. 
+\end{DoxyReturn}
+\hypertarget{class_peer_ab728eb8f441b3473983d9dfd902d8ac9}{
+\index{\-Peer@{\-Peer}!get\-Peers\-Name\-List@{get\-Peers\-Name\-List}}
+\index{get\-Peers\-Name\-List@{get\-Peers\-Name\-List}!Peer@{\-Peer}}
+\subsubsection[{get\-Peers\-Name\-List}]{\setlength{\rightskip}{0pt plus 5cm}\-Q\-String\-List \-Peer\-::get\-Peers\-Name\-List (
+\begin{DoxyParamCaption}
+\item[{const \-Q\-List$<$ {\bf \-Peer} $\ast$ $>$ \&}]{peer\-List}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{class_peer_ab728eb8f441b3473983d9dfd902d8ac9}
+
+
+\-Static method that obtains a list of usernames from a list of peers. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em peer\-List} & \-The list of peers. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\-A \-Stringlist containing all usernames of peers. 
+\end{DoxyReturn}
+
+
+\-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+peer.\-h\item 
+peer.\-cpp\end{DoxyCompactItemize}

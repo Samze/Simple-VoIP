@@ -5,7 +5,11 @@ VoiceOutput::VoiceOutput(AbstractVoice *parent) :
 
     //Create our custom buffer, setting up a signal/slot for when this buffer starts filling up.
     buffer = new SoundReciever(this);
-    connect(buffer,SIGNAL(readyRead()),this, SLOT(dataInBuffer()));
+
+    //This may want to go in START
+    //setup our AudioOutput device and create a connet for it's state.
+    m_audioOut = new QAudioOutput(format,this);
+    connect(m_audioOut,SIGNAL(stateChanged(QAudio::State)),this, SLOT(audioState(QAudio::State)));
 
     timedout = 0;
 }
@@ -15,17 +19,23 @@ VoiceOutput::~VoiceOutput() {
 }
 
 void VoiceOutput::start() {
-
-    //setup our AudioOutput device and create a connet for it's state.
-    m_audioOut = new QAudioOutput(format,this);
-    connect(m_audioOut,SIGNAL(stateChanged(QAudio::State)),this, SLOT(audioState(QAudio::State)));
+    connect(buffer,SIGNAL(readyRead()),this, SLOT(dataInBuffer()));
 
    // m_audioOut->setBufferSize(4096);
-
 }
 
 void VoiceOutput::stop(){
     qDebug("Stopped : timed out %d times..",timedout);
+
+
+    if (buffer->isOpen()) {
+        buffer->close();
+    }
+    if (m_audioOut->state() == QAudio::ActiveState || m_audioOut->state() == QAudio::IdleState) {
+        m_audioOut->stop();
+    }
+
+    disconnect(buffer,SIGNAL(readyRead()),0,0);
 }
 
 void VoiceOutput::audioState(QAudio::State state) {
@@ -36,10 +46,11 @@ void VoiceOutput::audioState(QAudio::State state) {
     else if (state == QAudio::IdleState) {
         qDebug("erm, we went idle...mic muted probably");
 
- //This line likes to blow up on MACOS
-#ifndef Q_WS_MAC
-        m_audioOut->start(buffer);
-#endif
+        //This line stops all playback on MAC_OS
+        #ifndef Q_WS_MAC
+            m_audioOut->start(buffer);
+        #endif
+
         ++timedout;
     }
     else if (state == QAudio::StoppedState) {

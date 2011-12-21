@@ -10,6 +10,11 @@ SoundReciever::SoundReciever(QObject *parent) :
         connect(udpSocket, SIGNAL(readyRead()),this,SLOT(processDatagrams()));
 }
 
+
+SoundReciever::~SoundReciever() {
+    delete udpSocket;
+}
+
 qint64 SoundReciever::readData ( char * data, qint64 len ) {
 
     //reset the position of the buffer to the start
@@ -33,10 +38,6 @@ qint64 SoundReciever::readData ( char * data, qint64 len ) {
 
     return result;
 
-}
-
-SoundReciever::~SoundReciever() {
-    delete udpSocket;
 }
 
 void SoundReciever::processDatagrams() {

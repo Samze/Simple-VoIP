@@ -1,0 +1,106 @@
+\hypertarget{class_main_window}{
+\section{\-Main\-Window \-Class \-Reference}
+\label{class_main_window}\index{\-Main\-Window@{\-Main\-Window}}
+}
+
+
+\-Graphical interface class of type \-Q\-Main\-Window.  
+
+
+
+
+{\ttfamily \#include $<$mainwindow.\-h$>$}
+
+\subsection*{\-Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_main_window_aea2d395eaa1a1b353b7838731595a3f7}{call} (\-Q\-String)
+\begin{DoxyCompactList}\small\item\em \-Signal emiited when the user has selected to start a new call. \end{DoxyCompactList}\item 
+void \hyperlink{class_main_window_ac1ad769a26f328f8184cd63833af4539}{in\-Call\-Accepted} ()
+\begin{DoxyCompactList}\small\item\em \-Informs anyone interested that the call was accepted. \end{DoxyCompactList}\item 
+void \hyperlink{class_main_window_a3322ffd0516e30afc70f8b623301c426}{in\-Call\-Rejected} ()
+\begin{DoxyCompactList}\small\item\em \-Informs anyone interested that the call was rejected. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_main_window_a8b244be8b7b7db1b08de2a2acb9409db}{\-Main\-Window} (\-Q\-Widget $\ast$parent=0)
+\begin{DoxyCompactList}\small\item\em \-Construction which sets up the \-U\-I class as well as all signals/slots and instansiates the controller. \end{DoxyCompactList}\item 
+\hypertarget{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7}{
+\hyperlink{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7}{$\sim$\-Main\-Window} ()}
+\label{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7}
+
+\begin{DoxyCompactList}\small\item\em \-Default constructor which deletes the ui and all allocated objects. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+\-Graphical interface class of type \-Q\-Main\-Window. 
+
+\-This class instansiates and holds logic for the ui. \-It communicates with the state controller but has been made as decoupled as possible. 
+
+\subsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{class_main_window_a8b244be8b7b7db1b08de2a2acb9409db}{
+\index{\-Main\-Window@{\-Main\-Window}!\-Main\-Window@{\-Main\-Window}}
+\index{\-Main\-Window@{\-Main\-Window}!MainWindow@{\-Main\-Window}}
+\subsubsection[{\-Main\-Window}]{\setlength{\rightskip}{0pt plus 5cm}\-Main\-Window\-::\-Main\-Window (
+\begin{DoxyParamCaption}
+\item[{\-Q\-Widget $\ast$}]{parent = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}explicit\mbox{]}}}}
+\label{class_main_window_a8b244be8b7b7db1b08de2a2acb9409db}
+
+
+\-Construction which sets up the \-U\-I class as well as all signals/slots and instansiates the controller. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em pacurent} & \-Parent for this object. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{class_main_window_aea2d395eaa1a1b353b7838731595a3f7}{
+\index{\-Main\-Window@{\-Main\-Window}!call@{call}}
+\index{call@{call}!MainWindow@{\-Main\-Window}}
+\subsubsection[{call}]{\setlength{\rightskip}{0pt plus 5cm}void \-Main\-Window\-::call (
+\begin{DoxyParamCaption}
+\item[{\-Q\-String}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}signal\mbox{]}}}}
+\label{class_main_window_aea2d395eaa1a1b353b7838731595a3f7}
+
+
+\-Signal emiited when the user has selected to start a new call. 
+
+\-Provides the name selected. \hypertarget{class_main_window_ac1ad769a26f328f8184cd63833af4539}{
+\index{\-Main\-Window@{\-Main\-Window}!in\-Call\-Accepted@{in\-Call\-Accepted}}
+\index{in\-Call\-Accepted@{in\-Call\-Accepted}!MainWindow@{\-Main\-Window}}
+\subsubsection[{in\-Call\-Accepted}]{\setlength{\rightskip}{0pt plus 5cm}void \-Main\-Window\-::in\-Call\-Accepted (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}signal\mbox{]}}}}
+\label{class_main_window_ac1ad769a26f328f8184cd63833af4539}
+
+
+\-Informs anyone interested that the call was accepted. 
+
+\hypertarget{class_main_window_a3322ffd0516e30afc70f8b623301c426}{
+\index{\-Main\-Window@{\-Main\-Window}!in\-Call\-Rejected@{in\-Call\-Rejected}}
+\index{in\-Call\-Rejected@{in\-Call\-Rejected}!MainWindow@{\-Main\-Window}}
+\subsubsection[{in\-Call\-Rejected}]{\setlength{\rightskip}{0pt plus 5cm}void \-Main\-Window\-::in\-Call\-Rejected (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}signal\mbox{]}}}}
+\label{class_main_window_a3322ffd0516e30afc70f8b623301c426}
+
+
+\-Informs anyone interested that the call was rejected. 
+
+
+
+\-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+mainwindow.\-h\item 
+mainwindow.\-cpp\end{DoxyCompactItemize}
