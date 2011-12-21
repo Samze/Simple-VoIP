@@ -35,7 +35,11 @@ void VoiceOutput::audioState(QAudio::State state) {
     }
     else if (state == QAudio::IdleState) {
         qDebug("erm, we went idle...mic muted probably");
+
+ //This line likes to blow up on MACOS
+#ifndef Q_WS_MAC
         m_audioOut->start(buffer);
+#endif
         ++timedout;
     }
     else if (state == QAudio::StoppedState) {

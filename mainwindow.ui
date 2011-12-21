@@ -27,7 +27,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap resource="icons.qrc">:/images/no_call.png</pixmap>
+     <pixmap>:/images/no_call.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -64,7 +64,7 @@
           <string>Mute Sound</string>
          </property>
          <property name="icon">
-          <iconset resource="icons.qrc">
+          <iconset>
            <normaloff>:/images/headphones.png</normaloff>:/images/headphones.png</iconset>
          </property>
          <property name="iconSize">
@@ -81,7 +81,7 @@
           <string>Mute Mic</string>
          </property>
          <property name="icon">
-          <iconset resource="icons.qrc">
+          <iconset>
            <normaloff>:/images/mic.png</normaloff>:/images/mic.png</iconset>
          </property>
          <property name="iconSize">
@@ -143,7 +143,7 @@
           <string/>
          </property>
          <property name="icon">
-          <iconset resource="icons.qrc">
+          <iconset>
            <normaloff>:/images/voip_alt.png</normaloff>:/images/voip_alt.png</iconset>
          </property>
          <property name="iconSize">
@@ -176,7 +176,7 @@
           <string/>
          </property>
          <property name="icon">
-          <iconset resource="icons.qrc">
+          <iconset>
            <normaloff>:/images/voip.png</normaloff>:/images/voip.png</iconset>
          </property>
          <property name="iconSize">
@@ -220,7 +220,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap resource="icons.qrc">:/images/msn.png</pixmap>
+     <pixmap>:/images/msn.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -312,15 +312,6 @@
      </item>
     </layout>
    </widget>
-   <zorder>lblCallIcon</zorder>
-   <zorder>horizontalSpacer_4</zorder>
-   <zorder>verticalLayoutWidget</zorder>
-   <zorder>label</zorder>
-   <zorder>lstWidget</zorder>
-   <zorder>label_6</zorder>
-   <zorder>line</zorder>
-   <zorder>lblCallName</zorder>
-   <zorder>verticalLayoutWidget_2</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -367,8 +358,6 @@
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources>
-  <include location="icons.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

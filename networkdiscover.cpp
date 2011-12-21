@@ -3,7 +3,16 @@
 NetworkDiscover::NetworkDiscover(QObject *parent) :
     QUdpSocket(parent)
 {
+#ifdef Q_WS_WIN
     username = QProcessEnvironment::systemEnvironment().value("USERNAME");
+#endif
+#ifdef Q_WS_X11
+    username = QProcessEnvironment::systemEnvironment().value("USERNAME");
+#endif
+#ifdef Q_WS_MAC
+    username = QProcessEnvironment::systemEnvironment().value("USER");
+#endif
+
 
     //Get a list of all local network addresses.
     localAddressList = networkInter.allAddresses();

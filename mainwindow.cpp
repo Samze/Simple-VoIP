@@ -43,6 +43,7 @@ MainWindow::MainWindow(QWidget *parent) :
     //callAccepted()
     connect(controller,SIGNAL(newState(StateController::VoIPState)),this,SLOT(setCallStatus(StateController::VoIPState)));
 
+    connect(qApp,SIGNAL(aboutToQuit()),controller,SLOT(endCall()));
 
     //set edit options
     connect(ui->actionAbout_QT, SIGNAL(triggered()),qApp,SLOT(aboutQt()));

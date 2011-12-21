@@ -15,6 +15,7 @@ StateController::StateController(QObject *parent) :
     recThread = new ReceiveThread(this);
     sendThread = new SendThread(this);
 
+
     //Incoming call
     connect(server,SIGNAL(callInitiated(QHostAddress)),this,SLOT(receiveCall(QHostAddress)));
 
@@ -104,7 +105,7 @@ void StateController::receiveCall(const QHostAddress &address) {
     //This could have been achieved by connecting the direct received calls to this acton, but we want to check
     //the state and perhaps perform gui operations. Controller assumes responsability.
 
-    if (state == StateController::Ready) {
+    if (state == StateController::Ready || state == StateController::Calling) {
 
         commPeer = getPeerFromAddress(address);
 
