@@ -95,24 +95,25 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00022"></a>00022 <span class="keyword">public</span>:
 <a name="l00023"></a>00023 
 <a name="l00028"></a>00028     <span class="keyword">explicit</span> <a class="code" href="class_voice_input.html#a57880cf450adb3749b952de271b8261f" title="Creates our AudioDevice object and buffer used.">VoiceInput</a>(QHostAddress address);
-<a name="l00032"></a>00032     <a class="code" href="class_voice_input.html#a9ebb274fbb6075af8feb26f2cd3b6e93" title="Default destructor.">~VoiceInput</a>();
-<a name="l00033"></a>00033 
-<a name="l00034"></a>00034 <span class="keyword">public</span> slots:
-<a name="l00038"></a>00038    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_voice_input.html#a99193e448e78f1bd10219bfb482d13ba" title="Implemented virtual start method from AbstractVoice.">start</a>();
-<a name="l00042"></a>00042    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_voice_input.html#aacdc744a4d9b156d79d05c7ea9361576" title="Implemented virtual stop method from AbstractVoice.">stop</a>();
-<a name="l00043"></a>00043 
-<a name="l00044"></a>00044 <span class="keyword">private</span> slots:
+<a name="l00029"></a>00029 
+<a name="l00033"></a>00033     <a class="code" href="class_voice_input.html#a9ebb274fbb6075af8feb26f2cd3b6e93" title="Default destructor.">~VoiceInput</a>();
+<a name="l00034"></a>00034 
+<a name="l00035"></a>00035 <span class="keyword">public</span> slots:
+<a name="l00039"></a>00039    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_voice_input.html#a99193e448e78f1bd10219bfb482d13ba" title="Implemented virtual start method from AbstractVoice.">start</a>();
+<a name="l00040"></a>00040 
+<a name="l00044"></a>00044    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_voice_input.html#aacdc744a4d9b156d79d05c7ea9361576" title="Implemented virtual stop method from AbstractVoice.">stop</a>();
 <a name="l00045"></a>00045 
-<a name="l00049"></a>00049     <span class="keyword">virtual</span> <span class="keywordtype">void</span> audioState(QAudio::State);
-<a name="l00050"></a>00050 
-<a name="l00054"></a>00054     <span class="keywordtype">void</span> muteMic(<span class="keywordtype">bool</span>);
-<a name="l00055"></a>00055 
-<a name="l00056"></a>00056 <span class="keyword">private</span>:
-<a name="l00057"></a>00057     QAudioInput *m_audioIn;
-<a name="l00058"></a>00058 
-<a name="l00059"></a>00059 };
-<a name="l00060"></a>00060 
-<a name="l00061"></a>00061 <span class="preprocessor">#endif // VOICEINPUT_H</span>
+<a name="l00046"></a>00046 <span class="keyword">private</span> slots:
+<a name="l00047"></a>00047 
+<a name="l00051"></a>00051     <span class="keyword">virtual</span> <span class="keywordtype">void</span> audioState(QAudio::State);
+<a name="l00052"></a>00052 
+<a name="l00056"></a>00056     <span class="keywordtype">void</span> muteMic(<span class="keywordtype">bool</span>);
+<a name="l00057"></a>00057 
+<a name="l00058"></a>00058 <span class="keyword">private</span>:
+<a name="l00059"></a>00059     QAudioInput *m_audioIn; 
+<a name="l00060"></a>00060 };
+<a name="l00061"></a>00061 
+<a name="l00062"></a>00062 <span class="preprocessor">#endif // VOICEINPUT_H</span>
 </pre></div></div>
 </div>
 <!-- window showing the filter options -->
@@ -132,7 +133,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Dec 21 2011 22:26:44 for VoIp by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Dec 21 2011 23:40:31 for VoIp by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.5.1
 </small></address>

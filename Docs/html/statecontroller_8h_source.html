@@ -107,44 +107,42 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00046"></a>00046 
 <a name="l00051"></a><a class="code" href="class_state_controller.html#adadae117f434bc21cce75fa7e3e4d728">00051</a>     <a class="code" href="class_peer.html" title="Holds information for a located communication peer on the network.">Peer</a>* <a class="code" href="class_state_controller.html#adadae117f434bc21cce75fa7e3e4d728" title="Gets the peer being communicated with.">getCallPeer</a>() { <span class="keywordflow">return</span> commPeer;}
 <a name="l00052"></a>00052 
-<a name="l00053"></a>00053 
-<a name="l00054"></a>00054 
-<a name="l00055"></a>00055 signals:
-<a name="l00056"></a>00056     <span class="keywordtype">void</span> <a class="code" href="class_state_controller.html#a6db599925ca114fd1f1d0204a8de75ec" title="Signal emitted when an updated peer list is available .">updatePeerList</a>(QList&lt;Peer*&gt;); 
-<a name="l00058"></a>00058     <span class="keywordtype">void</span> <a class="code" href="class_state_controller.html#aaf4d11ecaef3d8872a9c93b5b3e5af3b" title="Signal emitted when a call is being requested to initiate.">callIncoming</a>(QString); 
-<a name="l00060"></a>00060     <span class="keywordtype">void</span> <a class="code" href="class_state_controller.html#a393dbc547e29ffad28daa44517481ca5" title="Emitted when a call was initiated but the caller was busy.">callerBusy</a>(); 
-<a name="l00061"></a>00061     <span class="keywordtype">void</span> <a class="code" href="class_state_controller.html#acff9d9f23348247c6844f4b198b6ba23" title="The application has entered a new state.">newState</a>(<a class="code" href="class_state_controller.html#a1aabd2155d8e6feb201ed3941e4ee2be" title="Possible VoIP states for the application to be in.">StateController::VoIPState</a>); 
-<a name="l00063"></a>00063     <span class="keywordtype">void</span> <a class="code" href="class_state_controller.html#ab7c03a4203338d1f17e95758ad96647c" title="User has initiated that their sound has been toggled, this signal will be emitted and a message sent ...">muteSound</a>(<span class="keywordtype">bool</span>); 
-<a name="l00064"></a>00064     <span class="keywordtype">void</span> <a class="code" href="class_state_controller.html#a36e2e98d487e2e195dfc595662f6db9f" title="User has initiated that their mic has been toggled, this signal will be emitted and a message sent to...">muteMic</a>(<span class="keywordtype">bool</span>); 
-<a name="l00066"></a>00066     <span class="keywordtype">void</span> <a class="code" href="class_state_controller.html#af46adae585d21730cf1b8b34a2231e5f" title="Emitted when a caller has toggled their mic state.">callerMicMuted</a>(<span class="keywordtype">bool</span>); 
-<a name="l00067"></a>00067     <span class="keywordtype">void</span> <a class="code" href="class_state_controller.html#a00a1262e6c4c821bbdd04d11ea7c4910" title="Emitted when a caller has toggled their sound state.">callerSoundMuted</a>(<span class="keywordtype">bool</span>); 
-<a name="l00069"></a>00069     <span class="keywordtype">void</span> <a class="code" href="class_state_controller.html#a3e16a340c75fec465358fee52bf57ec0" title="Emitted when an error has occured.">callError</a>(QString); 
-<a name="l00071"></a>00071 <span class="keyword">public</span> slots:
-<a name="l00077"></a>00077     <span class="keywordtype">void</span> <a class="code" href="class_state_controller.html#ac2d1ccb2bab7565fee787a87580cdb83" title="UIs should connect to this slot with the name of the person they wish to call, the controller will in...">callPeer</a>(QString name);
-<a name="l00078"></a>00078 
-<a name="l00083"></a>00083     <span class="keywordtype">void</span> <a class="code" href="class_state_controller.html#a7ae34b3ab2c5189c2e216ef78fae6a7e" title="UIs should conect to this slot when they wish to accept a call.">acceptCall</a>();
-<a name="l00084"></a>00084 
-<a name="l00088"></a>00088     <span class="keywordtype">void</span> <a class="code" href="class_state_controller.html#a0898c62cc514101cda35ee08618368b8" title="UIs should conect to this slot when they wish to reject a call.">rejectCall</a>();
-<a name="l00089"></a>00089 
-<a name="l00093"></a>00093     <span class="keywordtype">void</span> <a class="code" href="class_state_controller.html#aa82e7568aed9fc5d1e13f7ed94535abf" title="UIs should conect to this slot when they wish to end a call.">endCall</a>();
-<a name="l00094"></a>00094 
-<a name="l00095"></a>00095 <span class="keyword">private</span> slots:
-<a name="l00096"></a>00096     <span class="keywordtype">void</span> outCallAccepted(); 
-<a name="l00097"></a>00097     <span class="keywordtype">void</span> outCallRejected(); 
-<a name="l00098"></a>00098     <span class="keywordtype">void</span> sendMuteSound(<span class="keywordtype">bool</span>); 
-<a name="l00099"></a>00099     <span class="keywordtype">void</span> sendMuteMic(<span class="keywordtype">bool</span>); 
-<a name="l00100"></a>00100     <span class="keywordtype">void</span> receiveCall(<span class="keyword">const</span> QHostAddress &amp;); 
-<a name="l00102"></a>00102 <span class="keyword">private</span>:
-<a name="l00103"></a>00103     <a class="code" href="class_state_controller.html#a1aabd2155d8e6feb201ed3941e4ee2be" title="Possible VoIP states for the application to be in.">VoIPState</a> state;  
-<a name="l00104"></a>00104     <a class="code" href="class_peer.html" title="Holds information for a located communication peer on the network.">Peer</a>* commPeer;  
-<a name="l00107"></a>00107     <a class="code" href="class_receive_thread.html" title="A Thread class that controls listening for incoming voice data.">ReceiveThread</a> *recThread; 
-<a name="l00108"></a>00108     <a class="code" href="class_send_thread.html" title="A Thread class that controls recording audio and sending data communication.">SendThread</a> *sendThread;  
-<a name="l00110"></a>00110     <a class="code" href="class_command_client.html" title="A subclass of QTcpSocket, class that is responsible for sending/receiving control signals between cal...">CommandClient</a> *client;  
-<a name="l00111"></a>00111     <a class="code" href="class_command_server.html" title="A subclass of QTcpServer that receives command signals from clients over the network.">CommandServer</a> *server;  
-<a name="l00112"></a>00112     <a class="code" href="class_network_discover.html" title="Discovers local peers on the network to communicate with.">NetworkDiscover</a> *discover;  
-<a name="l00113"></a>00113 };
-<a name="l00114"></a>00114 
-<a name="l00115"></a>00115 <span class="preprocessor">#endif // STATECONTROLLER_H</span>
+<a name="l00053"></a>00053 signals:
+<a name="l00054"></a>00054     <span class="keywordtype">void</span> <a class="code" href="class_state_controller.html#a6db599925ca114fd1f1d0204a8de75ec" title="Signal emitted when an updated peer list is available .">updatePeerList</a>(QList&lt;Peer*&gt;); 
+<a name="l00056"></a>00056     <span class="keywordtype">void</span> <a class="code" href="class_state_controller.html#aaf4d11ecaef3d8872a9c93b5b3e5af3b" title="Signal emitted when a call is being requested to initiate.">callIncoming</a>(QString); 
+<a name="l00058"></a>00058     <span class="keywordtype">void</span> <a class="code" href="class_state_controller.html#a393dbc547e29ffad28daa44517481ca5" title="Emitted when a call was initiated but the caller was busy.">callerBusy</a>(); 
+<a name="l00059"></a>00059     <span class="keywordtype">void</span> <a class="code" href="class_state_controller.html#acff9d9f23348247c6844f4b198b6ba23" title="The application has entered a new state.">newState</a>(<a class="code" href="class_state_controller.html#a1aabd2155d8e6feb201ed3941e4ee2be" title="Possible VoIP states for the application to be in.">StateController::VoIPState</a>); 
+<a name="l00061"></a>00061     <span class="keywordtype">void</span> <a class="code" href="class_state_controller.html#ab7c03a4203338d1f17e95758ad96647c" title="User has initiated that their sound has been toggled, this signal will be emitted and a message sent ...">muteSound</a>(<span class="keywordtype">bool</span>); 
+<a name="l00062"></a>00062     <span class="keywordtype">void</span> <a class="code" href="class_state_controller.html#a36e2e98d487e2e195dfc595662f6db9f" title="User has initiated that their mic has been toggled, this signal will be emitted and a message sent to...">muteMic</a>(<span class="keywordtype">bool</span>); 
+<a name="l00064"></a>00064     <span class="keywordtype">void</span> <a class="code" href="class_state_controller.html#af46adae585d21730cf1b8b34a2231e5f" title="Emitted when a caller has toggled their mic state.">callerMicMuted</a>(<span class="keywordtype">bool</span>); 
+<a name="l00065"></a>00065     <span class="keywordtype">void</span> <a class="code" href="class_state_controller.html#a00a1262e6c4c821bbdd04d11ea7c4910" title="Emitted when a caller has toggled their sound state.">callerSoundMuted</a>(<span class="keywordtype">bool</span>); 
+<a name="l00067"></a>00067     <span class="keywordtype">void</span> <a class="code" href="class_state_controller.html#a3e16a340c75fec465358fee52bf57ec0" title="Emitted when an error has occured.">callError</a>(QString); 
+<a name="l00069"></a>00069 <span class="keyword">public</span> slots:
+<a name="l00075"></a>00075     <span class="keywordtype">void</span> <a class="code" href="class_state_controller.html#ac2d1ccb2bab7565fee787a87580cdb83" title="UIs should connect to this slot with the name of the person they wish to call, the controller will in...">callPeer</a>(QString name);
+<a name="l00076"></a>00076 
+<a name="l00081"></a>00081     <span class="keywordtype">void</span> <a class="code" href="class_state_controller.html#a7ae34b3ab2c5189c2e216ef78fae6a7e" title="UIs should conect to this slot when they wish to accept a call.">acceptCall</a>();
+<a name="l00082"></a>00082 
+<a name="l00086"></a>00086     <span class="keywordtype">void</span> <a class="code" href="class_state_controller.html#a0898c62cc514101cda35ee08618368b8" title="UIs should conect to this slot when they wish to reject a call.">rejectCall</a>();
+<a name="l00087"></a>00087 
+<a name="l00091"></a>00091     <span class="keywordtype">void</span> <a class="code" href="class_state_controller.html#aa82e7568aed9fc5d1e13f7ed94535abf" title="UIs should conect to this slot when they wish to end a call.">endCall</a>();
+<a name="l00092"></a>00092 
+<a name="l00093"></a>00093 <span class="keyword">private</span> slots:
+<a name="l00094"></a>00094     <span class="keywordtype">void</span> outCallAccepted(); 
+<a name="l00095"></a>00095     <span class="keywordtype">void</span> outCallRejected(); 
+<a name="l00096"></a>00096     <span class="keywordtype">void</span> sendMuteSound(<span class="keywordtype">bool</span>); 
+<a name="l00097"></a>00097     <span class="keywordtype">void</span> sendMuteMic(<span class="keywordtype">bool</span>); 
+<a name="l00098"></a>00098     <span class="keywordtype">void</span> receiveCall(<span class="keyword">const</span> QHostAddress &amp;); 
+<a name="l00100"></a>00100 <span class="keyword">private</span>:
+<a name="l00101"></a>00101     <a class="code" href="class_state_controller.html#a1aabd2155d8e6feb201ed3941e4ee2be" title="Possible VoIP states for the application to be in.">VoIPState</a> state;  
+<a name="l00102"></a>00102     <a class="code" href="class_peer.html" title="Holds information for a located communication peer on the network.">Peer</a>* commPeer;  
+<a name="l00104"></a>00104     <a class="code" href="class_receive_thread.html" title="A Thread class that controls listening for incoming voice data.">ReceiveThread</a> *recThread; 
+<a name="l00105"></a>00105     <a class="code" href="class_send_thread.html" title="A Thread class that controls recording audio and sending data communication.">SendThread</a> *sendThread;  
+<a name="l00107"></a>00107     <a class="code" href="class_command_client.html" title="A subclass of QTcpSocket, class that is responsible for sending/receiving control signals between cal...">CommandClient</a> *client;  
+<a name="l00108"></a>00108     <a class="code" href="class_command_server.html" title="A subclass of QTcpServer that receives command signals from clients over the network.">CommandServer</a> *server;  
+<a name="l00110"></a>00110     <a class="code" href="class_network_discover.html" title="Discovers local peers on the network to communicate with.">NetworkDiscover</a> *discover;  
+<a name="l00111"></a>00111 };
+<a name="l00112"></a>00112 
+<a name="l00113"></a>00113 <span class="preprocessor">#endif // STATECONTROLLER_H</span>
 </pre></div></div>
 </div>
 <!-- window showing the filter options -->
@@ -164,7 +162,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Dec 21 2011 22:26:44 for VoIp by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Dec 21 2011 23:40:31 for VoIp by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.5.1
 </small></address>
