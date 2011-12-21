@@ -3,9 +3,7 @@
 StateController::StateController(QObject *parent) :
     QObject(parent)
 {
-
     //setup tcp listening for commands....
-
     client = new CommandClient(this);
     server = new CommandServer(this);
 
@@ -43,14 +41,13 @@ StateController::StateController(QObject *parent) :
     connect(discover,SIGNAL(peersChanged(QList<Peer*>)),this,SIGNAL(updatePeerList(QList<Peer*>)));
 
     //Start broadcast/listen for peer-to-peer nature
-    discover->broadCastTimer.start();
-    discover->peerCheck.start();
+    discover->startTimers();
 
+    //set initial state
     state = StateController::Ready;
 }
 
 StateController::~StateController() {
-
     delete recThread;
     delete sendThread;
     delete client;
@@ -158,26 +155,34 @@ void StateController::outCallRejected() {
     emit callerBusy();
 }
 
-
 void StateController::sendMuteSound(bool toggle) {
 
-    CommandClient::CallCommand cmd;
+    if (state == StateController::InCall) {
+        CommandClient::CallCommand cmd;
 
-    cmd = toggle ? CommandClient::disableSound : CommandClient::enableSound;
+        cmd = toggle ? CommandClient::disableSound : CommandClient::enableSound;
 
-    if (client->state() == QTcpSocket::ConnectedState)
-        client->sendCommand(cmd);
-    else
-        server->sendCommand(*commPeer->getAddress(),cmd);
+        //At the moment we check to see if we are client or server and respond
+        //down the correct avenue. Ideally we should only have to respond down one channel. Makes for bloated code.
+        if (client->state() == QTcpSocket::ConnectedState)
+            client->sendCommand(cmd);
+        else
+            server->sendCommand(*commPeer->getAddress(),cmd);
+     }
 }
 
 void StateController::sendMuteMic(bool toggle) {
-    CommandClient::CallCommand cmd;
 
-    cmd = toggle ? CommandClient::disableMic : CommandClient::enableMic;
+    if (state == StateController::InCall) {
+        CommandClient::CallCommand cmd;
 
-    if (client->state() == QTcpSocket::ConnectedState)
-        client->sendCommand(cmd);
-    else
-        server->sendCommand(*commPeer->getAddress(),cmd);
+        cmd = toggle ? CommandClient::disableMic : CommandClient::enableMic;
+
+        if (client->state() == QTcpSocket::ConnectedState)
+            client->sendCommand(cmd);
+        else
+            server->sendCommand(*commPeer->getAddress(),cmd);
+    }
 }
+
+

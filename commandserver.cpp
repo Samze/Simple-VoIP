@@ -21,11 +21,25 @@ CommandServer::~CommandServer(){
 
 void CommandServer::receiveConnection() {
 
+     //Get our connect and add them to a list.
      QTcpSocket* receivedSocket = nextPendingConnection();
 
      activeConnections->append(receivedSocket);
 
      connect(receivedSocket,SIGNAL(readyRead()), this,SLOT(readRequest()));
+}
+
+void CommandServer::sendCommand(const QHostAddress &address,CommandClient::CallCommand cmd) {
+
+    //Find the tcp connection for the request and reject.
+    foreach(QTcpSocket* sock, *activeConnections) {
+        if ( sock->peerAddress() == address) {
+
+            char command = static_cast<char>(cmd);
+            sock->write(&command,1);
+            break;
+        }
+    }
 }
 
 void CommandServer::readRequest() {
@@ -64,19 +78,6 @@ void CommandServer::readRequest() {
                 //unknown command, lets send that back.
                 //TODO send error code
                 break;
-        }
-    }
-}
-
-void CommandServer::sendCommand(const QHostAddress &address,CommandClient::CallCommand cmd) {
-
-    //Find the tcp connection for the request and reject.
-    foreach(QTcpSocket* sock, *activeConnections) {
-        if ( sock->peerAddress() == address) {
-
-            char command = static_cast<char>(cmd);
-            sock->write(&command,1);
-            break;
         }
     }
 }

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>369</width>
-    <height>437</height>
+    <height>454</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -453,12 +453,17 @@
     <property name="title">
      <string>VoIP</string>
     </property>
+    <addaction name="actionCall"/>
+    <addaction name="actionMute_Sound"/>
+    <addaction name="actionMute_Mic"/>
+    <addaction name="separator"/>
+    <addaction name="actionExit"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
      <string>Help</string>
     </property>
-    <addaction name="actionAbout_VoIP"/>
+    <addaction name="actionAbout"/>
     <addaction name="actionAbout_QT"/>
    </widget>
    <addaction name="menuVOIP"/>
@@ -473,14 +478,70 @@
    </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
-  <action name="actionAbout_VoIP">
+  <action name="actionAbout">
    <property name="text">
-    <string>About VoIP</string>
+    <string>About</string>
    </property>
   </action>
   <action name="actionAbout_QT">
    <property name="text">
     <string>About QT</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="actionMute_Sound">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/images/headphones.png</normaloff>:/images/headphones.png</iconset>
+   </property>
+   <property name="text">
+    <string>Mute Sound</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actionMute_Mic">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/images/mic.png</normaloff>:/images/mic.png</iconset>
+   </property>
+   <property name="text">
+    <string>Mute Mic</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+M</string>
+   </property>
+  </action>
+  <action name="actionCall">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/images/voip_alt.png</normaloff>:/images/voip_alt.png</iconset>
+   </property>
+   <property name="text">
+    <string>Call</string>
+   </property>
+   <property name="toolTip">
+    <string>Call the selected user.</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+C</string>
    </property>
   </action>
  </widget>

@@ -3,16 +3,23 @@
 NetworkDiscover::NetworkDiscover(QObject *parent) :
     QUdpSocket(parent)
 {
-#ifdef Q_WS_WIN
-    username = QProcessEnvironment::systemEnvironment().value("USERNAME");
-#endif
-#ifdef Q_WS_X11
-    username = QProcessEnvironment::systemEnvironment().value("USERNAME");
-#endif
-#ifdef Q_WS_MAC
-    username = QProcessEnvironment::systemEnvironment().value("USER");
-#endif
+    QString name;
 
+    //We want to obtain a username automatically. We do this by accessing system variables. Sadly
+    //different platforms use different things.
+    #ifdef Q_WS_MAC
+    name = "USER";
+    #endif
+
+    #ifdef Q_WS_WIN
+    name = "USERNAME";
+    #endif
+
+    #ifdef Q_WS_X11
+    name = "USERNAME";
+    #endif
+
+    username = QProcessEnvironment::systemEnvironment().value(name);
 
     //Get a list of all local network addresses.
     localAddressList = networkInter.allAddresses();
@@ -143,4 +150,11 @@ Peer* NetworkDiscover::getPeerFromAddress(const QHostAddress &address) {
         }
     }
     return NULL;
+}
+
+bool NetworkDiscover::startTimers() {
+    broadCastTimer.start();
+    peerCheck.start();
+
+    return peerCheck.isActive() && broadCastTimer.isActive();
 }

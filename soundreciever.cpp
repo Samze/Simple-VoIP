@@ -19,16 +19,12 @@ qint64 SoundReciever::readData ( char * data, qint64 len ) {
 
     //reset the position of the buffer to the start
     if(!seek(0)) {
-        qDebug("Error resetting position of buffer: aborting");
-        exit(1);
+        qWarning("Error resetting position of buffer: aborting");
     }
-
-    qDebug("Reading from buf request: %d",len);
 
     //Call to super to read the data
     qint64 result = QBuffer::readData(data,len);
 
-    qDebug("buffer size : %d",buffer().size());
     //Our data has been read into the data variable, we can now remove it.
     buffer().remove(0,buffer().size());
 
@@ -56,7 +52,7 @@ void SoundReciever::processDatagrams() {
          qint16 num = writeData(decodedDatagram.constData(),decodedDatagram.size());
 
          if (num == -1) {
-             qDebug("Error! could not write data to receiver buffer");
+             qWarning("Error! could not write data to receiver buffer");
          }
          else {
              //Documentaiton from QIODevice::readyRead states

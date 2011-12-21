@@ -2,6 +2,7 @@
 
 AbstractVoice::AbstractVoice(QObject *parent) : QObject(parent)
 {
+    //This is the default format which works locally with no special codec/advanced compression.
     format.setFrequency(8000);
     format.setChannels(1);
     format.setSampleSize(8);
@@ -10,13 +11,12 @@ AbstractVoice::AbstractVoice(QObject *parent) : QObject(parent)
     format.setByteOrder(QAudioFormat::LittleEndian);
     format.setSampleType(QAudioFormat::UnSignedInt);
 
-    //By default we'll get the platforms default device
+    //By default we'll get the platforms default device, could improve this and let the user pick later.
     devInfo = new QAudioDeviceInfo(QAudioDeviceInfo::defaultOutputDevice());
 
     //Check support for format
     if (!devInfo->isFormatSupported(format)) {
-        //TODO add error message here
-        qWarning()<<"default format not supported try to use nearest";
+        qWarning()<<"default format not supported, trying to use nearest";
         format = devInfo->nearestFormat(format);
     }
 }

@@ -26,6 +26,7 @@ public:
      *@param address The address to send captured data.
      */
     explicit VoiceInput(QHostAddress address);
+
     /**
       *Default destructor
       */
@@ -36,6 +37,7 @@ public slots:
       *Implemented virtual start method from AbstractVoice. This method starts recording and filling the network buffer.
       */
    virtual void start();
+
     /**
       * Implemented virtual stop method from AbstractVoice. This method stops recording.
       */
@@ -54,8 +56,7 @@ private slots:
     void muteMic(bool);
 
 private:
-    QAudioInput *m_audioIn;
-
+    QAudioInput *m_audioIn; /**< The Input device object. */
 };
 
 #endif // VOICEINPUT_H

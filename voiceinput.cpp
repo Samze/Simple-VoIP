@@ -51,11 +51,13 @@ void VoiceInput::stop() {
 
 
 void VoiceInput::muteMic(bool toggle) {
-    if (toggle) {
-        m_audioIn->suspend();
-    }
-    else {
-        m_audioIn->resume();
+    if (m_audioIn->state() == QAudio::ActiveState || m_audioIn->state() == QAudio::IdleState) {
+        if (toggle) {
+            m_audioIn->suspend();
+        }
+        else {
+            m_audioIn->resume();
+        }
     }
 }
 

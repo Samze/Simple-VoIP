@@ -44,10 +44,11 @@ public:
       */
     Peer* getPeerFromAddress(const QHostAddress &address);
 
-    QTimer broadCastTimer;
-
-    QTimer peerCheck;
-
+    /**
+      *Starts the peer discovery timers. Starts the peer alive check timer and the broadcast timer.
+      *@return Returns if timers were started successfully.
+      */
+    bool startTimers();
 
     /**
       * The list of peers currently detected on the network.
@@ -57,7 +58,6 @@ public:
     //The work around is to use a map with a String key and Peer value. This is not ideal as I wanted to combine IP
     //and also username to form the unique identifier.
     QMap<QString,Peer*> peerList;
-
 
 signals:
     void peersChanged(QList<Peer*>); /**< Emitted when the peer list has changed, ie. new peer or removed peer.*/
@@ -85,11 +85,15 @@ private:
     static const int CHECK_TIME = 10000;        /**< The time between checking our peers are still "alive"*/
     static const int DISCOVER_TIMEOUT = 3000;   /**< The time within that a peer should have last communicated.*/
 
+    QTimer broadCastTimer; /**< Timer used to periodically broadcast that we are an alive peer. */
+    QTimer peerCheck; /**< Timer used to periodically check that our peers are still active. */
+
     QNetworkInterface networkInter; /**< Used to obtain local network information. */
     QList<QHostAddress> localAddressList; /**< Local address list */
 
     QString username; /**< Local username detected. */
 
+private:
     /**
       * Detects if the address is local. This method can be called to see if the broadcast message is actually us, we
       * do this by checking all our local addresses against the one received.

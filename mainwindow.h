@@ -21,7 +21,7 @@ public:
     /**
       * Construction which sets up the UI class as well as all signals/slots and instansiates
       * the controller.
-      *@param pacurent Parent for this object.
+      *@param parent Parent for this object.
       */
     explicit MainWindow(QWidget *parent = 0);
 
@@ -82,15 +82,19 @@ private slots:
        */
      void callerSoundMuted(bool);
 
+     /**
+       * UI element to display information about the application.
+       */
+     void on_actionAbout_triggered();
 private:
-    Ui::MainWindow *ui;
+    Ui::MainWindow *ui; /**< UI class */
     StateController* controller; /**< Controller resposible for all interaction*/
 
     //Pixmaps are icons used to update the GUI if were in a call or not.
-    QPixmap callGreen;
-    QPixmap callRed;
+    QPixmap callGreen; /**< Green icon, showing in call */
+    QPixmap callRed; /**< Red icon, showing out of call */
 
-    QStringList peerNameList;
+    QStringList peerNameList; /**< A List of peers names to be displayed in a widget */
 };
 
 #endif // MAINWINDOW_H

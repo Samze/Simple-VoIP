@@ -101,12 +101,12 @@ private:
     VoIPState state;  /**< Holds the state of our application*/
     Peer* commPeer;  /**< The current peer in communication with. */
 
-
     ReceiveThread *recThread; /**< Our receieve thread object, used for receiving/playing data*/
     SendThread *sendThread;  /**< Our send thread object, used for capturing/sending*/
 
     CommandClient *client;  /**< Commandclient, for when we initiate calls*/
     CommandServer *server;  /**< Commandserver, for when we receive call requests*/
+
     NetworkDiscover *discover;  /**< Discovers peers*/
 };
 

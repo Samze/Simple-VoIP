@@ -27,19 +27,11 @@ void \hyperlink{class_network_discover_a42566247e43198ea9cce91eb5f15511d}{peers\
 
 \begin{DoxyCompactList}\small\item\em \-Default destructor. \end{DoxyCompactList}\item 
 \hyperlink{class_peer}{\-Peer} $\ast$ \hyperlink{class_network_discover_a91ec8539ddfeb90f6735d05f2f10b97a}{get\-Peer\-From\-Address} (const \-Q\-Host\-Address \&address)
-\begin{DoxyCompactList}\small\item\em \-Returns a peer for an address. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em \-Returns a peer for an address. \end{DoxyCompactList}\item 
+bool \hyperlink{class_network_discover_ac25855eb9d181d51c725a57f693d58f8}{start\-Timers} ()
+\begin{DoxyCompactList}\small\item\em \-Starts the peer discovery timers. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{\-Public \-Attributes}
 \begin{DoxyCompactItemize}
-\item 
-\hypertarget{class_network_discover_a82d0981a5c6c1acecd85a0e210b631f2}{
-\-Q\-Timer {\bfseries broad\-Cast\-Timer}}
-\label{class_network_discover_a82d0981a5c6c1acecd85a0e210b631f2}
-
-\item 
-\hypertarget{class_network_discover_ad23e0a7d95e0fed29acae8f193dfcfc3}{
-\-Q\-Timer {\bfseries peer\-Check}}
-\label{class_network_discover_ad23e0a7d95e0fed29acae8f193dfcfc3}
-
 \item 
 \hypertarget{class_network_discover_ac7f0c8a7a8e780c83c24b4fa8cbbbfef}{
 \-Q\-Map$<$ \-Q\-String, \hyperlink{class_peer}{\-Peer} $\ast$ $>$ \hyperlink{class_network_discover_ac7f0c8a7a8e780c83c24b4fa8cbbbfef}{peer\-List}}
@@ -112,7 +104,23 @@ void \hyperlink{class_network_discover_a42566247e43198ea9cce91eb5f15511d}{peers\
 
 \-Emitted when the peer list has changed, ie. 
 
-new peer or removed peer. 
+new peer or removed peer. \hypertarget{class_network_discover_ac25855eb9d181d51c725a57f693d58f8}{
+\index{\-Network\-Discover@{\-Network\-Discover}!start\-Timers@{start\-Timers}}
+\index{start\-Timers@{start\-Timers}!NetworkDiscover@{\-Network\-Discover}}
+\subsubsection[{start\-Timers}]{\setlength{\rightskip}{0pt plus 5cm}bool \-Network\-Discover\-::start\-Timers (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_network_discover_ac25855eb9d181d51c725a57f693d58f8}
+
+
+\-Starts the peer discovery timers. 
+
+\-Starts the peer alive check timer and the broadcast timer. \begin{DoxyReturn}{\-Returns}
+\-Returns if timers were started successfully. 
+\end{DoxyReturn}
+
 
 \-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
 \item 

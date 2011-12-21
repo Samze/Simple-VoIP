@@ -72,13 +72,13 @@ void VoiceOutput::dataInBuffer() {
 }
 
 void VoiceOutput::muteSound(bool toggle) {
-    qDebug() << "MUTED sound!";
-    if (toggle) {
-        m_audioOut->suspend();
-    }
-    else {
-        buffer->buffer().clear();
-        m_audioOut->resume();
-
+    if (m_audioOut->state() == QAudio::ActiveState || m_audioOut->state() == QAudio::IdleState) {
+        if (toggle) {
+            m_audioOut->suspend();
+        }
+        else {
+            buffer->buffer().clear();
+            m_audioOut->resume();
+        }
     }
 }

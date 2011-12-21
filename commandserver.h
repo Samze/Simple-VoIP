@@ -24,9 +24,9 @@ public:
      * @param parent Parent for this object.
      */
     explicit CommandServer(QObject *parent = 0);
+
     /**
      * Command Server destructor. Destroys all active connections.
-     * @param parent Parent for this object.
      */
     ~CommandServer();
 

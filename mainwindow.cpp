@@ -23,8 +23,18 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->btnCapture,SIGNAL(clicked()),this,SLOT(callPressed()));
     connect(ui->btnStopCapture,SIGNAL(clicked()),controller,SLOT(endCall()));
 
+    connect(ui->actionCall,SIGNAL(toggled(bool)),this,SLOT(callPressed()));
+
     connect(ui->chkMuteMic,SIGNAL(clicked(bool)),controller,SIGNAL(muteMic(bool)));
     connect(ui->chkMuteSound,SIGNAL(clicked(bool)),controller,SIGNAL(muteSound(bool)));
+    connect(ui->actionMute_Mic,SIGNAL(triggered(bool)),controller,SIGNAL(muteMic(bool)));
+    connect(ui->actionMute_Sound,SIGNAL(triggered(bool)),controller,SIGNAL(muteSound(bool)));
+
+    //Keep them in sync
+    connect(ui->chkMuteMic,SIGNAL(clicked(bool)),ui->actionMute_Mic,SLOT(setChecked(bool)));
+    connect(ui->chkMuteSound,SIGNAL(clicked(bool)),ui->actionMute_Sound,SLOT(setChecked(bool)));
+    connect(ui->actionMute_Mic,SIGNAL(triggered(bool)),ui->chkMuteMic,SLOT(setChecked(bool)));
+    connect(ui->actionMute_Sound,SIGNAL(triggered(bool)),ui->chkMuteSound,SLOT(setChecked(bool)));
 
     connect(this,SIGNAL(call(QString)),controller,SLOT(callPeer(QString)));
     connect(this,SIGNAL(inCallAccepted()),controller,SLOT(acceptCall()));
@@ -39,10 +49,10 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(controller,SIGNAL(callerMicMuted(bool)),this,SLOT(callerMicMuted(bool)));
     connect(controller,SIGNAL(callerSoundMuted(bool)),this,SLOT(callerSoundMuted(bool)));
 
-    //the gui should do something with controller emitted signal
-    //callAccepted()
     connect(controller,SIGNAL(newState(StateController::VoIPState)),this,SLOT(callStateChanged(StateController::VoIPState)));
 
+
+    connect(ui->actionExit, SIGNAL(triggered()),qApp,SLOT(closeAllWindows()));
     connect(qApp,SIGNAL(aboutToQuit()),controller,SLOT(endCall()));
 
     //set edit options
@@ -56,8 +66,9 @@ MainWindow::~MainWindow()
     delete controller;
 }
 
-void MainWindow::updateGUIPeerList(QList<Peer*> peerList) {
-
+void MainWindow::updateGUIPeerList(QList<Peer*> peerList)
+{
+  //Populate GUI list with peers
    peerNameList = Peer::getPeersNameList(peerList);
    ui->lstWidget->clear();
    ui->lstWidget->addItems(peerNameList);
@@ -85,7 +96,7 @@ void MainWindow::callError(const QString &error) {
 }
 
 void MainWindow::incomingCall(const QString &name) {
-    QString msg("Incoming call from : " + name + " Do you wish to accept the call?");
+    QString msg("Incoming call from : " + name + ", Do you wish to accept the call?");
 
     switch(QMessageBox::question(this, "",msg,
                                  QMessageBox::Yes | QMessageBox::No,
@@ -106,12 +117,6 @@ void MainWindow::incomingCall(const QString &name) {
     }
 }
 
-
-void MainWindow::callerBusy() {
-
-    QMessageBox::warning(this,"","The person you tried to call is busy",QMessageBox::Close);
-}
-
 void MainWindow::callStateChanged(StateController::VoIPState state) {
 
     switch(state) {
@@ -130,18 +135,24 @@ void MainWindow::callStateChanged(StateController::VoIPState state) {
 
 }
 
-void MainWindow::callerMicMuted(bool toggle) {
-    qDebug() << "CallerMicMuted " << toggle;
+void MainWindow::callerBusy() {
 
+    QMessageBox::warning(this,"","The person you tried to call is busy",QMessageBox::Close);
+}
+
+void MainWindow::callerMicMuted(bool toggle) {
     QString msg;
     msg = toggle ? controller->getCallPeer()->getName() + " muted their Mic." : "";
     ui->lblCallerMic->setText(msg);
 }
 
 void MainWindow::callerSoundMuted(bool toggle) {
-    qDebug() << "CallerSoundMuted " << toggle;
-
     QString msg;
     msg = toggle ? controller->getCallPeer()->getName() + " muted their sound." : "";
     ui->lblCallerSound->setText(msg);
+}
+
+
+void MainWindow::on_actionAbout_triggered() {
+    QMessageBox::about(this,QString("%1 - %2").arg(qApp->applicationName(),qApp->applicationVersion()), "VoIP by Sam Gunaratne of University of Plymouth.\nComplete source code can be found at http://github.com/Samze/ ");
 }

@@ -105,12 +105,10 @@ Public Member Functions</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Default destructor. <br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_peer.html">Peer</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_discover.html#a91ec8539ddfeb90f6735d05f2f10b97a">getPeerFromAddress</a> (const QHostAddress &amp;address)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a peer for an address.  <a href="#a91ec8539ddfeb90f6735d05f2f10b97a"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_discover.html#ac25855eb9d181d51c725a57f693d58f8">startTimers</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the peer discovery timers.  <a href="#ac25855eb9d181d51c725a57f693d58f8"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a82d0981a5c6c1acecd85a0e210b631f2"></a><!-- doxytag: member="NetworkDiscover::broadCastTimer" ref="a82d0981a5c6c1acecd85a0e210b631f2" args="" -->
-QTimer&#160;</td><td class="memItemRight" valign="bottom"><b>broadCastTimer</b></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad23e0a7d95e0fed29acae8f193dfcfc3"></a><!-- doxytag: member="NetworkDiscover::peerCheck" ref="ad23e0a7d95e0fed29acae8f193dfcfc3" args="" -->
-QTimer&#160;</td><td class="memItemRight" valign="bottom"><b>peerCheck</b></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac7f0c8a7a8e780c83c24b4fa8cbbbfef"></a><!-- doxytag: member="NetworkDiscover::peerList" ref="ac7f0c8a7a8e780c83c24b4fa8cbbbfef" args="" -->
 QMap&lt; QString, <a class="el" href="class_peer.html">Peer</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_discover.html#ac7f0c8a7a8e780c83c24b4fa8cbbbfef">peerList</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The list of peers currently detected on the network. <br/></td></tr>
@@ -192,6 +190,26 @@ QMap&lt; QString, <a class="el" href="class_peer.html">Peer</a> * &gt;&#160;</td
 
 </div>
 </div>
+<a class="anchor" id="ac25855eb9d181d51c725a57f693d58f8"></a><!-- doxytag: member="NetworkDiscover::startTimers" ref="ac25855eb9d181d51c725a57f693d58f8" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool NetworkDiscover::startTimers </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Starts the peer discovery timers. </p>
+<p>Starts the peer alive check timer and the broadcast timer. </p>
+<dl class="return"><dt><b>Returns:</b></dt><dd>Returns if timers were started successfully. </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="networkdiscover_8h_source.html">networkdiscover.h</a></li>
 <li>networkdiscover.cpp</li>
@@ -214,7 +232,7 @@ QMap&lt; QString, <a class="el" href="class_peer.html">Peer</a> * &gt;&#160;</td
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Dec 21 2011 21:48:23 for VoIp by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Dec 21 2011 22:26:44 for VoIp by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.5.1
 </small></address>
