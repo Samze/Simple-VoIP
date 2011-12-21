@@ -62,8 +62,11 @@ void StateController::callPeer(QString name) {
     if(state == StateController::Ready) {
         //Lets get this rolling! initiate call.
 
-        outgoingCall = discover->peerList.value(name)->getAddress();
-        client->connectToPeer(discover->peerList.value(name));
+        commPeer = discover->peerList.value(name);
+        client->connectToPeer(commPeer);
+
+        state = StateController::Calling;
+        emit newState(state);
     }
     else {
         emit callError("You are already in a call. You must terminate before calling someone else");
@@ -85,7 +88,7 @@ void StateController::endCall() {
             if (client->state() == QTcpSocket::ConnectedState)
                 client->hangUp();
             else
-                server->sendCommand(*incomingCaller,CommandClient::EndCall);
+                server->sendCommand(*commPeer->getAddress(),CommandClient::EndCall);
         }
 
         recThread->quit();
@@ -103,13 +106,10 @@ void StateController::receiveCall(const QHostAddress &address) {
 
     if (state == StateController::Ready) {
 
-        qDebug() << &address;
-        QString name = getNameFromAddress(address);
-        if (!name.isNull()) {
-            incomingCaller = new QHostAddress(address); //store the address of the incoming caller for when the view responses.
-            qDebug() << incomingCaller;
+        commPeer = getPeerFromAddress(address);
 
-            emit callIncoming(name);
+        if (!commPeer->getName().isNull()) {
+            emit callIncoming(commPeer->getName());
         }
     }
     else {
@@ -117,11 +117,11 @@ void StateController::receiveCall(const QHostAddress &address) {
     }
 }
 
-QString StateController::getNameFromAddress(const QHostAddress &address) {
+Peer* StateController::getPeerFromAddress(const QHostAddress &address) {
 
     foreach(Peer* p, discover->peerList.values()) {
         if (*p->getAddress() == address) {
-            return p->getName();
+            return p;
         }
     }
     return NULL;
@@ -130,10 +130,10 @@ QString StateController::getNameFromAddress(const QHostAddress &address) {
 void StateController::acceptCall() {
 
     //Inform caller that we accept the call.
-    server->sendCommand(*incomingCaller,CommandClient::CallAccepted);
+    server->sendCommand(*commPeer->getAddress(),CommandClient::CallAccepted);
 
     //Begin send/listen.
-    sendThread->recordSound(*incomingCaller);
+    sendThread->recordSound(*commPeer->getAddress());
     recThread->listen();
 
     state = StateController::InCall;
@@ -143,20 +143,20 @@ void StateController::acceptCall() {
 
 
 void StateController::rejectCall() {
-
     //server reponses here?
-    server->sendCommand(*incomingCaller,CommandClient::Busy);
-
-    delete incomingCaller;
+    server->sendCommand(*commPeer->getAddress(),CommandClient::Busy);
 }
 
 void StateController::outCallAccepted() {
-    sendThread->recordSound(*outgoingCall);
-    recThread->listen();
 
-    state = StateController::InCall;
+    if (state == StateController::Calling) {
+        sendThread->recordSound(*commPeer->getAddress());
+        recThread->listen();
 
-    emit newState(state);
+        state = StateController::InCall;
+
+        emit newState(state);
+    }
 }
 
 void StateController::callerWasBusy() {
@@ -173,7 +173,7 @@ void StateController::sendMuteSound(bool toggle) {
     if (client->state() == QTcpSocket::ConnectedState)
         client->sendCommand(cmd);
     else
-        server->sendCommand(*incomingCaller,cmd);
+        server->sendCommand(*commPeer->getAddress(),cmd);
 }
 
 void StateController::sendMuteMic(bool toggle) {
@@ -184,5 +184,5 @@ void StateController::sendMuteMic(bool toggle) {
     if (client->state() == QTcpSocket::ConnectedState)
         client->sendCommand(cmd);
     else
-        server->sendCommand(*incomingCaller,cmd);
+        server->sendCommand(*commPeer->getAddress(),cmd);
 }

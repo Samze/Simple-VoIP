@@ -38,7 +38,8 @@ private slots:
 private:
     Ui::MainWindow *ui;
     StateController* controller;
-
+    QPixmap callGreen;
+    QPixmap callRed;
     QStringList list;
 };
 

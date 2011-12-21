@@ -18,11 +18,13 @@ class StateController : public QObject
 public:
     explicit StateController(QObject *parent = 0);
     ~StateController();
-
     enum VoIPState {
        Ready,
+       Calling,
        InCall
     };
+
+    Peer* getPeer() { return commPeer;}
 
 signals:
     void updatePeerList(QList<Peer*>);
@@ -65,11 +67,9 @@ private:
     NetworkDiscover *discover;
     VoIPState state;
 
-    QHostAddress* outgoingCall; //Pointer to peerlist.
-    QHostAddress* incomingCaller;
+    Peer* commPeer;
 
-
-    QString getNameFromAddress(const QHostAddress &);
+    Peer* getPeerFromAddress(const QHostAddress &);
 
 };
 

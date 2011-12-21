@@ -1,6 +1,15 @@
 <RCC>
-    <qresource prefix="/images">
-        <file>call-icon.jpg</file>
-        <file>end_call.png</file>
+    <qresource prefix="/">
+        <file>images/media_player.png</file>
+        <file>images/mute.png</file>
+        <file>images/voip.png</file>
+        <file>images/voip_alt.png</file>
+        <file>images/headphones.png</file>
+        <file>images/msn.png</file>
+        <file>images/headphones_muted.png</file>
+        <file>images/loud_2.png</file>
+        <file>images/mic.png</file>
+        <file>images/In_call.png</file>
+        <file>images/no_call.png</file>
     </qresource>
 </RCC>

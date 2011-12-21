@@ -7,6 +7,14 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    if(!callGreen.load(":/images/In_call.png")) {
+        qWarning("Failed to load :/images/In_call.png");
+    }
+
+    if(!callRed.load(":/images/no_call.png")) {
+        qWarning("Failed to load :/images/no_call.png");
+    }
+
     controller = new StateController();
 
     //setup start connections
@@ -107,11 +115,16 @@ void MainWindow::setCallStatus(StateController::VoIPState state) {
 
     switch(state) {
         case StateController::InCall:
-            ui->lblStatus->setText("In call");
+            ui->lblCallName->setText(controller->getPeer()->getName());
+            ui->lblCallIcon->setPixmap(callGreen);
             break;
         case StateController::Ready:
-            ui->lblStatus->setText("Ready");
+            ui->lblCallName->setText("No Call");
+            ui->lblCallIcon->setPixmap(callRed);
+            ui->lblCallerSound->setText("");
             break;
+        case StateController::Calling:
+            ui->lblCallName->setText("Calling...");
     }
 
 }
@@ -120,7 +133,7 @@ void MainWindow::callerMicMuted(bool toggle) {
     qDebug() << "CallerMicMuted " << toggle;
 
     QString msg;
-    msg = toggle ? "Off" : "On";
+    msg = toggle ? controller->getPeer()->getName() + " muted their Mic." : "";
     ui->lblCallerMic->setText(msg);
 }
 
@@ -128,6 +141,6 @@ void MainWindow::callerSoundMuted(bool toggle) {
     qDebug() << "CallerSoundMuted " << toggle;
 
     QString msg;
-    msg = toggle ? "Off" : "On";
+    msg = toggle ? controller->getPeer()->getName() + " muted their sound." : "";
     ui->lblCallerSound->setText(msg);
 }
