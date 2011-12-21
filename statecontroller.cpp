@@ -161,6 +161,10 @@ void StateController::outCallAccepted() {
 }
 
 void StateController::callerWasBusy() {
+
+    state = StateController::Ready;
+
+    emit newState(state);
     emit callerBusy();
 }
 
