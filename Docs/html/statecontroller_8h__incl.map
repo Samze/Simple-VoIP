@@ -1,0 +1,13 @@
+<map id="G" name="G">
+<area shape="rect" id="node7" href="$voiceinput_8h.html" title="voiceinput.h" alt="" coords="331,155,421,181"/>
+<area shape="rect" id="node27" href="$soundsender_8h.html" title="soundsender.h" alt="" coords="795,229,901,256"/>
+<area shape="rect" id="node35" href="$voiceoutput_8h.html" title="voiceoutput.h" alt="" coords="680,155,779,181"/>
+<area shape="rect" id="node44" href="$soundreciever_8h.html" title="soundreciever.h" alt="" coords="1077,229,1189,256"/>
+<area shape="rect" id="node50" href="$receivethread_8h.html" title="receivethread.h" alt="" coords="792,80,901,107"/>
+<area shape="rect" id="node54" href="$sendthread_8h.html" title="sendthread.h" alt="" coords="619,80,716,107"/>
+<area shape="rect" id="node58" href="$commandclient_8h.html" title="commandclient.h" alt="" coords="1435,155,1556,181"/>
+<area shape="rect" id="node74" href="$commandserver_8h.html" title="commandserver.h" alt="" coords="1273,80,1396,107"/>
+<area shape="rect" id="node83" href="$networkdiscover_8h.html" title="networkdiscover.h" alt="" coords="1839,80,1964,107"/>
+<area shape="rect" id="node9" href="$abstractvoice_8h.html" title="abstractvoice.h" alt="" coords="275,229,384,256"/>
+<area shape="rect" id="node63" href="$peer_8h.html" title="peer.h" alt="" coords="1709,229,1768,256"/>
+</map>

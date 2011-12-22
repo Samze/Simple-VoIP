@@ -1,0 +1,65 @@
+\hypertarget{peer_8h}{
+\section{peer.h \-File \-Reference}
+\label{peer_8h}\index{peer.\-h@{peer.\-h}}
+}
+{\ttfamily \#include $<$\-Q\-Object$>$}\*
+{\ttfamily \#include $<$\-Q\-Host\-Address$>$}\*
+{\ttfamily \#include $<$\-Q\-Time$>$}\*
+{\ttfamily \#include $<$\-Q\-Hash$>$}\*
+{\ttfamily \#include $<$\-Q\-String\-List$>$}\*
+\-Include dependency graph for peer.h\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{peer_8h__incl}
+\end{center}
+\end{figure}
+\-This graph shows which files directly or indirectly include this file\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{peer_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{\-Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_peer}{\-Peer}
+\begin{DoxyCompactList}\small\item\em \-Holds information for a located communication peer on the network. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint \hyperlink{peer_8h_ae9f86cdc318a41512b066aa6dca4d935}{q\-Hash} (const \hyperlink{class_peer}{\-Peer} $\ast$peer)
+\begin{DoxyCompactList}\small\item\em \-Overloaded q\-Hash in order to get \hyperlink{class_peer}{\-Peer} to contain in a \-Set. \end{DoxyCompactList}\item 
+bool \hyperlink{peer_8h_a0b435991f4cab6fdb41468ccb2806fd9}{operator==} (const \hyperlink{class_peer}{\-Peer} \&peer, const \hyperlink{class_peer}{\-Peer} \&peer2)
+\begin{DoxyCompactList}\small\item\em \-Overloaded obj1==obj2 in order to get \hyperlink{class_peer}{\-Peer} to contain in a \-Set. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{\-Function \-Documentation}
+\hypertarget{peer_8h_a0b435991f4cab6fdb41468ccb2806fd9}{
+\index{peer.\-h@{peer.\-h}!operator==@{operator==}}
+\index{operator==@{operator==}!peer.h@{peer.\-h}}
+\subsubsection[{operator==}]{\setlength{\rightskip}{0pt plus 5cm}bool operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Peer} \&}]{peer, }
+\item[{const {\bf \-Peer} \&}]{peer2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{peer_8h_a0b435991f4cab6fdb41468ccb2806fd9}
+
+
+\-Overloaded obj1==obj2 in order to get \hyperlink{class_peer}{\-Peer} to contain in a \-Set. 
+
+\hypertarget{peer_8h_ae9f86cdc318a41512b066aa6dca4d935}{
+\index{peer.\-h@{peer.\-h}!q\-Hash@{q\-Hash}}
+\index{q\-Hash@{q\-Hash}!peer.h@{peer.\-h}}
+\subsubsection[{q\-Hash}]{\setlength{\rightskip}{0pt plus 5cm}uint q\-Hash (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Peer} $\ast$}]{peer}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{peer_8h_ae9f86cdc318a41512b066aa6dca4d935}
+
+
+\-Overloaded q\-Hash in order to get \hyperlink{class_peer}{\-Peer} to contain in a \-Set. 
+

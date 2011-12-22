@@ -1,0 +1,12 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$voiceinput_8h.html" title="voiceinput.h" alt="" coords="169,80,260,107"/>
+<area shape="rect" id="node5" href="$statecontroller_8h.html" title="statecontroller.h" alt="" coords="217,229,332,256"/>
+<area shape="rect" id="node23" href="$soundsender_8cpp.html" title="soundsender.cpp" alt="" coords="363,80,484,107"/>
+<area shape="rect" id="node15" href="$sendthread_8h.html" title="sendthread.h" alt="" coords="11,155,108,181"/>
+<area shape="rect" id="node20" href="$voiceinput_8cpp.html" title="voiceinput.cpp" alt="" coords="133,155,237,181"/>
+<area shape="rect" id="node7" href="$mainwindow_8h.html" title="mainwindow.h" alt="" coords="154,304,256,331"/>
+<area shape="rect" id="node13" href="$statecontroller_8cpp.html" title="statecontroller.cpp" alt="" coords="281,304,409,331"/>
+<area shape="rect" id="node9" href="$main_8cpp.html" title="main.cpp" alt="" coords="108,379,183,405"/>
+<area shape="rect" id="node11" href="$mainwindow_8cpp.html" title="mainwindow.cpp" alt="" coords="207,379,324,405"/>
+<area shape="rect" id="node18" href="$sendthread_8cpp.html" title="sendthread.cpp" alt="" coords="5,229,115,256"/>
+</map>

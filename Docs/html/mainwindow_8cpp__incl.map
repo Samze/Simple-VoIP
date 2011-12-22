@@ -1,0 +1,15 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$mainwindow_8h.html" title="mainwindow.h" alt="" coords="887,80,989,107"/>
+<area shape="rect" id="node7" href="$statecontroller_8h.html" title="statecontroller.h" alt="" coords="881,155,996,181"/>
+<area shape="rect" id="node13" href="$voiceinput_8h.html" title="voiceinput.h" alt="" coords="331,304,421,331"/>
+<area shape="rect" id="node33" href="$soundsender_8h.html" title="soundsender.h" alt="" coords="795,379,901,405"/>
+<area shape="rect" id="node41" href="$voiceoutput_8h.html" title="voiceoutput.h" alt="" coords="680,304,779,331"/>
+<area shape="rect" id="node50" href="$soundreciever_8h.html" title="soundreciever.h" alt="" coords="1077,379,1189,405"/>
+<area shape="rect" id="node56" href="$receivethread_8h.html" title="receivethread.h" alt="" coords="792,229,901,256"/>
+<area shape="rect" id="node60" href="$sendthread_8h.html" title="sendthread.h" alt="" coords="619,229,716,256"/>
+<area shape="rect" id="node64" href="$commandclient_8h.html" title="commandclient.h" alt="" coords="1435,304,1556,331"/>
+<area shape="rect" id="node80" href="$commandserver_8h.html" title="commandserver.h" alt="" coords="1293,229,1416,256"/>
+<area shape="rect" id="node89" href="$networkdiscover_8h.html" title="networkdiscover.h" alt="" coords="1839,229,1964,256"/>
+<area shape="rect" id="node15" href="$abstractvoice_8h.html" title="abstractvoice.h" alt="" coords="275,379,384,405"/>
+<area shape="rect" id="node69" href="$peer_8h.html" title="peer.h" alt="" coords="1709,379,1768,405"/>
+</map>

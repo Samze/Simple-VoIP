@@ -1,0 +1,13 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_command_client.html" title="A subclass of QTcpSocket, class that is responsible for sending/receiving control signals between cal..." alt="" coords="5,567,144,747"/>
+<area shape="rect" id="node4" href="$class_peer.html" title="Holds information for a located communication peer on the network." alt="" coords="169,545,319,769"/>
+<area shape="rect" id="node6" href="$class_receive_thread.html" title="A Thread class that controls listening for incoming voice data." alt="" coords="343,604,469,711"/>
+<area shape="rect" id="node8" href="$class_voice_output.html" title="Receives audio data and plays it using the systems default output device." alt="" coords="345,235,468,429"/>
+<area shape="rect" id="node10" href="$class_abstract_voice.html" title="Abstracted common voice elements for recording and playback." alt="" coords="413,5,544,171"/>
+<area shape="rect" id="node20" href="$class_voice_input.html" title="Captures audio data and puts it in a buffer for sending down the network." alt="" coords="497,249,607,415"/>
+<area shape="rect" id="node12" href="$class_sound_reciever.html" title="A buffer that receives UDP audio data over the network." alt="" coords="241,27,388,149"/>
+<area shape="rect" id="node14" href="$class_network_discover.html" title="Discovers local peers on the network to communicate with." alt="" coords="633,494,799,821"/>
+<area shape="rect" id="node16" href="$class_command_server.html" title="A subclass of QTcpServer that receives command signals from clients over the network." alt="" coords="823,589,968,725"/>
+<area shape="rect" id="node18" href="$class_send_thread.html" title="A Thread class that controls recording audio and sending data communication." alt="" coords="495,597,609,718"/>
+<area shape="rect" id="node23" href="$class_sound_sender.html" title="A buffer that sends UDP audio data over the network." alt="" coords="569,27,697,149"/>
+</map>

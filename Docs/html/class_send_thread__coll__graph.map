@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_voice_input.html" title="Captures audio data and puts it in a buffer for sending down the network." alt="" coords="93,235,203,400"/>
+<area shape="rect" id="node4" href="$class_abstract_voice.html" title="Abstracted common voice elements for recording and playback." alt="" coords="5,5,136,171"/>
+<area shape="rect" id="node6" href="$class_sound_sender.html" title="A buffer that sends UDP audio data over the network." alt="" coords="161,27,289,149"/>
+</map>
