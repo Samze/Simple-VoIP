@@ -69,6 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 <div class="header">
@@ -76,7 +77,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">networkdiscover.h</div>  </div>
 </div>
 <div class="contents">
-<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef NETWORKDISCOVER_H</span>
+<a href="networkdiscover_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef NETWORKDISCOVER_H</span>
 <a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define NETWORKDISCOVER_H</span>
 <a name="l00003"></a>00003 <span class="preprocessor"></span>
 <a name="l00004"></a>00004 <span class="preprocessor">#include &lt;QUdpSocket&gt;</span>
@@ -88,9 +89,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00010"></a>00010 <span class="preprocessor">#include &lt;QNetworkInterface&gt;</span>
 <a name="l00011"></a>00011 <span class="preprocessor">#include &lt;QProcessEnvironment&gt;</span>
 <a name="l00012"></a>00012 <span class="preprocessor">#include &lt;QProcess&gt;</span>
-<a name="l00013"></a>00013 <span class="preprocessor">#include &quot;peer.h&quot;</span>
+<a name="l00013"></a>00013 <span class="preprocessor">#include &quot;<a class="code" href="peer_8h.html">peer.h</a>&quot;</span>
 <a name="l00014"></a>00014 
-<a name="l00016"></a>00016 <span class="preprocessor">#define NETWORK_SIG &quot;@SGv1#&quot;</span>
+<a name="l00016"></a><a class="code" href="networkdiscover_8h.html#a95a7f5c43d9b635b2d29fd4169493da3">00016</a> <span class="preprocessor">#define NETWORK_SIG &quot;@SGv1#&quot;</span>
 <a name="l00017"></a>00017 <span class="preprocessor"></span>
 <a name="l00025"></a><a class="code" href="class_network_discover.html">00025</a> <span class="keyword">class </span><a class="code" href="class_network_discover.html" title="Discovers local peers on the network to communicate with.">NetworkDiscover</a> : <span class="keyword">public</span> QUdpSocket
 <a name="l00026"></a>00026 {
@@ -113,27 +114,27 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00062"></a>00062 signals:
 <a name="l00063"></a>00063     <span class="keywordtype">void</span> <a class="code" href="class_network_discover.html#a42566247e43198ea9cce91eb5f15511d" title="Emitted when the peer list has changed, ie.">peersChanged</a>(QList&lt;Peer*&gt;); 
 <a name="l00065"></a>00065 <span class="keyword">private</span> slots:
-<a name="l00069"></a>00069     <span class="keywordtype">void</span> receivedP2P();
+<a name="l00069"></a>00069     <span class="keywordtype">void</span> <a class="code" href="class_network_discover.html#ada902f88ce4d9b1e707dfbf1be3e102c" title="Received peer signal from UDP port.">receivedP2P</a>();
 <a name="l00070"></a>00070 
-<a name="l00074"></a>00074     <span class="keywordtype">void</span> notifyP2P();
+<a name="l00074"></a>00074     <span class="keywordtype">void</span> <a class="code" href="class_network_discover.html#ac9c9e8988abe75fb02386b7783cf53be" title="Broadcasts an identifier beacon via UDP.">notifyP2P</a>();
 <a name="l00075"></a>00075 
-<a name="l00079"></a>00079     <span class="keywordtype">void</span> checkPeersAlive();
+<a name="l00079"></a>00079     <span class="keywordtype">void</span> <a class="code" href="class_network_discover.html#aec820bf7bae99a2a8f533bb31a841ca6" title="Periodically checks the last time a peer replied to our signal.">checkPeersAlive</a>();
 <a name="l00080"></a>00080 
 <a name="l00081"></a>00081 <span class="keyword">private</span>:
 <a name="l00082"></a>00082     <span class="comment">//These could be #DEFINE however static const respects scope and is type-safe.</span>
-<a name="l00083"></a>00083     <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> DISCOVER_PORT = 45453;     
-<a name="l00084"></a>00084     <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> BROADCAST_TIME = 2000;     
-<a name="l00085"></a>00085     <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> CHECK_TIME = 10000;        
-<a name="l00086"></a>00086     <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> DISCOVER_TIMEOUT = 3000;   
-<a name="l00088"></a>00088     QTimer broadCastTimer; 
-<a name="l00089"></a>00089     QTimer peerCheck; 
-<a name="l00091"></a>00091     QNetworkInterface networkInter; 
-<a name="l00092"></a>00092     QList&lt;QHostAddress&gt; localAddressList; 
-<a name="l00094"></a>00094     QString username; 
+<a name="l00083"></a><a class="code" href="class_network_discover.html#aae5acabb49790c03dd076c235fd3014c">00083</a>     <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="class_network_discover.html#aae5acabb49790c03dd076c235fd3014c" title="The UDP port to be used for discovery.">DISCOVER_PORT</a> = 45453;     
+<a name="l00084"></a><a class="code" href="class_network_discover.html#ac85620fa17d1128dc86745611df1dbe0">00084</a>     <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="class_network_discover.html#ac85620fa17d1128dc86745611df1dbe0" title="The time between broadcasting our signal in ms.">BROADCAST_TIME</a> = 2000;     
+<a name="l00085"></a><a class="code" href="class_network_discover.html#afc4903f686b81fff1247fc7cbcea17ff">00085</a>     <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="class_network_discover.html#afc4903f686b81fff1247fc7cbcea17ff" title="The time between checking our peers are still &quot;alive&quot;.">CHECK_TIME</a> = 10000;        
+<a name="l00086"></a><a class="code" href="class_network_discover.html#aebe784b2c4a47256321246c7d4fca5e6">00086</a>     <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="class_network_discover.html#aebe784b2c4a47256321246c7d4fca5e6" title="The time within that a peer should have last communicated.">DISCOVER_TIMEOUT</a> = 3000;   
+<a name="l00088"></a><a class="code" href="class_network_discover.html#a82d0981a5c6c1acecd85a0e210b631f2">00088</a>     QTimer <a class="code" href="class_network_discover.html#a82d0981a5c6c1acecd85a0e210b631f2" title="Timer used to periodically broadcast that we are an alive peer.">broadCastTimer</a>; 
+<a name="l00089"></a><a class="code" href="class_network_discover.html#ad23e0a7d95e0fed29acae8f193dfcfc3">00089</a>     QTimer <a class="code" href="class_network_discover.html#ad23e0a7d95e0fed29acae8f193dfcfc3" title="Timer used to periodically check that our peers are still active.">peerCheck</a>; 
+<a name="l00091"></a><a class="code" href="class_network_discover.html#a67c037cca501b587cc8c24ab5d971553">00091</a>     QNetworkInterface <a class="code" href="class_network_discover.html#a67c037cca501b587cc8c24ab5d971553" title="Used to obtain local network information.">networkInter</a>; 
+<a name="l00092"></a><a class="code" href="class_network_discover.html#a9db1fe648d568707cfcda8f00d2b5f5a">00092</a>     QList&lt;QHostAddress&gt; <a class="code" href="class_network_discover.html#a9db1fe648d568707cfcda8f00d2b5f5a" title="Local address list.">localAddressList</a>; 
+<a name="l00094"></a><a class="code" href="class_network_discover.html#ad9dcef0352b63920211c0b442741bebb">00094</a>     QString <a class="code" href="class_network_discover.html#ad9dcef0352b63920211c0b442741bebb" title="Local username detected.">username</a>; 
 <a name="l00096"></a>00096 <span class="keyword">private</span>:
-<a name="l00101"></a>00101     <span class="keywordtype">bool</span> isLocalAddress(QHostAddress);
+<a name="l00101"></a>00101     <span class="keywordtype">bool</span> <a class="code" href="class_network_discover.html#ab1909b31fd4df24ebe095d3bbde3925e" title="Detects if the address is local.">isLocalAddress</a>(QHostAddress);
 <a name="l00102"></a>00102 
-<a name="l00106"></a>00106     <span class="keywordtype">bool</span> addToList(QString*,QHostAddress*,quint16);
+<a name="l00106"></a>00106     <span class="keywordtype">bool</span> <a class="code" href="class_network_discover.html#a8e567964d959ba269d2570769eb7b1da" title="Adds a peer to the list, with their name, address and their prefered communication port...">addToList</a>(QString*,QHostAddress*,quint16);
 <a name="l00107"></a>00107 
 <a name="l00108"></a>00108 };
 <a name="l00109"></a>00109 
@@ -145,7 +146,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -157,7 +158,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Dec 22 2011 05:03:24 for VoIp by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Dec 22 2011 06:20:49 for VoIp by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.5.1
 </small></address>

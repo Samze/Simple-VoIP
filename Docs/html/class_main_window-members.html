@@ -82,9 +82,23 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="contents">
 This is the complete list of members for <a class="el" href="class_main_window.html">MainWindow</a>, including all inherited members.<table>
   <tr class="memlist"><td><a class="el" href="class_main_window.html#aea2d395eaa1a1b353b7838731595a3f7">call</a>(QString)</td><td><a class="el" href="class_main_window.html">MainWindow</a></td><td><code> [signal]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_main_window.html#a342dc22be100ae360deb0fca0a0d610a">callerBusy</a>()</td><td><a class="el" href="class_main_window.html">MainWindow</a></td><td><code> [private, slot]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_main_window.html#a4f308b9aade3aafea3c33773c17522aa">callerMicMuted</a>(bool)</td><td><a class="el" href="class_main_window.html">MainWindow</a></td><td><code> [private, slot]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_main_window.html#aed9515073081aa1f6cdb4949b5b11194">callError</a>(const QString &amp;error)</td><td><a class="el" href="class_main_window.html">MainWindow</a></td><td><code> [private, slot]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_main_window.html#a73c0b86679333c83552253d798754e48">callerSoundMuted</a>(bool)</td><td><a class="el" href="class_main_window.html">MainWindow</a></td><td><code> [private, slot]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_main_window.html#af6e038a052aefecc54322a166ad08bcf">callGreen</a></td><td><a class="el" href="class_main_window.html">MainWindow</a></td><td><code> [private]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_main_window.html#afaa4ef4d091e0f4cf16036d831f30787">callPressed</a>()</td><td><a class="el" href="class_main_window.html">MainWindow</a></td><td><code> [private, slot]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_main_window.html#a9bd145f81a0a715e4739c3d893fb7b7b">callRed</a></td><td><a class="el" href="class_main_window.html">MainWindow</a></td><td><code> [private]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_main_window.html#ac473def8f3f23d0aa997355598be150b">callStateChanged</a>(StateController::VoIPState state)</td><td><a class="el" href="class_main_window.html">MainWindow</a></td><td><code> [private, slot]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_main_window.html#a998fca79d54f491c4ef158e03e8894d4">controller</a></td><td><a class="el" href="class_main_window.html">MainWindow</a></td><td><code> [private]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="class_main_window.html#ac1ad769a26f328f8184cd63833af4539">inCallAccepted</a>()</td><td><a class="el" href="class_main_window.html">MainWindow</a></td><td><code> [signal]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="class_main_window.html#a3322ffd0516e30afc70f8b623301c426">inCallRejected</a>()</td><td><a class="el" href="class_main_window.html">MainWindow</a></td><td><code> [signal]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_main_window.html#a47e0e25f0b714888d25f3945b9f07185">incomingCall</a>(const QString &amp;caller)</td><td><a class="el" href="class_main_window.html">MainWindow</a></td><td><code> [private, slot]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="class_main_window.html#a8b244be8b7b7db1b08de2a2acb9409db">MainWindow</a>(QWidget *parent=0)</td><td><a class="el" href="class_main_window.html">MainWindow</a></td><td><code> [explicit]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_main_window.html#a4f3ebda1ba39e0ef4d678b44893c9c7f">on_actionAbout_triggered</a>()</td><td><a class="el" href="class_main_window.html">MainWindow</a></td><td><code> [private, slot]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_main_window.html#a8c245df1016600d0f111fb98c8738d6d">peerNameList</a></td><td><a class="el" href="class_main_window.html">MainWindow</a></td><td><code> [private]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_main_window.html#a35466a70ed47252a0191168126a352a5">ui</a></td><td><a class="el" href="class_main_window.html">MainWindow</a></td><td><code> [private]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_main_window.html#a780eb14bc5469aa2431a1d605a1bd431">updateGUIPeerList</a>(QList&lt; Peer * &gt; pList)</td><td><a class="el" href="class_main_window.html">MainWindow</a></td><td><code> [private, slot]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="class_main_window.html#ae98d00a93bc118200eeef9f9bba1dba7">~MainWindow</a>()</td><td><a class="el" href="class_main_window.html">MainWindow</a></td><td></td></tr>
 </table></div>
 <!-- window showing the filter options -->
@@ -92,7 +106,7 @@ This is the complete list of members for <a class="el" href="class_main_window.h
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -104,7 +118,7 @@ This is the complete list of members for <a class="el" href="class_main_window.h
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Dec 22 2011 05:03:24 for VoIp by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Dec 22 2011 06:20:51 for VoIp by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.5.1
 </small></address>

@@ -16,16 +16,20 @@
 \item 
 \hyperlink{class_sound_sender_a15a16cf2d16d1de5de0f0d0e4b4ce5c9}{\-Sound\-Sender} (\-Q\-Object $\ast$parent, \-Q\-Host\-Address address)
 \begin{DoxyCompactList}\small\item\em \-Default constructor which binds to a \-U\-D\-P port. \end{DoxyCompactList}\item 
-\hypertarget{class_sound_sender_a15f4c11ed7d489972876697b776b27ab}{
-\hyperlink{class_sound_sender_a15f4c11ed7d489972876697b776b27ab}{$\sim$\-Sound\-Sender} ()}
-\label{class_sound_sender_a15f4c11ed7d489972876697b776b27ab}
-
+\hyperlink{class_sound_sender_a15f4c11ed7d489972876697b776b27ab}{$\sim$\-Sound\-Sender} ()
 \begin{DoxyCompactList}\small\item\em \-Deletes the \-U\-D\-P\-Socket. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{\-Protected \-Member \-Functions}
 \begin{DoxyCompactItemize}
 \item 
 qint64 \hyperlink{class_sound_sender_a2557d162440651dcee73996162d4820a}{write\-Data} (const char $\ast$data, qint64 len)
 \begin{DoxyCompactList}\small\item\em \-Overridden from \-Q\-Buffer, when data is written to this buffer it is sent down the network to the address specified. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Private \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\-Q\-Udp\-Socket $\ast$ \hyperlink{class_sound_sender_a00386335e797a20af7a64a77871553ae}{udp\-Socket}
+\begin{DoxyCompactList}\small\item\em \-The udp socket used. \end{DoxyCompactList}\item 
+\-Q\-Host\-Address \hyperlink{class_sound_sender_aa2046b227bcc7cf1be86aabd197aaa3f}{m\-\_\-address}
+\begin{DoxyCompactList}\small\item\em \-The address to send the data. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{\-Detailed \-Description}
@@ -55,6 +59,19 @@ qint64 \hyperlink{class_sound_sender_a2557d162440651dcee73996162d4820a}{write\-D
 {\em address} & \-The address to send the data. \\
 \hline
 \end{DoxyParams}
+\hypertarget{class_sound_sender_a15f4c11ed7d489972876697b776b27ab}{
+\index{\-Sound\-Sender@{\-Sound\-Sender}!$\sim$\-Sound\-Sender@{$\sim$\-Sound\-Sender}}
+\index{$\sim$\-Sound\-Sender@{$\sim$\-Sound\-Sender}!SoundSender@{\-Sound\-Sender}}
+\subsubsection[{$\sim$\-Sound\-Sender}]{\setlength{\rightskip}{0pt plus 5cm}\-Sound\-Sender\-::$\sim$\-Sound\-Sender (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_sound_sender_a15f4c11ed7d489972876697b776b27ab}
+
+
+\-Deletes the \-U\-D\-P\-Socket. 
+
 
 
 \subsection{\-Member \-Function \-Documentation}
@@ -84,7 +101,28 @@ qint64 \hyperlink{class_sound_sender_a2557d162440651dcee73996162d4820a}{write\-D
 \end{DoxyReturn}
 
 
+\subsection{\-Member \-Data \-Documentation}
+\hypertarget{class_sound_sender_aa2046b227bcc7cf1be86aabd197aaa3f}{
+\index{\-Sound\-Sender@{\-Sound\-Sender}!m\-\_\-address@{m\-\_\-address}}
+\index{m\-\_\-address@{m\-\_\-address}!SoundSender@{\-Sound\-Sender}}
+\subsubsection[{m\-\_\-address}]{\setlength{\rightskip}{0pt plus 5cm}\-Q\-Host\-Address {\bf \-Sound\-Sender\-::m\-\_\-address}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_sound_sender_aa2046b227bcc7cf1be86aabd197aaa3f}
+
+
+\-The address to send the data. 
+
+\hypertarget{class_sound_sender_a00386335e797a20af7a64a77871553ae}{
+\index{\-Sound\-Sender@{\-Sound\-Sender}!udp\-Socket@{udp\-Socket}}
+\index{udp\-Socket@{udp\-Socket}!SoundSender@{\-Sound\-Sender}}
+\subsubsection[{udp\-Socket}]{\setlength{\rightskip}{0pt plus 5cm}\-Q\-Udp\-Socket$\ast$ {\bf \-Sound\-Sender\-::udp\-Socket}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_sound_sender_a00386335e797a20af7a64a77871553ae}
+
+
+\-The udp socket used. 
+
+
+
 \-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
 \item 
-soundsender.\-h\item 
-soundsender.\-cpp\end{DoxyCompactItemize}
+\hyperlink{soundsender_8h}{soundsender.\-h}\item 
+\hyperlink{soundsender_8cpp}{soundsender.\-cpp}\end{DoxyCompactItemize}

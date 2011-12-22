@@ -78,7 +78,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#signals">Signals</a> &#124;
-<a href="#pub-methods">Public Member Functions</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-slots">Private Slots</a> &#124;
+<a href="#pri-attribs">Private Attributes</a>  </div>
   <div class="headertitle">
 <div class="title">MainWindow Class Reference</div>  </div>
 </div>
@@ -88,6 +90,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <a href="class_main_window.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="mainwindow_8h_source.html">mainwindow.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for MainWindow:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_main_window__coll__graph.png" border="0" usemap="#_main_window_coll__map" alt="Collaboration graph"/></div>
+<map name="_main_window_coll__map" id="_main_window_coll__map">
+<area shape="rect" id="node2" href="class_state_controller.html" title="This controller object contains state information and acts as a go between the view and model..." alt="" coords="411,886,547,1213"/><area shape="rect" id="node4" href="class_command_client.html" title="A subclass of QTcpSocket, class that is responsible for sending/receiving control signals between cal..." alt="" coords="5,567,144,747"/><area shape="rect" id="node6" href="class_peer.html" title="Holds information for a located communication peer on the network." alt="" coords="169,545,319,769"/><area shape="rect" id="node8" href="class_receive_thread.html" title="A Thread class that controls listening for incoming voice data." alt="" coords="343,604,469,711"/><area shape="rect" id="node10" href="class_voice_output.html" title="Receives audio data and plays it using the systems default output device." alt="" coords="345,235,468,429"/><area shape="rect" id="node12" href="class_abstract_voice.html" title="Abstracted common voice elements for recording and playback." alt="" coords="413,5,544,171"/><area shape="rect" id="node22" href="class_voice_input.html" title="Captures audio data and puts it in a buffer for sending down the network." alt="" coords="497,249,607,415"/><area shape="rect" id="node14" href="class_sound_reciever.html" title="A buffer that receives UDP audio data over the network." alt="" coords="241,27,388,149"/><area shape="rect" id="node16" href="class_network_discover.html" title="Discovers local peers on the network to communicate with." alt="" coords="633,494,799,821"/><area shape="rect" id="node18" href="class_command_server.html" title="A subclass of QTcpServer that receives command signals from clients over the network." alt="" coords="823,589,968,725"/><area shape="rect" id="node20" href="class_send_thread.html" title="A Thread class that controls recording audio and sending data communication." alt="" coords="495,597,609,718"/><area shape="rect" id="node25" href="class_sound_sender.html" title="A buffer that sends UDP audio data over the network." alt="" coords="569,27,697,149"/></map>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 
 <p><a href="class_main_window-members.html">List of all members.</a></p>
 <table class="memberdecls">
@@ -103,9 +112,40 @@ Signals</h2></td></tr>
 Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#a8b244be8b7b7db1b08de2a2acb9409db">MainWindow</a> (QWidget *parent=0)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Construction which sets up the UI class as well as all signals/slots and instansiates the controller.  <a href="#a8b244be8b7b7db1b08de2a2acb9409db"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae98d00a93bc118200eeef9f9bba1dba7"></a><!-- doxytag: member="MainWindow::~MainWindow" ref="ae98d00a93bc118200eeef9f9bba1dba7" args="()" -->
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#ae98d00a93bc118200eeef9f9bba1dba7">~MainWindow</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor which deletes the ui and all allocated objects. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#ae98d00a93bc118200eeef9f9bba1dba7">~MainWindow</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor which deletes the ui and all allocated objects.  <a href="#ae98d00a93bc118200eeef9f9bba1dba7"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pri-slots"></a>
+Private Slots</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#a780eb14bc5469aa2431a1d605a1bd431">updateGUIPeerList</a> (QList&lt; <a class="el" href="class_peer.html">Peer</a> * &gt; pList)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the graphical view of the peer list.  <a href="#a780eb14bc5469aa2431a1d605a1bd431"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#afaa4ef4d091e0f4cf16036d831f30787">callPressed</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">User initiated a call.  <a href="#afaa4ef4d091e0f4cf16036d831f30787"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#aed9515073081aa1f6cdb4949b5b11194">callError</a> (const QString &amp;error)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">An error has occured for the user to be informed about.  <a href="#aed9515073081aa1f6cdb4949b5b11194"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#a342dc22be100ae360deb0fca0a0d610a">callerBusy</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The caller was busy, pop up dialog.  <a href="#a342dc22be100ae360deb0fca0a0d610a"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#a47e0e25f0b714888d25f3945b9f07185">incomingCall</a> (const QString &amp;caller)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A new call is incoming, ask user's permission.  <a href="#a47e0e25f0b714888d25f3945b9f07185"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#ac473def8f3f23d0aa997355598be150b">callStateChanged</a> (<a class="el" href="class_state_controller.html#a1aabd2155d8e6feb201ed3941e4ee2be">StateController::VoIPState</a> state)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the GUI to reflect the new state.  <a href="#ac473def8f3f23d0aa997355598be150b"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#a4f308b9aade3aafea3c33773c17522aa">callerMicMuted</a> (bool)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The caller has toggled their microphone.  <a href="#a4f308b9aade3aafea3c33773c17522aa"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#a73c0b86679333c83552253d798754e48">callerSoundMuted</a> (bool)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The caller has toggled their sound.  <a href="#a73c0b86679333c83552253d798754e48"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#a4f3ebda1ba39e0ef4d678b44893c9c7f">on_actionAbout_triggered</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">UI element to display information about the application.  <a href="#a4f3ebda1ba39e0ef4d678b44893c9c7f"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">Ui::MainWindow *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#a35466a70ed47252a0191168126a352a5">ui</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">UI class.  <a href="#a35466a70ed47252a0191168126a352a5"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_state_controller.html">StateController</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#a998fca79d54f491c4ef158e03e8894d4">controller</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Controller resposible for all interaction.  <a href="#a998fca79d54f491c4ef158e03e8894d4"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPixmap&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#af6e038a052aefecc54322a166ad08bcf">callGreen</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Green icon, showing in call.  <a href="#af6e038a052aefecc54322a166ad08bcf"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPixmap&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#a9bd145f81a0a715e4739c3d893fb7b7b">callRed</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Red icon, showing out of call.  <a href="#a9bd145f81a0a715e4739c3d893fb7b7b"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QStringList&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#a8c245df1016600d0f111fb98c8738d6d">peerNameList</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A List of peers names to be displayed in a widget.  <a href="#a8c245df1016600d0f111fb98c8738d6d"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Graphical interface class of type QMainWindow. </p>
@@ -136,6 +176,24 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="ae98d00a93bc118200eeef9f9bba1dba7"></a><!-- doxytag: member="MainWindow::~MainWindow" ref="ae98d00a93bc118200eeef9f9bba1dba7" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MainWindow::~MainWindow </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Default constructor which deletes the ui and all allocated objects. </p>
+
+</div>
+</div>
 <hr/><h2>Member Function Documentation</h2>
 <a class="anchor" id="aea2d395eaa1a1b353b7838731595a3f7"></a><!-- doxytag: member="MainWindow::call" ref="aea2d395eaa1a1b353b7838731595a3f7" args="(QString)" -->
 <div class="memitem">
@@ -154,6 +212,133 @@ Public Member Functions</h2></td></tr>
 
 <p>Signal emiited when the user has selected to start a new call. </p>
 <p>Provides the name selected. </p>
+
+</div>
+</div>
+<a class="anchor" id="a342dc22be100ae360deb0fca0a0d610a"></a><!-- doxytag: member="MainWindow::callerBusy" ref="a342dc22be100ae360deb0fca0a0d610a" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MainWindow::callerBusy </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [private, slot]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>The caller was busy, pop up dialog. </p>
+
+</div>
+</div>
+<a class="anchor" id="a4f308b9aade3aafea3c33773c17522aa"></a><!-- doxytag: member="MainWindow::callerMicMuted" ref="a4f308b9aade3aafea3c33773c17522aa" args="(bool)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MainWindow::callerMicMuted </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>toggle</em></td><td>)</td>
+          <td><code> [private, slot]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>The caller has toggled their microphone. </p>
+<p>This slot will updated the GUI accordingly. </p>
+
+</div>
+</div>
+<a class="anchor" id="aed9515073081aa1f6cdb4949b5b11194"></a><!-- doxytag: member="MainWindow::callError" ref="aed9515073081aa1f6cdb4949b5b11194" args="(const QString &amp;error)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MainWindow::callError </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>error</em></td><td>)</td>
+          <td><code> [private, slot]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>An error has occured for the user to be informed about. </p>
+<p>This will be popped up in a dialog. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">error</td><td>The error message. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a73c0b86679333c83552253d798754e48"></a><!-- doxytag: member="MainWindow::callerSoundMuted" ref="a73c0b86679333c83552253d798754e48" args="(bool)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MainWindow::callerSoundMuted </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>toggle</em></td><td>)</td>
+          <td><code> [private, slot]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>The caller has toggled their sound. </p>
+<p>This slot will updated the GUI accordingly. </p>
+
+</div>
+</div>
+<a class="anchor" id="afaa4ef4d091e0f4cf16036d831f30787"></a><!-- doxytag: member="MainWindow::callPressed" ref="afaa4ef4d091e0f4cf16036d831f30787" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MainWindow::callPressed </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [private, slot]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>User initiated a call. </p>
+
+</div>
+</div>
+<a class="anchor" id="ac473def8f3f23d0aa997355598be150b"></a><!-- doxytag: member="MainWindow::callStateChanged" ref="ac473def8f3f23d0aa997355598be150b" args="(StateController::VoIPState state)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MainWindow::callStateChanged </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_state_controller.html#a1aabd2155d8e6feb201ed3941e4ee2be">StateController::VoIPState</a>&#160;</td>
+          <td class="paramname"><em>state</em></td><td>)</td>
+          <td><code> [private, slot]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Updates the GUI to reflect the new state. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">state</td><td>The new state. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -193,9 +378,153 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a47e0e25f0b714888d25f3945b9f07185"></a><!-- doxytag: member="MainWindow::incomingCall" ref="a47e0e25f0b714888d25f3945b9f07185" args="(const QString &amp;caller)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MainWindow::incomingCall </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>caller</em></td><td>)</td>
+          <td><code> [private, slot]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>A new call is incoming, ask user's permission. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">caller</td><td>The name of the caller. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a4f3ebda1ba39e0ef4d678b44893c9c7f"></a><!-- doxytag: member="MainWindow::on_actionAbout_triggered" ref="a4f3ebda1ba39e0ef4d678b44893c9c7f" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MainWindow::on_actionAbout_triggered </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [private, slot]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>UI element to display information about the application. </p>
+
+</div>
+</div>
+<a class="anchor" id="a780eb14bc5469aa2431a1d605a1bd431"></a><!-- doxytag: member="MainWindow::updateGUIPeerList" ref="a780eb14bc5469aa2431a1d605a1bd431" args="(QList&lt; Peer * &gt; pList)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MainWindow::updateGUIPeerList </td>
+          <td>(</td>
+          <td class="paramtype">QList&lt; <a class="el" href="class_peer.html">Peer</a> * &gt;&#160;</td>
+          <td class="paramname"><em>pList</em></td><td>)</td>
+          <td><code> [private, slot]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Updates the graphical view of the peer list. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pList</td><td>The list of peers. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="af6e038a052aefecc54322a166ad08bcf"></a><!-- doxytag: member="MainWindow::callGreen" ref="af6e038a052aefecc54322a166ad08bcf" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPixmap <a class="el" href="class_main_window.html#af6e038a052aefecc54322a166ad08bcf">MainWindow::callGreen</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Green icon, showing in call. </p>
+
+</div>
+</div>
+<a class="anchor" id="a9bd145f81a0a715e4739c3d893fb7b7b"></a><!-- doxytag: member="MainWindow::callRed" ref="a9bd145f81a0a715e4739c3d893fb7b7b" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPixmap <a class="el" href="class_main_window.html#a9bd145f81a0a715e4739c3d893fb7b7b">MainWindow::callRed</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Red icon, showing out of call. </p>
+
+</div>
+</div>
+<a class="anchor" id="a998fca79d54f491c4ef158e03e8894d4"></a><!-- doxytag: member="MainWindow::controller" ref="a998fca79d54f491c4ef158e03e8894d4" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_state_controller.html">StateController</a>* <a class="el" href="class_main_window.html#a998fca79d54f491c4ef158e03e8894d4">MainWindow::controller</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Controller resposible for all interaction. </p>
+
+</div>
+</div>
+<a class="anchor" id="a8c245df1016600d0f111fb98c8738d6d"></a><!-- doxytag: member="MainWindow::peerNameList" ref="a8c245df1016600d0f111fb98c8738d6d" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QStringList <a class="el" href="class_main_window.html#a8c245df1016600d0f111fb98c8738d6d">MainWindow::peerNameList</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>A List of peers names to be displayed in a widget. </p>
+
+</div>
+</div>
+<a class="anchor" id="a35466a70ed47252a0191168126a352a5"></a><!-- doxytag: member="MainWindow::ui" ref="a35466a70ed47252a0191168126a352a5" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Ui::MainWindow* <a class="el" href="class_main_window.html#a35466a70ed47252a0191168126a352a5">MainWindow::ui</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>UI class. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="mainwindow_8h_source.html">mainwindow.h</a></li>
-<li>mainwindow.cpp</li>
+<li><a class="el" href="mainwindow_8cpp.html">mainwindow.cpp</a></li>
 </ul>
 </div>
 <!-- window showing the filter options -->
@@ -203,7 +532,7 @@ Public Member Functions</h2></td></tr>
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -215,7 +544,7 @@ Public Member Functions</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Dec 22 2011 05:03:24 for VoIp by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Dec 22 2011 06:20:51 for VoIp by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.5.1
 </small></address>

@@ -69,6 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 <div class="header">
@@ -76,11 +77,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">sendthread.h</div>  </div>
 </div>
 <div class="contents">
-<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef SENDTHREAD_H</span>
+<a href="sendthread_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef SENDTHREAD_H</span>
 <a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define SENDTHREAD_H</span>
 <a name="l00003"></a>00003 <span class="preprocessor"></span>
 <a name="l00004"></a>00004 <span class="preprocessor">#include &lt;QThread&gt;</span>
-<a name="l00005"></a>00005 <span class="preprocessor">#include &quot;voiceinput.h&quot;</span>
+<a name="l00005"></a>00005 <span class="preprocessor">#include &quot;<a class="code" href="voiceinput_8h.html">voiceinput.h</a>&quot;</span>
 <a name="l00006"></a>00006 
 <a name="l00007"></a>00007 
 <a name="l00012"></a><a class="code" href="class_send_thread.html">00012</a> <span class="keyword">class </span><a class="code" href="class_send_thread.html" title="A Thread class that controls recording audio and sending data communication.">SendThread</a> : <span class="keyword">public</span> QThread
@@ -90,19 +91,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00016"></a>00016 
 <a name="l00021"></a>00021     <span class="keyword">explicit</span> <a class="code" href="class_send_thread.html#a69eb38313a68a80b495277f05fa4f7ca" title="Default constructor.">SendThread</a>(QObject *parent = 0);
 <a name="l00022"></a>00022 
-<a name="l00023"></a>00023 signals:
-<a name="l00024"></a>00024     <span class="keywordtype">void</span> <a class="code" href="class_send_thread.html#afff2d01a9c3f193f68840d8bfc3af83d" title="Signal that should emitted when a request to mute the mic is processed.">muteMic</a>(<span class="keywordtype">bool</span>); 
-<a name="l00029"></a>00029 <span class="keyword">protected</span>:
-<a name="l00030"></a>00030     <span class="keywordtype">void</span> <a class="code" href="class_send_thread.html#a7d389ce773db570613325fb56fb19e9a" title="Reimplmented function from QThread that beings receiving and playback.">run</a>();
-<a name="l00031"></a>00031 
-<a name="l00036"></a>00036 <span class="keyword">public</span> slots:
-<a name="l00037"></a>00037     <span class="keywordtype">void</span> <a class="code" href="class_send_thread.html#ace7f54d057aea7d6ef58949333095f35" title="Starts the new thread, sending data to the given address.">recordSound</a>(<span class="keyword">const</span> QHostAddress &amp; address);
-<a name="l00038"></a>00038 
-<a name="l00039"></a>00039 <span class="keyword">private</span>:
-<a name="l00040"></a>00040     QHostAddress m_address; 
-<a name="l00041"></a>00041 };
-<a name="l00042"></a>00042 
-<a name="l00043"></a>00043 <span class="preprocessor">#endif // SENDTHREAD_H</span>
+<a name="l00023"></a><a class="code" href="class_send_thread.html#a8b1a2012e2ead9ab029c4e55b49b5d6b">00023</a>     <a class="code" href="class_voice_input.html" title="Captures audio data and puts it in a buffer for sending down the network.">VoiceInput</a> <a class="code" href="class_send_thread.html#a8b1a2012e2ead9ab029c4e55b49b5d6b">vi</a>;
+<a name="l00024"></a>00024 
+<a name="l00025"></a>00025 signals:
+<a name="l00026"></a>00026     <span class="keywordtype">void</span> <a class="code" href="class_send_thread.html#afff2d01a9c3f193f68840d8bfc3af83d" title="Signal that should emitted when a request to mute the mic is processed.">muteMic</a>(<span class="keywordtype">bool</span>); 
+<a name="l00031"></a>00031 <span class="keyword">protected</span>:
+<a name="l00032"></a>00032     <span class="keywordtype">void</span> <a class="code" href="class_send_thread.html#a7d389ce773db570613325fb56fb19e9a" title="Reimplmented function from QThread that beings receiving and playback.">run</a>();
+<a name="l00033"></a>00033 
+<a name="l00038"></a>00038 <span class="keyword">public</span> slots:
+<a name="l00039"></a>00039     <span class="keywordtype">void</span> <a class="code" href="class_send_thread.html#ace7f54d057aea7d6ef58949333095f35" title="Starts the new thread, sending data to the given address.">recordSound</a>(<span class="keyword">const</span> QHostAddress &amp; address);
+<a name="l00040"></a>00040 
+<a name="l00041"></a>00041 <span class="keyword">private</span>:
+<a name="l00042"></a><a class="code" href="class_send_thread.html#a7902661ef7e43bc4b0e17b0166530e87">00042</a>     QHostAddress <a class="code" href="class_send_thread.html#a7902661ef7e43bc4b0e17b0166530e87" title="locally stored address for thread access.">m_address</a>; 
+<a name="l00043"></a>00043 };
+<a name="l00044"></a>00044 
+<a name="l00045"></a>00045 <span class="preprocessor">#endif // SENDTHREAD_H</span>
 </pre></div></div>
 </div>
 <!-- window showing the filter options -->
@@ -110,7 +113,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -122,7 +125,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Dec 22 2011 05:03:24 for VoIp by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Dec 22 2011 06:20:49 for VoIp by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.5.1
 </small></address>

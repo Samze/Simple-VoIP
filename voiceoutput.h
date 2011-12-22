@@ -60,7 +60,7 @@ private slots:
    void muteSound(bool);
 
 private:
-   QAudioOutput *m_audioOut; /**< The Output device object. */
+   QAudioOutput *audioOut; /**< The Output device object. */
    int timedout; /**< Used for debugging at the moment, but may be required to detect disconnects. */
 };
 

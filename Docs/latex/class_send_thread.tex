@@ -11,6 +11,15 @@
 
 {\ttfamily \#include $<$sendthread.\-h$>$}
 
+
+
+\-Collaboration diagram for \-Send\-Thread\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=293pt]{class_send_thread__coll__graph}
+\end{center}
+\end{figure}
 \subsection*{\-Public \-Slots}
 \begin{DoxyCompactItemize}
 \item 
@@ -26,14 +35,21 @@ void \hyperlink{class_send_thread_afff2d01a9c3f193f68840d8bfc3af83d}{mute\-Mic} 
 \item 
 \hyperlink{class_send_thread_a69eb38313a68a80b495277f05fa4f7ca}{\-Send\-Thread} (\-Q\-Object $\ast$parent=0)
 \begin{DoxyCompactList}\small\item\em \-Default constructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Public \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_voice_input}{\-Voice\-Input} \hyperlink{class_send_thread_a8b1a2012e2ead9ab029c4e55b49b5d6b}{vi}
+\end{DoxyCompactItemize}
 \subsection*{\-Protected \-Member \-Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_send_thread_a7d389ce773db570613325fb56fb19e9a}{
-void \hyperlink{class_send_thread_a7d389ce773db570613325fb56fb19e9a}{run} ()}
-\label{class_send_thread_a7d389ce773db570613325fb56fb19e9a}
-
+void \hyperlink{class_send_thread_a7d389ce773db570613325fb56fb19e9a}{run} ()
 \begin{DoxyCompactList}\small\item\em \-Reimplmented function from \-Q\-Thread that beings receiving and playback. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Private \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\-Q\-Host\-Address \hyperlink{class_send_thread_a7902661ef7e43bc4b0e17b0166530e87}{m\-\_\-address}
+\begin{DoxyCompactList}\small\item\em locally stored address for thread access. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{\-Detailed \-Description}
@@ -94,9 +110,39 @@ void \hyperlink{class_send_thread_a7d389ce773db570613325fb56fb19e9a}{run} ()}
 {\em address} & \-The address to send the recorded audio. \\
 \hline
 \end{DoxyParams}
+\hypertarget{class_send_thread_a7d389ce773db570613325fb56fb19e9a}{
+\index{\-Send\-Thread@{\-Send\-Thread}!run@{run}}
+\index{run@{run}!SendThread@{\-Send\-Thread}}
+\subsubsection[{run}]{\setlength{\rightskip}{0pt plus 5cm}void \-Send\-Thread\-::run (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_send_thread_a7d389ce773db570613325fb56fb19e9a}
+
+
+\-Reimplmented function from \-Q\-Thread that beings receiving and playback. 
+
+
+
+\subsection{\-Member \-Data \-Documentation}
+\hypertarget{class_send_thread_a7902661ef7e43bc4b0e17b0166530e87}{
+\index{\-Send\-Thread@{\-Send\-Thread}!m\-\_\-address@{m\-\_\-address}}
+\index{m\-\_\-address@{m\-\_\-address}!SendThread@{\-Send\-Thread}}
+\subsubsection[{m\-\_\-address}]{\setlength{\rightskip}{0pt plus 5cm}\-Q\-Host\-Address {\bf \-Send\-Thread\-::m\-\_\-address}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_send_thread_a7902661ef7e43bc4b0e17b0166530e87}
+
+
+locally stored address for thread access. 
+
+\hypertarget{class_send_thread_a8b1a2012e2ead9ab029c4e55b49b5d6b}{
+\index{\-Send\-Thread@{\-Send\-Thread}!vi@{vi}}
+\index{vi@{vi}!SendThread@{\-Send\-Thread}}
+\subsubsection[{vi}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Voice\-Input} {\bf \-Send\-Thread\-::vi}}}
+\label{class_send_thread_a8b1a2012e2ead9ab029c4e55b49b5d6b}
 
 
 \-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
 \item 
-sendthread.\-h\item 
-sendthread.\-cpp\end{DoxyCompactItemize}
+\hyperlink{sendthread_8h}{sendthread.\-h}\item 
+\hyperlink{sendthread_8cpp}{sendthread.\-cpp}\end{DoxyCompactItemize}

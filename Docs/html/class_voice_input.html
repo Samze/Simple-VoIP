@@ -78,7 +78,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-slots">Public Slots</a> &#124;
-<a href="#pub-methods">Public Member Functions</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pri-slots">Private Slots</a> &#124;
+<a href="#pri-attribs">Private Attributes</a>  </div>
   <div class="headertitle">
 <div class="title">VoiceInput Class Reference</div>  </div>
 </div>
@@ -93,14 +96,14 @@ Inheritance diagram for VoiceInput:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_voice_input__inherit__graph.png" border="0" usemap="#_voice_input_inherit__map" alt="Inheritance graph"/></div>
 <map name="_voice_input_inherit__map" id="_voice_input_inherit__map">
-<area shape="rect" id="node2" href="class_abstract_voice.html" title="Abstracted common voice elements for recording and playback." alt="" coords="5,6,136,157"/></map>
+<area shape="rect" id="node2" href="class_abstract_voice.html" title="Abstracted common voice elements for recording and playback." alt="" coords="5,5,136,171"/></map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
 Collaboration diagram for VoiceInput:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_voice_input__coll__graph.png" border="0" usemap="#_voice_input_coll__map" alt="Collaboration graph"/></div>
 <map name="_voice_input_coll__map" id="_voice_input_coll__map">
-<area shape="rect" id="node2" href="class_abstract_voice.html" title="Abstracted common voice elements for recording and playback." alt="" coords="5,6,136,157"/></map>
+<area shape="rect" id="node2" href="class_abstract_voice.html" title="Abstracted common voice elements for recording and playback." alt="" coords="5,5,136,171"/><area shape="rect" id="node4" href="class_sound_sender.html" title="A buffer that sends UDP audio data over the network." alt="" coords="161,27,289,149"/></map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 
 <p><a href="class_voice_input-members.html">List of all members.</a></p>
@@ -115,9 +118,21 @@ Public Slots</h2></td></tr>
 Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_voice_input.html#a57880cf450adb3749b952de271b8261f">VoiceInput</a> (QHostAddress address)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates our AudioDevice object and buffer used.  <a href="#a57880cf450adb3749b952de271b8261f"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9ebb274fbb6075af8feb26f2cd3b6e93"></a><!-- doxytag: member="VoiceInput::~VoiceInput" ref="a9ebb274fbb6075af8feb26f2cd3b6e93" args="()" -->
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_voice_input.html#a9ebb274fbb6075af8feb26f2cd3b6e93">~VoiceInput</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Default destructor. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_voice_input.html#a9ebb274fbb6075af8feb26f2cd3b6e93">~VoiceInput</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Default destructor.  <a href="#a9ebb274fbb6075af8feb26f2cd3b6e93"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_sound_sender.html">SoundSender</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_voice_input.html#a40ab6705a21bcbaae15e9a673f6eee53">send</a></td></tr>
+<tr><td colspan="2"><h2><a name="pri-slots"></a>
+Private Slots</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_voice_input.html#a2481e823c393974288383a7f470054ad">audioState</a> (QAudio::State)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Implemented virtual slot from <a class="el" href="class_abstract_voice.html" title="Abstracted common voice elements for recording and playback.">AbstractVoice</a>.  <a href="#a2481e823c393974288383a7f470054ad"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_voice_input.html#a6f48cb2d0fb8239c284545fda2c099bb">muteMic</a> (bool)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Mutes the Mic of sound until toggled via this method.  <a href="#a6f48cb2d0fb8239c284545fda2c099bb"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QAudioInput *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_voice_input.html#a8e65f3f1987db8213d8b10f1bcaaab00">m_audioIn</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The Input device object.  <a href="#a8e65f3f1987db8213d8b10f1bcaaab00"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Captures audio data and puts it in a buffer for sending down the network. </p>
@@ -148,7 +163,66 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a9ebb274fbb6075af8feb26f2cd3b6e93"></a><!-- doxytag: member="VoiceInput::~VoiceInput" ref="a9ebb274fbb6075af8feb26f2cd3b6e93" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">VoiceInput::~VoiceInput </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Default destructor. </p>
+
+</div>
+</div>
 <hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a2481e823c393974288383a7f470054ad"></a><!-- doxytag: member="VoiceInput::audioState" ref="a2481e823c393974288383a7f470054ad" args="(QAudio::State)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void VoiceInput::audioState </td>
+          <td>(</td>
+          <td class="paramtype">QAudio::State&#160;</td>
+          <td class="paramname"><em>state</em></td><td>)</td>
+          <td><code> [private, virtual, slot]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Implemented virtual slot from <a class="el" href="class_abstract_voice.html" title="Abstracted common voice elements for recording and playback.">AbstractVoice</a>. </p>
+<p>This is connected to changes in our AudioOutput object. </p>
+
+<p>Implements <a class="el" href="class_abstract_voice.html#a4c8d0cafd33f068899f8700f00e93347">AbstractVoice</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6f48cb2d0fb8239c284545fda2c099bb"></a><!-- doxytag: member="VoiceInput::muteMic" ref="a6f48cb2d0fb8239c284545fda2c099bb" args="(bool)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void VoiceInput::muteMic </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>toggle</em></td><td>)</td>
+          <td><code> [private, slot]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Mutes the Mic of sound until toggled via this method. </p>
+
+</div>
+</div>
 <a class="anchor" id="a99193e448e78f1bd10219bfb482d13ba"></a><!-- doxytag: member="VoiceInput::start" ref="a99193e448e78f1bd10219bfb482d13ba" args="()" -->
 <div class="memitem">
 <div class="memproto">
@@ -191,9 +265,38 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="a8e65f3f1987db8213d8b10f1bcaaab00"></a><!-- doxytag: member="VoiceInput::m_audioIn" ref="a8e65f3f1987db8213d8b10f1bcaaab00" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QAudioInput* <a class="el" href="class_voice_input.html#a8e65f3f1987db8213d8b10f1bcaaab00">VoiceInput::m_audioIn</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>The Input device object. </p>
+
+</div>
+</div>
+<a class="anchor" id="a40ab6705a21bcbaae15e9a673f6eee53"></a><!-- doxytag: member="VoiceInput::send" ref="a40ab6705a21bcbaae15e9a673f6eee53" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_sound_sender.html">SoundSender</a> <a class="el" href="class_voice_input.html#a40ab6705a21bcbaae15e9a673f6eee53">VoiceInput::send</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="voiceinput_8h_source.html">voiceinput.h</a></li>
-<li>voiceinput.cpp</li>
+<li><a class="el" href="voiceinput_8cpp.html">voiceinput.cpp</a></li>
 </ul>
 </div>
 <!-- window showing the filter options -->
@@ -201,7 +304,7 @@ Public Member Functions</h2></td></tr>
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -213,7 +316,7 @@ Public Member Functions</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Dec 22 2011 05:03:24 for VoIp by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Dec 22 2011 06:20:51 for VoIp by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.5.1
 </small></address>

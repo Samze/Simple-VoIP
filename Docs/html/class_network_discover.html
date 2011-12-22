@@ -79,7 +79,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#signals">Signals</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a>  </div>
+<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pri-slots">Private Slots</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#pri-static-attribs">Static Private Attributes</a>  </div>
   <div class="headertitle">
 <div class="title">NetworkDiscover Class Reference</div>  </div>
 </div>
@@ -100,18 +104,52 @@ Signals</h2></td></tr>
 Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_discover.html#a35d97308463f9cbe622767b2d364bdbb">NetworkDiscover</a> (QObject *parent=0)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets local name, binds udp port, connects signals and slots and then starts timers.  <a href="#a35d97308463f9cbe622767b2d364bdbb"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a416e23eb1f6925197596731e3c5f325e"></a><!-- doxytag: member="NetworkDiscover::~NetworkDiscover" ref="a416e23eb1f6925197596731e3c5f325e" args="()" -->
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_discover.html#a416e23eb1f6925197596731e3c5f325e">~NetworkDiscover</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Default destructor. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_discover.html#a416e23eb1f6925197596731e3c5f325e">~NetworkDiscover</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Default destructor.  <a href="#a416e23eb1f6925197596731e3c5f325e"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_peer.html">Peer</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_discover.html#a91ec8539ddfeb90f6735d05f2f10b97a">getPeerFromAddress</a> (const QHostAddress &amp;address)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a peer for an address.  <a href="#a91ec8539ddfeb90f6735d05f2f10b97a"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_discover.html#ac25855eb9d181d51c725a57f693d58f8">startTimers</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the peer discovery timers.  <a href="#ac25855eb9d181d51c725a57f693d58f8"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac7f0c8a7a8e780c83c24b4fa8cbbbfef"></a><!-- doxytag: member="NetworkDiscover::peerList" ref="ac7f0c8a7a8e780c83c24b4fa8cbbbfef" args="" -->
-QMap&lt; QString, <a class="el" href="class_peer.html">Peer</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_discover.html#ac7f0c8a7a8e780c83c24b4fa8cbbbfef">peerList</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The list of peers currently detected on the network. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QMap&lt; QString, <a class="el" href="class_peer.html">Peer</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_discover.html#ac7f0c8a7a8e780c83c24b4fa8cbbbfef">peerList</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The list of peers currently detected on the network.  <a href="#ac7f0c8a7a8e780c83c24b4fa8cbbbfef"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pri-slots"></a>
+Private Slots</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_discover.html#ada902f88ce4d9b1e707dfbf1be3e102c">receivedP2P</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Received peer signal from UDP port.  <a href="#ada902f88ce4d9b1e707dfbf1be3e102c"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_discover.html#ac9c9e8988abe75fb02386b7783cf53be">notifyP2P</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Broadcasts an identifier beacon via UDP.  <a href="#ac9c9e8988abe75fb02386b7783cf53be"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_discover.html#aec820bf7bae99a2a8f533bb31a841ca6">checkPeersAlive</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Periodically checks the last time a peer replied to our signal.  <a href="#aec820bf7bae99a2a8f533bb31a841ca6"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_discover.html#ab1909b31fd4df24ebe095d3bbde3925e">isLocalAddress</a> (QHostAddress)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Detects if the address is local.  <a href="#ab1909b31fd4df24ebe095d3bbde3925e"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_discover.html#a8e567964d959ba269d2570769eb7b1da">addToList</a> (QString *, QHostAddress *, quint16)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a peer to the list, with their name, address and their prefered communication port.  <a href="#a8e567964d959ba269d2570769eb7b1da"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QTimer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_discover.html#a82d0981a5c6c1acecd85a0e210b631f2">broadCastTimer</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Timer used to periodically broadcast that we are an alive peer.  <a href="#a82d0981a5c6c1acecd85a0e210b631f2"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QTimer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_discover.html#ad23e0a7d95e0fed29acae8f193dfcfc3">peerCheck</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Timer used to periodically check that our peers are still active.  <a href="#ad23e0a7d95e0fed29acae8f193dfcfc3"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QNetworkInterface&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_discover.html#a67c037cca501b587cc8c24ab5d971553">networkInter</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to obtain local network information.  <a href="#a67c037cca501b587cc8c24ab5d971553"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QList&lt; QHostAddress &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_discover.html#a9db1fe648d568707cfcda8f00d2b5f5a">localAddressList</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Local address list.  <a href="#a9db1fe648d568707cfcda8f00d2b5f5a"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_discover.html#ad9dcef0352b63920211c0b442741bebb">username</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Local username detected.  <a href="#ad9dcef0352b63920211c0b442741bebb"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pri-static-attribs"></a>
+Static Private Attributes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_discover.html#aae5acabb49790c03dd076c235fd3014c">DISCOVER_PORT</a> = 45453</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The UDP port to be used for discovery.  <a href="#aae5acabb49790c03dd076c235fd3014c"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_discover.html#ac85620fa17d1128dc86745611df1dbe0">BROADCAST_TIME</a> = 2000</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The time between broadcasting our signal in ms.  <a href="#ac85620fa17d1128dc86745611df1dbe0"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_discover.html#afc4903f686b81fff1247fc7cbcea17ff">CHECK_TIME</a> = 10000</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The time between checking our peers are still "alive".  <a href="#afc4903f686b81fff1247fc7cbcea17ff"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_discover.html#aebe784b2c4a47256321246c7d4fca5e6">DISCOVER_TIMEOUT</a> = 3000</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The time within that a peer should have last communicated.  <a href="#aebe784b2c4a47256321246c7d4fca5e6"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Discovers local peers on the network to communicate with. </p>
@@ -143,7 +181,80 @@ QMap&lt; QString, <a class="el" href="class_peer.html">Peer</a> * &gt;&#160;</td
 
 </div>
 </div>
+<a class="anchor" id="a416e23eb1f6925197596731e3c5f325e"></a><!-- doxytag: member="NetworkDiscover::~NetworkDiscover" ref="a416e23eb1f6925197596731e3c5f325e" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">NetworkDiscover::~NetworkDiscover </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Default destructor. </p>
+
+</div>
+</div>
 <hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a8e567964d959ba269d2570769eb7b1da"></a><!-- doxytag: member="NetworkDiscover::addToList" ref="a8e567964d959ba269d2570769eb7b1da" args="(QString *, QHostAddress *, quint16)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool NetworkDiscover::addToList </td>
+          <td>(</td>
+          <td class="paramtype">QString *&#160;</td>
+          <td class="paramname"><em>senderName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QHostAddress *&#160;</td>
+          <td class="paramname"><em>senderAddress</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">quint16&#160;</td>
+          <td class="paramname"><em>port</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Adds a peer to the list, with their name, address and their prefered communication port. </p>
+<p>Preferred port is not yet supported. </p>
+
+</div>
+</div>
+<a class="anchor" id="aec820bf7bae99a2a8f533bb31a841ca6"></a><!-- doxytag: member="NetworkDiscover::checkPeersAlive" ref="aec820bf7bae99a2a8f533bb31a841ca6" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void NetworkDiscover::checkPeersAlive </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [private, slot]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Periodically checks the last time a peer replied to our signal. </p>
+<p>If it is more than a threshold, they are removed. </p>
+
+</div>
+</div>
 <a class="anchor" id="a91ec8539ddfeb90f6735d05f2f10b97a"></a><!-- doxytag: member="NetworkDiscover::getPeerFromAddress" ref="a91ec8539ddfeb90f6735d05f2f10b97a" args="(const QHostAddress &amp;address)" -->
 <div class="memitem">
 <div class="memproto">
@@ -170,6 +281,45 @@ QMap&lt; QString, <a class="el" href="class_peer.html">Peer</a> * &gt;&#160;</td
 
 </div>
 </div>
+<a class="anchor" id="ab1909b31fd4df24ebe095d3bbde3925e"></a><!-- doxytag: member="NetworkDiscover::isLocalAddress" ref="ab1909b31fd4df24ebe095d3bbde3925e" args="(QHostAddress)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool NetworkDiscover::isLocalAddress </td>
+          <td>(</td>
+          <td class="paramtype">QHostAddress&#160;</td>
+          <td class="paramname"><em>senderAddress</em></td><td>)</td>
+          <td><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Detects if the address is local. </p>
+<p>This method can be called to see if the broadcast message is actually us, we do this by checking all our local addresses against the one received. </p>
+
+</div>
+</div>
+<a class="anchor" id="ac9c9e8988abe75fb02386b7783cf53be"></a><!-- doxytag: member="NetworkDiscover::notifyP2P" ref="ac9c9e8988abe75fb02386b7783cf53be" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void NetworkDiscover::notifyP2P </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [private, slot]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Broadcasts an identifier beacon via UDP. </p>
+<p>The broadcast is done periodically on a timer. </p>
+
+</div>
+</div>
 <a class="anchor" id="a42566247e43198ea9cce91eb5f15511d"></a><!-- doxytag: member="NetworkDiscover::peersChanged" ref="a42566247e43198ea9cce91eb5f15511d" args="(QList&lt; Peer * &gt;)" -->
 <div class="memitem">
 <div class="memproto">
@@ -187,6 +337,26 @@ QMap&lt; QString, <a class="el" href="class_peer.html">Peer</a> * &gt;&#160;</td
 
 <p>Emitted when the peer list has changed, ie. </p>
 <p>new peer or removed peer. </p>
+
+</div>
+</div>
+<a class="anchor" id="ada902f88ce4d9b1e707dfbf1be3e102c"></a><!-- doxytag: member="NetworkDiscover::receivedP2P" ref="ada902f88ce4d9b1e707dfbf1be3e102c" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void NetworkDiscover::receivedP2P </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [private, slot]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Received peer signal from UDP port. </p>
+<p>Check its id against our maintained list. </p>
+<p>isLocalAddress(senderAddress)) { </p>
 
 </div>
 </div>
@@ -210,9 +380,160 @@ QMap&lt; QString, <a class="el" href="class_peer.html">Peer</a> * &gt;&#160;</td
 
 </div>
 </div>
+<hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="ac85620fa17d1128dc86745611df1dbe0"></a><!-- doxytag: member="NetworkDiscover::BROADCAST_TIME" ref="ac85620fa17d1128dc86745611df1dbe0" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int <a class="el" href="class_network_discover.html#ac85620fa17d1128dc86745611df1dbe0">NetworkDiscover::BROADCAST_TIME</a> = 2000<code> [static, private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>The time between broadcasting our signal in ms. </p>
+
+</div>
+</div>
+<a class="anchor" id="a82d0981a5c6c1acecd85a0e210b631f2"></a><!-- doxytag: member="NetworkDiscover::broadCastTimer" ref="a82d0981a5c6c1acecd85a0e210b631f2" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QTimer <a class="el" href="class_network_discover.html#a82d0981a5c6c1acecd85a0e210b631f2">NetworkDiscover::broadCastTimer</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Timer used to periodically broadcast that we are an alive peer. </p>
+
+</div>
+</div>
+<a class="anchor" id="afc4903f686b81fff1247fc7cbcea17ff"></a><!-- doxytag: member="NetworkDiscover::CHECK_TIME" ref="afc4903f686b81fff1247fc7cbcea17ff" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int <a class="el" href="class_network_discover.html#afc4903f686b81fff1247fc7cbcea17ff">NetworkDiscover::CHECK_TIME</a> = 10000<code> [static, private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>The time between checking our peers are still "alive". </p>
+
+</div>
+</div>
+<a class="anchor" id="aae5acabb49790c03dd076c235fd3014c"></a><!-- doxytag: member="NetworkDiscover::DISCOVER_PORT" ref="aae5acabb49790c03dd076c235fd3014c" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int <a class="el" href="class_network_discover.html#aae5acabb49790c03dd076c235fd3014c">NetworkDiscover::DISCOVER_PORT</a> = 45453<code> [static, private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>The UDP port to be used for discovery. </p>
+
+</div>
+</div>
+<a class="anchor" id="aebe784b2c4a47256321246c7d4fca5e6"></a><!-- doxytag: member="NetworkDiscover::DISCOVER_TIMEOUT" ref="aebe784b2c4a47256321246c7d4fca5e6" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int <a class="el" href="class_network_discover.html#aebe784b2c4a47256321246c7d4fca5e6">NetworkDiscover::DISCOVER_TIMEOUT</a> = 3000<code> [static, private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>The time within that a peer should have last communicated. </p>
+
+</div>
+</div>
+<a class="anchor" id="a9db1fe648d568707cfcda8f00d2b5f5a"></a><!-- doxytag: member="NetworkDiscover::localAddressList" ref="a9db1fe648d568707cfcda8f00d2b5f5a" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QList&lt;QHostAddress&gt; <a class="el" href="class_network_discover.html#a9db1fe648d568707cfcda8f00d2b5f5a">NetworkDiscover::localAddressList</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Local address list. </p>
+
+</div>
+</div>
+<a class="anchor" id="a67c037cca501b587cc8c24ab5d971553"></a><!-- doxytag: member="NetworkDiscover::networkInter" ref="a67c037cca501b587cc8c24ab5d971553" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QNetworkInterface <a class="el" href="class_network_discover.html#a67c037cca501b587cc8c24ab5d971553">NetworkDiscover::networkInter</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Used to obtain local network information. </p>
+
+</div>
+</div>
+<a class="anchor" id="ad23e0a7d95e0fed29acae8f193dfcfc3"></a><!-- doxytag: member="NetworkDiscover::peerCheck" ref="ad23e0a7d95e0fed29acae8f193dfcfc3" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QTimer <a class="el" href="class_network_discover.html#ad23e0a7d95e0fed29acae8f193dfcfc3">NetworkDiscover::peerCheck</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Timer used to periodically check that our peers are still active. </p>
+
+</div>
+</div>
+<a class="anchor" id="ac7f0c8a7a8e780c83c24b4fa8cbbbfef"></a><!-- doxytag: member="NetworkDiscover::peerList" ref="ac7f0c8a7a8e780c83c24b4fa8cbbbfef" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QMap&lt;QString,<a class="el" href="class_peer.html">Peer</a>*&gt; <a class="el" href="class_network_discover.html#ac7f0c8a7a8e780c83c24b4fa8cbbbfef">NetworkDiscover::peerList</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>The list of peers currently detected on the network. </p>
+
+</div>
+</div>
+<a class="anchor" id="ad9dcef0352b63920211c0b442741bebb"></a><!-- doxytag: member="NetworkDiscover::username" ref="ad9dcef0352b63920211c0b442741bebb" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QString <a class="el" href="class_network_discover.html#ad9dcef0352b63920211c0b442741bebb">NetworkDiscover::username</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Local username detected. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="networkdiscover_8h_source.html">networkdiscover.h</a></li>
-<li>networkdiscover.cpp</li>
+<li><a class="el" href="networkdiscover_8cpp.html">networkdiscover.cpp</a></li>
 </ul>
 </div>
 <!-- window showing the filter options -->
@@ -220,7 +541,7 @@ QMap&lt; QString, <a class="el" href="class_peer.html">Peer</a> * &gt;&#160;</td
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -232,7 +553,7 @@ QMap&lt; QString, <a class="el" href="class_peer.html">Peer</a> * &gt;&#160;</td
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Dec 22 2011 05:03:24 for VoIp by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Dec 22 2011 06:20:51 for VoIp by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.5.1
 </small></address>

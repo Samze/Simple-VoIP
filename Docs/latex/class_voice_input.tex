@@ -17,7 +17,7 @@
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=158pt]{class_voice_input__inherit__graph}
+\includegraphics[width=178pt]{class_voice_input__inherit__graph}
 \end{center}
 \end{figure}
 
@@ -26,7 +26,7 @@
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=158pt]{class_voice_input__coll__graph}
+\includegraphics[width=293pt]{class_voice_input__coll__graph}
 \end{center}
 \end{figure}
 \subsection*{\-Public \-Slots}
@@ -41,11 +41,25 @@ virtual void \hyperlink{class_voice_input_aacdc744a4d9b156d79d05c7ea9361576}{sto
 \item 
 \hyperlink{class_voice_input_a57880cf450adb3749b952de271b8261f}{\-Voice\-Input} (\-Q\-Host\-Address address)
 \begin{DoxyCompactList}\small\item\em \-Creates our \-Audio\-Device object and buffer used. \end{DoxyCompactList}\item 
-\hypertarget{class_voice_input_a9ebb274fbb6075af8feb26f2cd3b6e93}{
-\hyperlink{class_voice_input_a9ebb274fbb6075af8feb26f2cd3b6e93}{$\sim$\-Voice\-Input} ()}
-\label{class_voice_input_a9ebb274fbb6075af8feb26f2cd3b6e93}
-
+\hyperlink{class_voice_input_a9ebb274fbb6075af8feb26f2cd3b6e93}{$\sim$\-Voice\-Input} ()
 \begin{DoxyCompactList}\small\item\em \-Default destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Public \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_sound_sender}{\-Sound\-Sender} \hyperlink{class_voice_input_a40ab6705a21bcbaae15e9a673f6eee53}{send}
+\end{DoxyCompactItemize}
+\subsection*{\-Private \-Slots}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{class_voice_input_a2481e823c393974288383a7f470054ad}{audio\-State} (\-Q\-Audio\-::\-State)
+\begin{DoxyCompactList}\small\item\em \-Implemented virtual slot from \hyperlink{class_abstract_voice}{\-Abstract\-Voice}. \end{DoxyCompactList}\item 
+void \hyperlink{class_voice_input_a6f48cb2d0fb8239c284545fda2c099bb}{mute\-Mic} (bool)
+\begin{DoxyCompactList}\small\item\em \-Mutes the \-Mic of sound until toggled via this method. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Private \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\-Q\-Audio\-Input $\ast$ \hyperlink{class_voice_input_a8e65f3f1987db8213d8b10f1bcaaab00}{m\-\_\-audio\-In}
+\begin{DoxyCompactList}\small\item\em \-The \-Input device object. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{\-Detailed \-Description}
@@ -72,9 +86,52 @@ virtual void \hyperlink{class_voice_input_aacdc744a4d9b156d79d05c7ea9361576}{sto
 {\em address} & \-The address to send captured data. \\
 \hline
 \end{DoxyParams}
+\hypertarget{class_voice_input_a9ebb274fbb6075af8feb26f2cd3b6e93}{
+\index{\-Voice\-Input@{\-Voice\-Input}!$\sim$\-Voice\-Input@{$\sim$\-Voice\-Input}}
+\index{$\sim$\-Voice\-Input@{$\sim$\-Voice\-Input}!VoiceInput@{\-Voice\-Input}}
+\subsubsection[{$\sim$\-Voice\-Input}]{\setlength{\rightskip}{0pt plus 5cm}\-Voice\-Input\-::$\sim$\-Voice\-Input (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_voice_input_a9ebb274fbb6075af8feb26f2cd3b6e93}
+
+
+\-Default destructor. 
+
 
 
 \subsection{\-Member \-Function \-Documentation}
+\hypertarget{class_voice_input_a2481e823c393974288383a7f470054ad}{
+\index{\-Voice\-Input@{\-Voice\-Input}!audio\-State@{audio\-State}}
+\index{audio\-State@{audio\-State}!VoiceInput@{\-Voice\-Input}}
+\subsubsection[{audio\-State}]{\setlength{\rightskip}{0pt plus 5cm}void \-Voice\-Input\-::audio\-State (
+\begin{DoxyParamCaption}
+\item[{\-Q\-Audio\-::\-State}]{state}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private, virtual, slot\mbox{]}}}}
+\label{class_voice_input_a2481e823c393974288383a7f470054ad}
+
+
+\-Implemented virtual slot from \hyperlink{class_abstract_voice}{\-Abstract\-Voice}. 
+
+\-This is connected to changes in our \-Audio\-Output object. 
+
+\-Implements \hyperlink{class_abstract_voice_a4c8d0cafd33f068899f8700f00e93347}{\-Abstract\-Voice}.
+
+\hypertarget{class_voice_input_a6f48cb2d0fb8239c284545fda2c099bb}{
+\index{\-Voice\-Input@{\-Voice\-Input}!mute\-Mic@{mute\-Mic}}
+\index{mute\-Mic@{mute\-Mic}!VoiceInput@{\-Voice\-Input}}
+\subsubsection[{mute\-Mic}]{\setlength{\rightskip}{0pt plus 5cm}void \-Voice\-Input\-::mute\-Mic (
+\begin{DoxyParamCaption}
+\item[{bool}]{toggle}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private, slot\mbox{]}}}}
+\label{class_voice_input_a6f48cb2d0fb8239c284545fda2c099bb}
+
+
+\-Mutes the \-Mic of sound until toggled via this method. 
+
 \hypertarget{class_voice_input_a99193e448e78f1bd10219bfb482d13ba}{
 \index{\-Voice\-Input@{\-Voice\-Input}!start@{start}}
 \index{start@{start}!VoiceInput@{\-Voice\-Input}}
@@ -111,7 +168,24 @@ virtual void \hyperlink{class_voice_input_aacdc744a4d9b156d79d05c7ea9361576}{sto
 
 
 
+\subsection{\-Member \-Data \-Documentation}
+\hypertarget{class_voice_input_a8e65f3f1987db8213d8b10f1bcaaab00}{
+\index{\-Voice\-Input@{\-Voice\-Input}!m\-\_\-audio\-In@{m\-\_\-audio\-In}}
+\index{m\-\_\-audio\-In@{m\-\_\-audio\-In}!VoiceInput@{\-Voice\-Input}}
+\subsubsection[{m\-\_\-audio\-In}]{\setlength{\rightskip}{0pt plus 5cm}\-Q\-Audio\-Input$\ast$ {\bf \-Voice\-Input\-::m\-\_\-audio\-In}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_voice_input_a8e65f3f1987db8213d8b10f1bcaaab00}
+
+
+\-The \-Input device object. 
+
+\hypertarget{class_voice_input_a40ab6705a21bcbaae15e9a673f6eee53}{
+\index{\-Voice\-Input@{\-Voice\-Input}!send@{send}}
+\index{send@{send}!VoiceInput@{\-Voice\-Input}}
+\subsubsection[{send}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Sound\-Sender} {\bf \-Voice\-Input\-::send}}}
+\label{class_voice_input_a40ab6705a21bcbaae15e9a673f6eee53}
+
+
 \-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
 \item 
-voiceinput.\-h\item 
-voiceinput.\-cpp\end{DoxyCompactItemize}
+\hyperlink{voiceinput_8h}{voiceinput.\-h}\item 
+\hyperlink{voiceinput_8cpp}{voiceinput.\-cpp}\end{DoxyCompactItemize}

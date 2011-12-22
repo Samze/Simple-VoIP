@@ -31,13 +31,13 @@ protected:
 
     /**
       * Starts the new thread, sending data to the given address.
-      *@param address The address to send the recorded audio.
+      *@param addr The address to send the recorded audio.
       */
 public slots:
-    void recordSound(const QHostAddress & address);
+    void recordSound(const QHostAddress & addr);
 
 private:
-    QHostAddress m_address; /**< locally stored address for thread access. */
+    QHostAddress address; /**< locally stored address for thread access. */
 };
 
 #endif // SENDTHREAD_H

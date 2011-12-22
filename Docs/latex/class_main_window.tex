@@ -11,6 +11,15 @@
 
 {\ttfamily \#include $<$mainwindow.\-h$>$}
 
+
+
+\-Collaboration diagram for \-Main\-Window\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_main_window__coll__graph}
+\end{center}
+\end{figure}
 \subsection*{\-Signals}
 \begin{DoxyCompactItemize}
 \item 
@@ -25,11 +34,42 @@ void \hyperlink{class_main_window_a3322ffd0516e30afc70f8b623301c426}{in\-Call\-R
 \item 
 \hyperlink{class_main_window_a8b244be8b7b7db1b08de2a2acb9409db}{\-Main\-Window} (\-Q\-Widget $\ast$parent=0)
 \begin{DoxyCompactList}\small\item\em \-Construction which sets up the \-U\-I class as well as all signals/slots and instansiates the controller. \end{DoxyCompactList}\item 
-\hypertarget{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7}{
-\hyperlink{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7}{$\sim$\-Main\-Window} ()}
-\label{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7}
-
+\hyperlink{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7}{$\sim$\-Main\-Window} ()
 \begin{DoxyCompactList}\small\item\em \-Default constructor which deletes the ui and all allocated objects. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Private \-Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_main_window_a780eb14bc5469aa2431a1d605a1bd431}{update\-G\-U\-I\-Peer\-List} (\-Q\-List$<$ \hyperlink{class_peer}{\-Peer} $\ast$ $>$ p\-List)
+\begin{DoxyCompactList}\small\item\em \-Updates the graphical view of the peer list. \end{DoxyCompactList}\item 
+void \hyperlink{class_main_window_afaa4ef4d091e0f4cf16036d831f30787}{call\-Pressed} ()
+\begin{DoxyCompactList}\small\item\em \-User initiated a call. \end{DoxyCompactList}\item 
+void \hyperlink{class_main_window_aed9515073081aa1f6cdb4949b5b11194}{call\-Error} (const \-Q\-String \&error)
+\begin{DoxyCompactList}\small\item\em \-An error has occured for the user to be informed about. \end{DoxyCompactList}\item 
+void \hyperlink{class_main_window_a342dc22be100ae360deb0fca0a0d610a}{caller\-Busy} ()
+\begin{DoxyCompactList}\small\item\em \-The caller was busy, pop up dialog. \end{DoxyCompactList}\item 
+void \hyperlink{class_main_window_a47e0e25f0b714888d25f3945b9f07185}{incoming\-Call} (const \-Q\-String \&caller)
+\begin{DoxyCompactList}\small\item\em \-A new call is incoming, ask user's permission. \end{DoxyCompactList}\item 
+void \hyperlink{class_main_window_ac473def8f3f23d0aa997355598be150b}{call\-State\-Changed} (\hyperlink{class_state_controller_a1aabd2155d8e6feb201ed3941e4ee2be}{\-State\-Controller\-::\-Vo\-I\-P\-State} state)
+\begin{DoxyCompactList}\small\item\em \-Updates the \-G\-U\-I to reflect the new state. \end{DoxyCompactList}\item 
+void \hyperlink{class_main_window_a4f308b9aade3aafea3c33773c17522aa}{caller\-Mic\-Muted} (bool)
+\begin{DoxyCompactList}\small\item\em \-The caller has toggled their microphone. \end{DoxyCompactList}\item 
+void \hyperlink{class_main_window_a73c0b86679333c83552253d798754e48}{caller\-Sound\-Muted} (bool)
+\begin{DoxyCompactList}\small\item\em \-The caller has toggled their sound. \end{DoxyCompactList}\item 
+void \hyperlink{class_main_window_a4f3ebda1ba39e0ef4d678b44893c9c7f}{on\-\_\-action\-About\-\_\-triggered} ()
+\begin{DoxyCompactList}\small\item\em \-U\-I element to display information about the application. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Private \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\-Ui\-::\-Main\-Window $\ast$ \hyperlink{class_main_window_a35466a70ed47252a0191168126a352a5}{ui}
+\begin{DoxyCompactList}\small\item\em \-U\-I class. \end{DoxyCompactList}\item 
+\hyperlink{class_state_controller}{\-State\-Controller} $\ast$ \hyperlink{class_main_window_a998fca79d54f491c4ef158e03e8894d4}{controller}
+\begin{DoxyCompactList}\small\item\em \-Controller resposible for all interaction. \end{DoxyCompactList}\item 
+\-Q\-Pixmap \hyperlink{class_main_window_af6e038a052aefecc54322a166ad08bcf}{call\-Green}
+\begin{DoxyCompactList}\small\item\em \-Green icon, showing in call. \end{DoxyCompactList}\item 
+\-Q\-Pixmap \hyperlink{class_main_window_a9bd145f81a0a715e4739c3d893fb7b7b}{call\-Red}
+\begin{DoxyCompactList}\small\item\em \-Red icon, showing out of call. \end{DoxyCompactList}\item 
+\-Q\-String\-List \hyperlink{class_main_window_a8c245df1016600d0f111fb98c8738d6d}{peer\-Name\-List}
+\begin{DoxyCompactList}\small\item\em \-A \-List of peers names to be displayed in a widget. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{\-Detailed \-Description}
@@ -56,6 +96,19 @@ void \hyperlink{class_main_window_a3322ffd0516e30afc70f8b623301c426}{in\-Call\-R
 {\em parent} & \-Parent for this object. \\
 \hline
 \end{DoxyParams}
+\hypertarget{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7}{
+\index{\-Main\-Window@{\-Main\-Window}!$\sim$\-Main\-Window@{$\sim$\-Main\-Window}}
+\index{$\sim$\-Main\-Window@{$\sim$\-Main\-Window}!MainWindow@{\-Main\-Window}}
+\subsubsection[{$\sim$\-Main\-Window}]{\setlength{\rightskip}{0pt plus 5cm}\-Main\-Window\-::$\sim$\-Main\-Window (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7}
+
+
+\-Default constructor which deletes the ui and all allocated objects. 
+
 
 
 \subsection{\-Member \-Function \-Documentation}
@@ -72,7 +125,95 @@ void \hyperlink{class_main_window_a3322ffd0516e30afc70f8b623301c426}{in\-Call\-R
 
 \-Signal emiited when the user has selected to start a new call. 
 
-\-Provides the name selected. \hypertarget{class_main_window_ac1ad769a26f328f8184cd63833af4539}{
+\-Provides the name selected. \hypertarget{class_main_window_a342dc22be100ae360deb0fca0a0d610a}{
+\index{\-Main\-Window@{\-Main\-Window}!caller\-Busy@{caller\-Busy}}
+\index{caller\-Busy@{caller\-Busy}!MainWindow@{\-Main\-Window}}
+\subsubsection[{caller\-Busy}]{\setlength{\rightskip}{0pt plus 5cm}void \-Main\-Window\-::caller\-Busy (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private, slot\mbox{]}}}}
+\label{class_main_window_a342dc22be100ae360deb0fca0a0d610a}
+
+
+\-The caller was busy, pop up dialog. 
+
+\hypertarget{class_main_window_a4f308b9aade3aafea3c33773c17522aa}{
+\index{\-Main\-Window@{\-Main\-Window}!caller\-Mic\-Muted@{caller\-Mic\-Muted}}
+\index{caller\-Mic\-Muted@{caller\-Mic\-Muted}!MainWindow@{\-Main\-Window}}
+\subsubsection[{caller\-Mic\-Muted}]{\setlength{\rightskip}{0pt plus 5cm}void \-Main\-Window\-::caller\-Mic\-Muted (
+\begin{DoxyParamCaption}
+\item[{bool}]{toggle}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private, slot\mbox{]}}}}
+\label{class_main_window_a4f308b9aade3aafea3c33773c17522aa}
+
+
+\-The caller has toggled their microphone. 
+
+\-This slot will updated the \-G\-U\-I accordingly. \hypertarget{class_main_window_aed9515073081aa1f6cdb4949b5b11194}{
+\index{\-Main\-Window@{\-Main\-Window}!call\-Error@{call\-Error}}
+\index{call\-Error@{call\-Error}!MainWindow@{\-Main\-Window}}
+\subsubsection[{call\-Error}]{\setlength{\rightskip}{0pt plus 5cm}void \-Main\-Window\-::call\-Error (
+\begin{DoxyParamCaption}
+\item[{const \-Q\-String \&}]{error}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private, slot\mbox{]}}}}
+\label{class_main_window_aed9515073081aa1f6cdb4949b5b11194}
+
+
+\-An error has occured for the user to be informed about. 
+
+\-This will be popped up in a dialog. 
+\begin{DoxyParams}{\-Parameters}
+{\em error} & \-The error message. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_main_window_a73c0b86679333c83552253d798754e48}{
+\index{\-Main\-Window@{\-Main\-Window}!caller\-Sound\-Muted@{caller\-Sound\-Muted}}
+\index{caller\-Sound\-Muted@{caller\-Sound\-Muted}!MainWindow@{\-Main\-Window}}
+\subsubsection[{caller\-Sound\-Muted}]{\setlength{\rightskip}{0pt plus 5cm}void \-Main\-Window\-::caller\-Sound\-Muted (
+\begin{DoxyParamCaption}
+\item[{bool}]{toggle}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private, slot\mbox{]}}}}
+\label{class_main_window_a73c0b86679333c83552253d798754e48}
+
+
+\-The caller has toggled their sound. 
+
+\-This slot will updated the \-G\-U\-I accordingly. \hypertarget{class_main_window_afaa4ef4d091e0f4cf16036d831f30787}{
+\index{\-Main\-Window@{\-Main\-Window}!call\-Pressed@{call\-Pressed}}
+\index{call\-Pressed@{call\-Pressed}!MainWindow@{\-Main\-Window}}
+\subsubsection[{call\-Pressed}]{\setlength{\rightskip}{0pt plus 5cm}void \-Main\-Window\-::call\-Pressed (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private, slot\mbox{]}}}}
+\label{class_main_window_afaa4ef4d091e0f4cf16036d831f30787}
+
+
+\-User initiated a call. 
+
+\hypertarget{class_main_window_ac473def8f3f23d0aa997355598be150b}{
+\index{\-Main\-Window@{\-Main\-Window}!call\-State\-Changed@{call\-State\-Changed}}
+\index{call\-State\-Changed@{call\-State\-Changed}!MainWindow@{\-Main\-Window}}
+\subsubsection[{call\-State\-Changed}]{\setlength{\rightskip}{0pt plus 5cm}void \-Main\-Window\-::call\-State\-Changed (
+\begin{DoxyParamCaption}
+\item[{{\bf \-State\-Controller\-::\-Vo\-I\-P\-State}}]{state}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private, slot\mbox{]}}}}
+\label{class_main_window_ac473def8f3f23d0aa997355598be150b}
+
+
+\-Updates the \-G\-U\-I to reflect the new state. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em state} & \-The new state. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_main_window_ac1ad769a26f328f8184cd63833af4539}{
 \index{\-Main\-Window@{\-Main\-Window}!in\-Call\-Accepted@{in\-Call\-Accepted}}
 \index{in\-Call\-Accepted@{in\-Call\-Accepted}!MainWindow@{\-Main\-Window}}
 \subsubsection[{in\-Call\-Accepted}]{\setlength{\rightskip}{0pt plus 5cm}void \-Main\-Window\-::in\-Call\-Accepted (
@@ -98,9 +239,106 @@ void \hyperlink{class_main_window_a3322ffd0516e30afc70f8b623301c426}{in\-Call\-R
 
 \-Informs anyone interested that the call was rejected. 
 
+\hypertarget{class_main_window_a47e0e25f0b714888d25f3945b9f07185}{
+\index{\-Main\-Window@{\-Main\-Window}!incoming\-Call@{incoming\-Call}}
+\index{incoming\-Call@{incoming\-Call}!MainWindow@{\-Main\-Window}}
+\subsubsection[{incoming\-Call}]{\setlength{\rightskip}{0pt plus 5cm}void \-Main\-Window\-::incoming\-Call (
+\begin{DoxyParamCaption}
+\item[{const \-Q\-String \&}]{caller}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private, slot\mbox{]}}}}
+\label{class_main_window_a47e0e25f0b714888d25f3945b9f07185}
+
+
+\-A new call is incoming, ask user's permission. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em caller} & \-The name of the caller. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_main_window_a4f3ebda1ba39e0ef4d678b44893c9c7f}{
+\index{\-Main\-Window@{\-Main\-Window}!on\-\_\-action\-About\-\_\-triggered@{on\-\_\-action\-About\-\_\-triggered}}
+\index{on\-\_\-action\-About\-\_\-triggered@{on\-\_\-action\-About\-\_\-triggered}!MainWindow@{\-Main\-Window}}
+\subsubsection[{on\-\_\-action\-About\-\_\-triggered}]{\setlength{\rightskip}{0pt plus 5cm}void \-Main\-Window\-::on\-\_\-action\-About\-\_\-triggered (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private, slot\mbox{]}}}}
+\label{class_main_window_a4f3ebda1ba39e0ef4d678b44893c9c7f}
+
+
+\-U\-I element to display information about the application. 
+
+\hypertarget{class_main_window_a780eb14bc5469aa2431a1d605a1bd431}{
+\index{\-Main\-Window@{\-Main\-Window}!update\-G\-U\-I\-Peer\-List@{update\-G\-U\-I\-Peer\-List}}
+\index{update\-G\-U\-I\-Peer\-List@{update\-G\-U\-I\-Peer\-List}!MainWindow@{\-Main\-Window}}
+\subsubsection[{update\-G\-U\-I\-Peer\-List}]{\setlength{\rightskip}{0pt plus 5cm}void \-Main\-Window\-::update\-G\-U\-I\-Peer\-List (
+\begin{DoxyParamCaption}
+\item[{\-Q\-List$<$ {\bf \-Peer} $\ast$ $>$}]{p\-List}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private, slot\mbox{]}}}}
+\label{class_main_window_a780eb14bc5469aa2431a1d605a1bd431}
+
+
+\-Updates the graphical view of the peer list. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em p\-List} & \-The list of peers. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{\-Member \-Data \-Documentation}
+\hypertarget{class_main_window_af6e038a052aefecc54322a166ad08bcf}{
+\index{\-Main\-Window@{\-Main\-Window}!call\-Green@{call\-Green}}
+\index{call\-Green@{call\-Green}!MainWindow@{\-Main\-Window}}
+\subsubsection[{call\-Green}]{\setlength{\rightskip}{0pt plus 5cm}\-Q\-Pixmap {\bf \-Main\-Window\-::call\-Green}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_main_window_af6e038a052aefecc54322a166ad08bcf}
+
+
+\-Green icon, showing in call. 
+
+\hypertarget{class_main_window_a9bd145f81a0a715e4739c3d893fb7b7b}{
+\index{\-Main\-Window@{\-Main\-Window}!call\-Red@{call\-Red}}
+\index{call\-Red@{call\-Red}!MainWindow@{\-Main\-Window}}
+\subsubsection[{call\-Red}]{\setlength{\rightskip}{0pt plus 5cm}\-Q\-Pixmap {\bf \-Main\-Window\-::call\-Red}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_main_window_a9bd145f81a0a715e4739c3d893fb7b7b}
+
+
+\-Red icon, showing out of call. 
+
+\hypertarget{class_main_window_a998fca79d54f491c4ef158e03e8894d4}{
+\index{\-Main\-Window@{\-Main\-Window}!controller@{controller}}
+\index{controller@{controller}!MainWindow@{\-Main\-Window}}
+\subsubsection[{controller}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-State\-Controller}$\ast$ {\bf \-Main\-Window\-::controller}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_main_window_a998fca79d54f491c4ef158e03e8894d4}
+
+
+\-Controller resposible for all interaction. 
+
+\hypertarget{class_main_window_a8c245df1016600d0f111fb98c8738d6d}{
+\index{\-Main\-Window@{\-Main\-Window}!peer\-Name\-List@{peer\-Name\-List}}
+\index{peer\-Name\-List@{peer\-Name\-List}!MainWindow@{\-Main\-Window}}
+\subsubsection[{peer\-Name\-List}]{\setlength{\rightskip}{0pt plus 5cm}\-Q\-String\-List {\bf \-Main\-Window\-::peer\-Name\-List}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_main_window_a8c245df1016600d0f111fb98c8738d6d}
+
+
+\-A \-List of peers names to be displayed in a widget. 
+
+\hypertarget{class_main_window_a35466a70ed47252a0191168126a352a5}{
+\index{\-Main\-Window@{\-Main\-Window}!ui@{ui}}
+\index{ui@{ui}!MainWindow@{\-Main\-Window}}
+\subsubsection[{ui}]{\setlength{\rightskip}{0pt plus 5cm}\-Ui\-::\-Main\-Window$\ast$ {\bf \-Main\-Window\-::ui}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_main_window_a35466a70ed47252a0191168126a352a5}
+
+
+\-U\-I class. 
+
 
 
 \-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
 \item 
-mainwindow.\-h\item 
-mainwindow.\-cpp\end{DoxyCompactItemize}
+\hyperlink{mainwindow_8h}{mainwindow.\-h}\item 
+\hyperlink{mainwindow_8cpp}{mainwindow.\-cpp}\end{DoxyCompactItemize}

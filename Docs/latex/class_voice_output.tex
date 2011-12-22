@@ -17,7 +17,7 @@
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=158pt]{class_voice_output__inherit__graph}
+\includegraphics[width=178pt]{class_voice_output__inherit__graph}
 \end{center}
 \end{figure}
 
@@ -26,7 +26,7 @@
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=158pt]{class_voice_output__coll__graph}
+\includegraphics[width=307pt]{class_voice_output__coll__graph}
 \end{center}
 \end{figure}
 \subsection*{\-Public \-Slots}
@@ -41,11 +41,29 @@ virtual void \hyperlink{class_voice_output_ad86ffb5732b221da79f5bfba04e7a35a}{st
 \item 
 \hyperlink{class_voice_output_a82e8a7dc2eb2de4520e1fbe7e0f71e30}{\-Voice\-Output} (\hyperlink{class_abstract_voice}{\-Abstract\-Voice} $\ast$parent=0)
 \begin{DoxyCompactList}\small\item\em \-Default constructor. \end{DoxyCompactList}\item 
-\hypertarget{class_voice_output_ab483f1f9a463ed3cd3e5fb265147e51e}{
-\hyperlink{class_voice_output_ab483f1f9a463ed3cd3e5fb265147e51e}{$\sim$\-Voice\-Output} ()}
-\label{class_voice_output_ab483f1f9a463ed3cd3e5fb265147e51e}
-
+\hyperlink{class_voice_output_ab483f1f9a463ed3cd3e5fb265147e51e}{$\sim$\-Voice\-Output} ()
 \begin{DoxyCompactList}\small\item\em \-Default destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Public \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_sound_reciever}{\-Sound\-Reciever} \hyperlink{class_voice_output_a74bd87b7370dfddcc1976460e009a432}{rec}
+\end{DoxyCompactItemize}
+\subsection*{\-Private \-Slots}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{class_voice_output_a480bfe9a314254db7efe924c25c17423}{audio\-State} (\-Q\-Audio\-::\-State)
+\begin{DoxyCompactList}\small\item\em \-Implemented virtual slot from \hyperlink{class_abstract_voice}{\-Abstract\-Voice}. \end{DoxyCompactList}\item 
+void \hyperlink{class_voice_output_a4841e1e12044b587f65b7f43ae977925}{data\-In\-Buffer} ()
+\begin{DoxyCompactList}\small\item\em \-Called when data is in the buffer to play. \end{DoxyCompactList}\item 
+void \hyperlink{class_voice_output_a7a786388a7203a5ab4dd0ff8f27cbc33}{mute\-Sound} (bool)
+\begin{DoxyCompactList}\small\item\em \-Mutes the playback of sound until toggled via this method. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Private \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\-Q\-Audio\-Output $\ast$ \hyperlink{class_voice_output_a8c6bac8855388eb4e53ec310981d0778}{m\-\_\-audio\-Out}
+\begin{DoxyCompactList}\small\item\em \-The \-Output device object. \end{DoxyCompactList}\item 
+int \hyperlink{class_voice_output_a2a8d5759fdf1535a3be202832496dfea}{timedout}
+\begin{DoxyCompactList}\small\item\em \-Used for debugging at the moment, but may be required to detect disconnects. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{\-Detailed \-Description}
@@ -72,9 +90,65 @@ virtual void \hyperlink{class_voice_output_ad86ffb5732b221da79f5bfba04e7a35a}{st
 {\em parent} & \-The owner of this object. \\
 \hline
 \end{DoxyParams}
+\hypertarget{class_voice_output_ab483f1f9a463ed3cd3e5fb265147e51e}{
+\index{\-Voice\-Output@{\-Voice\-Output}!$\sim$\-Voice\-Output@{$\sim$\-Voice\-Output}}
+\index{$\sim$\-Voice\-Output@{$\sim$\-Voice\-Output}!VoiceOutput@{\-Voice\-Output}}
+\subsubsection[{$\sim$\-Voice\-Output}]{\setlength{\rightskip}{0pt plus 5cm}\-Voice\-Output\-::$\sim$\-Voice\-Output (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_voice_output_ab483f1f9a463ed3cd3e5fb265147e51e}
+
+
+\-Default destructor. 
+
 
 
 \subsection{\-Member \-Function \-Documentation}
+\hypertarget{class_voice_output_a480bfe9a314254db7efe924c25c17423}{
+\index{\-Voice\-Output@{\-Voice\-Output}!audio\-State@{audio\-State}}
+\index{audio\-State@{audio\-State}!VoiceOutput@{\-Voice\-Output}}
+\subsubsection[{audio\-State}]{\setlength{\rightskip}{0pt plus 5cm}void \-Voice\-Output\-::audio\-State (
+\begin{DoxyParamCaption}
+\item[{\-Q\-Audio\-::\-State}]{state}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private, virtual, slot\mbox{]}}}}
+\label{class_voice_output_a480bfe9a314254db7efe924c25c17423}
+
+
+\-Implemented virtual slot from \hyperlink{class_abstract_voice}{\-Abstract\-Voice}. 
+
+\-This is connected to changes in our \-Audio\-Output object. 
+
+\-Implements \hyperlink{class_abstract_voice_a4c8d0cafd33f068899f8700f00e93347}{\-Abstract\-Voice}.
+
+\hypertarget{class_voice_output_a4841e1e12044b587f65b7f43ae977925}{
+\index{\-Voice\-Output@{\-Voice\-Output}!data\-In\-Buffer@{data\-In\-Buffer}}
+\index{data\-In\-Buffer@{data\-In\-Buffer}!VoiceOutput@{\-Voice\-Output}}
+\subsubsection[{data\-In\-Buffer}]{\setlength{\rightskip}{0pt plus 5cm}void \-Voice\-Output\-::data\-In\-Buffer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private, slot\mbox{]}}}}
+\label{class_voice_output_a4841e1e12044b587f65b7f43ae977925}
+
+
+\-Called when data is in the buffer to play. 
+
+\-Note there is a check in here that a certain ammount of data is in the buffer before we start playing...\-This is trying to rid stuttering. \hypertarget{class_voice_output_a7a786388a7203a5ab4dd0ff8f27cbc33}{
+\index{\-Voice\-Output@{\-Voice\-Output}!mute\-Sound@{mute\-Sound}}
+\index{mute\-Sound@{mute\-Sound}!VoiceOutput@{\-Voice\-Output}}
+\subsubsection[{mute\-Sound}]{\setlength{\rightskip}{0pt plus 5cm}void \-Voice\-Output\-::mute\-Sound (
+\begin{DoxyParamCaption}
+\item[{bool}]{toggle}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private, slot\mbox{]}}}}
+\label{class_voice_output_a7a786388a7203a5ab4dd0ff8f27cbc33}
+
+
+\-Mutes the playback of sound until toggled via this method. 
+
 \hypertarget{class_voice_output_ab73d7fc81805b8ba0d457db2fcf29ac4}{
 \index{\-Voice\-Output@{\-Voice\-Output}!start@{start}}
 \index{start@{start}!VoiceOutput@{\-Voice\-Output}}
@@ -111,7 +185,33 @@ virtual void \hyperlink{class_voice_output_ad86ffb5732b221da79f5bfba04e7a35a}{st
 
 
 
+\subsection{\-Member \-Data \-Documentation}
+\hypertarget{class_voice_output_a8c6bac8855388eb4e53ec310981d0778}{
+\index{\-Voice\-Output@{\-Voice\-Output}!m\-\_\-audio\-Out@{m\-\_\-audio\-Out}}
+\index{m\-\_\-audio\-Out@{m\-\_\-audio\-Out}!VoiceOutput@{\-Voice\-Output}}
+\subsubsection[{m\-\_\-audio\-Out}]{\setlength{\rightskip}{0pt plus 5cm}\-Q\-Audio\-Output$\ast$ {\bf \-Voice\-Output\-::m\-\_\-audio\-Out}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_voice_output_a8c6bac8855388eb4e53ec310981d0778}
+
+
+\-The \-Output device object. 
+
+\hypertarget{class_voice_output_a74bd87b7370dfddcc1976460e009a432}{
+\index{\-Voice\-Output@{\-Voice\-Output}!rec@{rec}}
+\index{rec@{rec}!VoiceOutput@{\-Voice\-Output}}
+\subsubsection[{rec}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Sound\-Reciever} {\bf \-Voice\-Output\-::rec}}}
+\label{class_voice_output_a74bd87b7370dfddcc1976460e009a432}
+\hypertarget{class_voice_output_a2a8d5759fdf1535a3be202832496dfea}{
+\index{\-Voice\-Output@{\-Voice\-Output}!timedout@{timedout}}
+\index{timedout@{timedout}!VoiceOutput@{\-Voice\-Output}}
+\subsubsection[{timedout}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-Voice\-Output\-::timedout}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_voice_output_a2a8d5759fdf1535a3be202832496dfea}
+
+
+\-Used for debugging at the moment, but may be required to detect disconnects. 
+
+
+
 \-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
 \item 
-voiceoutput.\-h\item 
-voiceoutput.\-cpp\end{DoxyCompactItemize}
+\hyperlink{voiceoutput_8h}{voiceoutput.\-h}\item 
+\hyperlink{voiceoutput_8cpp}{voiceoutput.\-cpp}\end{DoxyCompactItemize}

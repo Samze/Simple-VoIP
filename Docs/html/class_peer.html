@@ -78,7 +78,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-methods">Static Public Member Functions</a>  </div>
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a>  </div>
   <div class="headertitle">
 <div class="title">Peer Class Reference</div>  </div>
 </div>
@@ -95,22 +96,31 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_peer.html#a3360b580084c61a8bc31144ae2af912a">Peer</a> (QObject *parent, QString *name, QHostAddress *address, quint16 port)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a new peer.  <a href="#a3360b580084c61a8bc31144ae2af912a"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_peer.html#a6ba1719fdbd96ab8a3674e6a230856d1">~Peer</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_peer.html#ad66666aca923fe13b4cca3f836d12fa7">getName</a> () const </td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the username of peer.  <a href="#ad66666aca923fe13b4cca3f836d12fa7"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">QTime&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_peer.html#a1c9797749ddfbb9261e93f51cc3ace9e">getLastResponded</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the time the peer last communicated with us.  <a href="#a1c9797749ddfbb9261e93f51cc3ace9e"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">QHostAddress *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_peer.html#ac1e626629eeaaeebff30f2eda36c3a5e">getAddress</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the IP address of the peer.  <a href="#ac1e626629eeaaeebff30f2eda36c3a5e"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a49f70d43a1822edaeb8f3f7de66b12e3"></a><!-- doxytag: member="Peer::updateTime" ref="a49f70d43a1822edaeb8f3f7de66b12e3" args="()" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_peer.html#a49f70d43a1822edaeb8f3f7de66b12e3">updateTime</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the peers last communication time with the current local system time. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afa304e14507579b7f3aaf8b2e7483f1a"></a><!-- doxytag: member="Peer::operator==" ref="afa304e14507579b7f3aaf8b2e7483f1a" args="(const Peer &amp;peer)" -->
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_peer.html#afa304e14507579b7f3aaf8b2e7483f1a">operator==</a> (const <a class="el" href="class_peer.html">Peer</a> &amp;peer)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares two peers by their username. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_peer.html#a49f70d43a1822edaeb8f3f7de66b12e3">updateTime</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the peers last communication time with the current local system time.  <a href="#a49f70d43a1822edaeb8f3f7de66b12e3"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_peer.html#afa304e14507579b7f3aaf8b2e7483f1a">operator==</a> (const <a class="el" href="class_peer.html">Peer</a> &amp;peer)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares two peers by their username.  <a href="#afa304e14507579b7f3aaf8b2e7483f1a"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">static QStringList&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_peer.html#ab728eb8f441b3473983d9dfd902d8ac9">getPeersNameList</a> (const QList&lt; <a class="el" href="class_peer.html">Peer</a> * &gt; &amp;peerList)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Static method that obtains a list of usernames from a list of peers.  <a href="#ab728eb8f441b3473983d9dfd902d8ac9"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QString *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_peer.html#a5a3effcf505b4c78eed750c78c6ab5de">m_username</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">username of peer.  <a href="#a5a3effcf505b4c78eed750c78c6ab5de"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QHostAddress *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_peer.html#a30c9db42381e7e0a68d678ae1123dec4">m_address</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">IP address of peer.  <a href="#a30c9db42381e7e0a68d678ae1123dec4"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">quint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_peer.html#a799f9277c52571338ddd1bf7555fb48e">m_udpPort</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Prefered UDP port of peer (NOT USED YET( .  <a href="#a799f9277c52571338ddd1bf7555fb48e"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QTime&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_peer.html#afec00a147b818f65d238a948d54fc47f">time</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Time of last communication with peer.  <a href="#afec00a147b818f65d238a948d54fc47f"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Holds information for a located communication peer on the network. </p>
@@ -163,6 +173,22 @@ Static Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a class="anchor" id="a6ba1719fdbd96ab8a3674e6a230856d1"></a><!-- doxytag: member="Peer::~Peer" ref="a6ba1719fdbd96ab8a3674e6a230856d1" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Peer::~Peer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
 
 </div>
 </div>
@@ -250,9 +276,107 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="afa304e14507579b7f3aaf8b2e7483f1a"></a><!-- doxytag: member="Peer::operator==" ref="afa304e14507579b7f3aaf8b2e7483f1a" args="(const Peer &amp;peer)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Peer::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_peer.html">Peer</a> &amp;&#160;</td>
+          <td class="paramname"><em>peer</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Compares two peers by their username. </p>
+
+</div>
+</div>
+<a class="anchor" id="a49f70d43a1822edaeb8f3f7de66b12e3"></a><!-- doxytag: member="Peer::updateTime" ref="a49f70d43a1822edaeb8f3f7de66b12e3" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Peer::updateTime </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Updates the peers last communication time with the current local system time. </p>
+
+</div>
+</div>
+<hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="a30c9db42381e7e0a68d678ae1123dec4"></a><!-- doxytag: member="Peer::m_address" ref="a30c9db42381e7e0a68d678ae1123dec4" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QHostAddress* <a class="el" href="class_peer.html#a30c9db42381e7e0a68d678ae1123dec4">Peer::m_address</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>IP address of peer. </p>
+
+</div>
+</div>
+<a class="anchor" id="a799f9277c52571338ddd1bf7555fb48e"></a><!-- doxytag: member="Peer::m_udpPort" ref="a799f9277c52571338ddd1bf7555fb48e" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">quint16 <a class="el" href="class_peer.html#a799f9277c52571338ddd1bf7555fb48e">Peer::m_udpPort</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Prefered UDP port of peer (NOT USED YET( . </p>
+
+</div>
+</div>
+<a class="anchor" id="a5a3effcf505b4c78eed750c78c6ab5de"></a><!-- doxytag: member="Peer::m_username" ref="a5a3effcf505b4c78eed750c78c6ab5de" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QString* <a class="el" href="class_peer.html#a5a3effcf505b4c78eed750c78c6ab5de">Peer::m_username</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>username of peer. </p>
+
+</div>
+</div>
+<a class="anchor" id="afec00a147b818f65d238a948d54fc47f"></a><!-- doxytag: member="Peer::time" ref="afec00a147b818f65d238a948d54fc47f" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QTime <a class="el" href="class_peer.html#afec00a147b818f65d238a948d54fc47f">Peer::time</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Time of last communication with peer. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="peer_8h_source.html">peer.h</a></li>
-<li>peer.cpp</li>
+<li><a class="el" href="peer_8cpp.html">peer.cpp</a></li>
 </ul>
 </div>
 <!-- window showing the filter options -->
@@ -260,7 +384,7 @@ Static Public Member Functions</h2></td></tr>
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -272,7 +396,7 @@ Static Public Member Functions</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Dec 22 2011 05:03:24 for VoIp by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Dec 22 2011 06:20:51 for VoIp by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.5.1
 </small></address>

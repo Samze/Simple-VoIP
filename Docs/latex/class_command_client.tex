@@ -40,20 +40,11 @@ void \hyperlink{class_command_client_a5e9d24302776437de353294cee9f3d19}{call\-Pe
 \subsection*{\-Signals}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_command_client_a51e78fcbc30e280148c3d96febd3f2f5}{
-void \hyperlink{class_command_client_a51e78fcbc30e280148c3d96febd3f2f5}{caller\-Accepted} ()}
-\label{class_command_client_a51e78fcbc30e280148c3d96febd3f2f5}
-
+void \hyperlink{class_command_client_a51e78fcbc30e280148c3d96febd3f2f5}{caller\-Accepted} ()
 \begin{DoxyCompactList}\small\item\em \-Emitted when a call has been accepted. \end{DoxyCompactList}\item 
-\hypertarget{class_command_client_ad0881250571d8d7ec7162f7ec5aca387}{
-void \hyperlink{class_command_client_ad0881250571d8d7ec7162f7ec5aca387}{caller\-Busy} ()}
-\label{class_command_client_ad0881250571d8d7ec7162f7ec5aca387}
-
+void \hyperlink{class_command_client_ad0881250571d8d7ec7162f7ec5aca387}{caller\-Busy} ()
 \begin{DoxyCompactList}\small\item\em \-Emitted when a call has been rejected. \end{DoxyCompactList}\item 
-\hypertarget{class_command_client_a191f0dce261b1edc31709f919882606b}{
-void \hyperlink{class_command_client_a191f0dce261b1edc31709f919882606b}{call\-Ended} ()}
-\label{class_command_client_a191f0dce261b1edc31709f919882606b}
-
+void \hyperlink{class_command_client_a191f0dce261b1edc31709f919882606b}{call\-Ended} ()
 \begin{DoxyCompactList}\small\item\em \-Emitted when a call has been terminated. \end{DoxyCompactList}\item 
 void \hyperlink{class_command_client_a72548d402f5213d7e49f7292a47b5194}{command\-Error} ()
 \begin{DoxyCompactList}\small\item\em \-Emitted when a command has not been understood. \end{DoxyCompactList}\item 
@@ -66,6 +57,23 @@ void \hyperlink{class_command_client_a71bad5cfe2219924e6aaec0f2426b03d}{caller\-
 \item 
 \hyperlink{class_command_client_a14a6d40dd5e192c96b15e65ca3d668b4}{\-Command\-Client} (\-Q\-Object $\ast$parent=0)
 \begin{DoxyCompactList}\small\item\em \-Command \-Client constructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Private \-Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_command_client_a4a15f938ab3bc4c6c22ded4784c34176}{server\-Response} ()
+\begin{DoxyCompactList}\small\item\em \-Handles potential repsonses from the server. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Static \-Private \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+static quint16 \hyperlink{class_command_client_a7255f2d12d3ebd301ecc210be46a524d}{generate\-U\-D\-P\-Port} ()
+\begin{DoxyCompactList}\small\item\em \-N\-O\-T \-U\-S\-E\-D. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Static \-Private \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const quint16 \hyperlink{class_command_client_aad85b9fd20a7256920ec58ebbdc4534b}{\-U\-D\-P\-M\-A\-X} = 45999
+\begin{DoxyCompactList}\small\item\em \-N\-O\-T \-U\-S\-E\-D. \end{DoxyCompactList}\item 
+static const quint16 \hyperlink{class_command_client_a93ee4eb59cb333a129a142a25ac51390}{\-U\-D\-P\-M\-I\-N} = 44000
+\begin{DoxyCompactList}\small\item\em \-N\-O\-T \-U\-S\-E\-D. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{\-Detailed \-Description}
@@ -145,6 +153,45 @@ enable\-Sound}
 
 
 \subsection{\-Member \-Function \-Documentation}
+\hypertarget{class_command_client_a191f0dce261b1edc31709f919882606b}{
+\index{\-Command\-Client@{\-Command\-Client}!call\-Ended@{call\-Ended}}
+\index{call\-Ended@{call\-Ended}!CommandClient@{\-Command\-Client}}
+\subsubsection[{call\-Ended}]{\setlength{\rightskip}{0pt plus 5cm}void \-Command\-Client\-::call\-Ended (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}signal\mbox{]}}}}
+\label{class_command_client_a191f0dce261b1edc31709f919882606b}
+
+
+\-Emitted when a call has been terminated. 
+
+\hypertarget{class_command_client_a51e78fcbc30e280148c3d96febd3f2f5}{
+\index{\-Command\-Client@{\-Command\-Client}!caller\-Accepted@{caller\-Accepted}}
+\index{caller\-Accepted@{caller\-Accepted}!CommandClient@{\-Command\-Client}}
+\subsubsection[{caller\-Accepted}]{\setlength{\rightskip}{0pt plus 5cm}void \-Command\-Client\-::caller\-Accepted (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}signal\mbox{]}}}}
+\label{class_command_client_a51e78fcbc30e280148c3d96febd3f2f5}
+
+
+\-Emitted when a call has been accepted. 
+
+\hypertarget{class_command_client_ad0881250571d8d7ec7162f7ec5aca387}{
+\index{\-Command\-Client@{\-Command\-Client}!caller\-Busy@{caller\-Busy}}
+\index{caller\-Busy@{caller\-Busy}!CommandClient@{\-Command\-Client}}
+\subsubsection[{caller\-Busy}]{\setlength{\rightskip}{0pt plus 5cm}void \-Command\-Client\-::caller\-Busy (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}signal\mbox{]}}}}
+\label{class_command_client_ad0881250571d8d7ec7162f7ec5aca387}
+
+
+\-Emitted when a call has been rejected. 
+
 \hypertarget{class_command_client_a52ec0fcb2b894c2e3642779d27c4bb14}{
 \index{\-Command\-Client@{\-Command\-Client}!caller\-Mic\-Muted@{caller\-Mic\-Muted}}
 \index{caller\-Mic\-Muted@{caller\-Mic\-Muted}!CommandClient@{\-Command\-Client}}
@@ -218,7 +265,20 @@ disconnect\-From\-Host()
 {\em p} & \-The peer that should be connected to. \\
 \hline
 \end{DoxyParams}
-\hypertarget{class_command_client_a5199922a9fc1be3cac4b70399451df60}{
+\hypertarget{class_command_client_a7255f2d12d3ebd301ecc210be46a524d}{
+\index{\-Command\-Client@{\-Command\-Client}!generate\-U\-D\-P\-Port@{generate\-U\-D\-P\-Port}}
+\index{generate\-U\-D\-P\-Port@{generate\-U\-D\-P\-Port}!CommandClient@{\-Command\-Client}}
+\subsubsection[{generate\-U\-D\-P\-Port}]{\setlength{\rightskip}{0pt plus 5cm}quint16 \-Command\-Client\-::generate\-U\-D\-P\-Port (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static, private\mbox{]}}}}
+\label{class_command_client_a7255f2d12d3ebd301ecc210be46a524d}
+
+
+\-N\-O\-T \-U\-S\-E\-D. 
+
+\-Will generate a random port. \hypertarget{class_command_client_a5199922a9fc1be3cac4b70399451df60}{
 \index{\-Command\-Client@{\-Command\-Client}!hang\-Up@{hang\-Up}}
 \index{hang\-Up@{hang\-Up}!CommandClient@{\-Command\-Client}}
 \subsubsection[{hang\-Up}]{\setlength{\rightskip}{0pt plus 5cm}void \-Command\-Client\-::hang\-Up (
@@ -252,9 +312,43 @@ disconnect\-From\-Host()
 {\em cmd} & \-The command to send to the server. \\
 \hline
 \end{DoxyParams}
+\hypertarget{class_command_client_a4a15f938ab3bc4c6c22ded4784c34176}{
+\index{\-Command\-Client@{\-Command\-Client}!server\-Response@{server\-Response}}
+\index{server\-Response@{server\-Response}!CommandClient@{\-Command\-Client}}
+\subsubsection[{server\-Response}]{\setlength{\rightskip}{0pt plus 5cm}void \-Command\-Client\-::server\-Response (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private, slot\mbox{]}}}}
+\label{class_command_client_a4a15f938ab3bc4c6c22ded4784c34176}
 
+
+\-Handles potential repsonses from the server. 
+
+
+
+\subsection{\-Member \-Data \-Documentation}
+\hypertarget{class_command_client_aad85b9fd20a7256920ec58ebbdc4534b}{
+\index{\-Command\-Client@{\-Command\-Client}!\-U\-D\-P\-M\-A\-X@{\-U\-D\-P\-M\-A\-X}}
+\index{\-U\-D\-P\-M\-A\-X@{\-U\-D\-P\-M\-A\-X}!CommandClient@{\-Command\-Client}}
+\subsubsection[{\-U\-D\-P\-M\-A\-X}]{\setlength{\rightskip}{0pt plus 5cm}const quint16 {\bf \-Command\-Client\-::\-U\-D\-P\-M\-A\-X} = 45999\hspace{0.3cm}{\ttfamily  \mbox{[}static, private\mbox{]}}}}
+\label{class_command_client_aad85b9fd20a7256920ec58ebbdc4534b}
+
+
+\-N\-O\-T \-U\-S\-E\-D. 
+
+\-Max rnd udp port \hypertarget{class_command_client_a93ee4eb59cb333a129a142a25ac51390}{
+\index{\-Command\-Client@{\-Command\-Client}!\-U\-D\-P\-M\-I\-N@{\-U\-D\-P\-M\-I\-N}}
+\index{\-U\-D\-P\-M\-I\-N@{\-U\-D\-P\-M\-I\-N}!CommandClient@{\-Command\-Client}}
+\subsubsection[{\-U\-D\-P\-M\-I\-N}]{\setlength{\rightskip}{0pt plus 5cm}const quint16 {\bf \-Command\-Client\-::\-U\-D\-P\-M\-I\-N} = 44000\hspace{0.3cm}{\ttfamily  \mbox{[}static, private\mbox{]}}}}
+\label{class_command_client_a93ee4eb59cb333a129a142a25ac51390}
+
+
+\-N\-O\-T \-U\-S\-E\-D. 
+
+\-Min rnd udp port 
 
 \-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
 \item 
-commandclient.\-h\item 
-commandclient.\-cpp\end{DoxyCompactItemize}
+\hyperlink{commandclient_8h}{commandclient.\-h}\item 
+\hyperlink{commandclient_8cpp}{commandclient.\-cpp}\end{DoxyCompactItemize}

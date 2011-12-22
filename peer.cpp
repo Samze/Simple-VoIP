@@ -1,16 +1,16 @@
 #include "peer.h"
 
 
-Peer::Peer(QObject *parent,QString* username, QHostAddress* address, quint16 udpPort)
-    : QObject(parent), m_username(username), m_address(address), m_udpPort(udpPort){
+Peer::Peer(QObject *parent,QString* name, QHostAddress* addr, quint16 udp)
+    : QObject(parent), username(name), address(addr), udpPort(udp){
 
     //Set that we have heard from this user when we created it.
     updateTime();
 
 }
 Peer::~Peer() {
-    delete m_username;
-    delete m_address;
+    delete username;
+    delete address;
 }
 
 

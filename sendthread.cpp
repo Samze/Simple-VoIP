@@ -6,8 +6,8 @@ SendThread::SendThread(QObject *parent) :
 
 void SendThread::run() {
 
-    QHostAddress address(m_address);
-    VoiceInput input(address);
+    QHostAddress addr(address);
+    VoiceInput input(addr);
 
     connect(this,SIGNAL(muteMic(bool)),&input,SLOT(muteMic(bool)));
 
@@ -23,7 +23,7 @@ void SendThread::run() {
     input.stop();
 }
 
-void SendThread::recordSound(const QHostAddress &address) {
-    m_address = address;
+void SendThread::recordSound(const QHostAddress &addr) {
+    address = addr;
     start();
 }

@@ -80,6 +80,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="#pub-slots">Public Slots</a> &#124;
 <a href="#signals">Signals</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a>  </div>
   <div class="headertitle">
 <div class="title">ReceiveThread Class Reference</div>  </div>
@@ -90,14 +91,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <a href="class_receive_thread.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="receivethread_8h_source.html">receivethread.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for ReceiveThread:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_receive_thread__coll__graph.png" border="0" usemap="#_receive_thread_coll__map" alt="Collaboration graph"/></div>
+<map name="_receive_thread_coll__map" id="_receive_thread_coll__map">
+<area shape="rect" id="node2" href="class_voice_output.html" title="Receives audio data and plays it using the systems default output device." alt="" coords="91,235,213,429"/><area shape="rect" id="node4" href="class_abstract_voice.html" title="Abstracted common voice elements for recording and playback." alt="" coords="5,5,136,171"/><area shape="rect" id="node6" href="class_sound_reciever.html" title="A buffer that receives UDP audio data over the network." alt="" coords="161,27,308,149"/></map>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 
 <p><a href="class_receive_thread-members.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-slots"></a>
 Public Slots</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0eb5b7ab172cf0a35fee1e499d1a04e2"></a><!-- doxytag: member="ReceiveThread::listen" ref="a0eb5b7ab172cf0a35fee1e499d1a04e2" args="()" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_receive_thread.html#a0eb5b7ab172cf0a35fee1e499d1a04e2">listen</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the new thread. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_receive_thread.html#a0eb5b7ab172cf0a35fee1e499d1a04e2">listen</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the new thread.  <a href="#a0eb5b7ab172cf0a35fee1e499d1a04e2"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="signals"></a>
 Signals</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_receive_thread.html#a971403a676eb058555b5099f04a5b546">muteSound</a> (bool)</td></tr>
@@ -106,11 +113,13 @@ Signals</h2></td></tr>
 Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_receive_thread.html#a7d3037d96e9f4f93850026dca7ff0787">ReceiveThread</a> (QObject *parent=0)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <a href="#a7d3037d96e9f4f93850026dca7ff0787"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_voice_output.html">VoiceOutput</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_receive_thread.html#ab1d07e023e07536515ae30c8991822a7">vo</a></td></tr>
 <tr><td colspan="2"><h2><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5033e892e97f8fe46d25c5da6bd15674"></a><!-- doxytag: member="ReceiveThread::run" ref="a5033e892e97f8fe46d25c5da6bd15674" args="()" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_receive_thread.html#a5033e892e97f8fe46d25c5da6bd15674">run</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Reimplmented function from QThread that beings receiving and playback. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_receive_thread.html#a5033e892e97f8fe46d25c5da6bd15674">run</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Reimplmented function from QThread that beings receiving and playback.  <a href="#a5033e892e97f8fe46d25c5da6bd15674"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>A Thread class that controls listening for incoming voice data. </p>
@@ -142,6 +151,24 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a0eb5b7ab172cf0a35fee1e499d1a04e2"></a><!-- doxytag: member="ReceiveThread::listen" ref="a0eb5b7ab172cf0a35fee1e499d1a04e2" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ReceiveThread::listen </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [slot]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Starts the new thread. </p>
+
+</div>
+</div>
 <a class="anchor" id="a971403a676eb058555b5099f04a5b546"></a><!-- doxytag: member="ReceiveThread::muteSound" ref="a971403a676eb058555b5099f04a5b546" args="(bool)" -->
 <div class="memitem">
 <div class="memproto">
@@ -162,9 +189,41 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 </div>
 </div>
+<a class="anchor" id="a5033e892e97f8fe46d25c5da6bd15674"></a><!-- doxytag: member="ReceiveThread::run" ref="a5033e892e97f8fe46d25c5da6bd15674" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ReceiveThread::run </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Reimplmented function from QThread that beings receiving and playback. </p>
+
+</div>
+</div>
+<hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="ab1d07e023e07536515ae30c8991822a7"></a><!-- doxytag: member="ReceiveThread::vo" ref="ab1d07e023e07536515ae30c8991822a7" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_voice_output.html">VoiceOutput</a> <a class="el" href="class_receive_thread.html#ab1d07e023e07536515ae30c8991822a7">ReceiveThread::vo</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="receivethread_8h_source.html">receivethread.h</a></li>
-<li>receivethread.cpp</li>
+<li><a class="el" href="receivethread_8cpp.html">receivethread.cpp</a></li>
 </ul>
 </div>
 <!-- window showing the filter options -->
@@ -172,7 +231,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -184,7 +243,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Dec 22 2011 05:03:24 for VoIp by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Dec 22 2011 06:20:51 for VoIp by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.5.1
 </small></address>

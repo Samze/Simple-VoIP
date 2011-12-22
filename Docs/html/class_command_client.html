@@ -80,7 +80,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-slots">Public Slots</a> &#124;
 <a href="#signals">Signals</a> &#124;
-<a href="#pub-methods">Public Member Functions</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-slots">Private Slots</a> &#124;
+<a href="#pri-static-methods">Static Private Member Functions</a> &#124;
+<a href="#pri-static-attribs">Static Private Attributes</a>  </div>
   <div class="headertitle">
 <div class="title">CommandClient Class Reference</div>  </div>
 </div>
@@ -120,15 +123,12 @@ Public Slots</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Initiates a call to a peer.  <a href="#a5e9d24302776437de353294cee9f3d19"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="signals"></a>
 Signals</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a51e78fcbc30e280148c3d96febd3f2f5"></a><!-- doxytag: member="CommandClient::callerAccepted" ref="a51e78fcbc30e280148c3d96febd3f2f5" args="()" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_client.html#a51e78fcbc30e280148c3d96febd3f2f5">callerAccepted</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Emitted when a call has been accepted. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad0881250571d8d7ec7162f7ec5aca387"></a><!-- doxytag: member="CommandClient::callerBusy" ref="ad0881250571d8d7ec7162f7ec5aca387" args="()" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_client.html#ad0881250571d8d7ec7162f7ec5aca387">callerBusy</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Emitted when a call has been rejected. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a191f0dce261b1edc31709f919882606b"></a><!-- doxytag: member="CommandClient::callEnded" ref="a191f0dce261b1edc31709f919882606b" args="()" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_client.html#a191f0dce261b1edc31709f919882606b">callEnded</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Emitted when a call has been terminated. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_client.html#a51e78fcbc30e280148c3d96febd3f2f5">callerAccepted</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Emitted when a call has been accepted.  <a href="#a51e78fcbc30e280148c3d96febd3f2f5"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_client.html#ad0881250571d8d7ec7162f7ec5aca387">callerBusy</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Emitted when a call has been rejected.  <a href="#ad0881250571d8d7ec7162f7ec5aca387"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_client.html#a191f0dce261b1edc31709f919882606b">callEnded</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Emitted when a call has been terminated.  <a href="#a191f0dce261b1edc31709f919882606b"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_client.html#a72548d402f5213d7e49f7292a47b5194">commandError</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Emitted when a command has not been understood.  <a href="#a72548d402f5213d7e49f7292a47b5194"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_client.html#a52ec0fcb2b894c2e3642779d27c4bb14">callerMicMuted</a> (bool)</td></tr>
@@ -139,6 +139,20 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_client.html#a14a6d40dd5e192c96b15e65ca3d668b4">CommandClient</a> (QObject *parent=0)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Command Client constructor.  <a href="#a14a6d40dd5e192c96b15e65ca3d668b4"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pri-slots"></a>
+Private Slots</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_client.html#a4a15f938ab3bc4c6c22ded4784c34176">serverResponse</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles potential repsonses from the server.  <a href="#a4a15f938ab3bc4c6c22ded4784c34176"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pri-static-methods"></a>
+Static Private Member Functions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static quint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_client.html#a7255f2d12d3ebd301ecc210be46a524d">generateUDPPort</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">NOT USED.  <a href="#a7255f2d12d3ebd301ecc210be46a524d"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pri-static-attribs"></a>
+Static Private Attributes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const quint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_client.html#aad85b9fd20a7256920ec58ebbdc4534b">UDPMAX</a> = 45999</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">NOT USED.  <a href="#aad85b9fd20a7256920ec58ebbdc4534b"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const quint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_client.html#a93ee4eb59cb333a129a142a25ac51390">UDPMIN</a> = 44000</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">NOT USED.  <a href="#a93ee4eb59cb333a129a142a25ac51390"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>A subclass of QTcpSocket, class that is responsible for sending/receiving control signals between callers over the network. </p>
@@ -216,6 +230,60 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a191f0dce261b1edc31709f919882606b"></a><!-- doxytag: member="CommandClient::callEnded" ref="a191f0dce261b1edc31709f919882606b" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CommandClient::callEnded </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [signal]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Emitted when a call has been terminated. </p>
+
+</div>
+</div>
+<a class="anchor" id="a51e78fcbc30e280148c3d96febd3f2f5"></a><!-- doxytag: member="CommandClient::callerAccepted" ref="a51e78fcbc30e280148c3d96febd3f2f5" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CommandClient::callerAccepted </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [signal]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Emitted when a call has been accepted. </p>
+
+</div>
+</div>
+<a class="anchor" id="ad0881250571d8d7ec7162f7ec5aca387"></a><!-- doxytag: member="CommandClient::callerBusy" ref="ad0881250571d8d7ec7162f7ec5aca387" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CommandClient::callerBusy </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [signal]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Emitted when a call has been rejected. </p>
+
+</div>
+</div>
 <a class="anchor" id="a52ec0fcb2b894c2e3642779d27c4bb14"></a><!-- doxytag: member="CommandClient::callerMicMuted" ref="a52ec0fcb2b894c2e3642779d27c4bb14" args="(bool)" -->
 <div class="memitem">
 <div class="memproto">
@@ -316,6 +384,25 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a7255f2d12d3ebd301ecc210be46a524d"></a><!-- doxytag: member="CommandClient::generateUDPPort" ref="a7255f2d12d3ebd301ecc210be46a524d" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">quint16 CommandClient::generateUDPPort </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [static, private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>NOT USED. </p>
+<p>Will generate a random port. </p>
+
+</div>
+</div>
 <a class="anchor" id="a5199922a9fc1be3cac4b70399451df60"></a><!-- doxytag: member="CommandClient::hangUp" ref="a5199922a9fc1be3cac4b70399451df60" args="()" -->
 <div class="memitem">
 <div class="memproto">
@@ -362,9 +449,60 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a4a15f938ab3bc4c6c22ded4784c34176"></a><!-- doxytag: member="CommandClient::serverResponse" ref="a4a15f938ab3bc4c6c22ded4784c34176" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CommandClient::serverResponse </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [private, slot]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Handles potential repsonses from the server. </p>
+
+</div>
+</div>
+<hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="aad85b9fd20a7256920ec58ebbdc4534b"></a><!-- doxytag: member="CommandClient::UDPMAX" ref="aad85b9fd20a7256920ec58ebbdc4534b" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const quint16 <a class="el" href="class_command_client.html#aad85b9fd20a7256920ec58ebbdc4534b">CommandClient::UDPMAX</a> = 45999<code> [static, private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>NOT USED. </p>
+<p>Max rnd udp port </p>
+
+</div>
+</div>
+<a class="anchor" id="a93ee4eb59cb333a129a142a25ac51390"></a><!-- doxytag: member="CommandClient::UDPMIN" ref="a93ee4eb59cb333a129a142a25ac51390" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const quint16 <a class="el" href="class_command_client.html#a93ee4eb59cb333a129a142a25ac51390">CommandClient::UDPMIN</a> = 44000<code> [static, private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>NOT USED. </p>
+<p>Min rnd udp port </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="commandclient_8h_source.html">commandclient.h</a></li>
-<li>commandclient.cpp</li>
+<li><a class="el" href="commandclient_8cpp.html">commandclient.cpp</a></li>
 </ul>
 </div>
 <!-- window showing the filter options -->
@@ -372,7 +510,7 @@ Public Member Functions</h2></td></tr>
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -384,7 +522,7 @@ Public Member Functions</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Dec 22 2011 05:03:24 for VoIp by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Dec 22 2011 06:20:51 for VoIp by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.5.1
 </small></address>

@@ -82,9 +82,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="contents">
 This is the complete list of members for <a class="el" href="class_voice_input.html">VoiceInput</a>, including all inherited members.<table>
   <tr class="memlist"><td><a class="el" href="class_abstract_voice.html#a6b3c93369820d5e9e65f596dcf2147be">AbstractVoice</a>(QObject *parent=0)</td><td><a class="el" href="class_abstract_voice.html">AbstractVoice</a></td><td><code> [explicit]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_voice_input.html#a2481e823c393974288383a7f470054ad">audioState</a>(QAudio::State)</td><td><a class="el" href="class_voice_input.html">VoiceInput</a></td><td><code> [private, virtual, slot]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="class_abstract_voice.html#a93b7c2b08aa97b77b8126a8dff173018">buffer</a></td><td><a class="el" href="class_abstract_voice.html">AbstractVoice</a></td><td><code> [protected]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="class_abstract_voice.html#ac27882c5cb69564cbc4d5cca7847a359">devInfo</a></td><td><a class="el" href="class_abstract_voice.html">AbstractVoice</a></td><td><code> [protected]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="class_abstract_voice.html#aa8718f0af1669ef7a84347c2d9a54cf9">format</a></td><td><a class="el" href="class_abstract_voice.html">AbstractVoice</a></td><td><code> [protected]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_voice_input.html#a8e65f3f1987db8213d8b10f1bcaaab00">m_audioIn</a></td><td><a class="el" href="class_voice_input.html">VoiceInput</a></td><td><code> [private]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_voice_input.html#a6f48cb2d0fb8239c284545fda2c099bb">muteMic</a>(bool)</td><td><a class="el" href="class_voice_input.html">VoiceInput</a></td><td><code> [private, slot]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_voice_input.html#a40ab6705a21bcbaae15e9a673f6eee53">send</a></td><td><a class="el" href="class_voice_input.html">VoiceInput</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="class_voice_input.html#a99193e448e78f1bd10219bfb482d13ba">start</a>()</td><td><a class="el" href="class_voice_input.html">VoiceInput</a></td><td><code> [virtual, slot]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="class_voice_input.html#aacdc744a4d9b156d79d05c7ea9361576">stop</a>()</td><td><a class="el" href="class_voice_input.html">VoiceInput</a></td><td><code> [virtual, slot]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="class_voice_input.html#a57880cf450adb3749b952de271b8261f">VoiceInput</a>(QHostAddress address)</td><td><a class="el" href="class_voice_input.html">VoiceInput</a></td><td><code> [explicit]</code></td></tr>
@@ -96,7 +100,7 @@ This is the complete list of members for <a class="el" href="class_voice_input.h
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -108,7 +112,7 @@ This is the complete list of members for <a class="el" href="class_voice_input.h
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Dec 22 2011 05:03:24 for VoIp by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Dec 22 2011 06:20:51 for VoIp by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.5.1
 </small></address>

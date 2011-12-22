@@ -69,6 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 <div class="header">
@@ -76,20 +77,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">statecontroller.h</div>  </div>
 </div>
 <div class="contents">
-<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef STATECONTROLLER_H</span>
+<a href="statecontroller_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef STATECONTROLLER_H</span>
 <a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define STATECONTROLLER_H</span>
 <a name="l00003"></a>00003 <span class="preprocessor"></span>
 <a name="l00004"></a>00004 <span class="preprocessor">#include &lt;QObject&gt;</span>
 <a name="l00005"></a>00005 <span class="preprocessor">#include &lt;QApplication&gt;</span>
-<a name="l00006"></a>00006 <span class="preprocessor">#include &quot;voiceinput.h&quot;</span>
-<a name="l00007"></a>00007 <span class="preprocessor">#include &quot;voiceoutput.h&quot;</span>
-<a name="l00008"></a>00008 <span class="preprocessor">#include &quot;soundsender.h&quot;</span>
-<a name="l00009"></a>00009 <span class="preprocessor">#include &quot;soundreciever.h&quot;</span>
-<a name="l00010"></a>00010 <span class="preprocessor">#include &quot;receivethread.h&quot;</span>
-<a name="l00011"></a>00011 <span class="preprocessor">#include &quot;sendthread.h&quot;</span>
-<a name="l00012"></a>00012 <span class="preprocessor">#include &quot;commandclient.h&quot;</span>
-<a name="l00013"></a>00013 <span class="preprocessor">#include &quot;commandserver.h&quot;</span>
-<a name="l00014"></a>00014 <span class="preprocessor">#include &quot;networkdiscover.h&quot;</span>
+<a name="l00006"></a>00006 <span class="preprocessor">#include &quot;<a class="code" href="voiceinput_8h.html">voiceinput.h</a>&quot;</span>
+<a name="l00007"></a>00007 <span class="preprocessor">#include &quot;<a class="code" href="voiceoutput_8h.html">voiceoutput.h</a>&quot;</span>
+<a name="l00008"></a>00008 <span class="preprocessor">#include &quot;<a class="code" href="soundsender_8h.html">soundsender.h</a>&quot;</span>
+<a name="l00009"></a>00009 <span class="preprocessor">#include &quot;<a class="code" href="soundreciever_8h.html">soundreciever.h</a>&quot;</span>
+<a name="l00010"></a>00010 <span class="preprocessor">#include &quot;<a class="code" href="receivethread_8h.html">receivethread.h</a>&quot;</span>
+<a name="l00011"></a>00011 <span class="preprocessor">#include &quot;<a class="code" href="sendthread_8h.html">sendthread.h</a>&quot;</span>
+<a name="l00012"></a>00012 <span class="preprocessor">#include &quot;<a class="code" href="commandclient_8h.html">commandclient.h</a>&quot;</span>
+<a name="l00013"></a>00013 <span class="preprocessor">#include &quot;<a class="code" href="commandserver_8h.html">commandserver.h</a>&quot;</span>
+<a name="l00014"></a>00014 <span class="preprocessor">#include &quot;<a class="code" href="networkdiscover_8h.html">networkdiscover.h</a>&quot;</span>
 <a name="l00015"></a>00015 
 <a name="l00022"></a><a class="code" href="class_state_controller.html">00022</a> <span class="keyword">class </span><a class="code" href="class_state_controller.html" title="This controller object contains state information and acts as a go between the view and model...">StateController</a> : <span class="keyword">public</span> QObject
 <a name="l00023"></a>00023 {
@@ -106,7 +107,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00042"></a>00042 
 <a name="l00046"></a>00046     <a class="code" href="class_state_controller.html#af28a57ede7f1276025bebbaf400468f9" title="Default destructor.">~StateController</a>();
 <a name="l00047"></a>00047 
-<a name="l00052"></a><a class="code" href="class_state_controller.html#adadae117f434bc21cce75fa7e3e4d728">00052</a>     <a class="code" href="class_peer.html" title="Holds information for a located communication peer on the network.">Peer</a>* <a class="code" href="class_state_controller.html#adadae117f434bc21cce75fa7e3e4d728" title="Gets the peer being communicated with.">getCallPeer</a>() { <span class="keywordflow">return</span> commPeer;}
+<a name="l00052"></a><a class="code" href="class_state_controller.html#adadae117f434bc21cce75fa7e3e4d728">00052</a>     <a class="code" href="class_peer.html" title="Holds information for a located communication peer on the network.">Peer</a>* <a class="code" href="class_state_controller.html#adadae117f434bc21cce75fa7e3e4d728" title="Gets the peer being communicated with.">getCallPeer</a>() { <span class="keywordflow">return</span> <a class="code" href="class_state_controller.html#af5bd2961c916c50a04fdeaf9de4cc372" title="The current peer in communication with.">commPeer</a>;}
 <a name="l00053"></a>00053 
 <a name="l00054"></a>00054 signals:
 <a name="l00055"></a>00055     <span class="keywordtype">void</span> <a class="code" href="class_state_controller.html#a6db599925ca114fd1f1d0204a8de75ec" title="Signal emitted when an updated peer list is available .">updatePeerList</a>(QList&lt;Peer*&gt;); 
@@ -128,19 +129,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00092"></a>00092     <span class="keywordtype">void</span> <a class="code" href="class_state_controller.html#aa82e7568aed9fc5d1e13f7ed94535abf" title="UIs should conect to this slot when they wish to end a call.">endCall</a>();
 <a name="l00093"></a>00093 
 <a name="l00094"></a>00094 <span class="keyword">private</span> slots:
-<a name="l00095"></a>00095     <span class="keywordtype">void</span> outCallAccepted(); 
-<a name="l00096"></a>00096     <span class="keywordtype">void</span> outCallRejected(); 
-<a name="l00097"></a>00097     <span class="keywordtype">void</span> sendMuteSound(<span class="keywordtype">bool</span>); 
-<a name="l00098"></a>00098     <span class="keywordtype">void</span> sendMuteMic(<span class="keywordtype">bool</span>); 
-<a name="l00099"></a>00099     <span class="keywordtype">void</span> receiveCall(<span class="keyword">const</span> QHostAddress &amp;); 
+<a name="l00095"></a>00095     <span class="keywordtype">void</span> <a class="code" href="class_state_controller.html#aeb2b0fefa23d2b8387bdbdfcfb8816d5" title="Private slot notified when we initated a call and it was accepted.">outCallAccepted</a>(); 
+<a name="l00096"></a>00096     <span class="keywordtype">void</span> <a class="code" href="class_state_controller.html#af2cf71817cfee97b30522d2467189986" title="Private slot notified when we initated a call and it was rejected.">outCallRejected</a>(); 
+<a name="l00097"></a>00097     <span class="keywordtype">void</span> <a class="code" href="class_state_controller.html#afad096da5239c061e50f11e3305330c2" title="Private slot that informs callers that we toggled our sound state.">sendMuteSound</a>(<span class="keywordtype">bool</span>); 
+<a name="l00098"></a>00098     <span class="keywordtype">void</span> <a class="code" href="class_state_controller.html#acd581d4d2d27a34792b65df142316a7f" title="Private slot that informs callers that we toggled our mic state.">sendMuteMic</a>(<span class="keywordtype">bool</span>); 
+<a name="l00099"></a>00099     <span class="keywordtype">void</span> <a class="code" href="class_state_controller.html#a4fe638c4abe79196464688dd148e28dc" title="Private slot when we get a new call, this emits callIncoming.">receiveCall</a>(<span class="keyword">const</span> QHostAddress &amp;); 
 <a name="l00101"></a>00101 <span class="keyword">private</span>:
-<a name="l00102"></a>00102     <a class="code" href="class_state_controller.html#a1aabd2155d8e6feb201ed3941e4ee2be" title="Possible VoIP states for the application to be in.">VoIPState</a> state;  
-<a name="l00103"></a>00103     <a class="code" href="class_peer.html" title="Holds information for a located communication peer on the network.">Peer</a>* commPeer;  
-<a name="l00105"></a>00105     <a class="code" href="class_receive_thread.html" title="A Thread class that controls listening for incoming voice data.">ReceiveThread</a> *recThread; 
-<a name="l00106"></a>00106     <a class="code" href="class_send_thread.html" title="A Thread class that controls recording audio and sending data communication.">SendThread</a> *sendThread;  
-<a name="l00108"></a>00108     <a class="code" href="class_command_client.html" title="A subclass of QTcpSocket, class that is responsible for sending/receiving control signals between cal...">CommandClient</a> *client;  
-<a name="l00109"></a>00109     <a class="code" href="class_command_server.html" title="A subclass of QTcpServer that receives command signals from clients over the network.">CommandServer</a> *server;  
-<a name="l00111"></a>00111     <a class="code" href="class_network_discover.html" title="Discovers local peers on the network to communicate with.">NetworkDiscover</a> *discover;  
+<a name="l00102"></a><a class="code" href="class_state_controller.html#a5bed5dd92c56a936d1e3be5ab4d74dde">00102</a>     <a class="code" href="class_state_controller.html#a1aabd2155d8e6feb201ed3941e4ee2be" title="Possible VoIP states for the application to be in.">VoIPState</a> <a class="code" href="class_state_controller.html#a5bed5dd92c56a936d1e3be5ab4d74dde" title="Holds the state of our application.">state</a>;  
+<a name="l00103"></a><a class="code" href="class_state_controller.html#af5bd2961c916c50a04fdeaf9de4cc372">00103</a>     <a class="code" href="class_peer.html" title="Holds information for a located communication peer on the network.">Peer</a>* <a class="code" href="class_state_controller.html#af5bd2961c916c50a04fdeaf9de4cc372" title="The current peer in communication with.">commPeer</a>;  
+<a name="l00105"></a><a class="code" href="class_state_controller.html#a21b3edaa3df30d5162650e0f0f296fe8">00105</a>     <a class="code" href="class_receive_thread.html" title="A Thread class that controls listening for incoming voice data.">ReceiveThread</a> *<a class="code" href="class_state_controller.html#a21b3edaa3df30d5162650e0f0f296fe8" title="Our receieve thread object, used for receiving/playing data.">recThread</a>; 
+<a name="l00106"></a><a class="code" href="class_state_controller.html#a27d6bac0bcc3c658bfcca57803c07fb1">00106</a>     <a class="code" href="class_send_thread.html" title="A Thread class that controls recording audio and sending data communication.">SendThread</a> *<a class="code" href="class_state_controller.html#a27d6bac0bcc3c658bfcca57803c07fb1" title="Our send thread object, used for capturing/sending.">sendThread</a>;  
+<a name="l00108"></a><a class="code" href="class_state_controller.html#a35b8a763ca35b05a66968a6aa02da269">00108</a>     <a class="code" href="class_command_client.html" title="A subclass of QTcpSocket, class that is responsible for sending/receiving control signals between cal...">CommandClient</a> *<a class="code" href="class_state_controller.html#a35b8a763ca35b05a66968a6aa02da269" title="Commandclient, for when we initiate calls.">client</a>;  
+<a name="l00109"></a><a class="code" href="class_state_controller.html#a3c06ffd0c04de0c000d07d02b03557f1">00109</a>     <a class="code" href="class_command_server.html" title="A subclass of QTcpServer that receives command signals from clients over the network.">CommandServer</a> *<a class="code" href="class_state_controller.html#a3c06ffd0c04de0c000d07d02b03557f1" title="Commandserver, for when we receive call requests.">server</a>;  
+<a name="l00111"></a><a class="code" href="class_state_controller.html#a5f4aa78836675a669da7c8a08d613af5">00111</a>     <a class="code" href="class_network_discover.html" title="Discovers local peers on the network to communicate with.">NetworkDiscover</a> *<a class="code" href="class_state_controller.html#a5f4aa78836675a669da7c8a08d613af5" title="Discovers peers.">discover</a>;  
 <a name="l00112"></a>00112 };
 <a name="l00113"></a>00113 
 <a name="l00114"></a>00114 <span class="preprocessor">#endif // STATECONTROLLER_H</span>
@@ -151,7 +152,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -163,7 +164,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Dec 22 2011 05:03:24 for VoIp by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Dec 22 2011 06:20:49 for VoIp by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.5.1
 </small></address>

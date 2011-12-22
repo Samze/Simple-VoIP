@@ -11,6 +11,15 @@
 
 {\ttfamily \#include $<$statecontroller.\-h$>$}
 
+
+
+\-Collaboration diagram for \-State\-Controller\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_state_controller__coll__graph}
+\end{center}
+\end{figure}
 \subsection*{\-Public \-Types}
 \begin{DoxyCompactItemize}
 \item 
@@ -47,10 +56,7 @@ void \hyperlink{class_state_controller_a36e2e98d487e2e195dfc595662f6db9f}{mute\-
 \begin{DoxyCompactList}\small\item\em \-User has initiated that their mic has been toggled, this signal will be emitted and a message sent to caller. \end{DoxyCompactList}\item 
 void \hyperlink{class_state_controller_af46adae585d21730cf1b8b34a2231e5f}{caller\-Mic\-Muted} (bool)
 \begin{DoxyCompactList}\small\item\em \-Emitted when a caller has toggled their mic state. \end{DoxyCompactList}\item 
-\hypertarget{class_state_controller_a00a1262e6c4c821bbdd04d11ea7c4910}{
-void \hyperlink{class_state_controller_a00a1262e6c4c821bbdd04d11ea7c4910}{caller\-Sound\-Muted} (bool)}
-\label{class_state_controller_a00a1262e6c4c821bbdd04d11ea7c4910}
-
+void \hyperlink{class_state_controller_a00a1262e6c4c821bbdd04d11ea7c4910}{caller\-Sound\-Muted} (bool)
 \begin{DoxyCompactList}\small\item\em \-Emitted when a caller has toggled their sound state. \end{DoxyCompactList}\item 
 void \hyperlink{class_state_controller_a3e16a340c75fec465358fee52bf57ec0}{call\-Error} (\-Q\-String)
 \begin{DoxyCompactList}\small\item\em \-Emitted when an error has occured. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -59,13 +65,40 @@ void \hyperlink{class_state_controller_a3e16a340c75fec465358fee52bf57ec0}{call\-
 \item 
 \hyperlink{class_state_controller_af999000cc08456efccb2423a9173143f}{\-State\-Controller} (\-Q\-Object $\ast$parent=0)
 \begin{DoxyCompactList}\small\item\em \-Constructs all necessary objects and connects signals and slots. \end{DoxyCompactList}\item 
-\hypertarget{class_state_controller_af28a57ede7f1276025bebbaf400468f9}{
-\hyperlink{class_state_controller_af28a57ede7f1276025bebbaf400468f9}{$\sim$\-State\-Controller} ()}
-\label{class_state_controller_af28a57ede7f1276025bebbaf400468f9}
-
+\hyperlink{class_state_controller_af28a57ede7f1276025bebbaf400468f9}{$\sim$\-State\-Controller} ()
 \begin{DoxyCompactList}\small\item\em \-Default destructor. \end{DoxyCompactList}\item 
 \hyperlink{class_peer}{\-Peer} $\ast$ \hyperlink{class_state_controller_adadae117f434bc21cce75fa7e3e4d728}{get\-Call\-Peer} ()
 \begin{DoxyCompactList}\small\item\em \-Gets the peer being communicated with. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Private \-Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_state_controller_aeb2b0fefa23d2b8387bdbdfcfb8816d5}{out\-Call\-Accepted} ()
+\begin{DoxyCompactList}\small\item\em \-Private slot notified when we initated a call and it was accepted. \end{DoxyCompactList}\item 
+void \hyperlink{class_state_controller_af2cf71817cfee97b30522d2467189986}{out\-Call\-Rejected} ()
+\begin{DoxyCompactList}\small\item\em \-Private slot notified when we initated a call and it was rejected. \end{DoxyCompactList}\item 
+void \hyperlink{class_state_controller_afad096da5239c061e50f11e3305330c2}{send\-Mute\-Sound} (bool)
+\begin{DoxyCompactList}\small\item\em \-Private slot that informs callers that we toggled our sound state. \end{DoxyCompactList}\item 
+void \hyperlink{class_state_controller_acd581d4d2d27a34792b65df142316a7f}{send\-Mute\-Mic} (bool)
+\begin{DoxyCompactList}\small\item\em \-Private slot that informs callers that we toggled our mic state. \end{DoxyCompactList}\item 
+void \hyperlink{class_state_controller_a4fe638c4abe79196464688dd148e28dc}{receive\-Call} (const \-Q\-Host\-Address \&)
+\begin{DoxyCompactList}\small\item\em \-Private slot when we get a new call, this emits call\-Incoming. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Private \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_state_controller_a1aabd2155d8e6feb201ed3941e4ee2be}{\-Vo\-I\-P\-State} \hyperlink{class_state_controller_a5bed5dd92c56a936d1e3be5ab4d74dde}{state}
+\begin{DoxyCompactList}\small\item\em \-Holds the state of our application. \end{DoxyCompactList}\item 
+\hyperlink{class_peer}{\-Peer} $\ast$ \hyperlink{class_state_controller_af5bd2961c916c50a04fdeaf9de4cc372}{comm\-Peer}
+\begin{DoxyCompactList}\small\item\em \-The current peer in communication with. \end{DoxyCompactList}\item 
+\hyperlink{class_receive_thread}{\-Receive\-Thread} $\ast$ \hyperlink{class_state_controller_a21b3edaa3df30d5162650e0f0f296fe8}{rec\-Thread}
+\begin{DoxyCompactList}\small\item\em \-Our receieve thread object, used for receiving/playing data. \end{DoxyCompactList}\item 
+\hyperlink{class_send_thread}{\-Send\-Thread} $\ast$ \hyperlink{class_state_controller_a27d6bac0bcc3c658bfcca57803c07fb1}{send\-Thread}
+\begin{DoxyCompactList}\small\item\em \-Our send thread object, used for capturing/sending. \end{DoxyCompactList}\item 
+\hyperlink{class_command_client}{\-Command\-Client} $\ast$ \hyperlink{class_state_controller_a35b8a763ca35b05a66968a6aa02da269}{client}
+\begin{DoxyCompactList}\small\item\em \-Commandclient, for when we initiate calls. \end{DoxyCompactList}\item 
+\hyperlink{class_command_server}{\-Command\-Server} $\ast$ \hyperlink{class_state_controller_a3c06ffd0c04de0c000d07d02b03557f1}{server}
+\begin{DoxyCompactList}\small\item\em \-Commandserver, for when we receive call requests. \end{DoxyCompactList}\item 
+\hyperlink{class_network_discover}{\-Network\-Discover} $\ast$ \hyperlink{class_state_controller_a5f4aa78836675a669da7c8a08d613af5}{discover}
+\begin{DoxyCompactList}\small\item\em \-Discovers peers. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{\-Detailed \-Description}
@@ -122,6 +155,19 @@ void \hyperlink{class_state_controller_a3e16a340c75fec465358fee52bf57ec0}{call\-
 {\em parent} & \-Owner of this object \\
 \hline
 \end{DoxyParams}
+\hypertarget{class_state_controller_af28a57ede7f1276025bebbaf400468f9}{
+\index{\-State\-Controller@{\-State\-Controller}!$\sim$\-State\-Controller@{$\sim$\-State\-Controller}}
+\index{$\sim$\-State\-Controller@{$\sim$\-State\-Controller}!StateController@{\-State\-Controller}}
+\subsubsection[{$\sim$\-State\-Controller}]{\setlength{\rightskip}{0pt plus 5cm}\-State\-Controller\-::$\sim$\-State\-Controller (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_state_controller_af28a57ede7f1276025bebbaf400468f9}
+
+
+\-Default destructor. 
+
 
 
 \subsection{\-Member \-Function \-Documentation}
@@ -176,6 +222,19 @@ void \hyperlink{class_state_controller_a3e16a340c75fec465358fee52bf57ec0}{call\-
 
 
 \-Emitted when an error has occured. 
+
+\hypertarget{class_state_controller_a00a1262e6c4c821bbdd04d11ea7c4910}{
+\index{\-State\-Controller@{\-State\-Controller}!caller\-Sound\-Muted@{caller\-Sound\-Muted}}
+\index{caller\-Sound\-Muted@{caller\-Sound\-Muted}!StateController@{\-State\-Controller}}
+\subsubsection[{caller\-Sound\-Muted}]{\setlength{\rightskip}{0pt plus 5cm}void \-State\-Controller\-::caller\-Sound\-Muted (
+\begin{DoxyParamCaption}
+\item[{bool}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}signal\mbox{]}}}}
+\label{class_state_controller_a00a1262e6c4c821bbdd04d11ea7c4910}
+
+
+\-Emitted when a caller has toggled their sound state. 
 
 \hypertarget{class_state_controller_aaf4d11ecaef3d8872a9c93b5b3e5af3b}{
 \index{\-State\-Controller@{\-State\-Controller}!call\-Incoming@{call\-Incoming}}
@@ -276,6 +335,45 @@ void \hyperlink{class_state_controller_a3e16a340c75fec465358fee52bf57ec0}{call\-
 
 \-The application has entered a new state. 
 
+\hypertarget{class_state_controller_aeb2b0fefa23d2b8387bdbdfcfb8816d5}{
+\index{\-State\-Controller@{\-State\-Controller}!out\-Call\-Accepted@{out\-Call\-Accepted}}
+\index{out\-Call\-Accepted@{out\-Call\-Accepted}!StateController@{\-State\-Controller}}
+\subsubsection[{out\-Call\-Accepted}]{\setlength{\rightskip}{0pt plus 5cm}void \-State\-Controller\-::out\-Call\-Accepted (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private, slot\mbox{]}}}}
+\label{class_state_controller_aeb2b0fefa23d2b8387bdbdfcfb8816d5}
+
+
+\-Private slot notified when we initated a call and it was accepted. 
+
+\-This emits the new state. \hypertarget{class_state_controller_af2cf71817cfee97b30522d2467189986}{
+\index{\-State\-Controller@{\-State\-Controller}!out\-Call\-Rejected@{out\-Call\-Rejected}}
+\index{out\-Call\-Rejected@{out\-Call\-Rejected}!StateController@{\-State\-Controller}}
+\subsubsection[{out\-Call\-Rejected}]{\setlength{\rightskip}{0pt plus 5cm}void \-State\-Controller\-::out\-Call\-Rejected (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private, slot\mbox{]}}}}
+\label{class_state_controller_af2cf71817cfee97b30522d2467189986}
+
+
+\-Private slot notified when we initated a call and it was rejected. 
+
+\-This emits the new state and caller\-Busy \hypertarget{class_state_controller_a4fe638c4abe79196464688dd148e28dc}{
+\index{\-State\-Controller@{\-State\-Controller}!receive\-Call@{receive\-Call}}
+\index{receive\-Call@{receive\-Call}!StateController@{\-State\-Controller}}
+\subsubsection[{receive\-Call}]{\setlength{\rightskip}{0pt plus 5cm}void \-State\-Controller\-::receive\-Call (
+\begin{DoxyParamCaption}
+\item[{const \-Q\-Host\-Address \&}]{address}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private, slot\mbox{]}}}}
+\label{class_state_controller_a4fe638c4abe79196464688dd148e28dc}
+
+
+\-Private slot when we get a new call, this emits call\-Incoming. 
+
 \hypertarget{class_state_controller_a0898c62cc514101cda35ee08618368b8}{
 \index{\-State\-Controller@{\-State\-Controller}!reject\-Call@{reject\-Call}}
 \index{reject\-Call@{reject\-Call}!StateController@{\-State\-Controller}}
@@ -289,7 +387,33 @@ void \hyperlink{class_state_controller_a3e16a340c75fec465358fee52bf57ec0}{call\-
 
 \-U\-Is should conect to this slot when they wish to reject a call. 
 
-\-This will inform the caller. \hypertarget{class_state_controller_a6db599925ca114fd1f1d0204a8de75ec}{
+\-This will inform the caller. \hypertarget{class_state_controller_acd581d4d2d27a34792b65df142316a7f}{
+\index{\-State\-Controller@{\-State\-Controller}!send\-Mute\-Mic@{send\-Mute\-Mic}}
+\index{send\-Mute\-Mic@{send\-Mute\-Mic}!StateController@{\-State\-Controller}}
+\subsubsection[{send\-Mute\-Mic}]{\setlength{\rightskip}{0pt plus 5cm}void \-State\-Controller\-::send\-Mute\-Mic (
+\begin{DoxyParamCaption}
+\item[{bool}]{toggle}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private, slot\mbox{]}}}}
+\label{class_state_controller_acd581d4d2d27a34792b65df142316a7f}
+
+
+\-Private slot that informs callers that we toggled our mic state. 
+
+\hypertarget{class_state_controller_afad096da5239c061e50f11e3305330c2}{
+\index{\-State\-Controller@{\-State\-Controller}!send\-Mute\-Sound@{send\-Mute\-Sound}}
+\index{send\-Mute\-Sound@{send\-Mute\-Sound}!StateController@{\-State\-Controller}}
+\subsubsection[{send\-Mute\-Sound}]{\setlength{\rightskip}{0pt plus 5cm}void \-State\-Controller\-::send\-Mute\-Sound (
+\begin{DoxyParamCaption}
+\item[{bool}]{toggle}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private, slot\mbox{]}}}}
+\label{class_state_controller_afad096da5239c061e50f11e3305330c2}
+
+
+\-Private slot that informs callers that we toggled our sound state. 
+
+\hypertarget{class_state_controller_a6db599925ca114fd1f1d0204a8de75ec}{
 \index{\-State\-Controller@{\-State\-Controller}!update\-Peer\-List@{update\-Peer\-List}}
 \index{update\-Peer\-List@{update\-Peer\-List}!StateController@{\-State\-Controller}}
 \subsubsection[{update\-Peer\-List}]{\setlength{\rightskip}{0pt plus 5cm}void \-State\-Controller\-::update\-Peer\-List (
@@ -304,7 +428,73 @@ void \hyperlink{class_state_controller_a3e16a340c75fec465358fee52bf57ec0}{call\-
 
 
 
+\subsection{\-Member \-Data \-Documentation}
+\hypertarget{class_state_controller_a35b8a763ca35b05a66968a6aa02da269}{
+\index{\-State\-Controller@{\-State\-Controller}!client@{client}}
+\index{client@{client}!StateController@{\-State\-Controller}}
+\subsubsection[{client}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Command\-Client}$\ast$ {\bf \-State\-Controller\-::client}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_state_controller_a35b8a763ca35b05a66968a6aa02da269}
+
+
+\-Commandclient, for when we initiate calls. 
+
+\hypertarget{class_state_controller_af5bd2961c916c50a04fdeaf9de4cc372}{
+\index{\-State\-Controller@{\-State\-Controller}!comm\-Peer@{comm\-Peer}}
+\index{comm\-Peer@{comm\-Peer}!StateController@{\-State\-Controller}}
+\subsubsection[{comm\-Peer}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Peer}$\ast$ {\bf \-State\-Controller\-::comm\-Peer}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_state_controller_af5bd2961c916c50a04fdeaf9de4cc372}
+
+
+\-The current peer in communication with. 
+
+\hypertarget{class_state_controller_a5f4aa78836675a669da7c8a08d613af5}{
+\index{\-State\-Controller@{\-State\-Controller}!discover@{discover}}
+\index{discover@{discover}!StateController@{\-State\-Controller}}
+\subsubsection[{discover}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Network\-Discover}$\ast$ {\bf \-State\-Controller\-::discover}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_state_controller_a5f4aa78836675a669da7c8a08d613af5}
+
+
+\-Discovers peers. 
+
+\hypertarget{class_state_controller_a21b3edaa3df30d5162650e0f0f296fe8}{
+\index{\-State\-Controller@{\-State\-Controller}!rec\-Thread@{rec\-Thread}}
+\index{rec\-Thread@{rec\-Thread}!StateController@{\-State\-Controller}}
+\subsubsection[{rec\-Thread}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Receive\-Thread}$\ast$ {\bf \-State\-Controller\-::rec\-Thread}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_state_controller_a21b3edaa3df30d5162650e0f0f296fe8}
+
+
+\-Our receieve thread object, used for receiving/playing data. 
+
+\hypertarget{class_state_controller_a27d6bac0bcc3c658bfcca57803c07fb1}{
+\index{\-State\-Controller@{\-State\-Controller}!send\-Thread@{send\-Thread}}
+\index{send\-Thread@{send\-Thread}!StateController@{\-State\-Controller}}
+\subsubsection[{send\-Thread}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Send\-Thread}$\ast$ {\bf \-State\-Controller\-::send\-Thread}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_state_controller_a27d6bac0bcc3c658bfcca57803c07fb1}
+
+
+\-Our send thread object, used for capturing/sending. 
+
+\hypertarget{class_state_controller_a3c06ffd0c04de0c000d07d02b03557f1}{
+\index{\-State\-Controller@{\-State\-Controller}!server@{server}}
+\index{server@{server}!StateController@{\-State\-Controller}}
+\subsubsection[{server}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Command\-Server}$\ast$ {\bf \-State\-Controller\-::server}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_state_controller_a3c06ffd0c04de0c000d07d02b03557f1}
+
+
+\-Commandserver, for when we receive call requests. 
+
+\hypertarget{class_state_controller_a5bed5dd92c56a936d1e3be5ab4d74dde}{
+\index{\-State\-Controller@{\-State\-Controller}!state@{state}}
+\index{state@{state}!StateController@{\-State\-Controller}}
+\subsubsection[{state}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Vo\-I\-P\-State} {\bf \-State\-Controller\-::state}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_state_controller_a5bed5dd92c56a936d1e3be5ab4d74dde}
+
+
+\-Holds the state of our application. 
+
+
+
 \-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
 \item 
-statecontroller.\-h\item 
-statecontroller.\-cpp\end{DoxyCompactItemize}
+\hyperlink{statecontroller_8h}{statecontroller.\-h}\item 
+\hyperlink{statecontroller_8cpp}{statecontroller.\-cpp}\end{DoxyCompactItemize}

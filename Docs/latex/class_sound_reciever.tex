@@ -16,16 +16,23 @@
 \item 
 \hyperlink{class_sound_reciever_ad10126bf26dd00c6a48d763c9691e0ca}{\-Sound\-Reciever} (\-Q\-Object $\ast$parent=0)
 \begin{DoxyCompactList}\small\item\em \-Default constructor which binds to a \-U\-D\-P port. \end{DoxyCompactList}\item 
-\hypertarget{class_sound_reciever_ae7e8a754e275fedf25e4cc8f86f64d72}{
-\hyperlink{class_sound_reciever_ae7e8a754e275fedf25e4cc8f86f64d72}{$\sim$\-Sound\-Reciever} ()}
-\label{class_sound_reciever_ae7e8a754e275fedf25e4cc8f86f64d72}
-
+\hyperlink{class_sound_reciever_ae7e8a754e275fedf25e4cc8f86f64d72}{$\sim$\-Sound\-Reciever} ()
 \begin{DoxyCompactList}\small\item\em \-Deletes the \-U\-D\-P\-Socket. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{\-Protected \-Member \-Functions}
 \begin{DoxyCompactItemize}
 \item 
 qint64 \hyperlink{class_sound_reciever_ad2e6e099486057cce325d4775c499eb9}{read\-Data} (char $\ast$data, qint64 len)
 \begin{DoxyCompactList}\small\item\em \-Overridden \-Q\-Buffer method. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Private \-Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_sound_reciever_a4c771b264d77cc76ce759c797e1971fd}{process\-Datagrams} ()
+\begin{DoxyCompactList}\small\item\em \-Called everytime new data is received. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Private \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\-Q\-Udp\-Socket $\ast$ \hyperlink{class_sound_reciever_a7d34f2602df1d6c18888859caa7db42e}{udp\-Socket}
+\begin{DoxyCompactList}\small\item\em \-The \-U\-D\-P socket used. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{\-Detailed \-Description}
@@ -52,9 +59,38 @@ qint64 \hyperlink{class_sound_reciever_ad2e6e099486057cce325d4775c499eb9}{read\-
 {\em parent} & \-The owner of this object. \\
 \hline
 \end{DoxyParams}
+\hypertarget{class_sound_reciever_ae7e8a754e275fedf25e4cc8f86f64d72}{
+\index{\-Sound\-Reciever@{\-Sound\-Reciever}!$\sim$\-Sound\-Reciever@{$\sim$\-Sound\-Reciever}}
+\index{$\sim$\-Sound\-Reciever@{$\sim$\-Sound\-Reciever}!SoundReciever@{\-Sound\-Reciever}}
+\subsubsection[{$\sim$\-Sound\-Reciever}]{\setlength{\rightskip}{0pt plus 5cm}\-Sound\-Reciever\-::$\sim$\-Sound\-Reciever (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_sound_reciever_ae7e8a754e275fedf25e4cc8f86f64d72}
+
+
+\-Deletes the \-U\-D\-P\-Socket. 
+
 
 
 \subsection{\-Member \-Function \-Documentation}
+\hypertarget{class_sound_reciever_a4c771b264d77cc76ce759c797e1971fd}{
+\index{\-Sound\-Reciever@{\-Sound\-Reciever}!process\-Datagrams@{process\-Datagrams}}
+\index{process\-Datagrams@{process\-Datagrams}!SoundReciever@{\-Sound\-Reciever}}
+\subsubsection[{process\-Datagrams}]{\setlength{\rightskip}{0pt plus 5cm}void \-Sound\-Reciever\-::process\-Datagrams (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private, slot\mbox{]}}}}
+\label{class_sound_reciever_a4c771b264d77cc76ce759c797e1971fd}
+
+
+\-Called everytime new data is received. 
+
+\-This method will decompress the data and add it to our buffer. \begin{DoxySeeAlso}{\-See also}
+\-Q\-Buffer\-::buffer() 
+\end{DoxySeeAlso}
 \hypertarget{class_sound_reciever_ad2e6e099486057cce325d4775c499eb9}{
 \index{\-Sound\-Reciever@{\-Sound\-Reciever}!read\-Data@{read\-Data}}
 \index{read\-Data@{read\-Data}!SoundReciever@{\-Sound\-Reciever}}
@@ -84,7 +120,19 @@ qint64 \hyperlink{class_sound_reciever_ad2e6e099486057cce325d4775c499eb9}{read\-
 \end{DoxySeeAlso}
 
 
+\subsection{\-Member \-Data \-Documentation}
+\hypertarget{class_sound_reciever_a7d34f2602df1d6c18888859caa7db42e}{
+\index{\-Sound\-Reciever@{\-Sound\-Reciever}!udp\-Socket@{udp\-Socket}}
+\index{udp\-Socket@{udp\-Socket}!SoundReciever@{\-Sound\-Reciever}}
+\subsubsection[{udp\-Socket}]{\setlength{\rightskip}{0pt plus 5cm}\-Q\-Udp\-Socket$\ast$ {\bf \-Sound\-Reciever\-::udp\-Socket}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_sound_reciever_a7d34f2602df1d6c18888859caa7db42e}
+
+
+\-The \-U\-D\-P socket used. 
+
+
+
 \-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
 \item 
-soundreciever.\-h\item 
-soundreciever.\-cpp\end{DoxyCompactItemize}
+\hyperlink{soundreciever_8h}{soundreciever.\-h}\item 
+\hyperlink{soundreciever_8cpp}{soundreciever.\-cpp}\end{DoxyCompactItemize}

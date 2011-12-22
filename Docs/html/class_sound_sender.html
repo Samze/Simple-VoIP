@@ -78,7 +78,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-methods">Protected Member Functions</a>  </div>
+<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a>  </div>
   <div class="headertitle">
 <div class="title">SoundSender Class Reference</div>  </div>
 </div>
@@ -95,13 +96,18 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_sender.html#a15a16cf2d16d1de5de0f0d0e4b4ce5c9">SoundSender</a> (QObject *parent, QHostAddress address)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor which binds to a UDP port.  <a href="#a15a16cf2d16d1de5de0f0d0e4b4ce5c9"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a15f4c11ed7d489972876697b776b27ab"></a><!-- doxytag: member="SoundSender::~SoundSender" ref="a15f4c11ed7d489972876697b776b27ab" args="()" -->
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_sender.html#a15f4c11ed7d489972876697b776b27ab">~SoundSender</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes the UDPSocket. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_sender.html#a15f4c11ed7d489972876697b776b27ab">~SoundSender</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes the UDPSocket.  <a href="#a15f4c11ed7d489972876697b776b27ab"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">qint64&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_sender.html#a2557d162440651dcee73996162d4820a">writeData</a> (const char *data, qint64 len)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Overridden from QBuffer, when data is written to this buffer it is sent down the network to the address specified.  <a href="#a2557d162440651dcee73996162d4820a"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QUdpSocket *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_sender.html#a00386335e797a20af7a64a77871553ae">udpSocket</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The udp socket used.  <a href="#a00386335e797a20af7a64a77871553ae"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QHostAddress&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sound_sender.html#aa2046b227bcc7cf1be86aabd197aaa3f">m_address</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The address to send the data.  <a href="#aa2046b227bcc7cf1be86aabd197aaa3f"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>A buffer that sends UDP audio data over the network. </p>
@@ -143,6 +149,24 @@ Protected Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a15f4c11ed7d489972876697b776b27ab"></a><!-- doxytag: member="SoundSender::~SoundSender" ref="a15f4c11ed7d489972876697b776b27ab" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SoundSender::~SoundSender </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Deletes the UDPSocket. </p>
+
+</div>
+</div>
 <hr/><h2>Member Function Documentation</h2>
 <a class="anchor" id="a2557d162440651dcee73996162d4820a"></a><!-- doxytag: member="SoundSender::writeData" ref="a2557d162440651dcee73996162d4820a" args="(const char *data, qint64 len)" -->
 <div class="memitem">
@@ -181,9 +205,40 @@ Protected Member Functions</h2></td></tr>
 
 </div>
 </div>
+<hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="aa2046b227bcc7cf1be86aabd197aaa3f"></a><!-- doxytag: member="SoundSender::m_address" ref="aa2046b227bcc7cf1be86aabd197aaa3f" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QHostAddress <a class="el" href="class_sound_sender.html#aa2046b227bcc7cf1be86aabd197aaa3f">SoundSender::m_address</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>The address to send the data. </p>
+
+</div>
+</div>
+<a class="anchor" id="a00386335e797a20af7a64a77871553ae"></a><!-- doxytag: member="SoundSender::udpSocket" ref="a00386335e797a20af7a64a77871553ae" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QUdpSocket* <a class="el" href="class_sound_sender.html#a00386335e797a20af7a64a77871553ae">SoundSender::udpSocket</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>The udp socket used. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="soundsender_8h_source.html">soundsender.h</a></li>
-<li>soundsender.cpp</li>
+<li><a class="el" href="soundsender_8cpp.html">soundsender.cpp</a></li>
 </ul>
 </div>
 <!-- window showing the filter options -->
@@ -191,7 +246,7 @@ Protected Member Functions</h2></td></tr>
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -203,7 +258,7 @@ Protected Member Functions</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Dec 22 2011 05:03:24 for VoIp by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Dec 22 2011 06:20:51 for VoIp by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.5.1
 </small></address>

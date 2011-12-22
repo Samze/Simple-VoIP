@@ -17,7 +17,7 @@
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=231pt]{class_abstract_voice__inherit__graph}
+\includegraphics[width=273pt]{class_abstract_voice__inherit__graph}
 \end{center}
 \end{figure}
 \subsection*{\-Public \-Slots}
@@ -39,13 +39,15 @@ virtual void \hyperlink{class_abstract_voice_aae2a6c918a63938881faefd9909508a0}{
 \item 
 \-Q\-Audio\-Format \hyperlink{class_abstract_voice_aa8718f0af1669ef7a84347c2d9a54cf9}{format}
 \begin{DoxyCompactList}\small\item\em \-Audio format to be used, default is set to audio/pcm, 8000 freq, 1 channel, 8 sample rate. \end{DoxyCompactList}\item 
-\hypertarget{class_abstract_voice_ac27882c5cb69564cbc4d5cca7847a359}{
-\-Q\-Audio\-Device\-Info $\ast$ \hyperlink{class_abstract_voice_ac27882c5cb69564cbc4d5cca7847a359}{dev\-Info}}
-\label{class_abstract_voice_ac27882c5cb69564cbc4d5cca7847a359}
-
+\-Q\-Audio\-Device\-Info $\ast$ \hyperlink{class_abstract_voice_ac27882c5cb69564cbc4d5cca7847a359}{dev\-Info}
 \begin{DoxyCompactList}\small\item\em \-Populated with the default audio device detected. \end{DoxyCompactList}\item 
 \-Q\-Buffer $\ast$ \hyperlink{class_abstract_voice_a93b7c2b08aa97b77b8126a8dff173018}{buffer}
 \begin{DoxyCompactList}\small\item\em \-The buffer to be used, must be implemented by subclass. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Private \-Slots}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{class_abstract_voice_a4c8d0cafd33f068899f8700f00e93347}{audio\-State} (\-Q\-Audio\-::\-State state)=0
+\begin{DoxyCompactList}\small\item\em \-A virtual function that handles a change of state in the audio device. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{\-Detailed \-Description}
@@ -83,6 +85,28 @@ virtual void \hyperlink{class_abstract_voice_aae2a6c918a63938881faefd9909508a0}{
 \-Deletes the device and buffer objects. \-The buffer object must be instansiated in a subclass. 
 
 \subsection{\-Member \-Function \-Documentation}
+\hypertarget{class_abstract_voice_a4c8d0cafd33f068899f8700f00e93347}{
+\index{\-Abstract\-Voice@{\-Abstract\-Voice}!audio\-State@{audio\-State}}
+\index{audio\-State@{audio\-State}!AbstractVoice@{\-Abstract\-Voice}}
+\subsubsection[{audio\-State}]{\setlength{\rightskip}{0pt plus 5cm}virtual void \-Abstract\-Voice\-::audio\-State (
+\begin{DoxyParamCaption}
+\item[{\-Q\-Audio\-::\-State}]{state}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private, pure virtual, slot\mbox{]}}}}
+\label{class_abstract_voice_a4c8d0cafd33f068899f8700f00e93347}
+
+
+\-A virtual function that handles a change of state in the audio device. 
+
+\-This slot should be implemented and also connected to any device's change of state. 
+\begin{DoxyParams}{\-Parameters}
+{\em state} & \-Enumerated audio state update. \\
+\hline
+\end{DoxyParams}
+
+
+\-Implemented in \hyperlink{class_voice_input_a2481e823c393974288383a7f470054ad}{\-Voice\-Input}, and \hyperlink{class_voice_output_a480bfe9a314254db7efe924c25c17423}{\-Voice\-Output}.
+
 \hypertarget{class_abstract_voice_a5e6f942915e9ef55babd7070225266ce}{
 \index{\-Abstract\-Voice@{\-Abstract\-Voice}!start@{start}}
 \index{start@{start}!AbstractVoice@{\-Abstract\-Voice}}
@@ -129,6 +153,15 @@ virtual void \hyperlink{class_abstract_voice_aae2a6c918a63938881faefd9909508a0}{
 
 \-The buffer to be used, must be implemented by subclass. 
 
+\hypertarget{class_abstract_voice_ac27882c5cb69564cbc4d5cca7847a359}{
+\index{\-Abstract\-Voice@{\-Abstract\-Voice}!dev\-Info@{dev\-Info}}
+\index{dev\-Info@{dev\-Info}!AbstractVoice@{\-Abstract\-Voice}}
+\subsubsection[{dev\-Info}]{\setlength{\rightskip}{0pt plus 5cm}\-Q\-Audio\-Device\-Info$\ast$ {\bf \-Abstract\-Voice\-::dev\-Info}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_abstract_voice_ac27882c5cb69564cbc4d5cca7847a359}
+
+
+\-Populated with the default audio device detected. 
+
 \hypertarget{class_abstract_voice_aa8718f0af1669ef7a84347c2d9a54cf9}{
 \index{\-Abstract\-Voice@{\-Abstract\-Voice}!format@{format}}
 \index{format@{format}!AbstractVoice@{\-Abstract\-Voice}}
@@ -142,5 +175,5 @@ virtual void \hyperlink{class_abstract_voice_aae2a6c918a63938881faefd9909508a0}{
 
 \-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
 \item 
-abstractvoice.\-h\item 
-abstractvoice.\-cpp\end{DoxyCompactItemize}
+\hyperlink{abstractvoice_8h}{abstractvoice.\-h}\item 
+\hyperlink{abstractvoice_8cpp}{abstractvoice.\-cpp}\end{DoxyCompactItemize}

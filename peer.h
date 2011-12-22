@@ -20,11 +20,11 @@ public:
     /**
       * Constructs a new peer.
       *@param parent Parent object.
-      *@param name The username of the peer.
-      *@param address The IP of the peer.
+      *@param user The username of the peer.
+      *@param addr The IP of the peer.
       *@param port The prefered voice chat udp port for the peer. This is NOT implemented yet.
       */
-    explicit Peer(QObject* parent,QString* name, QHostAddress* address, quint16 port);
+    explicit Peer(QObject* parent,QString* user, QHostAddress* addr, quint16 port);
     ~Peer();
 
     /**
@@ -38,7 +38,7 @@ public:
       * Returns the username of peer.
       *@return The username of the peer.
       */
-    QString getName() const { return *m_username;}
+    QString getName() const { return *username;}
 
     /**
       * Gets the time the peer last communicated with us.
@@ -50,7 +50,7 @@ public:
       * Returns the IP address of the peer.
       * @return The IP address.
       */
-    QHostAddress* getAddress() { return m_address;}
+    QHostAddress* getAddress() { return address;}
 
     /**
       * Updates the peers last communication time with the current local system time.
@@ -58,9 +58,9 @@ public:
     void updateTime();
 
 private:
-    QString * m_username; /**< username of peer. */
-    QHostAddress* m_address;  /**< IP address of peer. */
-    quint16 m_udpPort; /**< Prefered UDP port of peer (NOT USED YET( . */
+    QString * username; /**< username of peer. */
+    QHostAddress* address;  /**< IP address of peer. */
+    quint16 udpPort; /**< Prefered UDP port of peer (NOT USED YET( . */
     QTime time; /**< Time of last communication with peer. */
 
 public:

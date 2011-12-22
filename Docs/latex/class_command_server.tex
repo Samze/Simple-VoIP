@@ -14,10 +14,7 @@
 \subsection*{\-Signals}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_command_server_aa7fa62273e4e4ceb87d1b77ba9681719}{
-void \hyperlink{class_command_server_aa7fa62273e4e4ceb87d1b77ba9681719}{call\-Initiated} (\-Q\-Host\-Address)}
-\label{class_command_server_aa7fa62273e4e4ceb87d1b77ba9681719}
-
+void \hyperlink{class_command_server_aa7fa62273e4e4ceb87d1b77ba9681719}{call\-Initiated} (\-Q\-Host\-Address)
 \begin{DoxyCompactList}\small\item\em \-Emitted when a call has been initated, contains the address of the caller. \end{DoxyCompactList}\item 
 void \hyperlink{class_command_server_a17167b801328d51543128b5a80a39dcc}{call\-Ended} ()
 \begin{DoxyCompactList}\small\item\em \-Emitted when the call has been requested to end. \end{DoxyCompactList}\item 
@@ -34,6 +31,18 @@ void \hyperlink{class_command_server_a3b7620cfee623cb8b2e9c7c468a36972}{caller\-
 \begin{DoxyCompactList}\small\item\em \-Command \-Server destructor. \end{DoxyCompactList}\item 
 void \hyperlink{class_command_server_a1fc3321611893adbaecc4bdeca585570}{send\-Command} (const \-Q\-Host\-Address \&address, \hyperlink{class_command_client_aa99b17193724fef8aed2b2c724b0c243}{\-Command\-Client\-::\-Call\-Command} cmd)
 \begin{DoxyCompactList}\small\item\em \-Sends command back to the client. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Private \-Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_command_server_af53895bade586760690c98507afcac2d}{receive\-Connection} ()
+\begin{DoxyCompactList}\small\item\em \-Handles a new connection. \end{DoxyCompactList}\item 
+void \hyperlink{class_command_server_ac0484c440ded5599dc38e61d517095d5}{read\-Request} ()
+\begin{DoxyCompactList}\small\item\em \-Handles data sent from the client. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Private \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\-Q\-List$<$ \-Q\-Tcp\-Socket $\ast$ $>$ $\ast$ \hyperlink{class_command_server_ac962c19774ad5f9df8233280028252d3}{active\-Connections}
+\begin{DoxyCompactList}\small\item\em \-A \-List of all active connections. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{\-Detailed \-Description}
@@ -115,7 +124,46 @@ void \hyperlink{class_command_server_a1fc3321611893adbaecc4bdeca585570}{send\-Co
 
 \-Emitted when the caller has changed the state of their sound playback. 
 
-\hypertarget{class_command_server_a1fc3321611893adbaecc4bdeca585570}{
+\hypertarget{class_command_server_aa7fa62273e4e4ceb87d1b77ba9681719}{
+\index{\-Command\-Server@{\-Command\-Server}!call\-Initiated@{call\-Initiated}}
+\index{call\-Initiated@{call\-Initiated}!CommandServer@{\-Command\-Server}}
+\subsubsection[{call\-Initiated}]{\setlength{\rightskip}{0pt plus 5cm}void \-Command\-Server\-::call\-Initiated (
+\begin{DoxyParamCaption}
+\item[{\-Q\-Host\-Address}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}signal\mbox{]}}}}
+\label{class_command_server_aa7fa62273e4e4ceb87d1b77ba9681719}
+
+
+\-Emitted when a call has been initated, contains the address of the caller. 
+
+\hypertarget{class_command_server_ac0484c440ded5599dc38e61d517095d5}{
+\index{\-Command\-Server@{\-Command\-Server}!read\-Request@{read\-Request}}
+\index{read\-Request@{read\-Request}!CommandServer@{\-Command\-Server}}
+\subsubsection[{read\-Request}]{\setlength{\rightskip}{0pt plus 5cm}void \-Command\-Server\-::read\-Request (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private, slot\mbox{]}}}}
+\label{class_command_server_ac0484c440ded5599dc38e61d517095d5}
+
+
+\-Handles data sent from the client. 
+
+\-Emits signals based on command. \hypertarget{class_command_server_af53895bade586760690c98507afcac2d}{
+\index{\-Command\-Server@{\-Command\-Server}!receive\-Connection@{receive\-Connection}}
+\index{receive\-Connection@{receive\-Connection}!CommandServer@{\-Command\-Server}}
+\subsubsection[{receive\-Connection}]{\setlength{\rightskip}{0pt plus 5cm}void \-Command\-Server\-::receive\-Connection (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private, slot\mbox{]}}}}
+\label{class_command_server_af53895bade586760690c98507afcac2d}
+
+
+\-Handles a new connection. 
+
+\-Extracts socket and adds it to list of active connections. \hypertarget{class_command_server_a1fc3321611893adbaecc4bdeca585570}{
 \index{\-Command\-Server@{\-Command\-Server}!send\-Command@{send\-Command}}
 \index{send\-Command@{send\-Command}!CommandServer@{\-Command\-Server}}
 \subsubsection[{send\-Command}]{\setlength{\rightskip}{0pt plus 5cm}void \-Command\-Server\-::send\-Command (
@@ -141,7 +189,19 @@ void \hyperlink{class_command_server_a1fc3321611893adbaecc4bdeca585570}{send\-Co
 \end{DoxySeeAlso}
 
 
+\subsection{\-Member \-Data \-Documentation}
+\hypertarget{class_command_server_ac962c19774ad5f9df8233280028252d3}{
+\index{\-Command\-Server@{\-Command\-Server}!active\-Connections@{active\-Connections}}
+\index{active\-Connections@{active\-Connections}!CommandServer@{\-Command\-Server}}
+\subsubsection[{active\-Connections}]{\setlength{\rightskip}{0pt plus 5cm}\-Q\-List$<$\-Q\-Tcp\-Socket $\ast$$>$$\ast$ {\bf \-Command\-Server\-::active\-Connections}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_command_server_ac962c19774ad5f9df8233280028252d3}
+
+
+\-A \-List of all active connections. 
+
+
+
 \-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
 \item 
-commandserver.\-h\item 
-commandserver.\-cpp\end{DoxyCompactItemize}
+\hyperlink{commandserver_8h}{commandserver.\-h}\item 
+\hyperlink{commandserver_8cpp}{commandserver.\-cpp}\end{DoxyCompactItemize}

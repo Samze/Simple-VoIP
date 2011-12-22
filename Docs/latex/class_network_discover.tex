@@ -21,10 +21,7 @@ void \hyperlink{class_network_discover_a42566247e43198ea9cce91eb5f15511d}{peers\
 \item 
 \hyperlink{class_network_discover_a35d97308463f9cbe622767b2d364bdbb}{\-Network\-Discover} (\-Q\-Object $\ast$parent=0)
 \begin{DoxyCompactList}\small\item\em \-Gets local name, binds udp port, connects signals and slots and then starts timers. \end{DoxyCompactList}\item 
-\hypertarget{class_network_discover_a416e23eb1f6925197596731e3c5f325e}{
-\hyperlink{class_network_discover_a416e23eb1f6925197596731e3c5f325e}{$\sim$\-Network\-Discover} ()}
-\label{class_network_discover_a416e23eb1f6925197596731e3c5f325e}
-
+\hyperlink{class_network_discover_a416e23eb1f6925197596731e3c5f325e}{$\sim$\-Network\-Discover} ()
 \begin{DoxyCompactList}\small\item\em \-Default destructor. \end{DoxyCompactList}\item 
 \hyperlink{class_peer}{\-Peer} $\ast$ \hyperlink{class_network_discover_a91ec8539ddfeb90f6735d05f2f10b97a}{get\-Peer\-From\-Address} (const \-Q\-Host\-Address \&address)
 \begin{DoxyCompactList}\small\item\em \-Returns a peer for an address. \end{DoxyCompactList}\item 
@@ -33,11 +30,48 @@ bool \hyperlink{class_network_discover_ac25855eb9d181d51c725a57f693d58f8}{start\
 \subsection*{\-Public \-Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_network_discover_ac7f0c8a7a8e780c83c24b4fa8cbbbfef}{
-\-Q\-Map$<$ \-Q\-String, \hyperlink{class_peer}{\-Peer} $\ast$ $>$ \hyperlink{class_network_discover_ac7f0c8a7a8e780c83c24b4fa8cbbbfef}{peer\-List}}
-\label{class_network_discover_ac7f0c8a7a8e780c83c24b4fa8cbbbfef}
-
+\-Q\-Map$<$ \-Q\-String, \hyperlink{class_peer}{\-Peer} $\ast$ $>$ \hyperlink{class_network_discover_ac7f0c8a7a8e780c83c24b4fa8cbbbfef}{peer\-List}
 \begin{DoxyCompactList}\small\item\em \-The list of peers currently detected on the network. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Private \-Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_network_discover_ada902f88ce4d9b1e707dfbf1be3e102c}{received\-P2\-P} ()
+\begin{DoxyCompactList}\small\item\em \-Received peer signal from \-U\-D\-P port. \end{DoxyCompactList}\item 
+void \hyperlink{class_network_discover_ac9c9e8988abe75fb02386b7783cf53be}{notify\-P2\-P} ()
+\begin{DoxyCompactList}\small\item\em \-Broadcasts an identifier beacon via \-U\-D\-P. \end{DoxyCompactList}\item 
+void \hyperlink{class_network_discover_aec820bf7bae99a2a8f533bb31a841ca6}{check\-Peers\-Alive} ()
+\begin{DoxyCompactList}\small\item\em \-Periodically checks the last time a peer replied to our signal. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Private \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{class_network_discover_ab1909b31fd4df24ebe095d3bbde3925e}{is\-Local\-Address} (\-Q\-Host\-Address)
+\begin{DoxyCompactList}\small\item\em \-Detects if the address is local. \end{DoxyCompactList}\item 
+bool \hyperlink{class_network_discover_a8e567964d959ba269d2570769eb7b1da}{add\-To\-List} (\-Q\-String $\ast$, \-Q\-Host\-Address $\ast$, quint16)
+\begin{DoxyCompactList}\small\item\em \-Adds a peer to the list, with their name, address and their prefered communication port. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Private \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\-Q\-Timer \hyperlink{class_network_discover_a82d0981a5c6c1acecd85a0e210b631f2}{broad\-Cast\-Timer}
+\begin{DoxyCompactList}\small\item\em \-Timer used to periodically broadcast that we are an alive peer. \end{DoxyCompactList}\item 
+\-Q\-Timer \hyperlink{class_network_discover_ad23e0a7d95e0fed29acae8f193dfcfc3}{peer\-Check}
+\begin{DoxyCompactList}\small\item\em \-Timer used to periodically check that our peers are still active. \end{DoxyCompactList}\item 
+\-Q\-Network\-Interface \hyperlink{class_network_discover_a67c037cca501b587cc8c24ab5d971553}{network\-Inter}
+\begin{DoxyCompactList}\small\item\em \-Used to obtain local network information. \end{DoxyCompactList}\item 
+\-Q\-List$<$ \-Q\-Host\-Address $>$ \hyperlink{class_network_discover_a9db1fe648d568707cfcda8f00d2b5f5a}{local\-Address\-List}
+\begin{DoxyCompactList}\small\item\em \-Local address list. \end{DoxyCompactList}\item 
+\-Q\-String \hyperlink{class_network_discover_ad9dcef0352b63920211c0b442741bebb}{username}
+\begin{DoxyCompactList}\small\item\em \-Local username detected. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Static \-Private \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const int \hyperlink{class_network_discover_aae5acabb49790c03dd076c235fd3014c}{\-D\-I\-S\-C\-O\-V\-E\-R\-\_\-\-P\-O\-R\-T} = 45453
+\begin{DoxyCompactList}\small\item\em \-The \-U\-D\-P port to be used for discovery. \end{DoxyCompactList}\item 
+static const int \hyperlink{class_network_discover_ac85620fa17d1128dc86745611df1dbe0}{\-B\-R\-O\-A\-D\-C\-A\-S\-T\-\_\-\-T\-I\-M\-E} = 2000
+\begin{DoxyCompactList}\small\item\em \-The time between broadcasting our signal in ms. \end{DoxyCompactList}\item 
+static const int \hyperlink{class_network_discover_afc4903f686b81fff1247fc7cbcea17ff}{\-C\-H\-E\-C\-K\-\_\-\-T\-I\-M\-E} = 10000
+\begin{DoxyCompactList}\small\item\em \-The time between checking our peers are still \char`\"{}alive\char`\"{}. \end{DoxyCompactList}\item 
+static const int \hyperlink{class_network_discover_aebe784b2c4a47256321246c7d4fca5e6}{\-D\-I\-S\-C\-O\-V\-E\-R\-\_\-\-T\-I\-M\-E\-O\-U\-T} = 3000
+\begin{DoxyCompactList}\small\item\em \-The time within that a peer should have last communicated. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{\-Detailed \-Description}
@@ -67,10 +101,51 @@ bool \hyperlink{class_network_discover_ac25855eb9d181d51c725a57f693d58f8}{start\
 {\em parent} & \-Parent object. \\
 \hline
 \end{DoxyParams}
+\hypertarget{class_network_discover_a416e23eb1f6925197596731e3c5f325e}{
+\index{\-Network\-Discover@{\-Network\-Discover}!$\sim$\-Network\-Discover@{$\sim$\-Network\-Discover}}
+\index{$\sim$\-Network\-Discover@{$\sim$\-Network\-Discover}!NetworkDiscover@{\-Network\-Discover}}
+\subsubsection[{$\sim$\-Network\-Discover}]{\setlength{\rightskip}{0pt plus 5cm}\-Network\-Discover\-::$\sim$\-Network\-Discover (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_network_discover_a416e23eb1f6925197596731e3c5f325e}
+
+
+\-Default destructor. 
+
 
 
 \subsection{\-Member \-Function \-Documentation}
-\hypertarget{class_network_discover_a91ec8539ddfeb90f6735d05f2f10b97a}{
+\hypertarget{class_network_discover_a8e567964d959ba269d2570769eb7b1da}{
+\index{\-Network\-Discover@{\-Network\-Discover}!add\-To\-List@{add\-To\-List}}
+\index{add\-To\-List@{add\-To\-List}!NetworkDiscover@{\-Network\-Discover}}
+\subsubsection[{add\-To\-List}]{\setlength{\rightskip}{0pt plus 5cm}bool \-Network\-Discover\-::add\-To\-List (
+\begin{DoxyParamCaption}
+\item[{\-Q\-String $\ast$}]{sender\-Name, }
+\item[{\-Q\-Host\-Address $\ast$}]{sender\-Address, }
+\item[{quint16}]{port}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_network_discover_a8e567964d959ba269d2570769eb7b1da}
+
+
+\-Adds a peer to the list, with their name, address and their prefered communication port. 
+
+\-Preferred port is not yet supported. \hypertarget{class_network_discover_aec820bf7bae99a2a8f533bb31a841ca6}{
+\index{\-Network\-Discover@{\-Network\-Discover}!check\-Peers\-Alive@{check\-Peers\-Alive}}
+\index{check\-Peers\-Alive@{check\-Peers\-Alive}!NetworkDiscover@{\-Network\-Discover}}
+\subsubsection[{check\-Peers\-Alive}]{\setlength{\rightskip}{0pt plus 5cm}void \-Network\-Discover\-::check\-Peers\-Alive (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private, slot\mbox{]}}}}
+\label{class_network_discover_aec820bf7bae99a2a8f533bb31a841ca6}
+
+
+\-Periodically checks the last time a peer replied to our signal. 
+
+\-If it is more than a threshold, they are removed. \hypertarget{class_network_discover_a91ec8539ddfeb90f6735d05f2f10b97a}{
 \index{\-Network\-Discover@{\-Network\-Discover}!get\-Peer\-From\-Address@{get\-Peer\-From\-Address}}
 \index{get\-Peer\-From\-Address@{get\-Peer\-From\-Address}!NetworkDiscover@{\-Network\-Discover}}
 \subsubsection[{get\-Peer\-From\-Address}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Peer} $\ast$ \-Network\-Discover\-::get\-Peer\-From\-Address (
@@ -91,7 +166,33 @@ bool \hyperlink{class_network_discover_ac25855eb9d181d51c725a57f693d58f8}{start\
 \begin{DoxyReturn}{\-Returns}
 \-The returned peer or null. 
 \end{DoxyReturn}
-\hypertarget{class_network_discover_a42566247e43198ea9cce91eb5f15511d}{
+\hypertarget{class_network_discover_ab1909b31fd4df24ebe095d3bbde3925e}{
+\index{\-Network\-Discover@{\-Network\-Discover}!is\-Local\-Address@{is\-Local\-Address}}
+\index{is\-Local\-Address@{is\-Local\-Address}!NetworkDiscover@{\-Network\-Discover}}
+\subsubsection[{is\-Local\-Address}]{\setlength{\rightskip}{0pt plus 5cm}bool \-Network\-Discover\-::is\-Local\-Address (
+\begin{DoxyParamCaption}
+\item[{\-Q\-Host\-Address}]{sender\-Address}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_network_discover_ab1909b31fd4df24ebe095d3bbde3925e}
+
+
+\-Detects if the address is local. 
+
+\-This method can be called to see if the broadcast message is actually us, we do this by checking all our local addresses against the one received. \hypertarget{class_network_discover_ac9c9e8988abe75fb02386b7783cf53be}{
+\index{\-Network\-Discover@{\-Network\-Discover}!notify\-P2\-P@{notify\-P2\-P}}
+\index{notify\-P2\-P@{notify\-P2\-P}!NetworkDiscover@{\-Network\-Discover}}
+\subsubsection[{notify\-P2\-P}]{\setlength{\rightskip}{0pt plus 5cm}void \-Network\-Discover\-::notify\-P2\-P (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private, slot\mbox{]}}}}
+\label{class_network_discover_ac9c9e8988abe75fb02386b7783cf53be}
+
+
+\-Broadcasts an identifier beacon via \-U\-D\-P. 
+
+\-The broadcast is done periodically on a timer. \hypertarget{class_network_discover_a42566247e43198ea9cce91eb5f15511d}{
 \index{\-Network\-Discover@{\-Network\-Discover}!peers\-Changed@{peers\-Changed}}
 \index{peers\-Changed@{peers\-Changed}!NetworkDiscover@{\-Network\-Discover}}
 \subsubsection[{peers\-Changed}]{\setlength{\rightskip}{0pt plus 5cm}void \-Network\-Discover\-::peers\-Changed (
@@ -104,7 +205,20 @@ bool \hyperlink{class_network_discover_ac25855eb9d181d51c725a57f693d58f8}{start\
 
 \-Emitted when the peer list has changed, ie. 
 
-new peer or removed peer. \hypertarget{class_network_discover_ac25855eb9d181d51c725a57f693d58f8}{
+new peer or removed peer. \hypertarget{class_network_discover_ada902f88ce4d9b1e707dfbf1be3e102c}{
+\index{\-Network\-Discover@{\-Network\-Discover}!received\-P2\-P@{received\-P2\-P}}
+\index{received\-P2\-P@{received\-P2\-P}!NetworkDiscover@{\-Network\-Discover}}
+\subsubsection[{received\-P2\-P}]{\setlength{\rightskip}{0pt plus 5cm}void \-Network\-Discover\-::received\-P2\-P (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private, slot\mbox{]}}}}
+\label{class_network_discover_ada902f88ce4d9b1e707dfbf1be3e102c}
+
+
+\-Received peer signal from \-U\-D\-P port. 
+
+\-Check its id against our maintained list. is\-Local\-Address(sender\-Address)) \{ \hypertarget{class_network_discover_ac25855eb9d181d51c725a57f693d58f8}{
 \index{\-Network\-Discover@{\-Network\-Discover}!start\-Timers@{start\-Timers}}
 \index{start\-Timers@{start\-Timers}!NetworkDiscover@{\-Network\-Discover}}
 \subsubsection[{start\-Timers}]{\setlength{\rightskip}{0pt plus 5cm}bool \-Network\-Discover\-::start\-Timers (
@@ -122,7 +236,100 @@ new peer or removed peer. \hypertarget{class_network_discover_ac25855eb9d181d51c
 \end{DoxyReturn}
 
 
+\subsection{\-Member \-Data \-Documentation}
+\hypertarget{class_network_discover_ac85620fa17d1128dc86745611df1dbe0}{
+\index{\-Network\-Discover@{\-Network\-Discover}!\-B\-R\-O\-A\-D\-C\-A\-S\-T\-\_\-\-T\-I\-M\-E@{\-B\-R\-O\-A\-D\-C\-A\-S\-T\-\_\-\-T\-I\-M\-E}}
+\index{\-B\-R\-O\-A\-D\-C\-A\-S\-T\-\_\-\-T\-I\-M\-E@{\-B\-R\-O\-A\-D\-C\-A\-S\-T\-\_\-\-T\-I\-M\-E}!NetworkDiscover@{\-Network\-Discover}}
+\subsubsection[{\-B\-R\-O\-A\-D\-C\-A\-S\-T\-\_\-\-T\-I\-M\-E}]{\setlength{\rightskip}{0pt plus 5cm}const int {\bf \-Network\-Discover\-::\-B\-R\-O\-A\-D\-C\-A\-S\-T\-\_\-\-T\-I\-M\-E} = 2000\hspace{0.3cm}{\ttfamily  \mbox{[}static, private\mbox{]}}}}
+\label{class_network_discover_ac85620fa17d1128dc86745611df1dbe0}
+
+
+\-The time between broadcasting our signal in ms. 
+
+\hypertarget{class_network_discover_a82d0981a5c6c1acecd85a0e210b631f2}{
+\index{\-Network\-Discover@{\-Network\-Discover}!broad\-Cast\-Timer@{broad\-Cast\-Timer}}
+\index{broad\-Cast\-Timer@{broad\-Cast\-Timer}!NetworkDiscover@{\-Network\-Discover}}
+\subsubsection[{broad\-Cast\-Timer}]{\setlength{\rightskip}{0pt plus 5cm}\-Q\-Timer {\bf \-Network\-Discover\-::broad\-Cast\-Timer}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_network_discover_a82d0981a5c6c1acecd85a0e210b631f2}
+
+
+\-Timer used to periodically broadcast that we are an alive peer. 
+
+\hypertarget{class_network_discover_afc4903f686b81fff1247fc7cbcea17ff}{
+\index{\-Network\-Discover@{\-Network\-Discover}!\-C\-H\-E\-C\-K\-\_\-\-T\-I\-M\-E@{\-C\-H\-E\-C\-K\-\_\-\-T\-I\-M\-E}}
+\index{\-C\-H\-E\-C\-K\-\_\-\-T\-I\-M\-E@{\-C\-H\-E\-C\-K\-\_\-\-T\-I\-M\-E}!NetworkDiscover@{\-Network\-Discover}}
+\subsubsection[{\-C\-H\-E\-C\-K\-\_\-\-T\-I\-M\-E}]{\setlength{\rightskip}{0pt plus 5cm}const int {\bf \-Network\-Discover\-::\-C\-H\-E\-C\-K\-\_\-\-T\-I\-M\-E} = 10000\hspace{0.3cm}{\ttfamily  \mbox{[}static, private\mbox{]}}}}
+\label{class_network_discover_afc4903f686b81fff1247fc7cbcea17ff}
+
+
+\-The time between checking our peers are still \char`\"{}alive\char`\"{}. 
+
+\hypertarget{class_network_discover_aae5acabb49790c03dd076c235fd3014c}{
+\index{\-Network\-Discover@{\-Network\-Discover}!\-D\-I\-S\-C\-O\-V\-E\-R\-\_\-\-P\-O\-R\-T@{\-D\-I\-S\-C\-O\-V\-E\-R\-\_\-\-P\-O\-R\-T}}
+\index{\-D\-I\-S\-C\-O\-V\-E\-R\-\_\-\-P\-O\-R\-T@{\-D\-I\-S\-C\-O\-V\-E\-R\-\_\-\-P\-O\-R\-T}!NetworkDiscover@{\-Network\-Discover}}
+\subsubsection[{\-D\-I\-S\-C\-O\-V\-E\-R\-\_\-\-P\-O\-R\-T}]{\setlength{\rightskip}{0pt plus 5cm}const int {\bf \-Network\-Discover\-::\-D\-I\-S\-C\-O\-V\-E\-R\-\_\-\-P\-O\-R\-T} = 45453\hspace{0.3cm}{\ttfamily  \mbox{[}static, private\mbox{]}}}}
+\label{class_network_discover_aae5acabb49790c03dd076c235fd3014c}
+
+
+\-The \-U\-D\-P port to be used for discovery. 
+
+\hypertarget{class_network_discover_aebe784b2c4a47256321246c7d4fca5e6}{
+\index{\-Network\-Discover@{\-Network\-Discover}!\-D\-I\-S\-C\-O\-V\-E\-R\-\_\-\-T\-I\-M\-E\-O\-U\-T@{\-D\-I\-S\-C\-O\-V\-E\-R\-\_\-\-T\-I\-M\-E\-O\-U\-T}}
+\index{\-D\-I\-S\-C\-O\-V\-E\-R\-\_\-\-T\-I\-M\-E\-O\-U\-T@{\-D\-I\-S\-C\-O\-V\-E\-R\-\_\-\-T\-I\-M\-E\-O\-U\-T}!NetworkDiscover@{\-Network\-Discover}}
+\subsubsection[{\-D\-I\-S\-C\-O\-V\-E\-R\-\_\-\-T\-I\-M\-E\-O\-U\-T}]{\setlength{\rightskip}{0pt plus 5cm}const int {\bf \-Network\-Discover\-::\-D\-I\-S\-C\-O\-V\-E\-R\-\_\-\-T\-I\-M\-E\-O\-U\-T} = 3000\hspace{0.3cm}{\ttfamily  \mbox{[}static, private\mbox{]}}}}
+\label{class_network_discover_aebe784b2c4a47256321246c7d4fca5e6}
+
+
+\-The time within that a peer should have last communicated. 
+
+\hypertarget{class_network_discover_a9db1fe648d568707cfcda8f00d2b5f5a}{
+\index{\-Network\-Discover@{\-Network\-Discover}!local\-Address\-List@{local\-Address\-List}}
+\index{local\-Address\-List@{local\-Address\-List}!NetworkDiscover@{\-Network\-Discover}}
+\subsubsection[{local\-Address\-List}]{\setlength{\rightskip}{0pt plus 5cm}\-Q\-List$<$\-Q\-Host\-Address$>$ {\bf \-Network\-Discover\-::local\-Address\-List}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_network_discover_a9db1fe648d568707cfcda8f00d2b5f5a}
+
+
+\-Local address list. 
+
+\hypertarget{class_network_discover_a67c037cca501b587cc8c24ab5d971553}{
+\index{\-Network\-Discover@{\-Network\-Discover}!network\-Inter@{network\-Inter}}
+\index{network\-Inter@{network\-Inter}!NetworkDiscover@{\-Network\-Discover}}
+\subsubsection[{network\-Inter}]{\setlength{\rightskip}{0pt plus 5cm}\-Q\-Network\-Interface {\bf \-Network\-Discover\-::network\-Inter}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_network_discover_a67c037cca501b587cc8c24ab5d971553}
+
+
+\-Used to obtain local network information. 
+
+\hypertarget{class_network_discover_ad23e0a7d95e0fed29acae8f193dfcfc3}{
+\index{\-Network\-Discover@{\-Network\-Discover}!peer\-Check@{peer\-Check}}
+\index{peer\-Check@{peer\-Check}!NetworkDiscover@{\-Network\-Discover}}
+\subsubsection[{peer\-Check}]{\setlength{\rightskip}{0pt plus 5cm}\-Q\-Timer {\bf \-Network\-Discover\-::peer\-Check}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_network_discover_ad23e0a7d95e0fed29acae8f193dfcfc3}
+
+
+\-Timer used to periodically check that our peers are still active. 
+
+\hypertarget{class_network_discover_ac7f0c8a7a8e780c83c24b4fa8cbbbfef}{
+\index{\-Network\-Discover@{\-Network\-Discover}!peer\-List@{peer\-List}}
+\index{peer\-List@{peer\-List}!NetworkDiscover@{\-Network\-Discover}}
+\subsubsection[{peer\-List}]{\setlength{\rightskip}{0pt plus 5cm}\-Q\-Map$<$\-Q\-String,{\bf \-Peer}$\ast$$>$ {\bf \-Network\-Discover\-::peer\-List}}}
+\label{class_network_discover_ac7f0c8a7a8e780c83c24b4fa8cbbbfef}
+
+
+\-The list of peers currently detected on the network. 
+
+\hypertarget{class_network_discover_ad9dcef0352b63920211c0b442741bebb}{
+\index{\-Network\-Discover@{\-Network\-Discover}!username@{username}}
+\index{username@{username}!NetworkDiscover@{\-Network\-Discover}}
+\subsubsection[{username}]{\setlength{\rightskip}{0pt plus 5cm}\-Q\-String {\bf \-Network\-Discover\-::username}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_network_discover_ad9dcef0352b63920211c0b442741bebb}
+
+
+\-Local username detected. 
+
+
+
 \-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
 \item 
-networkdiscover.\-h\item 
-networkdiscover.\-cpp\end{DoxyCompactItemize}
+\hyperlink{networkdiscover_8h}{networkdiscover.\-h}\item 
+\hyperlink{networkdiscover_8cpp}{networkdiscover.\-cpp}\end{DoxyCompactItemize}

@@ -56,7 +56,7 @@ private slots:
     void muteMic(bool);
 
 private:
-    QAudioInput *m_audioIn; /**< The Input device object. */
+    QAudioInput *audioIn; /**< The Input device object. */
 };
 
 #endif // VOICEINPUT_H

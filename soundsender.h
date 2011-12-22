@@ -20,9 +20,9 @@ public:
     /**
       *Default constructor which binds to a UDP port.
       *@param parent The owner of this object.
-      *@param address The address to send the data.
+      *@param addr The address to send the data.
       */
-    explicit SoundSender(QObject *parent, QHostAddress address);
+    explicit SoundSender(QObject *parent, QHostAddress addr);
 
     /**
       * Deletes the UDPSocket.
@@ -41,7 +41,7 @@ protected:
 
 private:
     QUdpSocket *udpSocket; /**< The udp socket used. */
-    QHostAddress m_address; /**< The address to send the data. */
+    QHostAddress address; /**< The address to send the data. */
 
 //Was playing around using OGG transport layer and speex compression...lots of effort..
 //    int packetNo;

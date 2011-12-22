@@ -78,7 +78,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#signals">Signals</a> &#124;
-<a href="#pub-methods">Public Member Functions</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-slots">Private Slots</a> &#124;
+<a href="#pri-attribs">Private Attributes</a>  </div>
   <div class="headertitle">
 <div class="title">CommandServer Class Reference</div>  </div>
 </div>
@@ -93,9 +95,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="signals"></a>
 Signals</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa7fa62273e4e4ceb87d1b77ba9681719"></a><!-- doxytag: member="CommandServer::callInitiated" ref="aa7fa62273e4e4ceb87d1b77ba9681719" args="(QHostAddress)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_server.html#aa7fa62273e4e4ceb87d1b77ba9681719">callInitiated</a> (QHostAddress)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Emitted when a call has been initated, contains the address of the caller. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_server.html#aa7fa62273e4e4ceb87d1b77ba9681719">callInitiated</a> (QHostAddress)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Emitted when a call has been initated, contains the address of the caller.  <a href="#aa7fa62273e4e4ceb87d1b77ba9681719"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_server.html#a17167b801328d51543128b5a80a39dcc">callEnded</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Emitted when the call has been requested to end.  <a href="#a17167b801328d51543128b5a80a39dcc"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_server.html#ae47dfe7ef7190b1f869c20736b10a6d0">callerMicMuted</a> (bool)</td></tr>
@@ -110,6 +111,16 @@ Public Member Functions</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Command Server destructor.  <a href="#a89f1d55bb111f7954d022e0c63d3b87f"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_server.html#a1fc3321611893adbaecc4bdeca585570">sendCommand</a> (const QHostAddress &amp;address, <a class="el" href="class_command_client.html#aa99b17193724fef8aed2b2c724b0c243">CommandClient::CallCommand</a> cmd)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends command back to the client.  <a href="#a1fc3321611893adbaecc4bdeca585570"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pri-slots"></a>
+Private Slots</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_server.html#af53895bade586760690c98507afcac2d">receiveConnection</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles a new connection.  <a href="#af53895bade586760690c98507afcac2d"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_server.html#ac0484c440ded5599dc38e61d517095d5">readRequest</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles data sent from the client.  <a href="#ac0484c440ded5599dc38e61d517095d5"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QList&lt; QTcpSocket * &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command_server.html#ac962c19774ad5f9df8233280028252d3">activeConnections</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A List of all active connections.  <a href="#ac962c19774ad5f9df8233280028252d3"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>A subclass of QTcpServer that receives command signals from clients over the network. </p>
@@ -217,6 +228,63 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="aa7fa62273e4e4ceb87d1b77ba9681719"></a><!-- doxytag: member="CommandServer::callInitiated" ref="aa7fa62273e4e4ceb87d1b77ba9681719" args="(QHostAddress)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CommandServer::callInitiated </td>
+          <td>(</td>
+          <td class="paramtype">QHostAddress&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [signal]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Emitted when a call has been initated, contains the address of the caller. </p>
+
+</div>
+</div>
+<a class="anchor" id="ac0484c440ded5599dc38e61d517095d5"></a><!-- doxytag: member="CommandServer::readRequest" ref="ac0484c440ded5599dc38e61d517095d5" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CommandServer::readRequest </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [private, slot]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Handles data sent from the client. </p>
+<p>Emits signals based on command. </p>
+
+</div>
+</div>
+<a class="anchor" id="af53895bade586760690c98507afcac2d"></a><!-- doxytag: member="CommandServer::receiveConnection" ref="af53895bade586760690c98507afcac2d" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CommandServer::receiveConnection </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [private, slot]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Handles a new connection. </p>
+<p>Extracts socket and adds it to list of active connections. </p>
+
+</div>
+</div>
 <a class="anchor" id="a1fc3321611893adbaecc4bdeca585570"></a><!-- doxytag: member="CommandServer::sendCommand" ref="a1fc3321611893adbaecc4bdeca585570" args="(const QHostAddress &amp;address, CommandClient::CallCommand cmd)" -->
 <div class="memitem">
 <div class="memproto">
@@ -254,9 +322,25 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="ac962c19774ad5f9df8233280028252d3"></a><!-- doxytag: member="CommandServer::activeConnections" ref="ac962c19774ad5f9df8233280028252d3" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QList&lt;QTcpSocket *&gt;* <a class="el" href="class_command_server.html#ac962c19774ad5f9df8233280028252d3">CommandServer::activeConnections</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>A List of all active connections. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="commandserver_8h_source.html">commandserver.h</a></li>
-<li>commandserver.cpp</li>
+<li><a class="el" href="commandserver_8cpp.html">commandserver.cpp</a></li>
 </ul>
 </div>
 <!-- window showing the filter options -->
@@ -264,7 +348,7 @@ Public Member Functions</h2></td></tr>
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -276,7 +360,7 @@ Public Member Functions</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Dec 22 2011 05:03:24 for VoIp by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Dec 22 2011 06:20:51 for VoIp by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.5.1
 </small></address>

@@ -11,13 +11,19 @@
 
 {\ttfamily \#include $<$receivethread.\-h$>$}
 
+
+
+\-Collaboration diagram for \-Receive\-Thread\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=307pt]{class_receive_thread__coll__graph}
+\end{center}
+\end{figure}
 \subsection*{\-Public \-Slots}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_receive_thread_a0eb5b7ab172cf0a35fee1e499d1a04e2}{
-void \hyperlink{class_receive_thread_a0eb5b7ab172cf0a35fee1e499d1a04e2}{listen} ()}
-\label{class_receive_thread_a0eb5b7ab172cf0a35fee1e499d1a04e2}
-
+void \hyperlink{class_receive_thread_a0eb5b7ab172cf0a35fee1e499d1a04e2}{listen} ()
 \begin{DoxyCompactList}\small\item\em \-Starts the new thread. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{\-Signals}
 \begin{DoxyCompactItemize}
@@ -29,13 +35,15 @@ void \hyperlink{class_receive_thread_a971403a676eb058555b5099f04a5b546}{mute\-So
 \item 
 \hyperlink{class_receive_thread_a7d3037d96e9f4f93850026dca7ff0787}{\-Receive\-Thread} (\-Q\-Object $\ast$parent=0)
 \begin{DoxyCompactList}\small\item\em \-Default constructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Public \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_voice_output}{\-Voice\-Output} \hyperlink{class_receive_thread_ab1d07e023e07536515ae30c8991822a7}{vo}
+\end{DoxyCompactItemize}
 \subsection*{\-Protected \-Member \-Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_receive_thread_a5033e892e97f8fe46d25c5da6bd15674}{
-void \hyperlink{class_receive_thread_a5033e892e97f8fe46d25c5da6bd15674}{run} ()}
-\label{class_receive_thread_a5033e892e97f8fe46d25c5da6bd15674}
-
+void \hyperlink{class_receive_thread_a5033e892e97f8fe46d25c5da6bd15674}{run} ()
 \begin{DoxyCompactList}\small\item\em \-Reimplmented function from \-Q\-Thread that beings receiving and playback. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -66,6 +74,19 @@ void \hyperlink{class_receive_thread_a5033e892e97f8fe46d25c5da6bd15674}{run} ()}
 
 
 \subsection{\-Member \-Function \-Documentation}
+\hypertarget{class_receive_thread_a0eb5b7ab172cf0a35fee1e499d1a04e2}{
+\index{\-Receive\-Thread@{\-Receive\-Thread}!listen@{listen}}
+\index{listen@{listen}!ReceiveThread@{\-Receive\-Thread}}
+\subsubsection[{listen}]{\setlength{\rightskip}{0pt plus 5cm}void \-Receive\-Thread\-::listen (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}slot\mbox{]}}}}
+\label{class_receive_thread_a0eb5b7ab172cf0a35fee1e499d1a04e2}
+
+
+\-Starts the new thread. 
+
 \hypertarget{class_receive_thread_a971403a676eb058555b5099f04a5b546}{
 \index{\-Receive\-Thread@{\-Receive\-Thread}!mute\-Sound@{mute\-Sound}}
 \index{mute\-Sound@{mute\-Sound}!ReceiveThread@{\-Receive\-Thread}}
@@ -79,9 +100,30 @@ void \hyperlink{class_receive_thread_a5033e892e97f8fe46d25c5da6bd15674}{run} ()}
 
 \-Signal that should emitted when a request to mute is processed. 
 
-\-This class will then mute the sound. 
+\-This class will then mute the sound. \hypertarget{class_receive_thread_a5033e892e97f8fe46d25c5da6bd15674}{
+\index{\-Receive\-Thread@{\-Receive\-Thread}!run@{run}}
+\index{run@{run}!ReceiveThread@{\-Receive\-Thread}}
+\subsubsection[{run}]{\setlength{\rightskip}{0pt plus 5cm}void \-Receive\-Thread\-::run (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_receive_thread_a5033e892e97f8fe46d25c5da6bd15674}
+
+
+\-Reimplmented function from \-Q\-Thread that beings receiving and playback. 
+
+
+
+\subsection{\-Member \-Data \-Documentation}
+\hypertarget{class_receive_thread_ab1d07e023e07536515ae30c8991822a7}{
+\index{\-Receive\-Thread@{\-Receive\-Thread}!vo@{vo}}
+\index{vo@{vo}!ReceiveThread@{\-Receive\-Thread}}
+\subsubsection[{vo}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Voice\-Output} {\bf \-Receive\-Thread\-::vo}}}
+\label{class_receive_thread_ab1d07e023e07536515ae30c8991822a7}
+
 
 \-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
 \item 
-receivethread.\-h\item 
-receivethread.\-cpp\end{DoxyCompactItemize}
+\hyperlink{receivethread_8h}{receivethread.\-h}\item 
+\hyperlink{receivethread_8cpp}{receivethread.\-cpp}\end{DoxyCompactItemize}

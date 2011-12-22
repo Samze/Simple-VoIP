@@ -69,6 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 <div class="header">
@@ -76,12 +77,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">commandclient.h</div>  </div>
 </div>
 <div class="contents">
-<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef COMMANDCLIENT_H</span>
+<a href="commandclient_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef COMMANDCLIENT_H</span>
 <a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define COMMANDCLIENT_H</span>
 <a name="l00003"></a>00003 <span class="preprocessor"></span>
 <a name="l00004"></a>00004 <span class="preprocessor">#include &lt;QObject&gt;</span>
 <a name="l00005"></a>00005 <span class="preprocessor">#include &lt;QTcpSocket&gt;</span>
-<a name="l00006"></a>00006 <span class="preprocessor">#include &quot;peer.h&quot;</span>
+<a name="l00006"></a>00006 <span class="preprocessor">#include &quot;<a class="code" href="peer_8h.html">peer.h</a>&quot;</span>
 <a name="l00007"></a>00007 
 <a name="l00015"></a><a class="code" href="class_command_client.html">00015</a> <span class="keyword">class </span><a class="code" href="class_command_client.html" title="A subclass of QTcpSocket, class that is responsible for sending/receiving control signals between cal...">CommandClient</a> : <span class="keyword">public</span> QTcpSocket
 <a name="l00016"></a>00016 {
@@ -118,12 +119,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00074"></a>00074     <span class="keywordtype">void</span> <a class="code" href="class_command_client.html#a5e9d24302776437de353294cee9f3d19" title="Initiates a call to a peer.">callPeer</a>();
 <a name="l00075"></a>00075 
 <a name="l00076"></a>00076 <span class="keyword">private</span> slots:
-<a name="l00080"></a>00080     <span class="keywordtype">void</span> serverResponse();
+<a name="l00080"></a>00080     <span class="keywordtype">void</span> <a class="code" href="class_command_client.html#a4a15f938ab3bc4c6c22ded4784c34176" title="Handles potential repsonses from the server.">serverResponse</a>();
 <a name="l00081"></a>00081 
 <a name="l00082"></a>00082 <span class="keyword">private</span>:
-<a name="l00083"></a>00083     <span class="keyword">static</span> quint16 generateUDPPort(); 
-<a name="l00084"></a>00084     <span class="keyword">static</span> <span class="keyword">const</span> quint16 UDPMAX = 45999; 
-<a name="l00085"></a>00085     <span class="keyword">static</span> <span class="keyword">const</span> quint16 UDPMIN = 44000; 
+<a name="l00083"></a>00083     <span class="keyword">static</span> quint16 <a class="code" href="class_command_client.html#a7255f2d12d3ebd301ecc210be46a524d" title="NOT USED.">generateUDPPort</a>(); 
+<a name="l00084"></a><a class="code" href="class_command_client.html#aad85b9fd20a7256920ec58ebbdc4534b">00084</a>     <span class="keyword">static</span> <span class="keyword">const</span> quint16 <a class="code" href="class_command_client.html#aad85b9fd20a7256920ec58ebbdc4534b" title="NOT USED.">UDPMAX</a> = 45999; 
+<a name="l00085"></a><a class="code" href="class_command_client.html#a93ee4eb59cb333a129a142a25ac51390">00085</a>     <span class="keyword">static</span> <span class="keyword">const</span> quint16 <a class="code" href="class_command_client.html#a93ee4eb59cb333a129a142a25ac51390" title="NOT USED.">UDPMIN</a> = 44000; 
 <a name="l00086"></a>00086 };
 <a name="l00087"></a>00087 
 <a name="l00088"></a>00088 <span class="preprocessor">#endif // COMMANDCLIENT_H</span>
@@ -134,7 +135,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -146,7 +147,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Dec 22 2011 05:03:24 for VoIp by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Dec 22 2011 06:20:49 for VoIp by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.5.1
 </small></address>
