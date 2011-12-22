@@ -52,14 +52,11 @@ void NetworkDiscover::receivedP2P() {
         QString broadcastSig = datagram.left(6);
 
         if (broadcastSig == NETWORK_SIG) {
+            //Change this setting to stop us being able to add ourselves.
             if (1){//!isLocalAddress(senderAddress)) {
 
                 QString *username = new QString(datagram.mid(6));
-                bool added= addToList(username,senderAddress,0);
-
-                if (!added) {
-                    qDebug() << "Already contained";
-                }
+                addToList(username,senderAddress,0);
 
             }
         }
@@ -72,7 +69,7 @@ bool NetworkDiscover::addToList(QString* senderName,QHostAddress* senderAddress,
 
     Peer *peer = new Peer(this,senderName,senderAddress, port);
 
-    qDebug() << *senderAddress << " : " << port << " | " << *senderName;
+    qDebug() << "Peer: " << *senderAddress << " : " << port << " | " << *senderName;
 
     if (peerList.contains(peer->getName())) {
 
@@ -92,14 +89,10 @@ bool NetworkDiscover::addToList(QString* senderName,QHostAddress* senderAddress,
 
 void NetworkDiscover::notifyP2P() {
 
-   //TODO Check that I can get this environmental variable in LINUX/MACOS.
-
    QString test(NETWORK_SIG + username);
    QByteArray msg(test.toAscii());
 
-   qDebug(msg);
    writeDatagram(msg,QHostAddress::Broadcast,NetworkDiscover::DISCOVER_PORT);
-   //delete test;
 }
 
 bool NetworkDiscover::isLocalAddress(const QHostAddress senderAddress) {

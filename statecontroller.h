@@ -2,6 +2,7 @@
 #define STATECONTROLLER_H
 
 #include <QObject>
+#include <QApplication>
 #include "voiceinput.h"
 #include "voiceoutput.h"
 #include "soundsender.h"

@@ -1,4 +1,4 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$class_voice_input.html" title="Captures audio data and puts it in a buffer for sending down the network." alt="" coords="5,80,88,107"/>
-<area shape="rect" id="node5" href="$class_voice_output.html" title="Receives audio data and plays it using the systems default output device." alt="" coords="113,80,207,107"/>
+<area shape="rect" id="node3" href="$class_voice_input.html" title="Captures audio data and puts it in a buffer for sending down the network." alt="" coords="5,206,115,327"/>
+<area shape="rect" id="node5" href="$class_voice_output.html" title="Receives audio data and plays it using the systems default output device." alt="" coords="140,206,263,327"/>
 </map>

@@ -16,7 +16,10 @@ void SendThread::run() {
     //Loops thread waiting on events
     int code = exec();
 
-    qDebug() << "Finished capture, tidying up..." << code;
+    if(code != 0) {
+        qWarning() << "Exited send thread with code " << code;
+    }
+
     input.stop();
 }
 

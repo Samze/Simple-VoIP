@@ -72,13 +72,18 @@ void StateController::callPeer(QString name) {
 }
 
 void StateController::endCall() {
+
     //Ended calls are processed at the controller level instead of directly at the
     //model (ie. listen/send threads) just incase we want to update the view with anthing later...probably won't use this
 
     if (state == InCall) {
 
+        //Find out which signal emitted. If the signal did not come from the network we need to tell
+        //our caller to end their call.
         CommandClient* clientSender = dynamic_cast<CommandClient*>(sender());
         CommandServer* serverSender = dynamic_cast<CommandServer*>(sender());
+
+        QApplication* app = dynamic_cast<QApplication*>(sender());
 
         //Reqiures compiler rtti support!
         if (clientSender == 0 && serverSender ==0) {
@@ -89,8 +94,16 @@ void StateController::endCall() {
                 server->sendCommand(*commPeer->getAddress(),CommandClient::EndCall);
         }
 
-        recThread->quit();
-        sendThread->quit();
+        //if qApp emitted us we do not want to end threads. This causes segmentation fault.
+        if(app == 0) {
+            if (recThread->isRunning()) {
+                recThread->quit();
+            }
+            if (sendThread->isRunning()) {
+                sendThread->quit();
+            }
+        }
+
         state = StateController::Ready;
         emit newState(state);
         //TODO deal with incomingCaller here too, delete?
