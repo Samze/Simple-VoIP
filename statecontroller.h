@@ -14,10 +14,9 @@
 #include "networkdiscover.h"
 
 /**
-  * This controller object contains state information and acts as a go between the view and model. It receives commands
-  * from user interaction and via the network and performs actions accordingly. It has a number of signals that UIs
-  * should connect to in order to receive information.
-  *
+  * This controller object contains state information and acts as a go between the view and model. This class acts as a tyypical
+  * controller object. It receives commands from user interaction and via the network and performs actions accordingly. It has a number of signals that UIs
+  * should connect to in order to receive information. It controls the starting and stopping of threads that perform all the voice communication.
   */
 class StateController : public QObject
 {

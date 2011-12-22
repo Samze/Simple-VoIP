@@ -7,9 +7,10 @@
 #include <QDebug>
 
 /**
- * Abstracted common voice elements for recording and playback. This class contains common attributes and virtual functions
- * for both recording and playing audio. It holds information about the local device detected, a default format
- * and a buffer for which will be written or read.
+ * Abstracted common voice elements for recording and playback.
+ * This class contains common attributes and virtual functions for both recording and playing audio.
+ * It holds information about the local Audio device detected, a default format and a buffer for which will
+ * be written or read.
  */
 class AbstractVoice : public QObject
 {

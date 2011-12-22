@@ -8,7 +8,7 @@
 //#include "ogg/ogg.h"
 
 /**
-  * A buffer that sends UDP audio data over the network. This class sends  audio data down a specific UDP port
+  * A buffer that sends UDP audio data over the network. This class sends audio data down a specific UDP port
   * to another client. When data is written to this buffer, it is immenditely compressed and sent down the network.
   */
 class SoundSender : public QBuffer

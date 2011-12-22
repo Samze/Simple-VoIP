@@ -4,7 +4,6 @@ CommandServer::CommandServer(QObject *parent) :
     QTcpServer(parent)
 {
     activeConnections = new QList<QTcpSocket *>();
-    //TODO add port
     listen(QHostAddress::Any,12345);
 
     connect(this,SIGNAL(newConnection()),this,SLOT(receiveConnection()));
@@ -75,7 +74,6 @@ void CommandServer::readRequest() {
                 emit callerSoundMuted(false);
                 break;
             default:
-                //unknown command, lets send that back.
                 //TODO send error code
                 break;
         }
